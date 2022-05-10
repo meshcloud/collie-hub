@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+# this script enssures that azure cli is logged into the right AAD tenant
+
+set -o errexit  # exit on error
+set -o nounset  # exit on undefined variables
+
+tenantId="$1"
+
+if [ -z "$tenantId" ]
+then
+    echo "missing argument tenantId"
+    exit 1;
+fi
+
+
+actualId=$(az account show | jq -r .tenantId)
+
+if [ "$tenantId" != "$actualId" ]
+then
+    echo "Azure cli needs to be logged into tenant $tenantId, but is currently logged into tenant $actualId - launching az login"
+    az login --tenant "$tenantId"
+else
+    echo "Azure cli is already logged into expected tenant $tenantId - nothing to do."
+fi
