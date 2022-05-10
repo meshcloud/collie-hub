@@ -4,9 +4,9 @@ Landing Zones are an architectural pattern for setting up cloud environments for
 Building Landing Zones can be a daunting task, especially when you need to provide support for a wide range of workloads
 across different cloud platforms such as AWS, Azure and GCP.
 
-The meshcloud Landing Zone Construction Kit helps you build manage the complexity of building [landing zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) with a modular approach using Infrastructure as Code and GitOps. Because
-it builds on terraform, you can easily leverage custom infrastructure automation as well as off-the-shelf reference
-IaC landing zone implementation offered by cloud providers.
+The meshcloud Landing Zone Construction Kit helps you build [landing zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) with a modular approach that reduces complexity using Infrastructure as Code and GitOps.
+The kit builds on terraform and enables you to easily integrate off-the-shelf reference
+IaC implementation published by cloud providers as well as custom infrastructure automation.
 
 ![modular landing zone](./docs/assets/modular-landing-zone.png)
 
