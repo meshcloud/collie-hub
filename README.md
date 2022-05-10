@@ -1,13 +1,20 @@
 # meshcloud Landing Zone Construction Kit
 
-The meshcloud Landing Zone Construction Kit helps you build [landing zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) for a solid [cloud foundation](https://cloudfoundation.meshcloud.io/understanding-cloud-foundation/)
-using Infrastructure as Code and GitOps. This kit is based on our experience helping organizations large and small enable
-rapid cloud adoption while retraining control of their workloads. The Landing Zone Construction kit offers one solution
-that will help you to
+Landing Zones are an architectural pattern for setting up cloud environments for multiple workloads in a scalable and secure manner.
+Building Landing Zones can be a daunting task, especially when you need to provide support for a wide range of workloads
+across different cloud platforms such as AWS, Azure and GCP.
+
+The meshcloud Landing Zone Construction Kit helps you build manage the complexity of building [landing zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) with a modular approach using Infrastructure as Code and GitOps. Because
+it builds on terraform, you can easily leverage custom infrastructure automation as well as off-the-shelf reference
+IaC landing zone implementation offered by cloud providers.
+
+![modular landing zone](./docs/assets/modular-landing-zone.png)
+
+The Landing Zone Construction kit offers one solution that will help you to
 
 - build [modular landing zones](https://cloudfoundation.meshcloud.io/maturity-model/tenant-management/modular-landing-zones.html) that empower development teams to configure their environments in self-service
-- rapidly assemble and deploy landing zones for AWS, Azure and GCP using proven tools terraform and terragrunt
-- document landing zone capabilities for development teams and security auditors
+- rapidly assemble and deploy landing zones for AWS, Azure and GCP using proven tools like `terraform` and `terragrunt`
+- document landing zone capabilities for development teams and security auditors (self-service documentation)
 - manage landing zone development lifecycle in separate development and production environments
 
 ## Getting Started
