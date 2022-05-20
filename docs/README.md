@@ -4,7 +4,7 @@ title: Landing Zone Construction Kit
 heroImage: /images/hero.png
 actions:
   - text: Get Started
-    link: /guide/getting-started.html
+    link: /tutorial/
     type: primary
   - text: Introduction
     link: /guide/
