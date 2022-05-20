@@ -1,0 +1,15 @@
+{
+  "name": "landing-zone-construction-kit-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "private": true,
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.45"
+  }
+}
