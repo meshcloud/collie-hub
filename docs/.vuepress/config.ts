@@ -19,6 +19,10 @@ export const navbarEn: NavbarConfig = [
     link: "/guide/",
   },
   {
+    text: "Concepts",
+    link: "/concept/",
+  },
+  {
     text: "Reference",
     link: "/reference/repository",
   },
@@ -32,6 +36,7 @@ export const sidebar: SidebarConfig = {
         '/reference/repository.md',
         '/reference/foundation.md',
         '/reference/kit-module.md',
+        '/reference/platform-module.md',
       ]
     },
   ],
@@ -52,7 +57,16 @@ export const sidebar: SidebarConfig = {
         '/tutorial/compliance-control.md'
       ]
     },
-  ]
+  ],
+  "/concept/": [
+    {
+      text: "Landing Zone Concepts",
+      children: [
+        '/concept/bootstrapping.md',
+        '/concept/modular-landing-zones.md',
+      ]
+    },
+  ],
 };
 
 export default defineUserConfig({
