@@ -110,3 +110,9 @@ complex landing zones.
 
 Not necessarily - `collie` cli will transparently invoke other tools like terragrunt for you and offers useful utilities
 to help you inspect and validate your kit and the cloud foundations built from it.
+
+## ⭐️ Stargazers
+
+<img src="https://starchart.cc/meshcloud/landing-zone-construction-kit.svg" alt="Stargazers over time" style="max-width: 100%">
+
+<p align="center"><b>Made with ❤️ by <a href="https://meshcloud.io/">meshcloud</a></b></p>
