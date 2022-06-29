@@ -11,6 +11,6 @@ This platform is bootstrapped in the AWS Root Account with number `${var.aws_roo
 ### Deployment Automation
 
 The AWS IAM user deploying this cloudfoundation is `${var.iam_user_name}`.
-The credential is stored in terraform state and made available locally after performing the bootstrap at `${trimprefix(var.aws_shared_credentials_file, "${var.repository_root}/")}`.
+The credential is stored in terraform state and made available as an output.
 EOF
 }

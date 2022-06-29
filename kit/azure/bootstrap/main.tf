@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "2.97.0"
+      version = "3.5.0"
     }
     azuread = {
       source  = "hashicorp/azuread"
@@ -60,9 +60,8 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
 
 data "azuread_application_published_app_ids" "well_known" {}
 
-resource "azuread_service_principal" "msgraph" {
+data "azuread_service_principal" "msgraph" {
   application_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
-  use_existing   = true
 }
 
 resource "azuread_application" "cloudfoundation_deploy" {
@@ -77,7 +76,12 @@ resource "azuread_application" "cloudfoundation_deploy" {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
+      id   = data.azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
+      type = "Role"
+    }
+
+    resource_access {
+      id   = data.azuread_service_principal.msgraph.app_role_ids["AppRoleAssignment.ReadWrite.All"]
       type = "Role"
     }
   }
@@ -109,26 +113,20 @@ resource "azurerm_role_assignment" "cloudfoundation_deploy" {
 }
 
 resource "azuread_app_role_assignment" "cloudfoundation_deploy-directory" {
-  app_role_id         = azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
+  app_role_id         = data.azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
   principal_object_id = azuread_service_principal.cloudfoundation_deploy.object_id
-  resource_object_id  = azuread_service_principal.msgraph.object_id
+  resource_object_id  = data.azuread_service_principal.msgraph.object_id
 }
+
+resource "azuread_app_role_assignment" "cloudfoundation_deploy-approle" {
+  app_role_id         = data.azuread_service_principal.msgraph.app_role_ids["AppRoleAssignment.ReadWrite.All"]
+  principal_object_id = azuread_service_principal.cloudfoundation_deploy.object_id
+  resource_object_id  = data.azuread_service_principal.msgraph.object_id
+}
+
 
 // todo: this needs better handling with rotation
 resource "azuread_service_principal_password" "cloudfoundation_deploy" {
   service_principal_id = azuread_service_principal.cloudfoundation_deploy.id
   end_date             = "2999-01-01T01:02:03Z" # no expiry, 
-}
-
-data "azurerm_subscription" "current" {
-}
-
-resource "local_file" "service_principal_credentials_file" {
-  filename        = var.service_principal_credentials_file
-  file_permission = "600" # only current user can read/write
-  content = jsonencode({
-    "client_id"       = azuread_service_principal.cloudfoundation_deploy.application_id
-    "client_secret"   = azuread_service_principal_password.cloudfoundation_deploy.value
-    "subscription_id" = data.azurerm_subscription.current.subscription_id // note: we're not really using that subscription yet, but we need one
-  })
 }

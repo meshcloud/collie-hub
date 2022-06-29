@@ -4,15 +4,10 @@ output "aws_root_account_id" {
 }
 
 output "cloudfoundation_tf_deploy_user_iam_access_key_id" {
-  value = module.cloudfoundation_tf_deploy_user.iam_access_key_id
+  value = aws_iam_access_key.key.id
 }
 
 output "cloudfoundation_tf_deploy_user_iam_access_key_secret" {
-  value     = module.cloudfoundation_tf_deploy_user.iam_access_key_secret
-  sensitive = true
-}
-
-output "aws_shared_credentials_file_content" {
-  value     = local_file.aws_shared_credentials_file.content
+  value     = aws_iam_access_key.key.secret
   sensitive = true
 }

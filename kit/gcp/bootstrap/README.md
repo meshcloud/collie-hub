@@ -9,7 +9,7 @@ summary: |
 # GCP Platform Bootstrap
 
 Service Accounts in GCP must be created in a project. This module assumes that an operator manually creates this project
-and supplies it as a configuration reference
+and supplies it as to the module's input `foundation_project_id`.
   
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -35,10 +35,9 @@ No modules.
 | [google_organization_iam_custom_role.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/organization_iam_custom_role) | resource |
 | [google_organization_iam_member.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/organization_iam_member) | resource |
 | [google_organization_iam_member.cloudfoundation_tf_deploy_user_org_policy_admin](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/organization_iam_member) | resource |
-| [google_project_service.cloudresourcemanager_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
+| [google_project_service.enabled_services](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_service_account.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_service_account_key.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
-| [local_file.gcp_credentials_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_file.output_md](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [time_rotating.key_rotation](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/rotating) | resource |
 | [google_project.foundation](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
@@ -49,10 +48,13 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_foundation_project_id"></a> [foundation\_project\_id](#input\_foundation\_project\_id) | Project ID of the GCP Project hosting foundation-level resources for this foundation | `string` | n/a | yes |
 | <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
-| <a name="input_service_account_credentials_file"></a> [service\_account\_credentials\_file](#input\_service\_account\_credentials\_file) | location where to store the credentails file for the Service Account | `string` | n/a | yes |
 | <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | name of the Service Account used to deploy cloud foundation resources | `string` | `"foundation-tf-deploy-user"` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_service_account_credentials"></a> [service\_account\_credentials](#output\_service\_account\_credentials) | base64 encoded service account credentials file content |
+| <a name="output_service_account_email"></a> [service\_account\_email](#output\_service\_account\_email) | n/a |
+| <a name="output_service_account_name"></a> [service\_account\_name](#output\_service\_account\_name) | n/a |
 <!-- END_TF_DOCS -->

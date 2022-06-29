@@ -2,23 +2,6 @@
 # Note that you should typically not put a terraform{} block into cloud foundation kit modules,
 # these will be provided by the platform implementations using this kit module.
 
-variable "foundation_project_id" {
-  type        = string
-  description = "Project ID of the GCP Project hosting foundation-level resources for this foundation"
-}
-
-variable "service_account_name" {
-  type        = string
-  description = "name of the Service Account used to deploy cloud foundation resources"
-  default     = "foundation-tf-deploy-user"
-}
-
-variable "service_account_credentials_file" {
-  type        = string
-  description = "location where to store the credentails file for the Service Account"
-
-}
-
 data "google_project" "foundation" {
   project_id = var.foundation_project_id
 }
@@ -41,15 +24,23 @@ resource "google_service_account_key" "cloudfoundation_tf_deploy_user" {
   }
 }
 
-resource "local_file" "gcp_credentials_file" {
-  filename        = var.service_account_credentials_file
-  file_permission = "600" # only current user can read/write
-  content         = base64decode(google_service_account_key.cloudfoundation_tf_deploy_user.private_key)
+locals {
+  # the foundation service account needs to deploy resources of various kinds
+  # because it authenticates against the foundation project, we do unfortunately ahve
+  # to list and enable all of these services here
+  enabled_services = toset([
+    "iam.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "cloudbilling.googleapis.com",
+    "bigquery.googleapis.com",
+    "bigquerydatatransfer.googleapis.com"
+  ])
 }
 
-resource "google_project_service" "cloudresourcemanager_api" {
+resource "google_project_service" "enabled_services" {
   project            = data.google_project.foundation.project_id
-  service            = "cloudresourcemanager.googleapis.com"
+  for_each           = local.enabled_services
+  service            = each.key
   disable_on_destroy = false
 }
 
@@ -59,9 +50,18 @@ resource "google_organization_iam_custom_role" "cloudfoundation_tf_deploy_user" 
   title       = "${var.service_account_name} service role"
   description = "Role for ${var.service_account_name} service account used for deploying the cloud foundation"
   permissions = [
+    "resourcemanager.organizations.get",
+
     "resourcemanager.folders.get",
     "resourcemanager.folders.list",
-    "resourcemanager.organizations.get",
+    "resourcemanager.folders.create",
+    "resourcemanager.folders.delete",
+    "resourcemanager.folders.update",
+    "resourcemanager.folders.move",
+    
+    "resourcemanager.folders.getIamPolicy",
+    "resourcemanager.folders.setIamPolicy",
+
     "resourcemanager.projects.create",
     "resourcemanager.projects.get",
     "resourcemanager.projects.getIamPolicy",
@@ -70,8 +70,26 @@ resource "google_organization_iam_custom_role" "cloudfoundation_tf_deploy_user" 
     "resourcemanager.projects.setIamPolicy",
     "resourcemanager.projects.update",
 
+    "iam.roles.create",
+    "iam.roles.delete",
+    "iam.roles.get",
+    "iam.roles.list",
+    "iam.roles.undelete",
+    "iam.roles.update",
+
+    "iam.serviceAccounts.get",
+
     "serviceusage.services.enable",
-    "serviceusage.services.get"
+    "serviceusage.services.get",
+    "serviceusage.services.list",
+
+    "billing.accounts.get",
+    "billing.accounts.list",
+    "billing.accounts.getIamPolicy",
+    "billing.accounts.setIamPolicy",
+    "billing.accounts.getUsageExportSpec",
+    "billing.accounts.updateUsageExportSpec",
+    "billing.resourceAssociations.list"
   ]
 }
 

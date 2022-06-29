@@ -11,22 +11,7 @@
       {
         "Effect": "Allow",
         "Action": [
-          "organizations:DescribeAccount",
-          "organizations:DescribeOrganization",
-          "organizations:DescribeOrganizationalUnit",
-          "organizations:DescribePolicy",
-          "organizations:ListChildren",
-          "organizations:ListParents",
-          "organizations:ListPoliciesForTarget",
-          "organizations:ListRoots",
-          "organizations:ListPolicies",
-          "organizations:ListTargetsForPolicy",
-          "organizations:CreatePolicy",
-          "organizations:AttachPolicy",
-          "organizations:DetachPolicy",
-          "organizations:DeletePolicy",
-          "organizations:UpdatePolicy",
-          "organizations:ListTagsForResource"
+          "organizations:*"
         ],
         "Resource": "*"
       },

@@ -4,7 +4,7 @@ locals {
 }
 
 resource "aws_ssoadmin_permission_set" "billing" {
-  name             = "meshcloudBillingAccess"
+  name             = "adminBillingAccess"
   description      = "Provides access to AWS Billing Dashboard"
   instance_arn     = var.aws_sso_instance_arn
   relay_state      = "https://console.aws.amazon.com/billing/home?region=eu-central-1#/"

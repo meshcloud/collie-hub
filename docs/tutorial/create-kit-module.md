@@ -194,7 +194,6 @@ generate "provider" {
   if_exists = "overwrite"
   contents  = <<EOF
 provider "google" {
-  credentials = "${get_terragrunt_dir()}/../../.credentials/platform"
   project     = "${include.root.locals.platform.gcp.project}"
   region      = "europe-west3"
 }

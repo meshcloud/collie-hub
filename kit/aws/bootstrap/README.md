@@ -5,7 +5,7 @@ summary: |
   This is a "bootstrap" module, which means that it must be manually executed once by an administrator
   to bootstrap the cloudfoundation
 compliance: 
-  - control: compliance/cfmm/iam/privileged-access-management
+  - control: cfmm/iam/privileged-access-management
     statement: |
       The deploy user has privileged access to the cloud foundation infrastructure.
       Access to the credentials of this user are carefully controlled via...
