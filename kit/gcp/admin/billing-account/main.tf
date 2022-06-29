@@ -54,11 +54,11 @@ module "collie_billing_view" {
   depends_on = [
     google_bigquery_table_iam_member.cloudfoundation_tf_deploy_user # ensure permissions were set up before creating the view
   ]
-  count = var.enable_collie_view ? 1 : 0
-  source = "./modules/collie-billing-view" 
+  count  = var.enable_collie_view ? 1 : 0
+  source = "./modules/collie-billing-view"
 
-  cloud_billing_export_project = var.cloud_billing_export_project
+  cloud_billing_export_project    = var.cloud_billing_export_project
   cloud_billing_export_dataset_id = var.cloud_billing_export_dataset_id
-  cloud_billing_export_table_id = var.cloud_billing_export_table_id
+  cloud_billing_export_table_id   = var.cloud_billing_export_table_id
 }
 
