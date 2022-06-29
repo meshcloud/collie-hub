@@ -54,7 +54,7 @@ No requirements.
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | n/a | `string` | n/a | yes |
 | <a name="input_aws_root_account_id"></a> [aws\_root\_account\_id](#input\_aws\_root\_account\_id) | n/a | `string` | n/a | yes |
 | <a name="input_billing_users"></a> [billing\_users](#input\_billing\_users) | The list of user principals that shall be granted billing access | <pre>list(object({<br>    principal_id = string,<br>    email        = string,<br>  }))</pre> | `[]` | no |
-| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | n/a | `string` | n/a | yes |
+| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
 
 ## Outputs
 

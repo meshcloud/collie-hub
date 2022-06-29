@@ -7,7 +7,7 @@ output "service_account_email" {
 }
 
 output "service_account_credentials" {
-  value = google_service_account_key.cloudfoundation_tf_deploy_user.private_key
+  value       = google_service_account_key.cloudfoundation_tf_deploy_user.private_key
   description = "base64 encoded service account credentials file content"
-  sensitive = true
+  sensitive   = true
 }

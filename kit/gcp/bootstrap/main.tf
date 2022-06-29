@@ -58,7 +58,7 @@ resource "google_organization_iam_custom_role" "cloudfoundation_tf_deploy_user" 
     "resourcemanager.folders.delete",
     "resourcemanager.folders.update",
     "resourcemanager.folders.move",
-    
+
     "resourcemanager.folders.getIamPolicy",
     "resourcemanager.folders.setIamPolicy",
 
