@@ -45,7 +45,9 @@ export const sidebar: SidebarConfig = {
       text: "Guides",
       children: [
         '/guide/README.md',
-        '/guide/compliance.md'
+        '/guide/bootstrapping.md',
+        '/guide/compliance.md',
+        '/guide/best-practices.md'
       ]
     },
   ],
