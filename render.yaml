@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: landing-zone-docs
+    env: static
+    rootDir: docs
+    buildCommand: yarn docs:build
+    staticPublishPath: ./.vuepress/dist
+    pullRequestPreviewsEnabled: true
+    buildFilter:
+      paths:
+        - docs/**/*
+        - render.yaml
