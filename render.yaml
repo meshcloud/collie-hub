@@ -6,6 +6,8 @@ services:
     buildCommand: yarn docs:build
     staticPublishPath: ./.vuepress/dist
     pullRequestPreviewsEnabled: true
+    domains:
+      - landingzone.meshcloud.io
     buildFilter:
       paths:
         - docs/**/*
