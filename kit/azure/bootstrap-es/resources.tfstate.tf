@@ -28,3 +28,15 @@ resource "azurerm_storage_container" "tfstate" {
   storage_account_name  = azurerm_storage_account.tfstate.name
   container_access_type = "blob"
 }
+
+resource "azurerm_role_assignment" "tfstate_blob" {
+  role_definition_name = "Storage Blob Data Owner"
+  principal_id         = azuread_group.platform_engineers.object_id
+  scope                = azurerm_storage_container.tfstate.resource_manager_id
+}
+
+resource "azurerm_role_assignment" "tfstate_storage_account" {
+  role_definition_name = "Storage Account Key Operator Service Role"
+  principal_id         = azuread_group.platform_engineers.object_id
+  scope                = azurerm_storage_account.tfstate.id
+}
