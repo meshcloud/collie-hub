@@ -20,6 +20,10 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       "Microsoft.Resources/subscriptions/resourceGroups/read",
       "Microsoft.Resources/deployments/*",
 
+      # Creating/Deleting resource groups
+      "Microsoft.Resources/subscriptions/resourceGroups/write",
+      "Microsoft.Resources/subscriptions/resourceGroups/delete",
+
       # Creating management groups
       "Microsoft.Management/managementGroups/read",
       "Microsoft.Management/managementGroups/descendants/read",
