@@ -5,7 +5,7 @@ data "azuread_users" "platform_engineers_members" {
 }
 
 resource "azuread_group" "platform_engineers" {
-  display_name     = "cloudfoundation-platform-engineers"
+  display_name     = "${var.foundation_name}-cloudfoundation-platform-engineers"
   owners           = [azuread_service_principal.cloudfoundation_deploy.object_id]
   security_enabled = true
 

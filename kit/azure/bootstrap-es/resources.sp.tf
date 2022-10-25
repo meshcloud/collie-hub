@@ -1,5 +1,5 @@
 resource "azurerm_role_definition" "cloudfoundation_deploy" {
-  name        = var.service_principal_name
+  name        = "${var.foundation_name}-${var.service_principal_name}"
   scope       = data.azurerm_management_group.root.id
   description = "Permissions required to deploy the cloudfoundation (not operate it)"
 
@@ -58,7 +58,7 @@ data "azuread_service_principal" "msgraph" {
 }
 
 resource "azuread_application" "cloudfoundation_deploy" {
-  display_name = var.service_principal_name
+  display_name = "${var.foundation_name}-${var.service_principal_name}"
 
   web {
     implicit_grant {

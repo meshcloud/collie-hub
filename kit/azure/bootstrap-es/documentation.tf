@@ -8,7 +8,7 @@ resource "local_file" "output_md" {
   content = <<EOF
 ### Cloudfoundation Service Principal
 
-The Azure service principal deploying this cloudfoundation is named `${var.service_principal_name}`.
+The Azure service principal deploying the `${var.foundation_name}` cloudfoundation is named `${var.service_principal_name}`.
 The credentials are stored in terraform state.
 
 ### Cloudfoundation Terraform State

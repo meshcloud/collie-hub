@@ -1,3 +1,7 @@
+variable "foundation_name" {
+  type = string
+}
+
 ## variables for sp resources
 variable "root_parent_id" {
   type = string
