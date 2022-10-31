@@ -20,6 +20,12 @@ variable "storage_account_name" {
   description = "Name of storage account used as terraform backend"
 }
 
+variable "storage_rg_name" {
+  type        = string
+  description = "Name of resource group golding the storage account used as terraform backend"
+  default     = "tfstate"
+}
+
 variable "tfstate_location" {
   type        = string
   description = "location of tfstate resource group"

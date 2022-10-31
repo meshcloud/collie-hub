@@ -3,7 +3,7 @@
 # these will be provided by the platform implementations using this kit module.
 
 resource "azurerm_resource_group" "tfstate" {
-  name     = "tfstate"
+  name     = var.storage_rg_name
   location = var.tfstate_location
 
   tags = {
