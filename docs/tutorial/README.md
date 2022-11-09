@@ -70,7 +70,7 @@ module you will want to add to your kit is setting up organization-wide constrai
 resource hierarchy. Since a kit module is a standard terraform module, you can leverage official modules
 like `terraform-google-modules/org-policy/google` to set up organization policies.
 
-After you're done with your first module, `collie` can help you deploy your cloud foundation, running `terragrunt` under transparently under the hood for you:
+After you're done with your first module, `collie` can help you deploy your cloud foundation, running `terragrunt` transparently under the hood for you:
 
 ```shell
 collie foundation deploy my-foundation
