@@ -85,6 +85,13 @@ deploying (plan) foundations/my-foundation ...
 deploying (plan) foundations/my-foundation/gcp ...
 ```
 
+### Deploying azure landing zone terraform modules
+
+```shell
+collie kit bundle <kit-name>
+collie foundation deploy <foundation name> --platform azure --module <kit-name>
+```
+
 ### Next Steps
 
 To go from this simple introduction to a productive use of the landing zone construction kit we recommend reviewing
