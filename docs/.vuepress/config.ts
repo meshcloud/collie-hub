@@ -77,8 +77,8 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "Collie Hub",
-      description: "build and deploy modular landing zones",
+      title: "Collie",
+      description: "Build and Deploy modular landing zones with Collie",
     },
   },
 
