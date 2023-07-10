@@ -1,6 +1,6 @@
 ---
 home: true
-title: Collie Hub
+title: Collie
 heroImage: /images/hero.png
 actions:
   - text: Get Started
@@ -25,9 +25,9 @@ features:
 footer: Copyright © 2023-present meshcloud GmbH
 ---
 
-## Welcome to Collie Hub
+## Build Landing Zones easily
 
-Use [collie](https://github.com/meshcloud/collie-cli) cli to easily work with the landing zone construction kit
+Use [collie](https://github.com/meshcloud/collie-cli) cli to easily work with cloud landing zones
 
 ```shell
 # initialize a new collie repository

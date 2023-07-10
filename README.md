@@ -1,16 +1,20 @@
-# meshcloud Landing Zone Construction Kit
+# Collie Hub
 
-Landing Zones are an architectural pattern for setting up cloud environments for multiple workloads in a scalable and secure manner.
+Collie Hub is the place to find ready-to-use [Collie](https://github.com/meshcloud/collie-cli) kit modules that help you
+build cloud landing zones for your organization and accelerate your cloud journey.
+
+[Landing Zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) are an architectural
+pattern for setting up cloud environments for multiple workloads in a scalable and secure manner.
 Building Landing Zones can be a daunting task, especially when you need to provide support for a wide range of workloads
 across different cloud platforms such as AWS, Azure and GCP.
 
-The meshcloud Landing Zone Construction Kit helps you build [landing zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) with a modular approach that reduces complexity using Infrastructure as Code and GitOps.
-The kit builds on terraform and enables you to easily integrate off-the-shelf reference
-IaC implementation published by cloud providers as well as custom infrastructure automation.
+The Collie Hub is a rich library that helps you build landing zones with a modular approach that reduces complexity
+using Infrastructure as Code and GitOps. The kit in Collie Hub builds on terraform and enables you to easily
+integrate off-the-shelf reference IaC implementation published by cloud providers as well as custom infrastructure automation.
 
 ![modular landing zone](./docs/assets/modular-landing-zone.png)
 
-The Landing Zone Construction kit offers one solution that will help you to
+Collie & the Collie Hub offer one solution that will help you to
 
 - build [modular landing zones](https://cloudfoundation.meshcloud.io/maturity-model/tenant-management/modular-landing-zones.html) that empower development teams to configure their environments in self-service
 - rapidly assemble and deploy landing zones for AWS, Azure and GCP using proven tools like `terraform` and `terragrunt`
@@ -19,17 +23,19 @@ The Landing Zone Construction kit offers one solution that will help you to
 
 ## Getting Started
 
-The kit is meant to be comfortably used with [collie cli](https://github.com/meshcloud/collie-cli) using a "fork and own"
-approach - you will ulitmately build your own kit to meet your organizations unique requirements based on the public examples in this kit.
-After installing collie, start by creating a new git repository and creating a new foundation.
+The Collie Hub is meant to be used with [Collie CLI](https://github.com/meshcloud/collie-cli) using a "fork and own"
+approach - you will ultimately build your own kit to meet your organizations unique requirements based on the
+public examples in this kit (under `/kit` in this repository).
+After installing `collie`, start by creating a new git repository and creating a new foundation.
 
 ```shell
-git init my-foundation-kit
+git init my-foundation-kit # Create a new repository for your foundation
 cd my-foundation-kit
-collie foundation new my-foundation-dev
+collie foundation new my-foundation-dev # Generate a new collie foundation with the given name
 ```
 
-A foundation describes a number of cloud platforms (e.g. AWS and GCP), landing zones, cloud customers (development teams in your organization) and their cloud tenants (e.g. AWS Accounts and GCP projects).
+A foundation describes a number of cloud platforms (e.g. AWS and GCP), landing zones,
+cloud customers (development teams in your organization) and their cloud tenants (e.g. AWS Accounts and GCP projects).
 The `collie` cli will interactively
 prompt you for about the configuration settings it needs to successfully connect to your cloud platforms. After setting
 up your first foundation, your repository will look like this:
@@ -77,7 +83,7 @@ module you will want to add to your kit is setting up organization-wide constrai
 resource hierarchy. Since a kit module is a standard terraform module, you can leverage official modules
 like `terraform-google-modules/org-policy/google` to set up organization policies.
 
-After you're done with your first module, `collie` can help you deploy your cloud foundation, running `terragrunt` under transparently under the hood for you:
+After you're done with your first module, `collie` can help you deploy your cloud foundation, running `terragrunt` transparently under the hood for you:
 
 ```shell
 collie foundation deploy my-foundation
@@ -85,7 +91,7 @@ deploying (plan) foundations/my-foundation ...
 deploying (plan) foundations/my-foundation/gcp ...
 ```
 
-### Deploying azure landing zone terraform modules
+### Deploying Azure landing zone terraform modules
 
 ```shell
 collie kit bundle <kit-name>
@@ -94,9 +100,10 @@ collie foundation deploy <foundation name> --platform azure --module <kit-name>
 
 ### Next Steps
 
-To go from this simple introduction to a productive use of the landing zone construction kit we recommend reviewing
+To go from this simple introduction to a productive use of your landing zones we recommend reviewing
 our example implementation of a cloud foundation.
 
+- import existing Collie Hub kit modules of your choice into your own kit `collie kit import`
 - add a second (productive) cloud foundation `collie foundation new my-foundation-prod`
 - review kit module usage `collie kit tree` to ensure/dev-prod parity
 - build an interactive documentation for your cloud foundation using `collie foundation docs`
@@ -106,20 +113,20 @@ our example implementation of a cloud foundation.
 
 > Does the kit contain production-ready modules?
 
-The kit is currently a work in progress. We will provide updates and reference module implementations soon.
+Yes! You can explore all of these under the `/kit` directory.
 
 > Do I have to be familiar with terraform and terragrunt to use the kit?
 
 Yes. The kit builds on `terraform` and `terragrunt` with an opinionated workflow that lends itself to building
 complex landing zones.
 
-> Do I have to use `collie` cli for working with the kit?
+> Do I have to use `collie` cli for working with the Collie Hub?
 
 Not necessarily - `collie` cli will transparently invoke other tools like terragrunt for you and offers useful utilities
 to help you inspect and validate your kit and the cloud foundations built from it.
 
 ## ⭐️ Stargazers
 
-<img src="https://starchart.cc/meshcloud/landing-zone-construction-kit.svg" alt="Stargazers over time" style="max-width: 100%">
+<img src="https://starchart.cc/meshcloud/collie-hub.svg" alt="Stargazers over time" style="max-width: 100%">
 
 <p align="center"><b>Made with ❤️ by <a href="https://meshcloud.io/">meshcloud</a></b></p>
