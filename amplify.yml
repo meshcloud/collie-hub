@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  buildpath: docs
+  phases:
+    preBuild:
+      commands:
+        - cd docs
+        - yarn install
+    build:
+      commands:
+        - yarn docs:build
+  artifacts:
+    baseDirectory: docs/.vuepress/dist
+    files:
+      - '**/*'
+  cache:
+    paths: []
