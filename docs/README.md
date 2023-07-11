@@ -6,8 +6,8 @@ actions:
   - text: Get Started
     link: /tutorial/
     type: primary
-  - text: Introduction
-    link: /guide/
+  - text: View Modules
+    link: /hub/
     type: secondary
 features:
   - title: Modular Approach

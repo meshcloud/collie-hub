@@ -9,7 +9,15 @@ import {
 } from "@vuepress/theme-default";
 import { shikiPlugin } from "@vuepress/plugin-shiki";
 
+// The following files will be skipped for scanning kit modules in the tree.
+// This hurts a bit in local development, should not happen in CI/CD though.
+const treeSkip = ['.vuepress', 'node_modules'];
+
 export const navbarEn: NavbarConfig = [
+  {
+    text: "Hub",
+    link: "/hub/"
+  },
   {
     text: "Getting Started",
     link: "/tutorial/",
@@ -29,6 +37,15 @@ export const navbarEn: NavbarConfig = [
 ];
 
 export const sidebar: SidebarConfig = {
+  "/hub/": [
+    {
+      text: "Collie Hub",
+      children: [
+          "/hub/",
+          ...getAndBuildKitModuleTree(path.join(__dirname, "..", "..", "kit"))
+      ]
+    }
+  ],
   "/reference/": [
     {
       text: "Reference",
@@ -105,3 +122,42 @@ export default defineUserConfig({
     },
   }),
 });
+
+function getAndBuildKitModuleTree(dir: string, child: string = "") {
+  const files = fs.readdirSync(path.join(dir, child), { withFileTypes: true })
+
+  const isKitModule = !!files.find(f => f.name === "README.md")
+      && child !== ""; // When no child is there, we are in the root kit folder, which contains a README too.
+
+  if (isKitModule) {
+    // If we found a kit module, we will copy its README over to the hub folder.
+    const source = path.join(dir, child, "README.md");
+    const destination = path.join(__dirname, "..", "hub", child);
+    const content = replaceReadMe(fs.readFileSync(source, "utf-8"));
+    fs.mkdirSync(destination, { recursive: true })
+    fs.writeFileSync(path.join(destination, "README.md"), content);
+
+    return [path.join("/", "hub", child)];
+  } else {
+    return files
+      .filter((x) => {
+        return x.isDirectory()
+            && treeSkip.indexOf(x.name) === -1
+            && !isKitModule // We do not allow nested kit modules
+      })
+      .map((x) => {
+        const nextChild = path.join(child, x.name);
+        return {
+          text: x.name,
+          collapsible: true,
+          children: [
+            ...getAndBuildKitModuleTree(dir, nextChild),
+          ],
+        };
+      });
+  }
+}
+
+function replaceReadMe(content: string) {
+  return content;
+}
