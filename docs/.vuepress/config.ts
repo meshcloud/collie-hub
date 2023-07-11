@@ -11,7 +11,11 @@ import { shikiPlugin } from "@vuepress/plugin-shiki";
 
 // The following files will be skipped for scanning kit modules in the tree.
 // This hurts a bit in local development, should not happen in CI/CD though.
-const treeSkip = ['.vuepress', 'node_modules'];
+const treeSkip = [
+  '.vuepress',
+  'node_modules',
+  'util' // For some kit modules we use "util" terraform. This should be ignored
+];
 
 export const navbarEn: NavbarConfig = [
   {
@@ -133,7 +137,7 @@ function getAndBuildKitModuleTree(dir: string, child: string = "") {
     // If we found a kit module, we will copy its README over to the hub folder.
     const source = path.join(dir, child, "README.md");
     const destination = path.join(__dirname, "..", "hub", child);
-    const content = replaceReadMe(fs.readFileSync(source, "utf-8"));
+    const content = replaceReadMe(fs.readFileSync(source, "utf-8"), child);
     fs.mkdirSync(destination, { recursive: true })
     fs.writeFileSync(path.join(destination, "README.md"), content);
 
@@ -158,6 +162,35 @@ function getAndBuildKitModuleTree(dir: string, child: string = "") {
   }
 }
 
-function replaceReadMe(content: string) {
-  return content;
+/**
+ * This will inject a template with source code & installation to a README.
+ */
+function replaceReadMe(rawContent: string, module: string) {
+  // First we need to split up the content into frontmatter & non-frontmatter, as the frontmatter might contain comments
+  // which are the exact same syntax as Headers in markdown (# My YAML comment)
+  const frontMatterSplit = rawContent.split('---');
+  let frontMatter = "";
+  let content = rawContent;
+  if (frontMatterSplit.length > 1) {
+    frontMatter = [...frontMatterSplit].splice(0, 2).join("---") + "---";
+    content = [...frontMatterSplit].splice(2).join("---");
+  }
+
+  // We need to insert our custom content after the first Header occurrence
+  // This beautiful regex finds the first "# Header" in the file.
+  const headerSplit = content.split(/^(#\s.+)/gm)
+  const preContent = frontMatter + [...headerSplit].splice(0, 2).join("")
+  const afterContent = [...headerSplit].splice(2).join("");
+  return `${preContent}
+
+::: tip Source code & Installation
+The source code of this kit module can be found [here](https://github.com/meshcloud/collie-hub/tree/main/kit/${module})
+
+Run the following command to install the kit module:
+
+\`\`\`shell
+collie kit import ${module}
+\`\`\`
+:::
+${afterContent}`;
 }

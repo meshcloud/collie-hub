@@ -1,8 +1,4 @@
----
-name: Introduction
----
-
-# Collie Hub Modules
+# Introduction
 
 In the Collie Hub you will find all community-curated open-source kit modules that you can use for building your cloud foundation
 and landing zones on AWS, Azure & GCP.
@@ -12,13 +8,16 @@ modules that work across multiple platforms. You will most likely not find any T
 that works across the entire cloud foundation across multiple platforms, for example, the template for generating your
 documentation.
 
-## How to use a module
+The source code of each kit module is linked within the kit module page and can be easily opened. The installation
+command is provided on each page as well.
+
+## How to use a module from the Hub
 
 Assuming you have already read and used the [Getting Started](/tutorial) guide and set up your foundation for at least 
 one cloud platform, you can import kit modules from the Collie Hub as following:
 
 ```shell
-collie kit import "<kit-name>" # Tip: if you skip the kit-name, you can explore all available modules from your CLI.
+collie kit import "<kit-name>" # Tip: if you skip kit-name, you can interactively explore all available modules from your CLI.
 
 # Apply the kit to your foundation of choice (as usual)
 collie kit apply "<kit-name>" --foundation <foundation-name>
