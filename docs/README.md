@@ -1,6 +1,6 @@
 ---
 home: true
-title: Landing Zone Construction Kit
+title: Collie Hub
 heroImage: /images/hero.png
 actions:
   - text: Get Started
@@ -22,10 +22,10 @@ features:
     details: Capture compliance requirements for your landing zones and document their implementation as policies.
   - title: Documentation
     details: Generate developer documentation for application teams building on your land zones and compliance documentation 
-footer: Copyright © 2022-present meshcloud GmbH
+footer: Copyright © 2023-present meshcloud GmbH
 ---
 
-## Build Landing Zones easily
+## Welcome to Collie Hub
 
 Use [collie](https://github.com/meshcloud/collie-cli) cli to easily work with the landing zone construction kit
 

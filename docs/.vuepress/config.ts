@@ -77,7 +77,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "Landing Zone Construction Kit",
+      title: "Collie Hub",
       description: "build and deploy modular landing zones",
     },
   },
@@ -85,7 +85,7 @@ export default defineUserConfig({
   // configure default theme
   theme: defaultTheme({
     logo: "/images/hero.png",
-    repo: "meshcloud/landing-zone-construction-kit",
+    repo: "meshcloud/collie-hub",
     docsDir: "docs",
     darkMode: false,
 
