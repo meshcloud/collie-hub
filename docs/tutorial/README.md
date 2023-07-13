@@ -1,82 +1,137 @@
-# Deploy your First Landing Zone
+# Getting Started
 
-> Note: this section of the documentation is under construction
+This tutorial will lead you through the steps to get started with collie 
 
-<!-- todo: decide what goes on the github repo readme vs. this place and how to link between them  -->
- 
-This tutorial will lead you through the steps to get started with landing zone construction kit
-
-- [Install collie](https://github.com/meshcloud/collie-cli#-install-and-usage)
-- Create a Foundation
 - Add a cloud platform to your foundation
-- Create and deploy a landing zone to this cloud platform (using an existing kit module)
+- Create and deploy a Organization Hierarchy to this cloud platform (using an existing kit module)
 
-The kit is meant to be comfortably used with [collie cli](https://github.com/meshcloud/collie-cli) using a "fork and own"
-approach - you will ulitmately build your own kit to meet your organizations unique requirements based on the public examples in this kit.
-After installing collie, start by creating a new git repository and creating a new foundation.
+
+### 1. Start your Cloud Foundation
+
+In this and upcoming tutorials we are using the fictional Company name Likvid. 
+
+To start your cloud journey with Likvid, follow these steps:
+
+1. Create a folder for your foundation by running the command: **`mkdir -p likvid-foundation-repo && cd likvid-foundation-repo`**.
+2. Transform the folder into a Git repository using the command: **`collie init`**.
+3. Next, create the foundation itself by executing: **`collie foundation new likvid-foundation-dev`**.
+4. Add a cloud platform, in this case, Azure, by selecting `Azure` when prompted. Define an ID for the platform, such as `az` and provide a human-readable name for it, also `az`
+5. Select the account to configure the Azure Active Directory (AAD) Tenant ID and default Subscription ID. For example: `foundation-likvid-dev / AAD 00000000-1111-2222-3333-444444444444`. Save the configuration and exit the assistant.
+
+After completing these steps, your repository structure will resemble the following:
 
 ```shell
-git init my-foundation-kit
-cd my-foundation-kit
-collie init
-collie foundation new my-foundation-dev
-```
-
-A foundation describes a number of cloud platforms (e.g. AWS and GCP), landing zones, cloud customers (development teams in your organization) and their cloud tenants (e.g. AWS Accounts and GCP projects).
-The `collie` cli will interactively
-prompt you for about the configuration settings it needs to successfully connect to your cloud platforms. After setting
-up your first foundation, your repository will look like this:
-
-```shell
-$ tree
+`tree
 .
-└── foundations
-    └── my-foundation-dev
-        ├── README.md
-        └── platforms
-            └── gcp
-                └── README.md
-```
-
-Next, let's create our first kit module and apply it to our platform.
-
-```shell
-collie kit new "my-first-gcp-module"
-collie kit apply "my-first-gcp-module" --foundation my-foundation-dev --platform gcp
-```
-
-This generated a new executable terraform module at `kit/my-first-gcp-module` and a terragrunt module wrapper
-that simplifies executing that module (e.g. by managing common backend and provider configurations). at `foundations/my-foundation-dev/platforms/gcp`.
-
-```shell
-22:07 $ tree
-.
+├── [README.md](http://readme.md/)
+├── compliance
 ├── foundations
-│   └── my-foundation-dev
-│       ├── README.md
-│       └── platforms
-│           └── gcp
-│               ├── README.md
-│               └── terragrunt.hcl
+│   └── likvid-foundation-dev
+│       ├── [README.md](http://readme.md/)
+│       └── platforms
+│           └── az
+│               └── [README.md](http://readme.md/)
 └── kit
-    └── my-first-gcp-module
-        ├── README.md
-        ├── documentation.tf
-        └── main.tf
+└── [README.md](http://readme.md/)`
+
+`7 directories, 4 files`
 ```
 
-Inside the kit module, you can define any reusable set of functionality that your cloud foundation needs. A common
-module you will want to add to your kit is setting up organization-wide constraints at the root of the cloud
-resource hierarchy. Since a kit module is a standard terraform module, you can leverage official modules
-like `terraform-google-modules/org-policy/google` to set up organization policies.
 
-After you're done with your first module, `collie` can help you deploy your cloud foundation, running `terragrunt` transparently under the hood for you:
+### 2. Deploying Your First Kit
+
+First things first, for our journey, we need an organizational hierarchy for the Azure Cloud Platform. In this case, we will use the Collie Kit functionality to deploy it. To import the kit, use the following command:
+
+1. Run `collie kit import`.
+
+```
+Select a kit module from official hub modules ⌕
+**❯ Azure Organization Hierarchy azure/organization-hierarchy**
+ℹ 7/11 Next: ↓, Previous: ↑, Next Page: ⇟, →, Previous Page: ⇞, ←, Submit: ↵
+```
+
+2. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit.
+
+3. When you run `cat foundations/likvid-foundation-dev/platforms/az/organization-hierarchy/terragrunt.hcl` on the file, you'll see that there are two additional files required to run our environment:
 
 ```shell
-collie foundation deploy my-foundation
-deploying (plan) foundations/my-foundation ...
-deploying (plan) foundations/my-foundation/gcp ...
+include "platform" {
+  path = find_in_parent_folders("platform.hcl")
+}
+
+include "module" {
+  path = find_in_parent_folders("module.hcl")
+}
 ```
+
+Copy this code block to `likvid-foundation-repo/foundations/likvid-foundation-dev/platforms/az/module.hcl`.
+
+```shell
+# Define shared configuration here that most non-bootstrap modules in this platform want to include
+
+# Optional: make Collie's platform config available in Terragrunt by parsing frontmatter
+locals {
+  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+}
+
+# Recommended: generate a default provider configuration
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite"
+  contents  = <<EOF
+
+provider "azurerm" {
+  features {}
+  skip_provider_registration = false
+  tenant_id                  = "${local.platform.azure.aadTenantId}"
+  subscription_id            = "${local.platform.azure.subscriptionId}"
+}
+provider "azurerm" {
+  features {}
+  alias                      = "connectivity"
+  subscription_id            = "${local.platform.azure.subscriptionId}"
+  tenant_id                  = "${local.platform.azure.aadTenantId}"
+}
+provider "azurerm" {
+  features {}
+  alias                      = "management"
+  subscription_id            = "${local.platform.azure.subscriptionId}"
+  tenant_id                  = "${local.platform.azure.aadTenantId}"
+}
+
+EOF
+}
+```
+
+Copy this code block to `likvid-foundation-repo/foundations/likvid-foundation-dev/platforms/az/platform.hcl`.
+
+```shell
+locals {
+  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+}
+
+# Recommended: enable documentation generation for kit modules
+inputs = {
+  output_md_file = "${get_path_to_repo_root()}/../output.md"
+}
+
+# Recommended: remote state configuration
+generate "backend" {
+  path      = "backend.tf"
+  if_exists = "overwrite"
+  contents  = <<EOF
+terraform {
+  backend "local" {
+  }
+}
+EOF
+}
+```
+
+4. Now, we can deploy our first module by running `collie foundation deploy likvid-foundation-dev --platform az --module organization-hierarchy`.
+5. Type in `yes`.
+6. You should now have the hierarchy to build up your Azure platform.
+
 
 ### Next Steps
 
