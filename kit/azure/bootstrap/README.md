@@ -13,7 +13,15 @@ cfmm:
 
 # Azure Platform Bootstrap
 
+This module sets up a service principal for managing the foundation. Using this service principal platform engineers (without high privileged individual accoutns) can work on the foundation.
+
 The Service Principal set up by this module does not have any subscription-level privileges.
+
+## Prerequisites
+
+To run this module, you need an Azure account with one of the following roles:
+  1. Global Administrator
+  2. Privileged Role Administrator AND (Cloud) Application Administrator
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
