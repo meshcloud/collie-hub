@@ -15,9 +15,6 @@ pkgs.mkShell {
     pkgs.terraform-docs
 
     # node / typescript for docs
-    pkgs.nodejs-16_x
-    (pkgs.yarn.override {
-        nodejs = pkgs.nodejs-16_x;
-    })
+    pkgs.nodejs
   ];
 }

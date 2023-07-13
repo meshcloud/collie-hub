@@ -5,10 +5,10 @@ frontend:
     preBuild:
       commands:
         - cd docs
-        - yarn install
+        - npm ci
     build:
       commands:
-        - yarn docs:build
+        - npm run docs:build
   artifacts:
     baseDirectory: docs/.vuepress/dist
     files:
