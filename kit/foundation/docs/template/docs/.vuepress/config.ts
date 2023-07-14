@@ -9,7 +9,7 @@ import type { SidebarConfig, NavbarConfig } from "@vuepress/theme-default";
 import pluginMermaid from "./theme/plugins/mermaid";
 
 const navbar: NavbarConfig = [
-  { text: "Foundation", link: "/" },
+  { text: "Foundation", link: "/foundation/" },
   {
     text: "Platforms",
     link: "/platforms/",
@@ -32,7 +32,7 @@ function getMarkdownFiles(dir: string) {
       (x) => x.isFile() && !x.name.startsWith(".") && x.name.endsWith(".md")
     )
     .map((x) => "/" + path.relative("docs/", path.join(dir, x.name)))
-    .map((x) => x.replaceAll(path.sep, '/')); //on windows, this needs to be done to cleanly define URL paths
+    .map((x) => x.replaceAll(path.sep, "/")); //on windows, this needs to be done to cleanly define URL paths
 
   return mdFiles;
 }
@@ -46,15 +46,18 @@ function getTree(dir: string) {
       return {
         text: x.name,
         collapsible: true,
-        children: [
-          ...getMarkdownFiles(child),
-          ...getTree(child),
-        ],
+        children: [...getMarkdownFiles(child), ...getTree(child)],
       };
     });
 }
 
 export const sidebar: SidebarConfig = {
+  "/foundation/": [
+    {
+      text: "Foundation",
+      children: getMarkdownFiles("docs/foundation"),
+    },
+  ],
   "/platforms/": [
     {
       text: "Platforms",
