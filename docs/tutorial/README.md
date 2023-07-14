@@ -68,7 +68,7 @@ Follow the interactive prompt `+ add cloud platform` and select the type of clou
 
 After completing the prompts, chose `✔ save & exit` to persist this configuration in your collie repository.
 
-### Review
+### Review Collie Repository
 
 After completing these steps, let's now review the structure of our collie repository:
 
@@ -89,38 +89,46 @@ $ tree
 6 directories, 4 files
 ```
 
-As you can see our platform has a 1:1 representation in the filesystem under `foundations/likvid-prod/platforms/az/README.md`.
+As you can see our platform has a 1:1 representation in the filesystem under `foundations/likvid-prod/platforms/az/README.md`. These files are [collie configuration objects](../reference/repository.md#configuration-objects) and they're the approach how collie stores all of its data about your cloud foundation.
 
-If we open that file we will see that it contains markdown with some structured yaml metadata in the beginning (called a frontmatter).
+## Generate Documentation
 
-```markdown
----
-id: az
-name: Azure
-azure:
-  aadTenantId: 703c8d27-13e0-4836-8b2e-8390c588cf80
-  subscriptionId: 9809209b-869e-4f5c-8d86-c8b71294153f
-cli:
-  az: {}
+When you develop a cloud foundation and start delivering landing zones to application teams in your organization,
+it's important that you are able to clearly articulate how the landing zones are designed and built.
 
----
+For this purpose, collie includes features to generate and automatically maintain documentation from the landing zones defined in your collie repository.
 
-# Azure
-  
-This Azure platform is set up in AAD Tenant 703c8d27-13e0-4836-8b2e-8390c588cf80.
+:::tip
+Since this documentation includes everything that is in your repository, it's also a great way of reviewing your progress
+as you are building up landing zones for your organization.
+:::
+
+### Import Documentation Template
+
+We will start our documentation by importing a template.
+
+```sh
+collie kit import foundation/docs
 ```
 
-This directory structure of the collie repository and these markdown files are how collie stores all of its data about your cloud foundation.
+Next let's generate the docs and open a local webserver to preview them
+
+```sh
+collie foundation docs livkid-prod --preview
+```
+
+<!-- TODO: put in a great screenshot here -->
 
 ## Next Steps
 
+In the next tutorial, we are going to learn how to deploy our first kit module to our cloud platform.
+
+
 :::tip
-Now is a good time to commit your changes to git 
+Now is a good time to commit your changes to git.
 
 ```sh
 git add . && git commit -m "initialized livkid-prod"
 ```
 
 :::
-
-In the next tutorial, we are going to learn how to deploy our first kit module to our cloud platform.
