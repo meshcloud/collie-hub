@@ -19,12 +19,12 @@ const treeSkip = [
 
 export const navbarEn: NavbarConfig = [
   {
-    text: "Hub",
-    link: "/hub/"
-  },
-  {
     text: "Getting Started",
     link: "/tutorial/",
+  },
+  {
+    text: "Hub",
+    link: "/hub/"
   },
   {
     text: "Guides",
@@ -164,6 +164,8 @@ function getAndBuildKitModuleTree(dir: string, child: string = "") {
 
 /**
  * This will inject a template with source code & installation to a README.
+ *
+ * It contains a lot of happy path string parsing. In future we should probably replace it with something more reliable.
  */
 function replaceReadMe(rawContent: string, module: string) {
   // First we need to split up the content into frontmatter & non-frontmatter, as the frontmatter might contain comments

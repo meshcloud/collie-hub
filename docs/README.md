@@ -6,7 +6,7 @@ actions:
   - text: Get Started
     link: /tutorial/
     type: primary
-  - text: View Modules
+  - text: Explore Modules
     link: /hub/
     type: secondary
 features:
