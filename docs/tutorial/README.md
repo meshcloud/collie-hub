@@ -85,5 +85,5 @@ our example implementation of a cloud foundation.
 
 - add a second (productive) cloud foundation `collie foundation new my-foundation-prod`
 - review kit module usage `collie kit tree` to ensure/dev-prod parity
-- build an interactive documentation for your cloud foundation using `collie docs`
+- build an interactive documentation for your cloud foundation using `collie foundation docs my-foundation`
 - document compliance controls and their implementation using `collie compliance`

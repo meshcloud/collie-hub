@@ -17,7 +17,6 @@ In Azure, the AAD tenant is its own concept.
 Keep in mind that every tenant has a "root management group", sitting at the top of the management group hierarchy.
 The `id` of this management group is equal to the AAD tenant id.
 :::
-c
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
