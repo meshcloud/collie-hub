@@ -1,6 +1,6 @@
-# Construction Kit Repository
+# Collie Repository
 
-A landing zone construction kit is always stored in a git (or other VCS) repository.
+Collie always stores the definition of your cloud foundation and all landing zones as code in a git repository.
 This repository contains infrastructure as code and configuration files enabling a well-structured, opinionated workflow.
 The [collie](https://github.com/meshcloud/collie-cli) cli tool understands this structure and helps you work with it.
 
