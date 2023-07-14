@@ -7,7 +7,9 @@ In this step you will learn
 
 First things first, for our journey, we need an organizational hierarchy for the Azure Cloud Platform. In this case, we will use the Collie Kit functionality to deploy it. To import the kit, use the following command:
 
-1. Run `collie kit import`.
+## 1. Run import.
+
+Run `collie kit import`.
 
 ```
 Select a kit module from official hub modules ⌕
@@ -15,11 +17,11 @@ Select a kit module from official hub modules ⌕
 ℹ 7/11 Next: ↓, Previous: ↑, Next Page: ⇟, →, Previous Page: ⇞, ←, Submit: ↵
 ```
 
-2. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit.
-
-3. When you run `cat foundations/likvid-foundation-dev/platforms/az/organization-hierarchy/terragrunt.hcl` on the file, you'll see that there are two additional files required to run our environment:
-
+2. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit. 
 ```shell
+
+cat foundations/likvid-prod/platforms/az/organization-hierarchy/terragrunt.hcl
+
 include "platform" {
   path = find_in_parent_folders("platform.hcl")
 }
@@ -27,60 +29,39 @@ include "platform" {
 include "module" {
   path = find_in_parent_folders("module.hcl")
 }
-```
 
-Copy this code block to `likvid-foundation-repo/foundations/likvid-foundation-dev/platforms/az/module.hcl`.
-
-```shell
-# Define shared configuration here that most non-bootstrap modules in this platform want to include
-
-# Optional: make Collie's platform config available in Terragrunt by parsing frontmatter
-locals {
-  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+terraform {
+  source = "${get_repo_root()}//kit/azure/organization-hierarchy"
 }
 
-# Recommended: generate a default provider configuration
-generate "provider" {
-  path      = "provider.tf"
-  if_exists = "overwrite"
-  contents  = <<EOF
-
-provider "azurerm" {
-  features {}
-  skip_provider_registration = false
-  tenant_id                  = "${local.platform.azure.aadTenantId}"
-  subscription_id            = "${local.platform.azure.subscriptionId}"
-}
-provider "azurerm" {
-  features {}
-  alias                      = "connectivity"
-  subscription_id            = "${local.platform.azure.subscriptionId}"
-  tenant_id                  = "${local.platform.azure.aadTenantId}"
-}
-provider "azurerm" {
-  features {}
-  alias                      = "management"
-  subscription_id            = "${local.platform.azure.subscriptionId}"
-  tenant_id                  = "${local.platform.azure.aadTenantId}"
-}
-
-EOF
-}
-```
-
-Copy this code block to `likvid-foundation-repo/foundations/likvid-foundation-dev/platforms/az/platform.hcl`.
-
-```shell
-locals {
-  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
-}
-
-# Recommended: enable documentation generation for kit modules
 inputs = {
-  output_md_file = "${get_path_to_repo_root()}/../output.md"
+  # todo: set input variables
+  connectivity          = "lv-connectivity"
+  corp                  = "lv-corp"
+  identity              = "lv-identity"
+  landingzones          = "lv-landingzones"
+  management            = "lv-management"
+  online                = "lv-online"
+  parentManagementGroup = "lv-foundation"
+  platform              = "lv-platform"
+
+}
+```
+
+We need some changes before we can work with the kit.  
+for the terraform backend handling over multiple environments it is recommended to have a DRY configuration. In this tutorial we have only one foundation and we will changing our terragrunt configuration. In the next tutorial `bootstrap` we look deeper into it.
+
+:::tip
+You want to know more about DRY and Terragrunt?
+[Terragrunt DRY](https://terragrunt.gruntwork.io/docs/getting-started/quick-start/#keep-your-backend-configuration-dry)
+:::
+
+```hcl
+locals {
+    platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".././/README.md"))[0])
 }
 
-# Recommended: remote state configuration
+# recommended: state configuration
 generate "backend" {
   path      = "backend.tf"
   if_exists = "overwrite"
@@ -91,7 +72,40 @@ terraform {
 }
 EOF
 }
+  # recommended: generate a default provider configuration
+  generate "provider" {
+    path      = "provider.tf"
+    if_exists = "overwrite"
+    contents  = <<EOF
+
+provider "azurerm" {
+  features {}
+  skip_provider_registration = false
+  tenant_id                  = "${local.platform.azure.aadTenantId}"
+  subscription_id            = "${local.platform.azure.subscriptionId}"
+}
+  EOF
+}
+ 
+terraform {
+  source = "${get_repo_root()}//kit/azure/organization-hierarchy"
+}
+
+inputs = {
+  # todo: set input variables
+  output_md_file = "${get_path_to_repo_root()}/../output.md"
+  connectivity          = "lv-connectivity"
+  corp                  = "lv-corp"
+  identity              = "lv-identity"
+  landingzones          = "lv-landingzones"
+  management            = "lv-management"
+  online                = "lv-online"
+  parentManagementGroup = "lv-foundation"
+  platform              = "lv-platform"
+  
+}
 ```
+We removed the include configuartion because we just running our kit in a 
 
 4. Now, we can deploy our first module by running `collie foundation deploy likvid-foundation-dev --platform az --module organization-hierarchy`.
 5. Type in `yes`.
@@ -103,7 +117,3 @@ EOF
 To go from this simple introduction to a productive use of the landing zone construction kit we recommend reviewing
 our example implementation of a cloud foundation.
 
-- add a second (productive) cloud foundation `collie foundation new my-foundation-prod`
-- review kit module usage `collie kit tree` to ensure/dev-prod parity
-- build an interactive documentation for your cloud foundation using `collie docs`
-- document compliance controls and their implementation using `collie compliance`
