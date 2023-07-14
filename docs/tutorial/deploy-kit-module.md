@@ -1,23 +1,34 @@
-
 # Deploy your first Kit Module
 
-In this step you will learn 
-- Create and deploy a Organization Hierarchy to this cloud platform (using an existing kit module)
+In this tutorial you will learn
 
+- import a reusable kit module from [collie hub](../hub/)
+- apply kit modules to your cloud platforms and deploy them
+- how collie leverages terraform and terragrunt for an efficient workflow
+
+As a simple example, we will deploy an Organization Hierarchy to our cloud platform.
 
 First things first, for our journey, we need an organizational hierarchy for the Azure Cloud Platform. In this case, we will use the Collie Kit functionality to deploy it. To import the kit, use the following command:
 
-## 1. Run import.
+## Import Kit Module from Collie Hub
 
-Run `collie kit import`.
+A [kit module](../reference/kit-module.md) is a reusable terraform module that we can apply to our foundation's cloud platform and deploy it. Collie hub is an open source repository where the cloudfoundation.org community publishes reusable kit modules. You can think of it like "Docker Hub".
 
-```
+
+Let's start by exploring the list of available hub modules either online at [collie hub](../hub/) or in the interactive prompt 
+in
+
+```sh
+ collie kit import
+ ```
+
+```text
 Select a kit module from official hub modules ⌕
 **❯ Azure Organization Hierarchy azure/organization-hierarchy**
 ℹ 7/11 Next: ↓, Previous: ↑, Next Page: ⇟, →, Previous Page: ⇞, ←, Submit: ↵
 ```
 
-2. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit. 
+1. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit. 
 ```shell
 
 cat foundations/likvid-prod/platforms/az/organization-hierarchy/terragrunt.hcl
