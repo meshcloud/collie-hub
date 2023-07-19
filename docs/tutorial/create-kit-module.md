@@ -115,14 +115,8 @@ a template for this, we just have to fill it in to document our module according
 :::: code-group
 ::: code-group-item documentation.tf
 ```hcl
-variable "output_md_file" {
-  type        = string
-  description = "location of the file where this cloud foundation kit module generates its documentation output"
-}
-
-resource "local_file" "output_md" {
-  filename = var.output_md_file
-  content = <<EOF
+output "documentation_md" {
+  value = <<EOF
 All resources of this platform are nested under the top-level GCP folder `${var.root_folder_name}`.
 All policies described below are also set at this folder level.
 
@@ -184,7 +178,6 @@ inputs = {
   organization_id             = locals.platform.gcp.organization
   root_folder_name            = "my-foundation"
   resource_locations_to_allow = ["in:eu-locations"]
-  output_md_file              = "${get_terragrunt_dir()}/output.md"
 }
 
 # boilerplate for setting up terraform 
