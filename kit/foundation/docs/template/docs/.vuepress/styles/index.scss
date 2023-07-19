@@ -1,0 +1,137 @@
+@use "sass:map";
+
+// Bootstrap is a great help but some of its core CSS conflicts with the default Vuepress CSS.
+// So we align bootstrap and vuepress vars here
+
+// We import the core files in palette so that in turn vuepress can override some of the styles defined by them
+// See https://getbootstrap.com/docs/4.6/getting-started/theming/#importing for import ordering of bootstrap
+@import "node_modules/bootstrap/scss/functions";
+
+$primary: #1ab9de;
+$info: #56c8e1;
+$warning: #e7c000;
+$danger: #cc0000;
+
+// make button padding slightly larger - we don't want "app" buttons that are geared towards
+// interactivity but want buttons to stand out
+$btn-padding-y: 0.5rem !default;
+$btn-padding-x: 1rem !default;
+$btn-padding-y-lg: 0.75rem !default;
+$btn-padding-x-lg: 1.5rem !default;
+
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// do not import bootstrap reboot, vuepress already uses its own normlize
+// however, bootstrap only works with this border box mode
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/custom-forms";
+
+// Fonts
+// unicode-range: U+000-5FF instructs the browser to only load the required glyph ranges (U+000 – U+5FF).
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/Montserrat-Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/Montserrat-Medium.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts/Montserrat-SemiBold.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/Montserrat-Bold.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts/Montserrat-Black.ttf);
+  font-display: swap;
+}
+
+// vuepress theme uses css variables
+// define them in terms of bootstrap scss variables
+:root {
+  // brand colors
+  --c-brand: #{$primary};
+  --c-brand-light: #42bfdc;
+
+  // background colors
+  --c-bg: #ffffff;
+  --c-bg-light: #f3f4f5;
+  --c-bg-lighter: #eeeeee;
+  --c-bg-navbar: var(--c-bg);
+  --c-bg-sidebar: var(--c-bg);
+  --c-bg-arrow: #cccccc;
+
+  // text colors
+  --c-text: #000000;
+  --c-text-accent: var(--c-brand);
+  --c-text-light: #3a5169;
+  --c-text-lighter: #4e6e8e;
+  --c-text-lightest: #6a8bad;
+  --c-text-quote: #999999;
+
+  // border colors
+  --c-border: #eaecef;
+  --c-border-dark: #dfe2e5;
+
+  // custom container colors
+  --c-tip: #{$info};
+  --c-tip-bg: var(--c-bg-light);
+  --c-tip-title: var(--c-text);
+  --c-tip-text: var(--c-text);
+  --c-tip-text-accent: var(--c-text-accent);
+  --c-warning: #{$warning};
+  --c-warning-bg: #fffae3;
+  --c-warning-title: #ad9000;
+  --c-warning-text: #746000;
+  --c-warning-text-accent: var(--c-text);
+  --c-danger: #{$danger};
+  --c-danger-bg: #ffe0e0;
+  --c-danger-title: #990000;
+  --c-danger-text: #660000;
+  --c-danger-text-accent: var(--c-text);
+  --c-details-bg: #eeeeee;
+
+  --font-family: #{$font-family-base};
+
+  --content-width: 860px;
+
+  --c-cfmm-bg: #9fd9ec;;
+  --c-cfmm-border-radius-lg: 12px;
+  --c-cfmm-text: #ffffff;
+}
+
+main {
+  padding-top: calc(var(--navbar-height) * 1);
+}

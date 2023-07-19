@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import * as path from "path";
 import {
   DefaultThemeOptions,
   defineUserConfig,
@@ -7,6 +6,7 @@ import {
 } from "vuepress-vite";
 import type { SidebarConfig, NavbarConfig } from "@vuepress/theme-default";
 import pluginMermaid from "./theme/plugins/mermaid";
+import { path } from '@vuepress/utils';
 
 const navbar: NavbarConfig = [
   { text: "Foundation", link: "/foundation/" },
@@ -82,6 +82,7 @@ export const sidebar: SidebarConfig = {
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
   // site-level locales config
+  theme: path.resolve(__dirname, "./theme"),
   locales: {
     "/": {
       lang: "en-US",
