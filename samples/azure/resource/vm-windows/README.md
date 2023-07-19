@@ -24,7 +24,6 @@ This documentation is intended as a reference documentation for cloud foundation
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | >= 3.0 |
 
 ## Modules
@@ -49,7 +48,6 @@ No modules.
 | [azurerm_subnet_network_security_group_association.vm_subnet_nsg_associate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association) | resource |
 | [azurerm_virtual_network.vnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
 | [azurerm_windows_virtual_machine.win_vm](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine) | resource |
-| [local_file.output_md](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [random_password.winvmpassword](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_string.myrandom](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
@@ -60,7 +58,6 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_aadTenantId"></a> [aadTenantId](#input\_aadTenantId) | n/a | `string` | n/a | yes |
 | <a name="input_keyvault_user_object_id"></a> [keyvault\_user\_object\_id](#input\_keyvault\_user\_object\_id) | n/a | `map` | n/a | yes |
-| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
 | <a name="input_resource_group_location"></a> [resource\_group\_location](#input\_resource\_group\_location) | Region in which Azure Resources to be created | `string` | `"West Europe"` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group Name | `string` | `"rg-default"` | no |
 | <a name="input_vm_subnet_address"></a> [vm\_subnet\_address](#input\_vm\_subnet\_address) | Virtual Network VM Subnet Address Spaces | `list(string)` | <pre>[<br>  "10.0.1.0/24"<br>]</pre> | no |
@@ -72,6 +69,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 | <a name="output_virtual_network_id"></a> [virtual\_network\_id](#output\_virtual\_network\_id) | Virtual Network ID |
 | <a name="output_virtual_network_name"></a> [virtual\_network\_name](#output\_virtual\_network\_name) | Virtual Network Name |
 | <a name="output_vm_subnet_id"></a> [vm\_subnet\_id](#output\_vm\_subnet\_id) | vm Subnet ID |
