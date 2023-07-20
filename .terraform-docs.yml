@@ -1,0 +1,21 @@
+formatter: "markdown" # this is required
+
+version: ""
+
+recursive:
+  enabled: false
+  path: kit
+
+content: ""
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+sort:
+  enabled: true
+  by: name

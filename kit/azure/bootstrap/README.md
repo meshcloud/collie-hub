@@ -38,7 +38,6 @@ To run this module, you need an Azure account with one of the following roles:
 |------|---------|
 | <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.18.0 |
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.5.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
 
 ## Modules
 
@@ -55,7 +54,6 @@ No modules.
 | [azuread_service_principal_password.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/resources/service_principal_password) | resource |
 | [azurerm_role_assignment.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/3.5.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_definition.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/3.5.0/docs/resources/role_definition) | resource |
-| [local_file.output_md](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [azuread_application_published_app_ids.well_known](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/data-sources/application_published_app_ids) | data source |
 | [azuread_service_principal.msgraph](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/data-sources/service_principal) | data source |
 | [azurerm_management_group.root](https://registry.terraform.io/providers/hashicorp/azurerm/3.5.0/docs/data-sources/management_group) | data source |
@@ -65,7 +63,6 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aad_tenant_id"></a> [aad\_tenant\_id](#input\_aad\_tenant\_id) | Id of the AAD Tenant. This is also the simultaneously the id of the root management group. | `string` | n/a | yes |
-| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
 | <a name="input_service_principal_name"></a> [service\_principal\_name](#input\_service\_principal\_name) | name of the Service Principal for deploying the cloud foundation | `string` | `"cloudfoundation_tf_deploy_user"` | no |
 
 ## Outputs
@@ -74,4 +71,5 @@ No modules.
 |------|-------------|
 | <a name="output_client_id"></a> [client\_id](#output\_client\_id) | n/a |
 | <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | n/a |
+| <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->

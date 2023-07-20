@@ -104,7 +104,6 @@ terraform {
 
 inputs = {
   # todo: set input variables
-  output_md_file = "${get_path_to_repo_root()}/../output.md"
   connectivity          = "lv-connectivity"
   corp                  = "lv-corp"
   identity              = "lv-identity"

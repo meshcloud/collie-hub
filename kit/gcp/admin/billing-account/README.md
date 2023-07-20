@@ -20,7 +20,6 @@ No requirements.
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
 
 ## Modules
 
@@ -36,7 +35,6 @@ No requirements.
 | [google_billing_account_iam_binding.billing_administrators](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_account_iam_binding) | resource |
 | [google_project_iam_custom_role.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_custom_role) | resource |
 | [google_project_iam_member.cloudfoundation_tf_deploy_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [local_file.output_md](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [google_billing_account.account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/billing_account) | data source |
 
 ## Inputs
@@ -49,7 +47,6 @@ No requirements.
 | <a name="input_cloud_billing_export_project"></a> [cloud\_billing\_export\_project](#input\_cloud\_billing\_export\_project) | Id of the GCP project holding the Cloud Billing export dataset. The export has to be set up manually since there's no terraform support for this. | `string` | n/a | yes |
 | <a name="input_cloud_billing_export_table_id"></a> [cloud\_billing\_export\_table\_id](#input\_cloud\_billing\_export\_table\_id) | Name of the table holding the Cloud Billing export data inside the dataset identified by `cloud_billing_export_dataset_id`. | `string` | n/a | yes |
 | <a name="input_enable_collie_view"></a> [enable\_collie\_view](#input\_enable\_collie\_view) | When enabled, will create a view called `collie_billing_view` to be used by collie cli for GCP cost reporting | `bool` | n/a | yes |
-| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
 | <a name="input_service_account_email"></a> [service\_account\_email](#input\_service\_account\_email) | n/a | `string` | n/a | yes |
 | <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | n/a | `string` | n/a | yes |
 
@@ -58,4 +55,5 @@ No requirements.
 | Name | Description |
 |------|-------------|
 | <a name="output_collie_billing_view_ids"></a> [collie\_billing\_view\_ids](#output\_collie\_billing\_view\_ids) | n/a |
+| <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->
