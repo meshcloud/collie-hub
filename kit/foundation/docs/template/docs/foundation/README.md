@@ -39,17 +39,17 @@ It’s critical to understand which security tasks are handled by whom.
 
 ## Common responsibilities across all landing zones
 
-The following responsiblities are with the cloud provider for all landing zones:
-- Physical hosts
-- Physical network
-- Physical datacenter
+The responsibility documented in the below table holds for all our offerings.
 
-The following responsibilities are with the cloud foundation team for all landing zones:
-- Identities, SSO on cloud platform
-- Audit Logs for calls against cloud platform APIs
-
-The following responsibilities are with the applicaiton team for all landing zones:
-- Permissions on the cloud platform
+|                                                      | application team     | cloud foundation     | cloud provider     |
+|:----------------------------------------------------:|:--------------------:|:--------------------:|:------------------:|
+| **Physical hosts**                                   |                      |                      | X                  |
+| **Physical network**                                 |                      |                      | X                  |
+| **Physical datacenter**                              |                      |                      | X                  |
+| **Identities, SSO on cloud platform**                |                      | X                    |                    |
+| **Audit Logs for calls against cloud platform APIs** |                      | X                    |                    |
+| **Permissions on the cloud platform**                | X                    |                      |                    |
+| **Costs**                                            | X                    |                      |                    |
 
 ## Landing Zones and Responsibilities
 
@@ -62,42 +62,40 @@ The different Landing Zones offer different trade-offs between freedom & respons
 
 Use this landing zone if you want to migrate workload from on-prem to the cloud with minimal effort.
 
-In addition to the he following responsibilites are with the application team:
-- Development and operations of your application
-- Identities and Accounts within your application
-- Information and data within your application
-- Costs
-
-The following responsibilities are with the cloud foundation team:
-- Network controls
-- Operating system
+|                                                     | application team     | cloud foundation     | cloud provider     |
+|:---------------------------------------------------:|:--------------------:|:--------------------:|:------------------:|
+| **Development and operations of your application**  | X                    |                      |                    |
+| **Identities and Accounts within your application** | X                    |                      |                    |
+| **Information and data within your application**    | X                    |                      |                    |
+| **Operating system**                                |                      | X                    |                    |
+| **Network controls**                                |                      | X                    |                    |
+| **Connectivity towards on-prem**                    |                      | X                    |                    |
 
 ### Cloud Native Landing Zone with connection to on-prem
 
 Use this landing zone if you want to modernize or re-write an existing application or write a new application from scratch.
 
-The following responsibilites are with the application team:
-- Development and operations of your application
-- Identities and Accounts within your application
-- Information and data within your application
-- Operating system
-- Costs
-
-The following responsibilities are with the cloud foundation team:
-- Network controls
-- Connectivity towards on-prem
+|                                                     | application team     | cloud foundation     | cloud provider     |
+|:---------------------------------------------------:|:--------------------:|:--------------------:|:------------------:|
+| **Development and operations of your application**  | X                    |                      |                    |
+| **Identities and Accounts within your application** | X                    |                      |                    |
+| **Information and data within your application**    | X                    |                      |                    |
+| **Operating system**                                | X                    |                      |                    |
+| **Network controls**                                |                      | X                    |                    |
+| **Connectivity towards on-prem**                    |                      | X                    |                    |
 
 ### Cloud Native Landing Zone without connection to on-prem
 
 Use this landing zone if you want to modernize or re-write an existing application or write a new application from scratch.
 Because this landing zone does not connect to on-prem, this landing zone is a popular choice for testing out the capabilities of a cloud provider.
 
-The following responsibilites are with the application team:
-- Development and operations of your application
-- Identities and Accounts within your application
-- Information and data within your application
-- Securing all endpoints of your application
-- Network controls
-- Operating system
-- Costs
+|                                                     | application team     | cloud foundation     | cloud provider     |
+|:---------------------------------------------------:|:--------------------:|:--------------------:|:------------------:|
+| **Development and operations of your application**  | X                    |                      |                    |
+| **Identities and Accounts within your application** | X                    |                      |                    |
+| **Information and data within your application**    | X                    |                      |                    |
+| **Securing all endpoints of your application**      | X                    |                      |                    |
+| **Operating system**                                | X                    |                      |                    |
+| **Network controls**                                |                      | X                    |                    |
+| **Connectivity towards on-prem**                    |                      | X                    |                    |
 
