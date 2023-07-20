@@ -2,7 +2,7 @@
 
 In this tutorial you will learn
 
-- import a reusable kit module from [collie hub](../hub/)
+- import a reusable kit module from [collie hub](modules/)
 - apply kit modules to your cloud platforms and deploy them
 - how collie leverages terraform and terragrunt for an efficient workflow
 
@@ -15,7 +15,7 @@ First things first, for our journey, we need an organizational hierarchy for the
 A [kit module](../reference/kit-module.md) is a reusable terraform module that we can apply to our foundation's cloud platform and deploy it. Collie hub is an open source repository where the cloudfoundation.org community publishes reusable kit modules. You can think of it like "Docker Hub".
 
 
-Let's start by exploring the list of available hub modules either online at [collie hub](../hub/) or in the interactive prompt 
+Let's start by exploring the list of available hub modules either online at [collie hub](modules/) or in the interactive prompt 
 in
 
 ```sh

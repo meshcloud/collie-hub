@@ -23,8 +23,8 @@ export const navbarEn: NavbarConfig = [
     link: "/tutorial/",
   },
   {
-    text: "Hub",
-    link: "/hub/"
+    text: "Modules",
+    link: "/modules/"
   },
   {
     text: "Guides",
@@ -41,11 +41,11 @@ export const navbarEn: NavbarConfig = [
 ];
 
 export const sidebar: SidebarConfig = {
-  "/hub/": [
+  "/modules/": [
     {
-      text: "Collie Hub",
+      text: "Modules",
       children: [
-          "/hub/",
+          "/modules/",
           ...getAndBuildKitModuleTree(path.join(__dirname, "..", "..", "kit"))
       ]
     }
@@ -99,7 +99,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "Collie",
+      title: "Collie Hub",
       description: "Build and Deploy modular landing zones with Collie",
     },
   },
@@ -135,14 +135,14 @@ function getAndBuildKitModuleTree(dir: string, child: string = "") {
       && child !== ""; // When no child is there, we are in the root kit folder, which contains a README too.
 
   if (isKitModule) {
-    // If we found a kit module, we will copy its README over to the hub folder.
+    // If we found a kit module, we will copy its README over to the modules folder.
     const source = path.join(dir, child, "README.md");
-    const destination = path.join(__dirname, "..", "hub", child);
+    const destination = path.join(__dirname, "..", "modules", child);
     const content = replaceReadMe(fs.readFileSync(source, "utf-8"), child);
     fs.mkdirSync(destination, { recursive: true })
     fs.writeFileSync(path.join(destination, "README.md"), content);
 
-    return [path.join("/", "hub", child)];
+    return [path.join("/", "modules", child)];
   } else {
     return files
       .filter((x) => {
