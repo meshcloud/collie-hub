@@ -73,3 +73,18 @@ Terragrunt offers many advanced features to keep configuration DRY. However, som
 lesser evil. Terragrunt configurations can get "too clever" quickly, especially when they compose from too many
 different dynamic configuration sources. We therefore recommend keeping terragrunt trickery to a minimum and stick to
 basic features like `include` and `dependency` for as long as possible.
+
+### Managing .terraform.lock.hcl files
+
+Terraform uses `.terraform.lock.hcl` files to [lock dependency versions](https://developer.hashicorp.com/terraform/language/files/dependency-lock) of providers and modules. If members of your cloud foundation team run a variety of operating systems and CPU architectures
+managing these locks in a way that members of your team won't see depency locking issues can be [very cumbersome](https://github.com/hashicorp/terraform/issues/29958).
+
+One important trick is to make sure that lock files contain entries for all OS and cpu architectures used in your team.
+This can be accomplished by running `terraform providers lock` across all your platform modules.
+
+```sh
+ collie foundation deploy my-foundation -- providers lock -platform=darwin_amd64 -platform=linux_amd64 -platform=darwin_arm64
+```
+
+Edit the `-platform` commands as appropriate. Don't forget committing the resulting lock file updates back to your repository
+to share with your team.
