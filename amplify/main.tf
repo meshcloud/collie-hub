@@ -16,6 +16,10 @@ resource "aws_amplify_app" "colliehub" {
   name       = "collie-hub"
   repository = "https://github.com/meshcloud/collie-hub"
 
+  environment_variables = {
+    "AMPLIFY_ENV" = "dev"
+  }
+
   custom_rule {
     source = "/<*>"
     status = "404-200"
@@ -37,6 +41,12 @@ resource "aws_amplify_branch" "main" {
   framework   = "Web"
   stage       = "PRODUCTION"
   tags        = {}
+  
+  enable_pull_request_preview = true
+
+  environment_variables = {
+    "AMPLIFY_ENV" = "prod"
+  }
   
 }
 
