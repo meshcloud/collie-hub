@@ -47,7 +47,6 @@ foundations/my-foundation/
     │   ├── README.md                 # the platform configuration file
     │   ├── admin                     # platform modules to configure the landing zone (administrative workload)
     │   │   └── tenant                # the admin/tenant platform module, 
-    │   │       ├── output.md           # documentation output rendered by the kit module
     │   │       └── terragrunt.hcl      # terragrunt configuration invoking kit module, e.g. //kit/admin/tenant
     │   ├── bootstrap                 # a bootstrap platform module, 1:1 
     │   │   └── terragrunt.hcl          # terragrunt configuration invoking kit module, e.g. //kit/bootstrap

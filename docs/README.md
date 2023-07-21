@@ -1,13 +1,13 @@
 ---
 home: true
-title: Collie
+title: Collie Hub
 heroImage: /images/hero.png
 actions:
   - text: Get Started
     link: /tutorial/
     type: primary
   - text: Explore Modules
-    link: /hub/
+    link: /modules/
     type: secondary
 features:
   - title: Modular Approach
