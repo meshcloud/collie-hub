@@ -58,13 +58,13 @@ After running this command, let's create a new cloud foundation. We will call th
 
 Let's run `collie foundation new likvid-prod` to start an interactive configuration for this foundation.
 
-![collie foundation new output](assets/collie-foundation-new.png)
+![collie foundation new output](./assets/collie-foundation-new.png)
 
 ### Add a platform
 
 Follow the interactive prompt `+ add cloud platform` and select the type of cloud platform you want to add (AWS, Azure or GCP). Then follow the instructions to complete the configuration.
 
-![collie foundation new add platform](assets/collie-foundation-new-add-platform.png)
+![collie foundation new add platform](./assets/collie-foundation-new-add-platform.png)
 
 After completing the prompts, chose `✔ save & exit` to persist this configuration in your collie repository.
 
