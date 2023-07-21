@@ -57,6 +57,8 @@ The responsibility documented in the below table holds for all our offerings.
 
 > 🚧 Adapt the list of landing zones you want to offer.
 
+> 🚧 The use landing zones in this template are split by connectivity and use-case model. For more information on modeling landing zones, see [the meshcloud ultimate landing zone guide](https://www.meshcloud.io/wp-content/uploads/The-Ultimate-Landing-Zone-Guide-EN.pdf).
+
 The Landing Zones we offer are divided by use cases and networking requirements.
 The different Landing Zones offer different trade-offs between freedom & responsibilities.
 
