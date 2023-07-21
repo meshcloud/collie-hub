@@ -1,23 +1,24 @@
 # Welcome to MyOrg Cloud Foundation
 
-> 🚧 Change MyOrg to your company name.
+> 🚧 Change MyOrg to your organization name.
 
-Welcome to MyOrg Cloud Foundation. Our team's job is to help you get your applications on the cloud.
+Welcome to MyOrg Cloud Foundation. Our team's job is to help you get your applications to the cloud.
 
 > 🚧 Introduce your team
 
-|Name|Role|
-|-|-|
-||Enterprise Architect|
-||Platform Engineer|
+| Name       | Role                 |
+|------------|----------------------|
+| Eric Adams | Enterprise Architect |
+| Phil       | Platform Engineer    |
 
 ## Your way to the cloud
 
-> 🚧 Describe how application teams in your org can get to the cloud.
+> 🚧 Describe how application teams in your organization can get to the cloud.
 
-Cloud adoption has two phases:
-- The planning phase often begins with our consulting hours: Here you can inform yourself and ask your questions. In this phase you will choose a cloud provider and landing zone. Please note that not every service is available from every provider and landing zone. We recommend to create a solution design at this stage. Our cloud solution architects will support you in this.
-- The implementation phase begins when you have access to your cloud environment. Now it's time for the big move - migrate your application and if necessary your data!
+Cloud adoption has two phases.
+
+1. The planning phase often begins with our consulting hours: Here you can inform yourself and ask your questions. In this phase you will choose a cloud provider and landing zone. Please note that not every service is available from every provider and landing zone. We recommend to create a solution design at this stage. Our cloud solution architects will support you in this.
+2. The implementation phase begins when you have access to your cloud environment. Now it's time for the big move - migrate your application and if necessary your data!
 
 ## Cloud Providers
 
@@ -26,6 +27,7 @@ Cloud adoption has two phases:
 > 🚧 Adapt the list of cloud providers you want to offer. If you plan on using different clouds for different kinds of use cases (e.g. "boutique cloud" approach) then describe who is a cloud partner for what.
 
 Our strategic cloud partners are
+
 - AWS
 - Google
 - Microsoft
