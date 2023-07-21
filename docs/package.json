@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "plausible-tracker": "^0.3.4"
+  },
+  "overrides": {
+    "vite": "2.8.6"
   }
 }
