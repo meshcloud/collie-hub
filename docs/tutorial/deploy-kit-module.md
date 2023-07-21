@@ -29,7 +29,7 @@ Select a kit module from official hub modules ⌕
 ```
 
 1. Additionally, we need a `terragrunt.hcl` file for Terraform. Create it using `collie kit apply` and choose the `Azure Organization Hierarchy azure/organization-hierarchy` kit. 
-```shell
+```sh
 
 cat foundations/likvid-prod/platforms/az/organization-hierarchy/terragrunt.hcl
 
@@ -118,7 +118,10 @@ inputs = {
 ```
 We removed the include configuartion because we just running our kit in a 
 
-4. Now, we can deploy our first module by running `collie foundation deploy likvid-foundation-dev --platform az --module organization-hierarchy`.
+4. Now, we can deploy our first module by running
+```sh
+collie foundation deploy likvid-foundation-dev --platform az --module organization-hierarchy
+```
 5. Type in `yes`.
 6. You should now have the hierarchy to build up your Azure platform.
 

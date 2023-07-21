@@ -25,7 +25,7 @@ As a first step, we have to create a new kit module. `collie` can help us create
 terraform files, a `README.md` and some helpful boilerplate.
 
 ```text
-$ collie kit new "gcp/admin/organiization"
+$ collie kit new "gcp/admin/organization"
  ? Choose a human-friendly name for this module (gcp/admin/organization) › GCP Organization Setup
 
 generated new kit module at kit/gcp/admin/organization/README.md
