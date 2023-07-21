@@ -24,7 +24,7 @@ in
 
 ```text
 Select a kit module from official hub modules ⌕
-**❯ Azure Organization Hierarchy azure/oganization-hierarchy**
+**❯ Azure Organization Hierarchy azure/organization-hierarchy**
 ℹ 7/11 Next: ↓, Previous: ↑, Next Page: ⇟, →, Previous Page: ⇞, ←, Submit: ↵
 ```
 
