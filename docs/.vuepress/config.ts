@@ -1,13 +1,13 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { defineUserConfig } from "@vuepress/cli";
 import {
-  defaultTheme,
   NavbarConfig,
   SidebarConfig,
 } from "@vuepress/theme-default";
+import pluginPlausible from "./theme/plugins/plausible";
 import { shikiPlugin } from "@vuepress/plugin-shiki";
+import { DefaultThemeOptions, defineUserConfig, ViteBundlerOptions } from "vuepress-vite";
 
 // The following files will be skipped for scanning kit modules in the tree.
 // This hurts a bit in local development, should not happen in CI/CD though.
@@ -23,8 +23,8 @@ export const navbarEn: NavbarConfig = [
     link: "/tutorial/",
   },
   {
-    text: "Hub",
-    link: "/hub/"
+    text: "Modules",
+    link: "/modules/"
   },
   {
     text: "Guides",
@@ -41,11 +41,11 @@ export const navbarEn: NavbarConfig = [
 ];
 
 export const sidebar: SidebarConfig = {
-  "/hub/": [
+  "/modules/": [
     {
-      text: "Collie Hub",
+      text: "Modules",
       children: [
-          "/hub/",
+          "/modules/",
           ...getAndBuildKitModuleTree(path.join(__dirname, "..", "..", "kit"))
       ]
     }
@@ -66,9 +66,8 @@ export const sidebar: SidebarConfig = {
       text: "Guides",
       children: [
         '/guide/README.md',
-        '/guide/bootstrapping.md',
+        '/guide/best-practices.md',
         '/guide/compliance.md',
-        '/guide/best-practices.md'
       ]
     },
   ],
@@ -95,38 +94,38 @@ export const sidebar: SidebarConfig = {
   ],
 };
 
-export default defineUserConfig({
-  // site-level locales config
-  locales: {
-    "/": {
-      lang: "en-US",
-      title: "Collie",
-      description: "Build and Deploy modular landing zones with Collie",
-    },
-  },
+export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+  lang: "en-US",
+  title: "Collie Hub",
+  description: "Build and Deploy modular landing zones with Collie",
+
+  plugins: [
+    [
+      pluginPlausible,
+      {
+        enableAutoPageviews: true,
+        enableAutoOutboundTracking: false, // may have issue, see https://github.com/plausible/plausible-tracker/issues/12 We use custom tracking via CtaButton component instead, so this is less relevant for us.
+        trackerOptions: {
+          apiHost: "",
+          domain:
+              process.env.AMPLIFY_ENV === "prod" // This way Plausible will only track data for the production version.
+                  ? "collie.cloudfoundation.org"
+                  : "preview.collie.cloudfoundation.org",
+        },
+      },
+    ],
+  ],
 
   // configure default theme
-  theme: defaultTheme({
+  themeConfig: {
     logo: "/images/hero.png",
     repo: "meshcloud/collie-hub",
     docsDir: "docs",
     darkMode: false,
-
-    // theme-level locales config
-    locales: {
-      /**
-       * English locale config
-       *
-       * As the default locale of @vuepress/theme-default is English,
-       * we don't need to set all of the locale fields
-       */
-      "/": {
-        navbar: navbarEn,
-        sidebar: sidebar,
-        editLinkText: "Edit this page on GitHub",
-      },
-    },
-  }),
+    navbar: navbarEn,
+    sidebar: sidebar,
+    editLinkText: "Edit this page on GitHub",
+  },
 });
 
 function getAndBuildKitModuleTree(dir: string, child: string = "") {
@@ -136,14 +135,14 @@ function getAndBuildKitModuleTree(dir: string, child: string = "") {
       && child !== ""; // When no child is there, we are in the root kit folder, which contains a README too.
 
   if (isKitModule) {
-    // If we found a kit module, we will copy its README over to the hub folder.
+    // If we found a kit module, we will copy its README over to the modules folder.
     const source = path.join(dir, child, "README.md");
-    const destination = path.join(__dirname, "..", "hub", child);
+    const destination = path.join(__dirname, "..", "modules", child);
     const content = replaceReadMe(fs.readFileSync(source, "utf-8"), child);
     fs.mkdirSync(destination, { recursive: true })
     fs.writeFileSync(path.join(destination, "README.md"), content);
 
-    return [path.join("/", "hub", child)];
+    return [path.join("/", "modules", child)];
   } else {
     return files
       .filter((x) => {

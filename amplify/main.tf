@@ -25,12 +25,18 @@ resource "aws_amplify_app" "colliehub" {
     status = "404-200"
     target = "/index.html"
   }
-  
+
+  custom_rule {
+    source = "/api/event"
+    status = "200"
+    target = "https://plausible.io/api/event"
+  }
+
   // this is a default redirect set up by amplify
   # custom_rule {
-  #   source = "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>" 
-  #   status = "200" 
-  #   target = "/index.html" 
+  #   source = "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>"
+  #   status = "200"
+  #   target = "/index.html"
   # }
 }
 
@@ -41,13 +47,13 @@ resource "aws_amplify_branch" "main" {
   framework   = "Web"
   stage       = "PRODUCTION"
   tags        = {}
-  
+
   enable_pull_request_preview = true
 
   environment_variables = {
     "AMPLIFY_ENV" = "prod"
   }
-  
+
 }
 
 
@@ -55,7 +61,7 @@ resource "aws_amplify_domain_association" "collie_cloudfoundation_org" {
   app_id      = aws_amplify_app.colliehub.id
   domain_name = "collie.cloudfoundation.org"
   wait_for_verification = false
-  
+
   sub_domain {
     branch_name = aws_amplify_branch.main.branch_name
     prefix      = ""

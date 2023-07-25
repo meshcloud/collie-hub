@@ -34,6 +34,7 @@ This documentation is intended as a reference documentation for cloud foundation
 | <a name="provider_local"></a> [local](#provider\_local) | n/a |
 | <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
+
 ## Modules
 
 | Name | Source | Version |
@@ -66,8 +67,6 @@ This documentation is intended as a reference documentation for cloud foundation
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aad_tenant_id"></a> [aad\_tenant\_id](#input\_aad\_tenant\_id) | Id of the AAD Tenant. This is also the simultaneously the id of the root management group. | `string` | n/a | yes |
-| <a name="input_output_md_file"></a> [output\_md\_file](#input\_output\_md\_file) | location of the file where this cloud foundation kit module generates its documentation output | `string` | n/a | yes |
-| <a name="input_platform_engineers_members"></a> [platform\_engineers\_members](#input\_platform\_engineers\_members) | Platform engineers with access to this platform's terraform state | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 | <a name="input_service_principal_name"></a> [service\_principal\_name](#input\_service\_principal\_name) | name of the Service Principal for deploying the cloud foundation | `string` | `"cloudfoundation_tf_deploy_user"` | no |
 | <a name="input_terraform_state_storage"></a> [terraform\_state\_storage](#input\_terraform\_state\_storage) | Configure this object to enable setting up a terraform state store in Azure Storage. | <pre>object({<br>    location = string<br>  })</pre> | `null` | no |
 
@@ -76,4 +75,7 @@ This documentation is intended as a reference documentation for cloud foundation
 | Name | Description |
 |------|-------------|
 | <a name="output_terraform_state"></a> [terraform\_state](#output\_terraform\_state) | n/a |
+| <a name="output_client_id"></a> [client\_id](#output\_client\_id) | n/a |
+| <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | n/a |
+| <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->

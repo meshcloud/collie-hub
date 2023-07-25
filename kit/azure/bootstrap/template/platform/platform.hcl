@@ -29,8 +29,3 @@ generate "backend" {
 %{ endif }
  EOF
 }
-
-# recommended: enable documentation generation for kit modules
-inputs = {
-  output_md_file = "${get_path_to_repo_root()}/../output.md"
-}
