@@ -1,9 +1,10 @@
 # Start your Cloud Foundation
 
-This series of tutorials will lead you through the steps to get started with collie. This first tutorial will show you to
+This series of tutorials will lead you through the steps to get started with collie. This first tutorial will show you how to
 
 - initialize a new repository to work with collie
 - add your first cloud platform
+- import a [reusable kit module](../modules/) from collie hub
 - create and review documentation for your cloud foundation
 
 Throughout our tutorials, we are goin to use "Livkid Bank" as the name of a fictional organization that we are building a cloud foundation for.
@@ -122,7 +123,6 @@ collie foundation docs livkid-prod --preview
 ## Next Steps
 
 In the next tutorial, we are going to learn how to deploy our first kit module to our cloud platform.
-
 
 :::tip
 Now is a good time to commit your changes to git.
