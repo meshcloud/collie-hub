@@ -25,3 +25,15 @@ variable "platform_engineers_members" {
     upn   = string,
   }))
 }
+
+variable "file_path" {
+  type        = string
+  default     = "tfstates-config.yml"
+  description = "tfstate-config file for running the bootstrap"
+}
+
+variable "resource_group_tfstate" {
+  type        = string
+  nullable    = false
+  description = "tfstate resource group for the statefiles"
+}

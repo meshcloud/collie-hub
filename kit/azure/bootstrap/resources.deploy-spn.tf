@@ -28,7 +28,7 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       "Microsoft.Management/managementGroups/read",
       "Microsoft.Management/managementGroups/descendants/read",
       "Microsoft.Management/managementGroups/write",
-      
+
       # Permissions to move subscriptions between management groups
       "Microsoft.Management/managementgroups/subscriptions/delete",
       "Microsoft.Management/managementgroups/subscriptions/write",

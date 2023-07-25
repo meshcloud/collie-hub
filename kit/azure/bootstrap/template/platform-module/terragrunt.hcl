@@ -25,15 +25,20 @@ EOF
 
 
 locals {
+  resource_group_tfstate = "cloudfoundation-tfstate" #TODO change, name your rg fo the statefiles
+  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
+  location = "germanywestcentral" #TODO change, the location where your bucket live
+  upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
   platform_engineers_emails = [
-    # TODO ENTER PLATFORM ENGINEERS HERE
+    "meshi@meshithesheep.io" # #TODO change, enter PLATFORM ENGINEERS here
   ]
 
   # TODO: Usefull if you need to translate emails into UPNs as necessary, shown here with guest users
+  # change the upn_domain value above
   platform_engineers_members = [
     for x in local.platform_engineers_emails : {
       email = x
-      upn   = "${replace(x, "@", "_")}#EXT#@example.onmicrosoft.com"
+      upn   = "${replace(x, "@", "_")}${local.upn_domain}"
     }
   ]
 }
@@ -52,10 +57,12 @@ terraform {
 }
 
 inputs = {
+  file_path = include.platform.locals.file_path
   aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
+  resource_group_tfstate = local.resource_group_tfstate
   platform_engineers_members = local.platform_engineers_members
-  service_principal_name     = "cloudfoundation_tf_deploy_user" # TODO: Pick a name
+  service_principal_name     = local.service_principal_name
   terraform_state_storage = {
-    location = "germanywestcentral" # TODO: Pick a location
+    location = local.location
   }
 }
