@@ -115,7 +115,7 @@ inputs = {
   
 }
 ```
-We removed the include configuartion because we just running our kit in a 
+We removed the include configuration because we just running our kit in a 
 
 4. Now, we can deploy our first module by running
 ```sh
