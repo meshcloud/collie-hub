@@ -9,7 +9,7 @@ In this tutorial you will learn how to use collie's terraform workflow to build 
 
 ## Bootstrap a cloud platform
 
-The first module that you are going to deploy on a new cloud platform is always the "boostrap" module. The goal of [bootstrapping](../concept/bootstrapping.md) is to prepare the cloud platform so that you can deploy further kit modules to the platform in an easy way and repeatable way.
+The first module that you are going to deploy on a new cloud platform is always the "boostrap" module. The goal of [bootstrapping](../concept/bootstrapping.md) is to prepare the cloud platform so that you and other platform engineers on your team can deploy further kit modules to the platform in an easy way and repeatable way.
 
 ### Import Bootstrap Kit Module from Collie Hub
 
