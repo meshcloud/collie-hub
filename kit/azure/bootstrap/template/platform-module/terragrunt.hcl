@@ -25,7 +25,7 @@ EOF
 
 
 locals {
-  resource_group_tfstate = "cloudfoundation-tfstate" #TODO change, name your rg fo the statefiles
+  resource_group_tfstate = "cloudfoundation_tfstate" #TODO change, name your rg fo the statefiles
   service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
   location = "germanywestcentral" #TODO change, the location where your bucket live
   upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
