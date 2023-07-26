@@ -36,33 +36,22 @@ provider "azuread" {
 EOF
 }
 
-
-locals {
-  resource_group_tfstate = "cloudfoundation_tfstate" #TODO change, name your rg fo the statefiles
-  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
-  location = "germanywestcentral" #TODO change, the location where your bucket live
-  upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
-  platform_engineers_emails = [
-    "meshi@meshithesheep.io" # #TODO change, enter PLATFORM ENGINEERS here
-  ]
-
-  # TODO: Usefull if you need to translate emails into UPNs as necessary, shown here with guest users
-  # change the upn_domain value above
-  platform_engineers_members = [
-    for x in local.platform_engineers_emails : {
-      email = x
-      upn   = "${replace(x, "@", "_")}${local.upn_domain}"
-    }
-  ]
-}
-
 inputs = {
+  # for creation of the resource_group and storage container we are using the
+  # https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_naming_convention
+  # you only need the the name of your foundation like likvid the result would like rg-tfstate-likvid-ewt
+
+  resources_tfstate = "cloudfoundation" #TODO change, name your rg fo the statefiles
+  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
+  
+  terraform_state_storage = {
+    location = "germanywestcentral" #TODO change, the location where your bucket live
+  }
+
+  platform_engineers_members = [{
+    email = "meshi@meshithesheep.io" #TODO change, enter PLATFORM ENGINEERS MAIL here
+    upn   = "meshi@meshithesheep.onmicrosoft.com"}] #TODO change, enter PLATFORM ENGINEERS UPN here
+
   file_path = include.platform.locals.file_path
   aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
-  resource_group_tfstate = local.resource_group_tfstate
-  platform_engineers_members = local.platform_engineers_members
-  service_principal_name     = local.service_principal_name
-  terraform_state_storage = {
-    location = local.location
-  }
 }
