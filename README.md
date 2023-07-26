@@ -1,7 +1,8 @@
 # Collie Hub
 
 Collie Hub is the place to find ready-to-use [Collie](https://github.com/meshcloud/collie-cli) kit modules that help you
-build cloud landing zones for your organization and accelerate your cloud journey.
+build cloud landing zones for your organization and accelerate your cloud journey. You can find all available modules
+on the Collie Hub website [here](https://collie.cloudfoundation.org/modules/#how-to-use-a-module-from-the-hub).
 
 [Landing Zones](https://www.meshcloud.io/2020/06/08/cloud-landing-zone-lifecycle-explained/) are an architectural
 pattern for setting up cloud environments for multiple workloads in a scalable and secure manner.
