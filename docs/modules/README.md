@@ -23,14 +23,19 @@ Assuming you have already read and used the [Getting Started](/tutorial) guide a
 one cloud platform, you can import kit modules from the Collie Hub as following:
 
 ```shell
-collie kit import "<kit-name>" # Tip: if you skip kit-name, you can interactively explore all available modules from your CLI.
+# Import a kit module from collie hub
+collie kit import <module>
 
-# Apply the kit to your foundation of choice (as usual)
-collie kit apply "<kit-name>" --foundation <foundation-name>
+# Apply the kit module to your foundation of choice (as usual)
+collie kit apply <module>
 ```
+
+::: tip
+If you skip supplying the `<module>` parameter, you can interactively explore all available modules from your CLI.
+:::
 
 That's it! The kit module is now part of your cloud foundation. You can make edits to it and deploy it when ready:
 
 ```shell
-collie foundation deploy <foundation-name> 
+collie foundation deploy <foundation> 
 ```
