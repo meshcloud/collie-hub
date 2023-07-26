@@ -9,7 +9,7 @@ import type { SidebarConfig, NavbarConfig } from "@vuepress/theme-default";
 import pluginMermaid from "./theme/plugins/mermaid";
 
 const navbar: NavbarConfig = [
-  { text: "Foundation", link: "/foundation/" },
+  { text: "Foundation", link: "/" },
   {
     text: "Platforms",
     link: "/platforms/",
@@ -52,10 +52,10 @@ function getTree(dir: string) {
 }
 
 export const sidebar: SidebarConfig = {
-  "/foundation/": [
+  "/": [
     {
       text: "Foundation",
-      children: getMarkdownFiles("docs/foundation"),
+      children: getMarkdownFiles("docs"),
     },
   ],
   "/platforms/": [
