@@ -71,6 +71,7 @@ export const sidebar: SidebarConfig = {
         '/guide/README.md',
         '/guide/best-practices.md',
         '/guide/compliance.md',
+        '/guide/faq.md',
       ]
     },
   ],
