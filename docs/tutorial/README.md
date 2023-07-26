@@ -13,7 +13,7 @@ Throughout our tutorials, we are goin to use "Livkid Bank" as the name of a fict
 
 Let's first review whether we have collie and the dependencies on other tools that we are going to need correctly installed.
 
-```text
+```shellsession
 $ collie info
 collie v0.17.0
 
@@ -73,7 +73,7 @@ After completing the prompts, chose `✔ save & exit` to persist this configurat
 
 After completing these steps, let's now review the structure of our collie repository:
 
-```text
+```shellsession
 $ tree
 .
 ├── README.md
