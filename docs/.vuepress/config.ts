@@ -6,7 +6,6 @@ import {
   SidebarConfig,
 } from "@vuepress/theme-default";
 import pluginPlausible from "./theme/plugins/plausible";
-import { shikiPlugin } from "@vuepress/plugin-shiki";
 import { DefaultThemeOptions, defineUserConfig, ViteBundlerOptions } from "vuepress-vite";
 
 // The following files will be skipped for scanning kit modules in the tree.
