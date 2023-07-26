@@ -32,7 +32,7 @@ variable "file_path" {
   description = "tfstate-config file for running the bootstrap"
 }
 
-variable "resource_group_tfstate" {
+variable "resources_tfstate" {
   type        = string
   nullable    = false
   description = "tfstate resource group for the statefiles"

@@ -37,7 +37,11 @@ EOF
 }
 
 inputs = {
-  resource_group_tfstate = "cloudfoundation_tfstate" #TODO change, name your rg fo the statefiles
+  # for creation of the resource_group and storage container we are using the
+  # https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_naming_convention
+  # you only need the the name of your foundation like likvid the result would like rg-tfstate-likvid-ewt
+
+  resources_tfstate = "cloudfoundation" #TODO change, name your rg fo the statefiles
   service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
   
   terraform_state_storage = {
