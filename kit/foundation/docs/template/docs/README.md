@@ -32,7 +32,7 @@ Our strategic cloud partners are
 - Google
 - Microsoft
 
-We offer [landing zones](docs/concepts.md#landing-zone) for each of those [platforms](/platforms/).
+We offer [landing zones](./concepts.md#landing-zone) for each of those [platforms](/platforms/).
 
 ## Shared Responsibility Model
 
