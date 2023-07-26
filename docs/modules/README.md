@@ -1,7 +1,13 @@
 # Introduction
 
-In the Collie Hub you will find all community-curated open-source kit modules that you can use for building your cloud foundation
+In the Collie Hub you will find open-source kit modules that you can use for building your cloud foundation
 and landing zones on AWS, Azure & GCP.
+The [cloudfoundation.org community](https://cloudfoundation.org)
+maintains these modules in an [open source repository](https://github.com/meshcloud/collie-hub).
+
+::: tip
+The challenges that most organizations encounter building up a landing zone are very similar. Kit modules available on Collie Hub implement common solutions and serve as a great starting point for building your own landing zones.
+:::
 
 All available modules are grouped in the sidebar on the left by cloud platform. The `foundation` category is meant for
 modules that work across multiple platforms. You will most likely not find any Terraform code here, but rather tools

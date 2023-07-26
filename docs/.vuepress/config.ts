@@ -76,8 +76,7 @@ export const sidebar: SidebarConfig = {
       text: "Getting Started",
       children: [
         '/tutorial/README.md',
-        '/tutorial/deploy-kit-module.md',
-        '/tutorial/bootstrap-platform.md',
+        '/tutorial/deploy-first-module.md',
         '/tutorial/create-kit-module.md',
         '/tutorial/compliance-control.md'
       ]
