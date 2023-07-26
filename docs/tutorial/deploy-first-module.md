@@ -132,10 +132,10 @@ collie foundation deploy likvid-prod --bootstrap
 Collie will now invoke terragrunt which invokes terraform under the hood. You should see the familiar terraform plan and prompt for confirmation
 
 ```text
-collie foundation deploy likvid2  --bootstrap
+collie foundation deploy likvid-prod  --bootstrap
 
-running 'apply' in foundations/likvid2 ...
-running 'apply' in foundations/likvid2/platforms/az/bootstrap ...
+running 'apply' in foundations/likvid-prod ...
+running 'apply' in foundations/likvid-prod/platforms/az/bootstrap ...
 Initializing modules...
 - terraform_state in terraform-state
 
@@ -261,6 +261,7 @@ use this backend unless the backend configuration changes.
 
 ::: tip
 Terraform is usually good at telling you about what the issue is and what terraform commands you can use to potentially fix it. Running custom terraform commands with `collie foundation deploy -- command` is a common workflow to troubleshoot any terraform issues you encounter.
+:::
 
 We are now fully bootstrapped! Finally and as promised before, re-running the bootstrapped module should now result in no more changes
 
