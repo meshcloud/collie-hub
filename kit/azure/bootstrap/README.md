@@ -16,10 +16,9 @@ cfmm:
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
 
-## additional UPN handling 
-Usefull if you need to translate emails into UPNs as necessary, shown here with guest users. You could add this code block
-to your `terragrunt.hcl` instead of using out of the the `ìnputs`. 
-
+## UPN handling for AAD Guest users 
+Useful if you need to translate emails into UPNs (User Principal Names) as necessary, especially for guest users. 
+You can add this code block to your terragrunt.hcl file instead of using inputs."
 
 ```hcl
 locals {
