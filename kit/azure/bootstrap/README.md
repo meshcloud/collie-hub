@@ -15,7 +15,29 @@ cfmm:
 # azure/bootstrap
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
-  
+
+## additional UPN handling 
+Usefull if you need to translate emails into UPNs as necessary, shown here with guest users. You could add this code block
+to your `terragrunt.hcl` instead of using out of the the `ìnputs`. 
+
+
+```hcl
+locals {
+upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
+  platform_engineers_emails = [
+    "meshi@meshithesheep.io" # #TODO change, enter PLATFORM ENGINEERS here
+  ]
+
+# change the upn_domain value above
+  platform_engineers_members = [
+    for x in local.platform_engineers_emails : {
+      email = x
+      upn   = "${replace(x, "@", "_")}${local.upn_domain}"
+    }
+  ]
+}
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
