@@ -61,6 +61,7 @@ export const sidebar: SidebarConfig = {
         '/reference/foundation.md',
         '/reference/kit-module.md',
         '/reference/platform-module.md',
+        '/reference/tenant.md',
       ]
     },
   ],
