@@ -37,6 +37,10 @@ export const navbarEn: NavbarConfig = [
     text: "Reference",
     link: "/reference/repository",
   },
+  {
+    text: "Accelerator",
+    link: "/accelerator/"
+  }
 ];
 
 export const sidebar: SidebarConfig = {
@@ -90,6 +94,14 @@ export const sidebar: SidebarConfig = {
       ]
     },
   ],
+  "/accelerator/": [
+    {
+      text: "Accelerator",
+      children: [
+          "/accelerator/README.md"
+      ]
+    }
+  ]
 };
 
 export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
