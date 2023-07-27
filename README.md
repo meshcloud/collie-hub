@@ -10,8 +10,6 @@ This repository contains:
 - `/docs` the source code generating the [collie hub website](https://collie.cloudfoundation.org)
 - `/kit` a collection of reusable modules implementing common best practices for building [modular landing zones](https://cloudfoundation.meshcloud.io/maturity-model/tenant-management/modular-landing-zones.html)
 
-## ⭐️ Stargazers
+## Community, Discussion, Support
 
-<img src="https://starchart.cc/meshcloud/collie-hub.svg" alt="Stargazers over time" style="max-width: 100%">
-
-<p align="center"><b>Made with ❤️ by <a href="https://meshcloud.io/">meshcloud</a></b></p>
+Collie is a 🌤️ [cloudfoundation.org community](https://cloudfoundation.org/?ref=github-collie-cli) project. Reach out to us on the [cloudfoundation.org slack](http://cloudfoundationorg.slack.com).
