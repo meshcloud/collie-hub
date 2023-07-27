@@ -55,7 +55,7 @@ fetching tenants foundations/test/platforms/gcp DONE 23232ms
       └─ felix-cloudfun-demo-20210223 felix-cloudfun-demo-20210223
 ```
 
-### Listing costs per tenant
+## Listing costs
 
 To enrich the information per tenant, you can list the cost per month, per tenant. To do so, run the following command (this will list costs for the first quarter of 2021)
 
