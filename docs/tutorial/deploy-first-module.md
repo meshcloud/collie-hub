@@ -364,9 +364,9 @@ inputs = {
 You can always find more information on how to work with a particular kit module in that module's description on Collie Hub. Here's the description of the [Organization Hierarchy Kit Module](../modules/azure/organization-hierarchy/README.md).
 :::
 
-After deploying, review your hierarchy in Azure portal. It should look like this
+After deploying, review your hierarchy in Azure portal or - more quickly - with the [tenant tree command](../reference/tenant.md#listing-cloud-resource-hierarhcy).
 
-<!-- TODO @fnowarre: add screenshot -->
+<!-- TODO @fnowarre: add collie tenant tree shellsession code block with sample output -->
 
 ### Exercise: Modify configuration and Destroy resources
 
