@@ -30,6 +30,31 @@ The output of this command should look something like this:
 
 ![](./assets/collie-tenant-list.png)
 
+## Listing cloud resource hierarhcy
+
+Cloud tenants are part of a resource hierarchy. Quickly reviewing this hierarchy is important when developing landing zones, as this hierarchy determines how organization wide rules and policies are shared via inheritance.
+
+```sh
+collie tenant tree <foundation>
+```
+
+This should result in a `tree`-like output showing your resource hierarchy and ids (useful for `terraform import`) for your cloud platform.
+
+```shellsession
+$ collie tenant tree <foundation>
+fetching tenants foundations/test/platforms/gcp ...
+fetching tenants foundations/test/platforms/gcp DONE 23232ms
+└─ gcp
+   └─ organization 12345612
+      ├─ likvid folders/493343334220
+      │  ├─ likvid-dev folders/958712559912
+      │  │  ├─ likvid-backend backend-develop likvid-backend-backend-de-m42
+      │  │  └─ likvid-mobile develop likvid-mob-develop-mtihns7f
+      │  └─ likvid-prod folders/145213092684
+      │     └─ likvid-mobile production likvid-mob-production-3576w7yh
+      └─ felix-cloudfun-demo-20210223 felix-cloudfun-demo-20210223
+```
+
 ### Listing costs per tenant
 
 To enrich the information per tenant, you can list the cost per month, per tenant. To do so, run the following command (this will list costs for the first quarter of 2021)
@@ -50,8 +75,7 @@ An example output of this command should look something like this:
 When exporting this information as CSV, you will get the tags of a tenant as columns. This makes it very handy to import and analyze in a dashboard tool such as PowerBI or Google Data Studio to see the costs per tag, and answering questions such as e.g. what did I spend on development environments in the last month?
 :::
 
-
-## Listing IAM configuration per tenant
+## Listing IAM configuration
 
 To see who or what has access to a tenant, you can use the IAM listing functionality of Collie. You can do so by running this command:
 
