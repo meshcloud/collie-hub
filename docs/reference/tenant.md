@@ -40,13 +40,16 @@ collie tenant cost <foundation> --from 2021-01-01 --to 2021-03-31
 
 This will give you a table view with all tenants, with the costs made per month.
 
+An example output of this command should look something like this:
+
+![](./assets/collie-tenant-costs.png)
+
+**Note for GCP platforms** Cost reporting on GCP requires setting up a [BigQuery billing export](https://cloud.google.com/billing/docs/how-to/export-data-bigquery) and a special view, as well as configuring how to access it in your foundation's [GCP platform config](./foundation.md#gcp). The recommended way to set this up is via the [gcp/admin/billing-account kit module](./../modules/gcp/admin/billing-account/README.md).
+
 ::: tip
 When exporting this information as CSV, you will get the tags of a tenant as columns. This makes it very handy to import and analyze in a dashboard tool such as PowerBI or Google Data Studio to see the costs per tag, and answering questions such as e.g. what did I spend on development environments in the last month?
 :::
 
-An example output of this command should look something like this:
-
-![](./assets/collie-tenant-costs.png)
 
 ## Listing IAM configuration per tenant
 
