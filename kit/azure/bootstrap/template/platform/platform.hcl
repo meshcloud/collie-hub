@@ -1,7 +1,7 @@
 locals {
 # define shared configuration here that's included by all terragrunt configurations in this locals 
   platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
-  file_path   = "${get_parent_terragrunt_dir()}/${path_relative_to_include()}/tfstates-config.yml"
+  file_path   = "${get_parent_terragrunt_dir()}/tfstates-config.yml"
   tfstateconfig = try(yamldecode(file(local.file_path)), [])
 }
 
