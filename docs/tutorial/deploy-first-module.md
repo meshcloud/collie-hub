@@ -130,13 +130,13 @@ Finally we have an `inputs` block that allows us to set input variables for this
 After saving the `terragrunt.hcl` we can now deploy the bootstrap module with the command `collie foundation deploy`. Because the bootstrap module is special in collie's workflow, we need to explicitly pass the `--bootstrap` flag.
 
 ```sh
-collie foundation deploy likvid-prod --bootstrap
+collie foundation deploy --bootstrap
 ```
 
 Collie will now invoke terragrunt which invokes terraform under the hood. You should see the familiar terraform plan and prompt for confirmation
 
 ```shellsession
-$ collie foundation deploy likvid-prod  --bootstrap
+$ collie foundation deploy --bootstrap
 
 running 'apply' in foundations/likvid-prod ...
 running 'apply' in foundations/likvid-prod/platforms/az/bootstrap ...
@@ -197,7 +197,7 @@ We are however not fully done bootstrapping yet. One key benefit of using terraf
 Let's just run the previous command again and see what happens.
 
 ```shellsession
-$ collie foundation deploy likvid-prod  --bootstrap 
+$ collie foundation deploy --bootstrap 
 ...
 │ Error: Backend initialization required: please run "terraform init"
 │
@@ -239,7 +239,7 @@ So the error message we got from terraform tells us that we need to do next: run
 Collie's command `collie foundation deploy` has an easy way to run an arbitrary terraform commands by appending a ` -- <command>`. 
 
 ```shellsession
-$ collie foundation deploy likvid-prod  --bootstrap -- init -migrate-state
+$ collie foundation deploy --bootstrap -- init -migrate-state
 
 ...
 
@@ -270,7 +270,7 @@ Terraform is usually good at telling you about what the issue is and what terraf
 We are now fully bootstrapped! Finally and as promised before, re-running the bootstrapped module should now result in no more changes
 
 ```shellsession
-$ collie foundation deploy likvid-prod  --bootstrap
+$ collie foundation deploy --bootstrap
 
 ...
 
@@ -373,8 +373,8 @@ After deploying, review your hierarchy in Azure portal or - more quickly - with 
 At this point of the tutorial, we can run through a little exercise to reaffirm your mastery of collie.
 
 - make changes to `inputs` in `terragrunt.hcl` like renaming one of the management groups
-- deploy your changes using `collie foundation deploy likvid-prod`
-- destroy all cloud resources using `terraform destroy` via `collie foundation deploy likvid-prod -- destroy`
+- deploy your changes using `collie foundation deploy`
+- destroy all cloud resources using `terraform destroy` via `collie foundation deploy -- destroy`
 
 ## Next Steps
 
