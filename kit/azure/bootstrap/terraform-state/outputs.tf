@@ -14,3 +14,7 @@ output "storage_account_name" {
 output "container_name" {
   value = azurerm_storage_container.tfstates.name
 }
+
+output "location" {
+  value = azurerm_resource_group.tfstates.location
+}
