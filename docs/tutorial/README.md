@@ -115,7 +115,7 @@ collie kit import foundation/docs
 Next let's generate the docs and open a local webserver to preview them
 
 ```sh
-collie foundation docs livkid-prod --preview
+collie foundation docs --preview
 ```
 
 <!-- TODO: put in a great screenshot here -->
