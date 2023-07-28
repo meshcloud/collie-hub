@@ -1,24 +1,18 @@
+resource "azurecaf_name" "cafrandom_rg" {
+  name = var.resources_cloudfoundation
+  resource_type    = "azurerm_resource_group"
+  prefixes  = ["law"]
+  random_length = 3
+}
 
 # configure our logging subscription
 
 data "azurerm_subscription" "current" {
-
-}
-
-resource "azurerm_subscription" "logging" {
-  subscription_id   = var.subscription_id
-  subscription_name = "logging"
-  alias             = "logging"
-}
-
-resource "azurerm_management_group_subscription_association" "logging" {
-  management_group_id = var.admin_management_group_id
-  subscription_id     = data.azurerm_subscription.current.id
 }
 
 # Set up permissions for deploy user
 resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
-  name  = "cloudfoundation_tfdeploy"
+  name  = "${var.resources_cloudfoundation}_log_workspace"
   scope = data.azurerm_subscription.current.id
   permissions {
     actions = ["Microsoft.Resources/subscriptions/resourcegroups/write"]
@@ -37,8 +31,9 @@ resource "azurerm_resource_group" "law_rg" {
   depends_on = [
     azurerm_role_definition.cloudfoundation_tfdeploy
   ]
-  name     = "log-analytics-rg"
-  location = "Germany West Central"
+  name     = azurecaf_name.cafrandom_rg.result
+  location = var.location 
+
 }
 
 # Creates Log Anaylytics Workspace
@@ -90,6 +85,7 @@ locals {
     "Log Analytics Contributor"
   ])
 }
+
 resource "azurerm_role_assignment" "activity_log" {
   for_each = local.activity_log_remediation_roles
   role_definition_name = each.key
