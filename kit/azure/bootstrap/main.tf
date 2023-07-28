@@ -11,7 +11,7 @@ module "terraform_state" {
   source          = "./terraform-state"
   location        = var.terraform_state_storage.location
   file_path       = var.file_path
-  resources_tfstate = var.resources_tfstate
+  resources_cloudfoundation = var.resources_cloudfoundation
 }
 
 # Set permissions on the blob store

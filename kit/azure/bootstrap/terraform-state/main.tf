@@ -1,11 +1,11 @@
 resource "azurecaf_name" "cafrandom_rg" {
-  name = var.resources_tfstate
+  name = var.resources_cloudfoundation
   resource_type    = "azurerm_resource_group"
   prefixes  = ["tfstate"]
   random_length = 3
 }
 resource "azurecaf_name" "cafrandom_st" {
-  name = var.resources_tfstate
+  name = var.resources_cloudfoundation
   resource_type    = "azurerm_storage_account"
   prefixes  = ["tfstate"]
   random_length = 3
@@ -36,6 +36,7 @@ resource "local_file" "tfstates_yaml" {
   content  = <<-EOT
     storage_account_name: ${azurecaf_name.cafrandom_st.result}
     container_name: ${azurerm_storage_container.tfstates.name}
+    location: ${azurerm_storage_account.tfstates.location}
     resource_group_name: ${azurecaf_name.cafrandom_rg.result}
 
   EOT
