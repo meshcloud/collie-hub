@@ -43,14 +43,14 @@ When all tools are correctly installed and detected by collie, we can continue w
 
 Collie manages all of your cloud platforms and landing zone configurations in a git repository called a [collie repository](../reference/repository.md).
 
-Let's create this repository using the following commands.
+Let's create this repository using the following command.
 
 ```sh
-# Create a folder for your foundation 
-mkdir -p likvid-foundation && cd likvid-foundation
-
 # Initialize a collie git repository
-collie init
+collie init likvid-foundation 
+
+# Change into the directory
+cd likvid-foundation
 ```
 
 ### Create a Foundation
