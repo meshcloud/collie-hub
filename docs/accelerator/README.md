@@ -2,11 +2,11 @@
 
 ## Background
 
-Collie and its Collie Hub, with all of its available kit modules, are open-source and fully usable for free.
-Anyone can use Collie and the Collie Hub to build and manage their cloud foundation and their landing zones.
+Collie and Collie Hub, with all of its available kit modules, are open-source and fully usable for free.
+Anyone can use Collie and Collie Hub to build and manage their cloud foundation and their landing zones.
 
-Collie and the Collie Hub are offered by [meshcloud](https://meshcloud.io/en/), which is a technology startup
-that offers a Cloud Foundation Platform as a Software-as-a-Service.
+Collie and Collie Hub are offered by [meshcloud](https://meshcloud.io/en/), which is a technology startup
+that helps large organizations use the cloud effectively and efficiently.
 
 To get organizations up-to-speed even quicker, meshcloud offers the
 [Azure Landing Zone Accelerator](https://www.meshcloud.io/en/services/landing-zone-accelerator/) as a service to get
@@ -21,18 +21,18 @@ Collie & Collie Hub technology, organizations can get their Azure Cloud Foundati
 ### Why the Azure Landing Zone Accelerator?
 
 - **Based on open-source IaC tools**: The entire Accelerator uses open-source technology like
-  Collie, and industry-leading IaC tool Terraform, which prevents you from being locked-in to tools.
-- **Based on Microsoft best practices**: The Accelerator is based on
+  Collie, and industry-leading IaC tool Terraform, which works across all cloud platforms.
+- **Based on Microsoft best practices**: The Accelerator is inspired by
   [Azure Enterprise Scale](https://github.com/Azure/Enterprise-Scale), which a set
   of best practices for building a Cloud Foundation, coming directly from Microsoft.
 - **Community-backed**: The Accelerator is backed by the Cloud Foundation Community,
   which regularly contributes new modules.
-- **No Powerpoint**: Instead of using Powerpoint slide decks, the Accelerator delivers tangible results
+- **No PowerPoint**: Instead of using PowerPoint slide decks, the Accelerator delivers tangible results
   in the form of usable Infrastructure-as-Code and markdown-based documentation.
 
 ### What does it entail?
 
-In the six weeks, we will work together on setting up all the key Essential capabilities
+In the six weeks, we will work together on setting up all the key Essential (stage 1) capabilities
 in the [Cloud Foundation Maturity Model](https://cloudfoundation.org/maturity-model/),
 which allows you to start using the Azure cloud effectively within your organization.
 
@@ -45,7 +45,7 @@ These capabilities include:
 - Align identity and access management.
 - Understand basic cost management in Azure.
 
-Thanks to Collie, you will be delivered a modular landing zone, which means it
+By design, Collie helps you build modular landing zones, which means it
 is very easy to extend your landing zone with further capabilities in the future.
 
 ### Add-on packages
@@ -54,7 +54,7 @@ Beyond the key Essential capabilities for your Azure Cloud Foundation, there are
 teams that need it:
 
 **Infrastructure-as-Code Bootcamp**: Don't have Terraform or IaC experience? No problem!
-In a 1-day bootcamp we will get you all the basics of Terraform & Terragrunt.
+In a short bootcamp we will get you all the basics of Terraform & Terragrunt.
 This equips you with the right tools for working on your Azure Cloud Foundation.
 
 **Networking Connectivity**: Providing a good networking setup is important in the cloud world. With this add-on, we will
