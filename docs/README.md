@@ -37,7 +37,7 @@ collie init
 # add a cloud foundation connecting your platforms
 collie foundation new "my-foundation"
 
-# import a read-to-use infrastructure as code module implemeneting
+# import a ready-to-use infrastructure as code module implementing
 # landing zone best practices
 collie kit import "azure/organization-hierarchy"   
 
