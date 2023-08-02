@@ -8,6 +8,7 @@ resource "azurecaf_name" "cafrandom_rg" {
 # configure our logging subscription
 
 data "azurerm_subscription" "current" {
+  subscription_id = var.subscription_id
 }
 
 # Set up permissions for deploy user
