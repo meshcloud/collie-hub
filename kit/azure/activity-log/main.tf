@@ -6,32 +6,12 @@ resource "azurecaf_name" "cafrandom_rg" {
 }
 
 # configure our logging subscription
-
 data "azurerm_subscription" "current" {
   subscription_id = var.subscription_id
 }
 
-# Set up permissions for deploy user
-resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
-  name  = "${var.resources_cloudfoundation}_log_workspace"
-  scope = data.azurerm_subscription.current.id
-  permissions {
-    actions = ["Microsoft.Resources/subscriptions/resourcegroups/write"]
-  }
-}
-
-resource "azurerm_role_assignment" "cloudfoundation_tfdeploy" {
-  principal_id       = var.cloudfoundation_deploy_principal_id
-  scope              = data.azurerm_subscription.current.id
-  role_definition_id = azurerm_role_definition.cloudfoundation_tfdeploy.role_definition_resource_id
-}
-
-
 # Creates a RG for LAW
 resource "azurerm_resource_group" "law_rg" {
-  depends_on = [
-    azurerm_role_definition.cloudfoundation_tfdeploy
-  ]
   name     = azurecaf_name.cafrandom_rg.result
   location = var.location 
 
