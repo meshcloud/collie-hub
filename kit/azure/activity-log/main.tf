@@ -60,7 +60,7 @@ data "azurerm_policy_definition" "activity_log" {
 
 resource "azurerm_management_group_policy_assignment" "activity_log" {
   name                 = "activity-log-policy"
-  management_group_id  = var.platform_management_group_id
+  management_group_id  = var.scope
   policy_definition_id = data.azurerm_policy_definition.activity_log.id
   description          = "Configure Azure Activity logs to stream to specified Log Analytics workspace"
   display_name         = "Stream Activity Logs to Log Analytics Workspace"
@@ -91,5 +91,5 @@ resource "azurerm_role_assignment" "activity_log" {
   role_definition_name = each.key
 
   principal_id = azurerm_management_group_policy_assignment.activity_log.identity[0].principal_id
-  scope = var.platform_management_group_id
+  scope = var.scope
 }
