@@ -21,9 +21,8 @@ dependency "organization-hierarchy" {
 
 inputs = {
   # todo: set input variables
-  admin_management_group_id           = "${dependency.organization-hierarchy.outputs.parent_id}"
+  scope                               = "${dependency.organization-hierarchy.outputs.parent_id}"
   cloudfoundation_deploy_principal_id = "${dependency.bootstrap.outputs.client_principal_id}"
-  platform_management_group_id        = "${dependency.organization-hierarchy.outputs.platform_id}"
   subscription_id                     = "${include.platform.locals.platform.azure.subscriptionId}"
   resources_cloudfoundation           = "${dependency.bootstrap.outputs.resources_cloudfoundation}"
   location                            = "${try(include.platform.locals.tfstateconfig.location, "")}"

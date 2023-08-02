@@ -4,16 +4,10 @@ variable "subscription_id" {
   description = "id of the logging subscription"
 }
 
-variable "platform_management_group_id" {
+variable "scope" {
   type        = string
   nullable    = false
-  description = "id of the platform management group"
-}
-
-variable "admin_management_group_id" {
-  type        = string
-  nullable    = false
-  description = "id of the admin management group"
+  description = "id of the management group that you want to log"
 }
 
 variable "cloudfoundation_deploy_principal_id" {
