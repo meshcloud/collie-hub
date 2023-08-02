@@ -305,7 +305,7 @@ You can type to search the organization hierarchy module or simply browse with t
 ```shellsession{4}
 $ collie kit import
  ? Select a kit module from official hub modules ⌕ azure
-   azure/bootstrap azure/bootstrap
+   Azure Bootstrap azure/bootstrap
  ❯ Azure Organization Hierarchy azure/organization-hierarchy
    Allowed Locations azure/policy/allowed-locations
  ℹ 5/7 Next: ↓, Previous: ↑, Next Page: ⇟, →, Previous Page: ⇞, ←, Submit: ↵
