@@ -1,5 +1,5 @@
 ---
-name: azure/bootstrap
+name: Azure bootstrap
 summary: |
   creates a service principal with permissions to deploy the cloud foundation infrastructure.
   This is a "bootstrap" module, which means that it must be manually executed once by an administrator
@@ -12,7 +12,7 @@ cfmm:
       permission to deploy the cloud foundation infrastructure.
 ---
 
-# azure/bootstrap
+# Azure bootstrap
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
 
