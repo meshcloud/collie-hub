@@ -26,7 +26,7 @@ resource "azurerm_role_assignment" "cloudfoundation_tfdeploy" {
 }
 
 
-## Creates a RG for LAW
+# Creates a RG for LAW
 resource "azurerm_resource_group" "law_rg" {
   depends_on = [
     azurerm_role_definition.cloudfoundation_tfdeploy
@@ -37,7 +37,6 @@ resource "azurerm_resource_group" "law_rg" {
 }
 
 # Creates Log Anaylytics Workspace
-# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace
 resource "azurerm_log_analytics_workspace" "law" {
   name                = "log-analytics-workspace"
   location            = azurerm_resource_group.law_rg.location
@@ -77,7 +76,7 @@ resource "azurerm_management_group_policy_assignment" "activity_log" {
   }
 }
 
-# Configre Remediation
+# Configure Remediation
 
 locals {
   activity_log_remediation_roles = toset([
