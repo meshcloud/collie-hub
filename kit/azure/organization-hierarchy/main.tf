@@ -60,3 +60,12 @@ resource "azurerm_management_group" "management" {
     azurerm_management_group.platform
   ]
 }
+
+# Move management subscription into the new organization hierarchy
+data "azurerm_subscription" "current" {
+}
+
+resource "azurerm_management_group_subscription_association" "management" {
+  management_group_id = azurerm_management_group.management.id
+  subscription_id     = data.azurerm_subscription.current.id
+}
