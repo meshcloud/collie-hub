@@ -1,7 +1,7 @@
 # Best Practices
 
 This article is a collection of best practices and inspirations we have collected from
-practioners working with landing zone construction kit.
+practioners working with collie.
 
 > We're happy to hear from you about your experience - just open an issue on GitHub.
 
@@ -49,7 +49,7 @@ design kit modules as reusable modules. Designing kit modules as reusable module
   Separating the concerns of defining resources in [kit modules](../reference/kit-module.md) and orchestrating terraform
   executions in [platform modules](../reference/platform-module.md) leverages the tools where they are strongest
 - **community**: reusable modules can be shared more easily with the community - and also more easily adopted to
-  jumpstart your own landing zone construction kit
+  jumpstart your own landing zones
 
 ## Structuring kit modules
 
