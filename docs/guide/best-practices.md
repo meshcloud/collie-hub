@@ -24,14 +24,15 @@ Additionally, platform teams should consider following a [consistent naming conv
 
 ### Implementing Documentation
 
-Standard module structure recommends splitting input and output into `variables.tf` and `outputs.tf` respectively. This
-enables developers to quickly find the "API contract" implemented by a module.
-Since [module documentation](../reference/kit-module.md#documentation-output) is a part of landing zone construction kit's "API
-contract" we recommend splitting the required input and `resource local_file` output it into a `documentation.tf` file.
+Providing useful documentation for application teams is an essential part of making any platform engineering effort
+succesful. This is why your kit modules should generate [documentation output](../reference/kit-module.md#documentation-output)
+intended to be read by application teams and other stakeholders like security auditors.
 
-["Heredoc" strings](https://www.terraform.io/language/expressions/strings) are very versatile for generating complex
-module documentation. An alternative are [templatefile](https://www.terraform.io/language/functions/templatefile)s,
-however these incur the cost of needing an additional `var` argument to access the modules resources and outputs.
+We recommend generating the required `documentation_md` output variable in your module with a
+["heredoc" string](https://www.terraform.io/language/expressions/strings).
+Similarly to the standard terraform module structure splitting configuration into `variables.tf` and `outputs.tf` files,
+we recommend putting your documentation in a separate `documentation.tf` file. This enables you to quickly find and
+edit how your kit module generates documentation.
 
 ### Reusable Modules
 
