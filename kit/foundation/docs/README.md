@@ -17,6 +17,10 @@ This documentation is intended as a reference documentation for cloud foundation
 
 No requirements.
 
+## Providers
+
+No providers.
+
 ## Modules
 
 No modules.

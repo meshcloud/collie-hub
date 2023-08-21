@@ -4,7 +4,7 @@ summary: |
   creates a service user with permissions to deploy the cloud foundation infrastructure.
   This is a "bootstrap" module, which means that it must be manually executed once by an administrator
   to bootstrap the cloudfoundation
-compliance:
+compliance: 
   - control: cfmm/iam/privileged-access-management
     statement: |
       The deploy user has privileged access to the cloud foundation infrastructure.
@@ -20,10 +20,13 @@ to bootstrap the cloudfoundation.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
+No requirements.
+
+## Providers
+
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.14.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
