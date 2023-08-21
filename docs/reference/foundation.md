@@ -5,7 +5,7 @@ production and development environment that use different AWS Root Accounts, GCP
 
 ## Platform Configurations
 
-A cloud platform configuration object in a construction kit repository needs to match this glob pattern:
+A cloud platform configuration object in a collie repository needs to match this glob pattern:
 
 ```text
 foundations/*/platforms/*/README.md

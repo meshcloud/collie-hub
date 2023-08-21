@@ -1,5 +1,5 @@
 # note: this is a separate module so it's consumable independently of the kit modules we ship as part of 
-# landing zone construction kit
+# collie hub
 
 resource "google_bigquery_table" "collie_billing_view" {
   deletion_protection = false

@@ -3,7 +3,7 @@
 > A kit module is a standard terraform module implementing lightweight conventions that
 > enable collie's tooling.
 
-Kit modules must be stored in the `/kit` path of the construction kit [repository](repository.md), e.g.
+Kit modules must be stored in the `/kit` path of the [collie repository](repository.md), e.g.
 `/kit/aws/my-module/`. The `id` of the module is its path relative to the `kit/` folder, e.g. `aws/my-module` in the
 given example.
 
