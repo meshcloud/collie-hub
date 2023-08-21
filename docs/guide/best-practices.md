@@ -1,7 +1,7 @@
 # Best Practices
 
 This article is a collection of best practices and inspirations we have collected from
-practioners working with collie.
+practioners working with landing zone construction kit.
 
 > We're happy to hear from you about your experience - just open an issue on GitHub.
 
@@ -25,7 +25,7 @@ Additionally, platform teams should consider following a [consistent naming conv
 ### Implementing Documentation
 
 Providing useful documentation for application teams is an essential part of making any platform engineering effort
-succesful. This is why your kit modules should generate [documentation output](../reference/repository.md#kit-modules#documentation-output)
+succesful. This is why your kit modules should generate [documentation output](../reference/kit-module.md#documentation-output)
 intended to be read by application teams and other stakeholders like security auditors.
 
 We recommend generating the required `documentation_md` output variable in your module with a
@@ -46,10 +46,10 @@ design kit modules as reusable modules. Designing kit modules as reusable module
   rolling out core infrastructure changes to production
 - **separation of concerns**: `terragrunt` is specifically built to overcome terraform limitations and
   [keep configurations DRY](https://terragrunt.gruntwork.io/docs/getting-started/quick-start/#keep-your-provider-configuration-dry).
-  Separating the concerns of defining resources in [kit modules](../reference/repository.md#kit-modules) and orchestrating terraform
-  executions in [platform modules](../reference/repository.md#platform-modules) leverages the tools where they are strongest
+  Separating the concerns of defining resources in [kit modules](../reference/kit-module.md) and orchestrating terraform
+  executions in [platform modules](../reference/platform-module.md) leverages the tools where they are strongest
 - **community**: reusable modules can be shared more easily with the community - and also more easily adopted to
-  jumpstart your own landing zones
+  jumpstart your own landing zone construction kit
 
 ## Structuring kit modules
 
