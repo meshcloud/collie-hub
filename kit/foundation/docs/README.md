@@ -11,3 +11,29 @@ compliance:
 # Foundation Docs Template
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->

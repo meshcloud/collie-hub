@@ -39,6 +39,8 @@ No modules.
 | [azurerm_management_group.online](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group_subscription_association.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
