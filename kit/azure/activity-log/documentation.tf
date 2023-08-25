@@ -3,7 +3,7 @@ output "documentation_md" {
   value = <<EOF
 To ensure compliance with audit requirements, all actions performed on Azure resources in your subscription are logged in a central log analytics workspace.
 
-The connection is ensured by Azure Policy **${data.azurerm_policy_definition.activity_log.display_name}** (${data.azurerm_policy_definition.activity_log.description}) and can not be deactivated.
+The connection is ensured by Azure Policy **${module.policy_law.policy_assignments["Deploy-AzActivity-Log"].display_name}** (${module.policy_law.policy_assignments["Deploy-AzActivity-Log"].description}) and can not be deactivated.
 
 ## What is being logged?
 The log analytics workspace collects Activity Logs, which are [platform logs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview).
