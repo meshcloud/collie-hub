@@ -109,31 +109,31 @@ In our example we can find the generated documentation at `foundations/likvid-pr
 16:03 $ tree foundations/likvid-prod/.docs/
 foundations/likvid-prod/.docs/
 ├── .vuepress
-│   └── ...
+│   └── ...
 ├── docs
-│   ├── README.md
-│   ├── compliance
-│   │   ├── README.md
-│   │   ├── cfmm
-│   │   │   ├── README.md
-│   │   │   ├── iam
-│   │   │   │   ├── authorization-concept.md
-│   │   │   │   ├── ...
-│   │   │   │   └── service-account-management.md
-│   │   │   ├── ...
-│   ├── foundation
-│   │   ├── README.md
-│   │   └── shared-responsibility-model.md
-│   └── platforms
-│       ├── README.md
-│       ├── azure
-│       │   ├── azure-admin-activity-log.md
-│       │   └── azure-bootstrap.md
-│       ├── azure.md
-│       ├── gcp
-│       │   ├── gcp-organization-hierarchy.md
-│       │   └── gcp-bootstrap.md
-│       └── gcp.md
+│   ├── README.md
+│   ├── compliance
+│   │   ├── README.md
+│   │   ├── cfmm
+│   │   │   ├── README.md
+│   │   │   ├── iam
+│   │   │   │   ├── authorization-concept.md
+│   │   │   │   ├── ...
+│   │   │   │   └── service-account-management.md
+│   │   │   ├── ...
+│   ├── foundation
+│   │   ├── README.md
+│   │   └── shared-responsibility-model.md
+│   └── platforms
+│       ├── README.md
+│       ├── azure
+│       │   ├── azure-admin-activity-log.md
+│       │   └── azure-bootstrap.md
+│       ├── azure.md
+│       ├── gcp
+│       │   ├── gcp-organization-hierarchy.md
+│       │   └── gcp-bootstrap.md
+│       └── gcp.md
 ├── node_modules
 ├── package-lock.json
 └── package.json

@@ -41,7 +41,7 @@ inputs = {
   service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
 
   terraform_state_storage = {
-    name             = "cloudfoundation"                                        #TODO change, used to derive names for Azure resource group and storage account name
+    name             = "${include.platform.locals.cloudfoundation.name}"
     location         = "germanywestcentral"                                     #TODO change, the azure location of the resource group and storage account
     config_file_path = include.platform.locals.terraform_state_config_file_path # platform.hcl expects state configuration output in this location, do not change
   }
