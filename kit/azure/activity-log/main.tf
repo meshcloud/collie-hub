@@ -1,23 +1,54 @@
-resource "azurecaf_name" "cafrandom_rg" {
-  name          = var.resources_cloudfoundation
-  resource_type = "azurerm_resource_group"
-  prefixes      = ["law"]
-  random_length = 3
-}
-
 # configure our logging subscription
 data "azurerm_subscription" "current" {
-  subscription_id = var.subscription_id
 }
 
-# Creates a RG for LAW
-resource "azurerm_resource_group" "law_rg" {
-  name     = azurecaf_name.cafrandom_rg.result
-  location = var.location
+module "policy_law" {
+  source              = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=ef06c8d43611dd3bf6eebdd7f472b95472f86b0b"
+  policy_path         = "${path.module}/lib/"
+  management_group_id = var.scope
+  location            = var.location
 
+  template_file_variables = {
+    default_location          = var.location
+    current_scope_resource_id = var.scope
+    workspace_id              = azurerm_log_analytics_workspace.law.id
+  }
+}
+
+# Set up permissions for deploy user
+resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
+  name  = "${var.cloudfoundation}_log_workspace"
+  scope = data.azurerm_subscription.current.id
+  permissions {
+    actions = ["Microsoft.Resources/subscriptions/resourceGroups/write",
+      "Microsoft.Resources/subscriptions/resourceGroups/delete",
+      # Permissions for log workspaces
+      "Microsoft.OperationalInsights/workspaces/*",
+      "Microsoft.OperationalInsights/workspaces/linkedServices/*",
+      # Permissions for log workspace solution
+      "Microsoft.OperationsManagement/solutions/*",
+      # Permissions for automation accounts
+    "Microsoft.Automation/automationAccounts/*"]
+  }
+}
+
+resource "azurerm_role_assignment" "cloudfoundation_tfdeploy" {
+  principal_id       = var.cloudfoundation_deploy_principal_id
+  scope              = data.azurerm_subscription.current.id
+  role_definition_id = azurerm_role_definition.cloudfoundation_tfdeploy.role_definition_resource_id
+}
+
+## Creates a RG for LAW
+resource "azurerm_resource_group" "law_rg" {
+  depends_on = [
+    azurerm_role_assignment.cloudfoundation_tfdeploy
+  ]
+  name     = "law-rg-${var.cloudfoundation}"
+  location = var.location
 }
 
 # Creates Log Anaylytics Workspace
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace
 resource "azurerm_log_analytics_workspace" "law" {
   name                = "log-analytics-workspace"
   location            = azurerm_resource_group.law_rg.location
@@ -25,39 +56,6 @@ resource "azurerm_log_analytics_workspace" "law" {
   sku                 = "PerGB2018"
   retention_in_days   = var.log_retention_in_days
 }
-
-# Deploy "Configure Azure Activity logs to stream to specified Log Analytics workspace" Policy definition
-
-locals {
-  builtin_azurerm_policy_definition_names = {
-    activity_log = "2465583e-4e78-4c15-b6be-a36cbc7c8b0f"
-  }
-}
-
-data "azurerm_policy_definition" "activity_log" {
-  name = local.builtin_azurerm_policy_definition_names.activity_log
-}
-
-resource "azurerm_management_group_policy_assignment" "activity_log" {
-  name                 = "activity-log-policy"
-  management_group_id  = var.scope
-  policy_definition_id = data.azurerm_policy_definition.activity_log.id
-  description          = "Configure Azure Activity logs to stream to specified Log Analytics workspace"
-  display_name         = "Stream Activity Logs to Log Analytics Workspace"
-  location             = azurerm_resource_group.law_rg.location
-
-  parameters = jsonencode({
-    logAnalytics = {
-      value = azurerm_log_analytics_workspace.law.id
-    }
-  })
-
-  identity {
-    type = "SystemAssigned"
-  }
-}
-
-# Configure Remediation
 
 locals {
   activity_log_remediation_roles = toset([
@@ -69,7 +67,6 @@ locals {
 resource "azurerm_role_assignment" "activity_log" {
   for_each             = local.activity_log_remediation_roles
   role_definition_name = each.key
-
-  principal_id = azurerm_management_group_policy_assignment.activity_log.identity[0].principal_id
-  scope        = var.scope
+  principal_id         = module.policy_law.policy_assignments["Deploy-AzActivity-Log"].identity[0].principal_id
+  scope                = var.scope
 }

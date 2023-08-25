@@ -10,7 +10,7 @@ variable "terraform_state_config_file_path" {
   description = "tfstate-config file for running the bootstrap"
 }
 
-variable "resources_cloudfoundation" {
+variable "cloudfoundation" {
   type        = string
   nullable    = false
   description = "tfstate resource group for the statefiles"
