@@ -1,6 +1,7 @@
 locals {
   # define shared configuration here that's included by all terragrunt configurations in this locals
-  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+  platform        = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+  cloudfoundation = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file("../..//README.md"))[0])
 
   # if we use terraform_state_storage, it will generate this file here to provide backend configuration
   terraform_state_config_file_path = "${get_parent_terragrunt_dir()}/tfstates-config.yml"
