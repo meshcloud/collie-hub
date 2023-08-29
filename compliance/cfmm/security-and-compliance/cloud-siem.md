@@ -1,16 +1,13 @@
 ---
 name: Cloud SIEM
-summary: |-
-  Cloud Tenant Audit logs are automatically analysed for anomalies
-  - proactive analysis
-  ...
+summary: >-
+  Audit logs for cloud tenants and cloud workloads are systematically analyzed
+  for anomalies.
 
 ---
 
 # Cloud SIEM
 
-Cloud Tenant Audit logs are automatically analysed for anomalies
-- proactive analysis
-...
+Audit logs for cloud tenants and cloud workloads are systematically analyzed for anomalies.
 
-Learn more about the [Cloud SIEM Building Block](https://cloudfoundation.meshcloud.io/maturity-model/security-and-compliance/cloud-siem.html) on the Cloud Foundation website.
+Learn more about the [Cloud SIEM Building Block](https://cloudfoundation.org/maturity-model/security-and-compliance/cloud-siem.html) on the Cloud Foundation website.

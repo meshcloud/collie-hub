@@ -1,13 +1,13 @@
 ---
 name: Tenant Deprovisioning / Decommissioning
 summary: >-
-  Process for decommissioning and deprovisioning cloud tenants that are no
-  longer needed.
+  Establish a process for safely decommissioning and deprovisioning cloud
+  tenants that are no longer needed by application teams.
 
 ---
 
 # Tenant Deprovisioning / Decommissioning
 
-Process for decommissioning and deprovisioning cloud tenants that are no longer needed.
+Establish a process for safely decommissioning and deprovisioning cloud tenants that are no longer needed by application teams.
 
-Learn more about the [Tenant Deprovisioning / Decommissioning Building Block](https://cloudfoundation.meshcloud.io/maturity-model/tenant-management/tenant-deprovisioning-decommissioning.html) on the Cloud Foundation website.
+Learn more about the [Tenant Deprovisioning / Decommissioning Building Block](https://cloudfoundation.org/maturity-model/tenant-management/tenant-deprovisioning-decommissioning.html) on the Cloud Foundation website.
