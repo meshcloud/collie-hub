@@ -32,7 +32,7 @@ Learn more about the [${block.title} Building Block](${
     block.link
   }) on the Cloud Foundation website.
 `;
-  const linkPrefix = "https://cloudfoundation.meshcloud.io/maturity-model/";
+  const linkPrefix = "https://cloudfoundation.org/maturity-model/";
   const relativeLink = block.link.substring(linkPrefix.length);
   const relativeLinkComponents = path.parse(relativeLink);
   const destination = path.join(

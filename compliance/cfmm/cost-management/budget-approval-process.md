@@ -8,4 +8,4 @@ summary: Budgets are approved by controllers / people with budget responsibility
 
 Budgets are approved by controllers / people with budget responsibility
 
-Learn more about the [Budget Approval Process Building Block](https://cloudfoundation.meshcloud.io/maturity-model/cost-management/budget-approval-process.html) on the Cloud Foundation website.
+Learn more about the [Budget Approval Process Building Block](https://cloudfoundation.org/maturity-model/cost-management/budget-approval-process.html) on the Cloud Foundation website.
