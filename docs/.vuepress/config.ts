@@ -89,8 +89,9 @@ export const sidebar: SidebarConfig = {
   ],
   "/concept/": [
     {
-      text: "Landing Zone Concepts",
+      text: "Key Concepts",
       children: [
+        '/concept/goals.md',
         '/concept/bootstrapping.md',
         '/concept/modular-landing-zones.md',
       ]
