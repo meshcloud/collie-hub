@@ -8,9 +8,9 @@ data "azurerm_management_group" "root" {
 module "terraform_state" {
   count = var.terraform_state_storage != null ? 1 : 0
 
-  source          = "./terraform-state"
-  location        = var.terraform_state_storage.location
-  file_path       = var.file_path
+  source                    = "./terraform-state"
+  location                  = var.terraform_state_storage.location
+  file_path                 = var.file_path
   resources_cloudfoundation = var.resources_cloudfoundation
 }
 

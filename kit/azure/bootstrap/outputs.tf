@@ -14,4 +14,4 @@ output "client_principal_id" {
 output "resources_cloudfoundation" {
   value = var.resources_cloudfoundation
 }
-	
+

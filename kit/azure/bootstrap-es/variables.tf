@@ -4,7 +4,7 @@ variable "foundation_name" {
 
 ## variables for sp resources
 variable "root_parent_id" {
-  type = string
+  type        = string
   description = "The root_parent_id is used to specify where to set the root for all Landing Zone deployments. Usually the Tenant ID"
 }
 
@@ -35,5 +35,5 @@ variable "tfstate_location" {
 
 variable "platform_engineers_members" {
   description = "User principal name of platform engineers with access to this platform's terraform state"
-  type = list(string)
+  type        = list(string)
 }

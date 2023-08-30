@@ -23,13 +23,13 @@ variable "log_retention_in_days" {
 }
 
 variable "resources_cloudfoundation" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = "tfstate resource group for the statefiles"
 }
 
 variable "location" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = "location of the resources"
 }

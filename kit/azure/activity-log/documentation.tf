@@ -1,6 +1,6 @@
 
 output "documentation_md" {
-  value  = <<EOF
+  value = <<EOF
 To ensure compliance with audit requirements, all actions performed on Azure resources in your subscription are logged in a central log analytics workspace.
 
 The connection is ensured by Azure Policy **${data.azurerm_policy_definition.activity_log.display_name}** (${data.azurerm_policy_definition.activity_log.description}) and can not be deactivated.

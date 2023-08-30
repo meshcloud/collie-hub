@@ -3,6 +3,6 @@ variable "allowed_locations" {
   description = "Allowed Azure regions."
 }
 variable "parent_mg_id" {
-  type = string
+  type        = string
   description = "parent folder ID"
 }

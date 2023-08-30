@@ -1,6 +1,6 @@
 resource "azurerm_management_group" "parent" {
   display_name = var.parentManagementGroup
-  name = var.parentManagementGroup
+  name         = var.parentManagementGroup
 
 }
 

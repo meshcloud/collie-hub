@@ -1,7 +1,7 @@
 resource "azurecaf_name" "cafrandom_rg" {
-  name = var.resources_cloudfoundation
-  resource_type    = "azurerm_resource_group"
-  prefixes  = ["law"]
+  name          = var.resources_cloudfoundation
+  resource_type = "azurerm_resource_group"
+  prefixes      = ["law"]
   random_length = 3
 }
 
@@ -13,7 +13,7 @@ data "azurerm_subscription" "current" {
 # Creates a RG for LAW
 resource "azurerm_resource_group" "law_rg" {
   name     = azurecaf_name.cafrandom_rg.result
-  location = var.location 
+  location = var.location
 
 }
 
@@ -45,7 +45,7 @@ resource "azurerm_management_group_policy_assignment" "activity_log" {
   description          = "Configure Azure Activity logs to stream to specified Log Analytics workspace"
   display_name         = "Stream Activity Logs to Log Analytics Workspace"
   location             = azurerm_resource_group.law_rg.location
-  
+
   parameters = jsonencode({
     logAnalytics = {
       value = azurerm_log_analytics_workspace.law.id
@@ -61,15 +61,15 @@ resource "azurerm_management_group_policy_assignment" "activity_log" {
 
 locals {
   activity_log_remediation_roles = toset([
-    "Monitoring Contributor", 
+    "Monitoring Contributor",
     "Log Analytics Contributor"
   ])
 }
 
 resource "azurerm_role_assignment" "activity_log" {
-  for_each = local.activity_log_remediation_roles
+  for_each             = local.activity_log_remediation_roles
   role_definition_name = each.key
 
   principal_id = azurerm_management_group_policy_assignment.activity_log.identity[0].principal_id
-  scope = var.scope
+  scope        = var.scope
 }
