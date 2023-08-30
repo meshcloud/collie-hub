@@ -3,6 +3,12 @@
 
 No requirements.
 
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
 ## Modules
 
 No modules.
