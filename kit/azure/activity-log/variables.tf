@@ -1,3 +1,9 @@
+variable "subscription_id" {
+  type        = string
+  nullable    = false
+  description = "id of the logging subscription"
+}
+
 variable "scope" {
   type        = string
   nullable    = false
@@ -16,10 +22,10 @@ variable "log_retention_in_days" {
   default     = 30
 }
 
-variable "cloudfoundation" {
+variable "resources_cloudfoundation" {
   type        = string
   nullable    = false
-  description = "this is the name of your cloud-foundation"
+  description = "tfstate resource group for the statefiles"
 }
 
 variable "location" {

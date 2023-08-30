@@ -1,19 +1,17 @@
 data "azuread_client_config" "current" {}
 
-data "azurerm_subscription" "current" {}
-
 data "azurerm_management_group" "root" {
-  name = data.azurerm_subscription.current.tenant_id
+  name = var.aad_tenant_id
 }
 
 // we put the terraform_state part into its own module as that simplifies making it optional
 module "terraform_state" {
   count = var.terraform_state_storage != null ? 1 : 0
 
-  source                           = "./terraform-state"
-  location                         = var.terraform_state_storage.location
-  cloudfoundation                  = var.terraform_state_storage.name
-  terraform_state_config_file_path = var.terraform_state_storage.config_file_path
+  source                    = "./terraform-state"
+  location                  = var.terraform_state_storage.location
+  file_path                 = var.file_path
+  resources_cloudfoundation = var.resources_cloudfoundation
 }
 
 # Set permissions on the blob store
