@@ -1,12 +1,12 @@
 { pkgs ? import <nixpkgs-unstable> { } }:
 
 pkgs.mkShell {
-  NIX_SHELL = "landing-zone-construction-kit";
+  NIX_SHELL = "collie hub";
 
   buildInputs = [
     # build tools
-    pkgs.just
     pkgs.deno
+    pkgs.pre-commit
 
     # terraform and friends
     pkgs.terraform
