@@ -6,4 +6,4 @@ repos:
           args:
             - --args=--config=.terraform-docs.yml
         - id: terraform_fmt
-          
+        - id: terragrunt_fmt  

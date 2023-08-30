@@ -1,5 +1,5 @@
 include "platform" {
-  path = find_in_parent_folders("platform.hcl")
+  path   = find_in_parent_folders("platform.hcl")
   expose = true
 }
 
@@ -13,7 +13,7 @@ terraform {
 
 dependency "bootstrap" {
   config_path = "../bootstrap"
-  }
+}
 
 dependency "organization-hierarchy" {
   config_path = "../organization-hierarchy"

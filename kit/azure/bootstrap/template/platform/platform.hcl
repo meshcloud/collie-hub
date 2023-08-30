@@ -1,7 +1,7 @@
 locals {
-# define shared configuration here that's included by all terragrunt configurations in this locals 
-  platform = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
-  file_path   = "${get_parent_terragrunt_dir()}/tfstates-config.yml"
+  # define shared configuration here that's included by all terragrunt configurations in this locals 
+  platform      = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file(".//README.md"))[0])
+  file_path     = "${get_parent_terragrunt_dir()}/tfstates-config.yml"
   tfstateconfig = try(yamldecode(file(local.file_path)), [])
 }
 
@@ -10,7 +10,7 @@ generate "backend" {
   path      = "backend.tf"
   if_exists = "overwrite"
   contents  = <<EOF
-  %{ if fileexists(local.file_path) }
+  %{if fileexists(local.file_path)}
   terraform {
   backend "azurerm" {
     use_azuread_auth      = true 
@@ -26,6 +26,6 @@ generate "backend" {
   backend "local" {
   }
 }
-%{ endif }
+%{endif}
  EOF
 }

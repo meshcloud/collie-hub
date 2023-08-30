@@ -41,17 +41,17 @@ inputs = {
   # https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_naming_convention
   # you only need the the name of your foundation like likvid the result would like rg-tfstate-likvid-ewt
 
-  resources_cloudfoundation = "cloudfoundation" #TODO change, name your rg fo the statefiles
-  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
-  
+  resources_cloudfoundation = "cloudfoundation"           #TODO change, name your rg fo the statefiles
+  service_principal_name    = "cloudfoundation_tf_deploy" #TODO change, name your spn
+
   terraform_state_storage = {
     location = "germanywestcentral" #TODO change, the location where your bucket live
   }
 
   platform_engineers_members = [{
-    email = "meshi@meshithesheep.io" #TODO change, enter PLATFORM ENGINEERS MAIL here
-    upn   = "meshi@meshithesheep.onmicrosoft.com"}] #TODO change, enter PLATFORM ENGINEERS UPN here
+    email = "meshi@meshithesheep.io"             #TODO change, enter PLATFORM ENGINEERS MAIL here
+  upn = "meshi@meshithesheep.onmicrosoft.com" }] #TODO change, enter PLATFORM ENGINEERS UPN here
 
-  file_path = include.platform.locals.file_path
+  file_path     = include.platform.locals.file_path
   aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
 }
