@@ -19,5 +19,5 @@ jobs:
       - uses: rrbutani/use-nix-shell-action@v1
         with:
           file: default.nix
-      - name: ensure all files pass pre-commit hooks
+      - name: ensure all pre-commit hooks pass
         run: pre-commit run --all-files --show-diff-on-failure
