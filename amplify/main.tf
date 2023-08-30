@@ -58,8 +58,8 @@ resource "aws_amplify_branch" "main" {
 
 
 resource "aws_amplify_domain_association" "collie_cloudfoundation_org" {
-  app_id      = aws_amplify_app.colliehub.id
-  domain_name = "collie.cloudfoundation.org"
+  app_id                = aws_amplify_app.colliehub.id
+  domain_name           = "collie.cloudfoundation.org"
   wait_for_verification = false
 
   sub_domain {

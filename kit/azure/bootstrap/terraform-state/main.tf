@@ -1,13 +1,13 @@
 resource "azurecaf_name" "cafrandom_rg" {
-  name = var.resources_cloudfoundation
-  resource_type    = "azurerm_resource_group"
-  prefixes  = ["tfstate"]
+  name          = var.resources_cloudfoundation
+  resource_type = "azurerm_resource_group"
+  prefixes      = ["tfstate"]
   random_length = 3
 }
 resource "azurecaf_name" "cafrandom_st" {
-  name = var.resources_cloudfoundation
-  resource_type    = "azurerm_storage_account"
-  prefixes  = ["tfstate"]
+  name          = var.resources_cloudfoundation
+  resource_type = "azurerm_storage_account"
+  prefixes      = ["tfstate"]
   random_length = 3
 }
 
