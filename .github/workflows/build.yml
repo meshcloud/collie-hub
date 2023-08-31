@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: meshcloud/setup-collie@main
       - uses: cachix/install-nix-action@v18
         with:
           nix_path: nixpkgs-unstable=channel:nixos-unstable
@@ -21,3 +22,5 @@ jobs:
           file: default.nix
       - name: ensure all pre-commit hooks pass
         run: pre-commit run --all-files --show-diff-on-failure
+      - name: compile kit
+        run: collie kit compile
