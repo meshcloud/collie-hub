@@ -58,10 +58,10 @@ export const sidebar: SidebarConfig = {
       text: "Reference",
       children: [
         '/reference/repository.md',
-        '/reference/foundation.md',
-        '/reference/kit-module.md',
-        '/reference/platform-module.md',
-        '/reference/tenant.md',
+        '/reference/foundation-commands.md',
+        '/reference/kit-commands.md',
+        '/reference/compliance-commands.md',
+        '/reference/tenant-commands.md',
       ]
     },
   ],
