@@ -7,7 +7,7 @@ summary: |
 # GCP Organization Setup
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
-
+  
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -15,6 +15,12 @@ This documentation is intended as a reference documentation for cloud foundation
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.80.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 4.80.0 |
 
 ## Modules
 
