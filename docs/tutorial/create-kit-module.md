@@ -2,7 +2,7 @@
 
 > Note: this section of the documentation is under constrution
 
-In this tutorial you will learn how to create a new landing zone [kit module](../reference/kit-module.md) and apply it
+In this tutorial you will learn how to create a new landing zone [kit module](../reference/repository.md#kit-modules) and apply it
 to one of your cloud platforms.
 
 In this tutorial, we will build a kit module to set up a GCP organization structure with folders. We will leverage
@@ -143,7 +143,7 @@ Now let's deploy the module to our our GCP platform. Again, `collie` can help us
 generate the necessary terragrunt code to apply the kit module with the interactive `collie kit apply` command.
 
 :::tip
-We call the terragrunt code to apply a kit module a platform a [platform module](../reference/platform-module.md).
+We call the terragrunt code to apply a kit module a platform a [platform module](../reference/repository.md#platform-modules).
 :::
 
 ```text
