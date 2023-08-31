@@ -19,14 +19,6 @@ summary: |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.41.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.71.0 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.41.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.71.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
-
 ## Modules
 
 No modules.

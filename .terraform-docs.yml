@@ -19,3 +19,7 @@ output:
 sort:
   enabled: true
   by: name
+
+sections:
+  hide:
+    - providers
