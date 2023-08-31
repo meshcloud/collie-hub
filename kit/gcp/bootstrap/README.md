@@ -19,13 +19,6 @@ and supplies it as to the module's input `foundation_project_id`.
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.80.0 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.80.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
-
 ## Modules
 
 No modules.
