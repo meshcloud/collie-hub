@@ -11,22 +11,6 @@ You should be familiar with terraform in order to use collie effectively. Collie
 complex landing zones and uses `terragrunt` to accomplish this. Familiarity with terragrunt is not required,
 though you will most likely find it useful to pick up some of its concepts along the way.
 
-### Where can I get help with collie?
-
-Building a Landing Zone is an extensive and multi-faceted challenge. You need to understand the technical and
-organizational aspects and implement them for your organization.
-
-You can join us on the [cloudfoundation.org](https://cloudfoundation.org) community slack for discussion around landing
-zones.
-
-::: tip 🌤 meshcloud Landing Zone Accelerator
-meshcloud's Landing Zone accelerator
-is a compact professional services offering that delivers an out-of-the box best-practices landing zone while also
-helping you build the capability and confidence to build and operate your landing zones. Learn more at [meshcloud.io](https://www.meshcloud.io/en/services/landing-zone-accelerator/).
-:::
-
-If you find any technical issues please raise them on GitHub for [Collie CLI](http://github.com/meshcloud/collie-cli/) or [Collie Hub](http://github.com/meshcloud/collie-hub/).
-
 ### Do I have to use `collie` cli for working with the Collie Hub?
 
 Not necessarily - `collie` cli transparently invokes other tools like `terragrunt` for you. You can see every command that collie invokes using the `--verbose` flag.
