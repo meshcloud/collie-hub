@@ -36,10 +36,6 @@ export const navbarEn: NavbarConfig = [
   {
     text: "Reference",
     link: "/reference/repository",
-  },
-  {
-    text: "Accelerator",
-    link: "/accelerator/"
   }
 ];
 
