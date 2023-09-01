@@ -1,4 +1,4 @@
-# Manage Compliance
+# Managing Compliance
 
 > Note: this section of the documentation is under constrution
 
