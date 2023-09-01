@@ -70,8 +70,10 @@ export const sidebar: SidebarConfig = {
       text: "Guides",
       children: [
         '/guide/README.md',
+        '/guide/how-to-kit-module.md',
+        '/guide/how-to-document.md',
+        '/guide/how-to-compliance.md',
         '/guide/best-practices.md',
-        '/guide/compliance.md',
         '/guide/faq.md',
       ]
     },
@@ -82,8 +84,6 @@ export const sidebar: SidebarConfig = {
       children: [
         '/tutorial/README.md',
         '/tutorial/deploy-first-module.md',
-        '/tutorial/create-kit-module.md',
-        '/tutorial/compliance-control.md'
       ]
     },
   ],
