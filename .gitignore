@@ -1,5 +1,6 @@
 .terraform
 .terraform.lock.hcl
+.terragrunt-cache
 
 .idea
 
@@ -12,3 +13,7 @@ kit/foundation/docs/template/node_modules
 kit/foundation/docs/template/yarn.lock
 kit/foundation/docs/template/docs/.vuepress/.cache
 kit/foundation/docs/template/docs/.vuepress/.temp
+
+# collie files
+.collie
+foundations/
