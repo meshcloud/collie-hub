@@ -4,23 +4,23 @@ summary: |
   deploys the Azure Organization Hierarchy.
 compliance:
 - control: cfmm/security-and-compliance/service-and-location-restrictions
-    statement: |
-      Restricts locations for cloud resources to EU regions only.
-      Restricts list of allowed Azure Services do deny Azure classic resources.
+  statement: |
+    Restricts locations for cloud resources to EU regions only.
+    Restricts list of allowed Azure Services do deny Azure classic resources.
 - control: cfmm/security-and-compliance/resource-configuration-scanning
-    statement: |
-      Audit policies check Azure Key Vault configuration and the SSL/TLS configuration of select Azure services.
+  statement: |
+    Audit policies check Azure Key Vault configuration and the SSL/TLS configuration of select Azure services.
 - control: cfmm/security-and-compliance/resource-configuration-policies
-    statement: |
-      Deploy policies enforcing security best-practices for key Azure services
-      - Subnets 
-      - Azure Key Vault
-      - SSL/TLS configuration of select Azure services
+  statement: |
+    Deploy policies enforcing security best-practices for key Azure services
+    - Subnets 
+    - Azure Key Vault
+    - SSL/TLS configuration of select Azure services
 - control: cfmm/service-ecosystem/managed-key-vault
-    statement: |
-      Enforce and monitor expiration for secrets and keys and enable deletion protection.
-      This helps ensure application-team managed key vaults are set up and configured according to best practices.
-      Note: Key Vaults are not fully managed by the cloud foundation team, they stay within the application teams responsibility.
+  statement: |
+    Enforce and monitor expiration for secrets and keys and enable deletion protection.
+    This helps ensure application-team managed key vaults are set up and configured according to best practices.
+    Note: Key Vaults are not fully managed by the cloud foundation team, they stay within the application teams responsibility.
 ---
 
 # Azure Organization Hierarchy
@@ -47,10 +47,10 @@ a lot of existing Azure resources and need to be careful about not disrupting ex
 After deploying this module, you should probably deploy the following kit modules next to
 
 - [Activity Log Kit Module](../activity-log/README.md)
-<!-- TODO 
+<!-- TODO
 - [Corp Kit Module](../corp/README.md)
 - landing zones
--  -->
+- -->
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -64,7 +64,7 @@ After deploying this module, you should probably deploy the following kit module
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_policy_root"></a> [policy\_root](#module\_policy\_root) | github.com/meshcloud/collie-hub//kit/azure/util/azure-policies | c8836c36494bae0526025a1bd0f07aa830149ccd |
+| <a name="module_policy_root"></a> [policy\_root](#module\_policy\_root) | github.com/meshcloud/collie-hub//kit/azure/util/azure-policies | 9b1511aa4485bba06f07e054d2c0b2003992f2c9 |
 
 ## Resources
 
