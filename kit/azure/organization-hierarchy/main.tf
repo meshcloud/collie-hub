@@ -5,7 +5,7 @@ resource "azurerm_management_group" "parent" {
 }
 
 module "policy_root" {
-  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=c8836c36494bae0526025a1bd0f07aa830149ccd"
+  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=9b1511aa4485bba06f07e054d2c0b2003992f2c9"
 
   policy_path         = "./lib/root"
   management_group_id = azurerm_management_group.parent.id
