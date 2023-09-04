@@ -17,7 +17,7 @@ locals {
       parameters = try(p.properties.parameters, null)
 
       # these may be null in the source, so we coalesce to empty lists which allows easy iterating over them
-      # we can't use coalesce though
+      # we can't use coalesce though 
       policyDefinitions = coalesce(
         try(
           [for item in p.properties.policyDefinitions : {
