@@ -61,7 +61,7 @@ export const sidebar: SidebarConfig = {
   "/platforms/": [
     {
       text: "Platforms",
-      children: getMarkdownFiles("docs/platforms"),
+      children: [...getMarkdownFiles("docs/platforms")],
     },
   ],
   "/kit/": [
