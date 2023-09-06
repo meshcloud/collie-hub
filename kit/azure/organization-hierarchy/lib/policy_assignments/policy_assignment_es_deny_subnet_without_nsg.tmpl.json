@@ -1,0 +1,24 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "name": "Deny-Subnet-Without-Nsg",
+  "dependsOn": [],
+  "properties": {
+    "description": "This policy denies the creation of a subnet without a Network Security Group to protect traffic across subnets.",
+    "displayName": "Subnets should have a Network Security Group",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "Subnets {enforcementMode} have a Network Security Group."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "notScopes": [],
+    "parameters": {}
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}
