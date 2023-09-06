@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {
+=======
+{  
+>>>>>>> fdf9b70 (chore: added related policies sets to activity-log)
   "name": "Audit-Resource-Locations",
   "type": "Microsoft.Authorization/policyAssignments",
   "apiVersion": "2019-09-01",
@@ -7,7 +11,11 @@
     "displayName": "Audit resource location matches resource group location",
     "policyType": "BuiltIn",
     "description": "Audit that the resource location matches its resource group location",
+<<<<<<< HEAD
     "parameters": {},
+=======
+    "parameters": {}, 
+>>>>>>> fdf9b70 (chore: added related policies sets to activity-log)
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a",
     "nonComplianceMessages": [
       {
