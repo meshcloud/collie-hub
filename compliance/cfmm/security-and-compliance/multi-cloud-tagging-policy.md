@@ -2,12 +2,12 @@
 name: Multi-Cloud Tagging Policy
 summary: >-
   Define and enforce a consistent tagging of cloud tenants and resource across
-  multiple cloud platforms.  
+  multiple cloud platforms.
 
 ---
 
 # Multi-Cloud Tagging Policy
 
-Define and enforce a consistent tagging of cloud tenants and resource across multiple cloud platforms.  
+Define and enforce a consistent tagging of cloud tenants and resource across multiple cloud platforms.
 
 Learn more about the [Multi-Cloud Tagging Policy Building Block](https://cloudfoundation.org/maturity-model/security-and-compliance/multi-cloud-tagging-policy.html) on the Cloud Foundation website.
