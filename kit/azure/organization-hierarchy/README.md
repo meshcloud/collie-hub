@@ -46,7 +46,7 @@ a lot of existing Azure resources and need to be careful about not disrupting ex
 
 After deploying this module, you should probably deploy the following kit modules next to
 
-- [Activity Log Kit Module](../activity-log/README.md)
+- [Activity Log Kit Module](./activity-log/README.md)
 <!-- TODO
 - [Corp Kit Module](../corp/README.md)
 - landing zones
