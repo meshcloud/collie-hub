@@ -1,7 +1,7 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2022-06-01", 
-  "name": "allow-serverless-resources-policy",
+  "name": "Allow-OnlyServerlessResources",
   "properties": {
     "displayName": "Allow Serverless Resources Only",
     "description": "This policy allows only serverless resources to be deployed.", 
