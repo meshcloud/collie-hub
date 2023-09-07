@@ -1,0 +1,18 @@
+resource "azurerm_management_group" "serverless" {
+  display_name               = var.lz-serverless
+  parent_management_group_id = azurerm_management_group.parent.id
+}
+
+module "policy_root" {
+  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=ef06c8d"
+
+  policy_path         = "./lib"
+  management_group_id = azurerm_management_group.parent.id
+  location            = var.location
+
+  template_file_variables = {
+    default_location          = "${var.location}"
+    current_scope_resource_id = azurerm_management_group.parent.id
+    root_scope_resource_id    = azurerm_management_group.parent.id
+  }
+}
