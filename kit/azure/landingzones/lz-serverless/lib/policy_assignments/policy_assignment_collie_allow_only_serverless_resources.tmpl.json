@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyAssignments",
   "apiVersion": "2022-06-01",
-  "name": "Allow-Serverless-Only",
+  "name": "Allow-Serverless-Resources-Only",
   "dependsOn": [],
   "properties": {
     "description": "This policy assignment allows only the deployment of serverless resources.",
     "displayName": "Allow Serverless Resources Only",
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Allow-OnlyServerlessResources",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Allow-OnlyServerlessResources",
     "enforcementMode": "Default",
     "nonComplianceMessages": [
       {
