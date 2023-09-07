@@ -1,15 +1,13 @@
-variable "parent_management_group_id" {
-  description = "The tenant management group of your cloud foundation"
-  default     = "lv-foundation"
-}
+# variable "parentManagementGroup" {
+#   default = "lv-foundation"
+# }
 
 variable "landingzones" {
-  description = "The parent_management_group where your landingzones are"
-  default     = "lv-landingzones"
+  default = "lv-landingzones"
 }
 
 variable "lz-serverless" {
-  default = "serverless"
+  default = "lv-corp"
 }
 
 variable "location" {
