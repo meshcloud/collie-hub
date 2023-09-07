@@ -8,7 +8,7 @@ include "module" {
 }
 
 terraform {
-  source = "${get_repo_root()}//kit/azure/landingzones/lz-serverless"
+  source = "${get_repo_root()}//kit/azure/landingzone/lz-serverless"
 }
 
 #dependency "bootstrap" {
@@ -16,7 +16,7 @@ terraform {
 #}
 
 dependency "organization-hierarchy" {
-  config_path = "../../organization-hierarchy"
+  config_path = "../organization-hierarchy"
 }
 
 inputs = {

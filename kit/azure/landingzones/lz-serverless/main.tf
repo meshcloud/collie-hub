@@ -3,15 +3,16 @@ resource "azurerm_management_group" "serverless" {
   parent_management_group_id = var.parent_management_group_id
 }
 
-module "policy_root" {
+module "policy_serverless" {
   source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=ef06c8d"
 
-  policy_path = "./lib"
-  #management_group_id = azurerm_management_group.parent.id
-  location = var.location
+  policy_path         = "./lib"
+  management_group_id = azurerm_management_group.serverless.id
+  location            = var.location
 
   template_file_variables = {
     default_location          = "${var.location}"
     current_scope_resource_id = azurerm_management_group.serverless.id
+    root_scope_resource_id    = azurerm_management_group.serverless.id
   }
 }
