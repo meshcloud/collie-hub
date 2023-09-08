@@ -5,7 +5,7 @@ resource "azurerm_management_group" "parent" {
 }
 
 module "policy_root" {
-  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=9b1511aa4485bba06f07e054d2c0b2003992f2c9"
+  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=da8dd49"
 
   policy_path         = "./lib/root"
   management_group_id = azurerm_management_group.parent.id
@@ -53,7 +53,8 @@ resource "azurerm_management_group" "management" {
   parent_management_group_id = azurerm_management_group.platform.id
 }
 
-# # Move management subscription into the new organization hierarchy
+# Move management subscription into the new organization hierarchy
+# add this if moving the management group under the created hierardhy is desired
 # data "azurerm_subscription" "current" {
 # }
 
