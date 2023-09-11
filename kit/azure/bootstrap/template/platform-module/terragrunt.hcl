@@ -37,21 +37,19 @@ EOF
 }
 
 inputs = {
-  # for creation of the resource_group and storage container we are using the
-  # https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_naming_convention
-  # you only need the the name of your foundation like likvid the result would like rg-tfstate-likvid-ewt
-
-  resources_cloudfoundation = "cloudfoundation"           #TODO change, name your rg fo the statefiles
-  service_principal_name    = "cloudfoundation_tf_deploy" #TODO change, name your spn
+  aad_tenant_id          = include.platform.locals.platform.azure.aadTenantId
+  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
 
   terraform_state_storage = {
-    location = "germanywestcentral" #TODO change, the location where your bucket live
+    name             = "cloudfoundation"                                        #TODO change, used to derive names for Azure resource group and storage account name
+    location         = "germanywestcentral"                                     #TODO change, the azure location of the resource group and storage account
+    config_file_path = include.platform.locals.terraform_state_config_file_path # platform.hcl expects state configuration output in this location, do not change
   }
 
-  platform_engineers_members = [{
-    email = "meshi@meshithesheep.io"             #TODO change, enter PLATFORM ENGINEERS MAIL here
-  upn = "meshi@meshithesheep.onmicrosoft.com" }] #TODO change, enter PLATFORM ENGINEERS UPN here
-
-  file_path     = include.platform.locals.file_path
-  aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
+  platform_engineers_members = [
+    {
+      email = "meshi@meshithesheep.io"              #TODO change, enter PLATFORM ENGINEERS MAIL here
+      upn   = "meshi@meshithesheep.onmicrosoft.com" #TODO change, enter PLATFORM ENGINEERS UPN here
+    }
+  ]
 }

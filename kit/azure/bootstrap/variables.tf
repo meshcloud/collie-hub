@@ -1,6 +1,6 @@
 variable "service_principal_name" {
   type        = string
-  description = "name of the Service Principal for deploying the cloud foundation"
+  description = "name of the Service Principal used to perform all deployments in this platform"
   default     = "cloudfoundation_tf_deploy_user"
 }
 
@@ -11,7 +11,9 @@ variable "aad_tenant_id" {
 
 variable "terraform_state_storage" {
   type = object({
-    location = string
+    location         = string,
+    name             = string,
+    config_file_path = string
   })
   nullable    = true
   default     = null
@@ -19,21 +21,9 @@ variable "terraform_state_storage" {
 }
 
 variable "platform_engineers_members" {
-  description = "Platform engineers with access to this platform's terraform state"
+  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
   type = list(object({
     email = string,
     upn   = string,
   }))
-}
-
-variable "file_path" {
-  type        = string
-  default     = "tfstates-config.yml"
-  description = "tfstate-config file for running the bootstrap"
-}
-
-variable "resources_cloudfoundation" {
-  type        = string
-  nullable    = false
-  description = "tfstate resource group for the statefiles"
 }

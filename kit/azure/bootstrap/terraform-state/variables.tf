@@ -4,7 +4,7 @@ variable "location" {
   description = "Azure location for deploying the storage account"
 }
 
-variable "file_path" {
+variable "terraform_state_config_file_path" {
   type        = string
   nullable    = false
   description = "tfstate-config file for running the bootstrap"
