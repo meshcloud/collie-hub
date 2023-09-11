@@ -32,7 +32,7 @@ resource "azurerm_storage_container" "tfstates" {
 }
 
 resource "local_file" "tfstates_yaml" {
-  filename = var.file_path
+  filename = var.terraform_state_config_file_path
   content  = <<-EOT
     storage_account_name: ${azurecaf_name.cafrandom_st.result}
     container_name: ${azurerm_storage_container.tfstates.name}
