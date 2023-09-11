@@ -97,5 +97,13 @@ After deploying this module, you should probably deploy the following kit module
 
 | Name | Description |
 |------|-------------|
+| <a name="output_connectivity_id"></a> [connectivity\_id](#output\_connectivity\_id) | n/a |
+| <a name="output_corp_id"></a> [corp\_id](#output\_corp\_id) | n/a |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_identity_id"></a> [identity\_id](#output\_identity\_id) | n/a |
+| <a name="output_landingzones_id"></a> [landingzones\_id](#output\_landingzones\_id) | n/a |
+| <a name="output_management_id"></a> [management\_id](#output\_management\_id) | n/a |
+| <a name="output_online_id"></a> [online\_id](#output\_online\_id) | n/a |
+| <a name="output_parent_id"></a> [parent\_id](#output\_parent\_id) | n/a |
+| <a name="output_platform_id"></a> [platform\_id](#output\_platform\_id) | n/a |
 <!-- END_TF_DOCS -->
