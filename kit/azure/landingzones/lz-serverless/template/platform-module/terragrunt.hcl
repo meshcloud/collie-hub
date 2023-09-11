@@ -16,7 +16,7 @@ terraform {
 #}
 
 dependency "organization-hierarchy" {
-  config_path = "../organization-hierarchy"
+  config_path = "../../organization-hierarchy"
 }
 
 inputs = {
