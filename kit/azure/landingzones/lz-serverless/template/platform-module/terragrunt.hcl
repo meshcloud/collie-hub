@@ -8,7 +8,7 @@ include "module" {
 }
 
 terraform {
-  source = "${get_repo_root()}//kit/azure/landingzone/lz-serverless"
+  source = "${get_repo_root()}//kit/azure/landingzones/lz-serverless"
 }
 
 #dependency "bootstrap" {
