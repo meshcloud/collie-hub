@@ -38,6 +38,5 @@ resource "local_file" "tfstates_yaml" {
     container_name: ${azurerm_storage_container.tfstates.name}
     location: ${azurerm_storage_account.tfstates.location}
     resource_group_name: ${azurecaf_name.cafrandom_rg.result}
-
-  EOT
+EOT
 }
