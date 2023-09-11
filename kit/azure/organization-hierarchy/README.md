@@ -64,7 +64,7 @@ After deploying this module, you should probably deploy the following kit module
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_policy_root"></a> [policy\_root](#module\_policy\_root) | github.com/meshcloud/collie-hub//kit/azure/util/azure-policies | 9b1511aa4485bba06f07e054d2c0b2003992f2c9 |
+| <a name="module_policy_root"></a> [policy\_root](#module\_policy\_root) | github.com/meshcloud/collie-hub//kit/azure/util/azure-policies | da8dd49 |
 
 ## Resources
 
