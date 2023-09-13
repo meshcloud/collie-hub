@@ -27,6 +27,12 @@ provider "azurerm" {
   client_id       = "${dependency.bootstrap.outputs.client_id}"
   client_secret   = "${dependency.bootstrap.outputs.client_secret}"
   }
+
+provider "azuread" {
+  tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
+  client_id       = "${dependency.bootstrap.outputs.client_id}"
+  client_secret   = "${dependency.bootstrap.outputs.client_secret}"
+  }
 EOF
 }
 
@@ -34,7 +40,7 @@ inputs = {
   # todo: set input variables
   scope                               = "${dependency.organization-hierarchy.outputs.parent_id}"
   cloudfoundation_deploy_principal_id = "${dependency.bootstrap.outputs.client_principal_id}"
-  cloudfoundation                     = "${include.platform.locals.cloudfoundation.name}"
+  cloudfoundation_name                = "${include.platform.locals.cloudfoundation_name}"
   location                            = "germanywestcentral"
   log_retention_in_days               = 30
 }
