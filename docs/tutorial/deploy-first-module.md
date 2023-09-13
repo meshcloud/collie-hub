@@ -197,7 +197,7 @@ We are however not fully done bootstrapping yet. One key benefit of using terraf
 Let's just run the previous command again and see what happens.
 
 ```shellsession
-$ collie foundation deploy --bootstrap
+$ collie foundation deploy --bootstrap 
 ...
 │ Error: Backend initialization required: please run "terraform init"
 │
@@ -234,9 +234,9 @@ $ tree foundations/likvid-prod/platforms/az
 
 :::
 
-So the error message we got from terraform tells us that we need to do next: run `terraform init -migrate-state`.
+So the error message we got from terraform tells us that we need to do next: run `terraform init -migrate-state`. 
 
-Collie's command `collie foundation deploy` has an easy way to run an arbitrary terraform commands by appending a ` -- <command>`.
+Collie's command `collie foundation deploy` has an easy way to run an arbitrary terraform commands by appending a ` -- <command>`. 
 
 ```shellsession
 $ collie foundation deploy --bootstrap -- init -migrate-state
@@ -283,7 +283,7 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-...
+... 
 
 ```
 
@@ -354,7 +354,7 @@ inputs = {
   online                = "lv-online"
   parentManagementGroup = "lv-foundation"
   platform              = "lv-platform"
-
+  
 }
 ```
 :::
