@@ -36,7 +36,7 @@ function mermaidjsPlugin(md, options = {}) {
     }
 
     // mermaid does not work in node, hence we need to wrap it with ClientOnly, see https://v2.vuepress.vuejs.org/reference/components.html#clientonly
-    return `<ClientOnly><Mermaid id="${key}"></Mermaid></ClientOnly>`
+    return `<ClientOnly><Mermaid id="${key}"></Mermaid></ClientOnly>` 
 
   }
 
