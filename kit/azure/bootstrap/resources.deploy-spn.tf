@@ -15,19 +15,12 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       "Microsoft.Authorization/policyAssignments/*",
 
       # Assigning Blueprints
-      "Microsoft.Resources/deployments/*",
-      "Microsoft.Blueprint/blueprintAssignments/*",
       "Microsoft.Resources/subscriptions/resourceGroups/read",
-      "Microsoft.Resources/deployments/*",
-
-      # Creating/Deleting resource groups
-      "Microsoft.Resources/subscriptions/resourceGroups/write",
-      "Microsoft.Resources/subscriptions/resourceGroups/delete",
 
       # Creating management groups
       "Microsoft.Management/managementGroups/read",
-      "Microsoft.Management/managementGroups/descendants/read",
       "Microsoft.Management/managementGroups/write",
+      "Microsoft.Management/managementGroups/descendants/read",
 
       # Permissions to move subscriptions between management groups
       "Microsoft.Management/managementgroups/subscriptions/delete",
@@ -35,19 +28,6 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
 
       # Permissions for reading and writing tags
       "Microsoft.Resources/tags/*",
-
-      # Permissions for reading virtual networks
-      "Microsoft.Network/virtualNetworks/*",
-
-      # Permissions for log workspaces
-      "Microsoft.OperationalInsights/workspaces/*",
-      "Microsoft.OperationalInsights/workspaces/linkedServices/*",
-
-      # Permissions for log workspace solution
-      "Microsoft.OperationsManagement/solutions/*",
-
-      # Permissions for automation accounts
-      "Microsoft.Automation/automationAccounts/*",
 
       # Permission we need to activate/register required Resource Providers
       "*/register/action"
@@ -83,6 +63,11 @@ resource "azuread_application" "cloudfoundation_deploy" {
 
     resource_access {
       id   = data.azuread_service_principal.msgraph.app_role_ids["AppRoleAssignment.ReadWrite.All"]
+      type = "Role"
+    }
+
+    resource_access {
+      id   = data.azuread_service_principal.msgraph.app_role_ids["Application.ReadWrite.All"]
       type = "Role"
     }
   }
