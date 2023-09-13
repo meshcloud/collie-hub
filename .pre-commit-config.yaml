@@ -14,5 +14,5 @@ repos:
         exclude: |
           (?x)(
             ^compliance/
-            ^docs/"
+            ^docs/
           )
