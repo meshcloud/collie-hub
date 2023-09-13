@@ -3,7 +3,7 @@ data "azuread_client_config" "current" {}
 data "azurerm_subscription" "current" {}
 
 data "azurerm_management_group" "root" {
-  name = data.azurerm_subscription.current.tenant_id
+  name = data.azuread_client_config.current.tenant_id
 }
 
 // we put the terraform_state part into its own module as that simplifies making it optional
@@ -12,7 +12,7 @@ module "terraform_state" {
 
   source                           = "./terraform-state"
   location                         = var.terraform_state_storage.location
-  cloudfoundation                  = var.terraform_state_storage.name
+  cloudfoundation_name             = var.terraform_state_storage.name
   terraform_state_config_file_path = var.terraform_state_storage.config_file_path
 }
 
