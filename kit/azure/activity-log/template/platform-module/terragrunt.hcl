@@ -40,7 +40,7 @@ inputs = {
   # todo: set input variables
   scope                               = "${dependency.organization-hierarchy.outputs.parent_id}"
   cloudfoundation_deploy_principal_id = "${dependency.bootstrap.outputs.client_principal_id}"
-  cloudfoundation_name                = "${include.platform.locals.cloudfoundation_name}"
+  cloudfoundation_name                = "${include.platform.locals.cloudfoundation_name.name}"
   location                            = "germanywestcentral"
   log_retention_in_days               = 30
 }
