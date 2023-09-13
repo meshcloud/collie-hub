@@ -1,4 +1,4 @@
-# note: this is a separate module so it's consumable independently of the kit modules we ship as part of
+# note: this is a separate module so it's consumable independently of the kit modules we ship as part of 
 # collie hub
 
 resource "google_bigquery_table" "collie_billing_view" {
