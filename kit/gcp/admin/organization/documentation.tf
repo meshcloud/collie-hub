@@ -5,7 +5,7 @@ output "documentation_md" {
 ::: tip Domain Restricted Sharing
 [Domain Restricted Sharing](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains) restricts the set of identities that are allowed to be used in Identity and Access Management policies.
 This prevents access to resources in this organization by any foreign identities.
-:::
+::: 
 
 Note that this setting will prevent using public access (e.g. on GCS buckets) by default as well.
 
@@ -18,7 +18,7 @@ ${join("\n", formatlist("- %s (Customer Id `%s`)", local.resolved_customer_ids_t
 ::: tip Resource Locations
 [Resource Locations](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations) restrics deployment of resources to whitelisted regions.
 This prevents deployment of resources outside of approved locations.
-:::
+::: 
 
 The allowed resource locations are
 
