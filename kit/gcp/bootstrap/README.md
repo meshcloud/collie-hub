@@ -10,7 +10,7 @@ summary: |
 
 Service Accounts in GCP must be created in a project. This module assumes that an operator manually creates this project
 and supplies it as to the module's input `foundation_project_id`.
-  
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

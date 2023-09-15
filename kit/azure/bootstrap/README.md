@@ -4,7 +4,7 @@ summary: |
   creates a service principal with permissions to deploy the cloud foundation infrastructure.
   This is a "bootstrap" module, which means that it must be manually executed once by an administrator
   to bootstrap the cloudfoundation.
-cfmm: 
+cfmm:
   - block: iam/privileged-access-management
     description: |
       creates a service principal with permissions to deploy the cloud foundation infrastructure and secure access
