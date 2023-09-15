@@ -1,7 +1,7 @@
 ---
 name: Azure Activity Logs
 summary: |
-  This module sets up and Azure Log Analytics Workspace and ensures collection of Azure Activity logs in all 
+  This module sets up and Azure Log Analytics Workspace and ensures collection of Azure Activity logs in all
   subscriptions under a management group via policy.
 compliance:
   - control: cfmm/security-and-compliance/centralized-audit-logs
@@ -21,7 +21,7 @@ We expect to see that the scope is compliant with the policy.
 Here is how you interact with logs in your new workspace.
 
 Open log analytics workspace in Azure portal.
-Choose the newly created workspace. 
+Choose the newly created workspace.
 Choose Workbooks → Activity Logs Insights.
 You will see stats about the Activity Logs streamed from the connected subscriptions to the log analytics workspace.
 > This assumes that in some Activity Log items has been generated in any of the
@@ -35,7 +35,7 @@ AzureActivity
 | project TimeGenerated, SubscriptionId, ResourceGroup,ResourceProviderValue,OperationNameValue,CategoryValue,CorrelationId,ActivityStatusValue, ActivitySubstatusValue, Properties_d, Caller
 | top 50 by TimeGenerated
 ```
-  
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

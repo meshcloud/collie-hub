@@ -12,7 +12,7 @@ locals {
       policy_rule = try(p.properties.policyRule, null)
       mode        = try(p.properties.mode, "All")
 
-      # used local library attributes 
+      # used local library attributes
       display_name = try(p.properties.displayName, null)
       description  = try(p.properties.description, null)
 

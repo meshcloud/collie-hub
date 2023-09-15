@@ -4,7 +4,7 @@ This landing zone is intended for serverless resources.
 
 ## Serverless landingzone
 
-- **${resource.azurerm_management_group.serverless.display_name}** - this is the severless management group 
+- **${resource.azurerm_management_group.serverless.display_name}** - this is the severless management group
 
 ### Active Policies
 

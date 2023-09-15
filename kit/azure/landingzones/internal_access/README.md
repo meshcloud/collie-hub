@@ -9,7 +9,7 @@ summary: |
 # Azure Landing Zone "Internal Access"
 
 This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
-  
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

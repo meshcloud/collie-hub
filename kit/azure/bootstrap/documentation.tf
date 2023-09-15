@@ -18,7 +18,7 @@ Access to terraform state is restricted to members of the `${azuread_group.platf
 ## Platform Engineer Access Management
 
 The `${azuread_group.platform_engineers.display_name}` group is used to grant privileged access to members of the
-cloud foundation team. The group has the following members: 
+cloud foundation team. The group has the following members:
 
 ${join("\n", formatlist("- %s", var.platform_engineers_members[*].email))}
 

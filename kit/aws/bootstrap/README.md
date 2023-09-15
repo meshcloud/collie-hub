@@ -4,7 +4,7 @@ summary: |
   creates a service user with permissions to deploy the cloud foundation infrastructure.
   This is a "bootstrap" module, which means that it must be manually executed once by an administrator
   to bootstrap the cloudfoundation
-compliance: 
+compliance:
   - control: cfmm/iam/privileged-access-management
     statement: |
       The deploy user has privileged access to the cloud foundation infrastructure.
