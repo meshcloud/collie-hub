@@ -16,7 +16,7 @@ The frontmatter must contain two mandatory property keys describing each module:
 name: My Module name
 summary: |
   describe what the module does
-compliance: 
+compliance:
   - control: compliance/framework/control # control id (relative path to the control's .md file without extension)
     statement: |
       describe how this module implements the control
