@@ -3,7 +3,7 @@ data "azuread_client_config" "current" {}
 data "azurerm_subscription" "current" {}
 
 data "azurerm_management_group" "root" {
-  name = azurerm_subscription.current.tenant_id
+  name = data.azurerm_subscription.current.tenant_id
 }
 
 // we put the terraform_state part into its own module as that simplifies making it optional
