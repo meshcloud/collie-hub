@@ -39,11 +39,11 @@ collie foundation new "my-foundation"
 
 # import a ready-to-use infrastructure as code module implementing
 # landing zone best practices
-collie kit import "azure/organization-hierarchy"   
+collie kit import "azure/organization-hierarchy"
 
 # apply the kit module to one of your cloud foundation's platforms
-collie kit apply "azure/organization-hierarchy"  
+collie kit apply "azure/organization-hierarchy"
 
 # deploy all modules applied to the foundation to build your landing zone
-collie foundation deploy "my-foundation" 
+collie foundation deploy "my-foundation"
 ```
