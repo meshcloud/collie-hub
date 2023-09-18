@@ -6,7 +6,6 @@ locals {
   # if we use terraform_state_storage, it will generate this file here to provide backend configuration
   terraform_state_config_file_path = "${get_parent_terragrunt_dir()}/tfstates-config.yml"
   tfstateconfig                    = try(yamldecode(file(local.terraform_state_config_file_path)), null)
-  cloudfoundation_name             = yamldecode(regex("^---([\\s\\S]*)\\n---\\n[\\s\\S]*$", file("../..//README.md"))[0])
 }
 
 # terragrunt does not support azure remote_state, so we use a traditional generate block

@@ -6,7 +6,7 @@ resource "azurerm_management_group" "serverless" {
 module "policy_serverless" {
   source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=ef06c8d"
 
-  policy_path         = "./lib"
+  policy_path         = "${path.module}/lib"
   management_group_id = azurerm_management_group.serverless.id
   location            = var.location
 
