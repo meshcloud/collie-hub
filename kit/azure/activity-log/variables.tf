@@ -16,10 +16,10 @@ variable "log_retention_in_days" {
   default     = 30
 }
 
-variable "cloudfoundation_name" {
+variable "cloudfoundation" {
   type        = string
   nullable    = false
-  description = "tfstate resource group for the statefiles"
+  description = "this is the name of your cloud-foundation"
 }
 
 variable "location" {
