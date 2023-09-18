@@ -11,4 +11,4 @@ repos:
     rev: v4.4.0  # Use the ref you want to point at
     hooks:
       - id: trailing-whitespace
-        exclude: "^compliance/|^docs/|^kit/aws/|^kit/foundation/|^kit/gcp/"
+        exclude: "^compliance/"
