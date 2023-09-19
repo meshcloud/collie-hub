@@ -23,7 +23,7 @@ key: value
 # Description
 
 Human readable description of this object to be included in generated
-documentation. 
+documentation.
 
 ```
 
@@ -44,13 +44,13 @@ foundations/my-foundation/
     ├── my-cloud-platform
     │   ├── README.md                 # the platform configuration file
     │   ├── admin                     # platform modules to configure the landing zone (administrative workload)
-    │   │   └── tenant                # the admin/tenant platform module, 
+    │   │   └── tenant                # the admin/tenant platform module,
     │   │       └── terragrunt.hcl      # terragrunt configuration invoking kit module, e.g. //kit/admin/tenant
-    │   ├── bootstrap                 # a bootstrap platform module, 1:1 
+    │   ├── bootstrap                 # a bootstrap platform module, 1:1
     │   │   └── terragrunt.hcl          # terragrunt configuration invoking kit module, e.g. //kit/bootstrap
     │   ├── tenants                   # infrastructure as code for customer workloads
-    │   │   ├── customer-1            
-    │   │   └── ...                   
+    │   │   ├── customer-1
+    │   │   └── ...
     │   └── platform.hcl              # shared terragrunt config for the platform, e.g. backend and provider settings
     └── my-other-platform
         ├── ...
@@ -91,12 +91,12 @@ cli:
 ```markdown
 ---
 aws:
-  accountId: "123456789012"                          # required                     
-  accountAccessRole: "OrganizationAccountAccessRole" # required                     
+  accountId: "123456789012"                          # required
+  accountAccessRole: "OrganizationAccountAccessRole" # required
 cli:
   aws:
     AWS_PROFILE: default                      # required
-    AWS_CONFIG_FILE: ./credentials/bootstrap  # optional 
+    AWS_CONFIG_FILE: ./credentials/bootstrap  # optional
 ---
 ```
 
@@ -219,5 +219,5 @@ To create a platform module, use the `collie kit apply` command.
 
 ### Platform Module Metadata
 
-As an exception to other collie repository configuration objects, platform modules do not need a `README.md` with custom 
+As an exception to other collie repository configuration objects, platform modules do not need a `README.md` with custom
 to be recognized by collie.

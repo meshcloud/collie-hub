@@ -19,7 +19,7 @@ command is provided on each page as well.
 
 ## How to use a module from the Hub
 
-Assuming you have already read and used the [Getting Started](/tutorial) guide and set up your foundation for at least 
+Assuming you have already read and used the [Getting Started](/tutorial) guide and set up your foundation for at least
 one cloud platform, you can import kit modules from the Collie Hub as following:
 
 ```shell
@@ -37,5 +37,5 @@ If you skip supplying the `<module>` parameter, you can interactively explore al
 That's it! The kit module is now part of your cloud foundation. You can make edits to it and deploy it when ready:
 
 ```shell
-collie foundation deploy <foundation> 
+collie foundation deploy <foundation>
 ```

@@ -100,7 +100,7 @@ An example output of this command should look something like this:
 To get a better grip on the consistency of the use of tags, Collie also offers the ability to see what percentage of tags is used by all cloud tenants. You can do so by running the following command:
 
 ```sh
-collie tenant <foundation> analyze-tags 
+collie tenant <foundation> analyze-tags
 ```
 
 When curious about which tenants are missing a particular tag, it is possible to view more details of one or more tags. You can do so by running the following command: (in this case for the `CostCenter` tag)
