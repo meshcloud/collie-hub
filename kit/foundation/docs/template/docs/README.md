@@ -51,8 +51,7 @@ The responsibility documented in the below table holds for all our offerings.
 | **Identities, SSO on cloud platform**                |                      | X                    |                    |
 | **Audit Logs for calls against cloud platform APIs** |                      | X                    |                    |
 | **Permissions on the cloud platform**                | X                    |                      |                    |
-| **Global Policies**                                  | X                    |                      |                    |
-| **Costs**                                            |                      | X                    |                    |
+| **Costs**                                            | X                    |                      |                    |
 
 > As a ground rule we apply the following principle: **If you deploy it, you own it**. Any resources that application
 > teams deploy to Azure are owned and must be secured by this application team. Deviations from this model for resources
