@@ -58,11 +58,6 @@ The responsibility documented in the below table holds for all our offerings.
 > where a shared responsibility model applies are expressly documented for each landing zone and building block offered
 > by the cloud foundation team.
 
-> As a ground rule we apply the following principle: **If you deploy it, you own it**. Any resources that application
-> teams deploy to Azure are owned and must be secured by this application team. Deviations from this model for resources
-> where a shared responsibility model applies are expressly documented for each landing zone and building block offered
-> by the cloud foundation team.
-
 ## Landing Zones and Responsibilities
 
 > 🚧 Adapt the list of landing zones you want to offer.
