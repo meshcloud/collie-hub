@@ -113,9 +113,9 @@ Because this landing zone does not connect to on-prem, this landing zone is a po
 | **Network controls**                                |                      | X                    |                    |
 | **Connectivity towards on-prem**                    |                      | X                    |                    |
 
-### Cloud Native Landing Zone Serverless 
+### Cloud Native Landing Zone Serverless
 
-A Serverless Landing Zone is a specialized environment for serverless computing, ensuring agile and cost-effective application deployment across cloud platforms. 
+A Serverless Landing Zone is a specialized environment for serverless computing, ensuring agile and cost-effective application deployment across cloud platforms.
 It provides pre-configured foundations for serverless services, streamlining development and enhancing security.
 
 |                                                     | application team | cloud foundation | cloud provider |
