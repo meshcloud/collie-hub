@@ -47,7 +47,7 @@ Let's create this repository using the following command.
 
 ```sh
 # Initialize a collie git repository
-collie init likvid-foundation 
+collie init likvid-foundation
 
 # Change into the directory
 cd likvid-foundation
