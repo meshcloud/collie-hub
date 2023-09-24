@@ -8,7 +8,6 @@
   },
   "devDependencies": {
     "vuepress": "2.0.0-beta.37",
-    "@vuepress/plugin-search": "2.0.0-beta.37",
-    "vuepress-plugin-mermaidjs": "https://github.com/laoergege/vuepress-plugin-mermaidjs.git#ef3b7fadf07c16289bd971eb8b20a388eab61469"
+    "@vuepress/plugin-search": "2.0.0-beta.37"
   }
 }
