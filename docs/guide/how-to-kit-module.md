@@ -166,7 +166,7 @@ $ collie foundation tree
    ├─ likvid-prod
    │  └─ platforms
    │     ├─ azure
-   │     │  ├─ organization-hierarchy: foundations/livkid-prod/platforms/azure/organization-hierarchy/terragrunt.hcl
+   │     │  ├─ organization-hierarchy: foundations/likvid-prod/platforms/azure/organization-hierarchy/terragrunt.hcl
    │     │  │  ├─ kitModule: azure/organization-hierarchy
    │     │  │  └─ controls
    │     │  │     └─ 0: cfmm/tenant-management/resource-hierarchy
@@ -180,7 +180,7 @@ your editor
 Now let's add a value for this variable.
 
 :::: code-group
-::: code-group-item foundations/livkid-prod/platforms/azure/organization-hierarchy/terragrunt.hcl
+::: code-group-item foundations/likvid-prod/platforms/azure/organization-hierarchy/terragrunt.hcl
 
 ```hcl{15}
 include "platform" {
@@ -196,7 +196,7 @@ terraform {
 }
 
 inputs = {
-  parentManagementGroup = "livkid-foundation"
+  parentManagementGroup = "likvid-foundation"
   legacyManagementGroup = "super-old-legacy-stuff"
 }
 ```

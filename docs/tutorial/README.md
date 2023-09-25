@@ -7,7 +7,7 @@ This series of tutorials will lead you through the steps to get started with col
 - import a [reusable kit module](../modules/) from collie hub
 - create and review documentation for your cloud foundation
 
-Throughout our tutorials, we are goin to use "Livkid Bank" as the name of a fictional organization that we are building a cloud foundation for.
+Throughout our tutorials, we are goin to use "Likvid Bank" as the name of a fictional organization that we are building a cloud foundation for.
 
 ## Verify Collie Installation
 
@@ -55,7 +55,7 @@ cd likvid-foundation
 
 ### Create a Foundation
 
-After running this command, let's create a new cloud foundation. We will call this `livkid-prod`.
+After running this command, let's create a new cloud foundation. We will call this `likvid-prod`.
 
 Let's run `collie foundation new likvid-prod` to start an interactive configuration for this foundation.
 
@@ -128,7 +128,7 @@ In the next tutorial, we are going to learn how to deploy our first kit module t
 Now is a good time to commit your changes to git.
 
 ```sh
-git add . && git commit -m "initialized livkid-prod"
+git add . && git commit -m "initialized likvid-prod"
 ```
 
 :::
