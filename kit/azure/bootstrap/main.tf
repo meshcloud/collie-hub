@@ -24,3 +24,11 @@ resource "azurerm_role_assignment" "tfstates_engineers" {
   principal_id         = azuread_group.platform_engineers.object_id
   scope                = module.terraform_state[0].container_id
 }
+
+resource "azurerm_role_assignment" "tfstates_engineers_users" {
+  for_each = toset(data.azuread_users.platform_engineers_members.object_ids)
+
+  role_definition_name = "Storage Blob Data Owner"
+  principal_id         = each.key
+  scope                = module.terraform_state[0].container_id
+}
