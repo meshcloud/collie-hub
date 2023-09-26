@@ -1,7 +1,7 @@
 output "documentation_md" {
   value = <<EOF
 
-# Deployment Automation
+# Cloud Foundation Deployment
 
 We are using an Azure Service Principal to deploy all cloudfoundation infrastructure.
 The service principal is named `${var.service_principal_name}`.

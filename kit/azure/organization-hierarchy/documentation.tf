@@ -1,7 +1,9 @@
 output "documentation_md" {
   value = <<EOF
+# Organization Hierarchy
 
-We leverage the Azure Resource Hierarchy to define and enforce global policies.
+We leverage the Azure Resource Hierarchy to define and enforce global policies
+across our entire organization.
 
 ## Management Group Hierarchy
 
