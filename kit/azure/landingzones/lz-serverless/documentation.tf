@@ -1,8 +1,8 @@
 output "documentation_md" {
   value = <<EOF
-This landing zone is intended for serverless resources.
+# Serverless Landing Zone
 
-## Serverless landingzone
+This landing zone is intended for serverless resources.
 
 - **${resource.azurerm_management_group.serverless.display_name}** - this is the severless management group
 
