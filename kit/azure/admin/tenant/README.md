@@ -1,12 +1,8 @@
 ---
 name: Azure Tenant Configuration
 summary: |
-  applies AAD tenant-level configuration. This includes organization policies and other key settings affecting
-  all cloud infrastructure in this tenant.
+  Applies AAD tenant-level configuration
 compliance:
-- control: cfmm/security-and-compliance/resource-policies-blacklisting
-  statement: |
-    A service control policy denies access to any non-EU Azure regions.
 ---
 
 # Azure Tenant Configuration
