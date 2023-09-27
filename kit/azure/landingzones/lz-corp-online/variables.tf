@@ -9,11 +9,11 @@ variable "landingzones" {
 }
 
 variable "corp" {
-  default = "lv-corp"
+  default = "corp"
 }
 
 variable "online" {
-  default = "lv-online"
+  default = "online"
 }
 
 variable "location" {
