@@ -6,7 +6,7 @@ Online: This is the dedicated Management Group for Online landing zones, meaning
 
 Corp: This is the dedicated Management Group for Corp landing zones, meaning workloads that requires connectivity/hybrid connectivity with the corporate network thru the hub in the connectivity subscription.
 
-Landing zones for application teams are placed under either 
+Landing zones for application teams are placed under either
 - **${resource.azurerm_management_group.online.display_name}** - landing zones with internet access
 - **${resource.azurerm_management_group.corp.display_name}** - landing zones with on-prem network access
 
