@@ -13,9 +13,9 @@ compliance:
 - control: cfmm/security-and-compliance/resource-configuration-policies
   statement: |
     Deploy policies enforcing security best-practices for key Azure services
-    - Subnets
-    - Azure Key Vault
-    - SSL/TLS configuration of select Azure services
+      - Subnets
+      - Azure Key Vault
+      - SSL/TLS configuration of select Azure services
 - control: cfmm/service-ecosystem/managed-key-vault
   statement: |
     Enforce and monitor expiration for secrets and keys and enable deletion protection.
