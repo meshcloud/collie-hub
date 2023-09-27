@@ -13,12 +13,9 @@ The main hierarchy looks like this
 ```md
 `${resource.azurerm_management_group.parent.display_name}` this is the root of the hierarchy
 ├──  `${resource.azurerm_management_group.landingzones.display_name}` landing zones for application teams
-│  ├── `${resource.azurerm_management_group.online.display_name}` landing zones with internet access
-│  └── `${resource.azurerm_management_group.corp.display_name}` landing zones with on-prem network access
 └── `${resource.azurerm_management_group.platform.display_name}` landing zones for platform-level workloads, restriced access only for cloud foundation team
 ```
 
-Landing zones for application teams are placed under either `${resource.azurerm_management_group.corp.display_name}` or `${resource.azurerm_management_group.online.display_name}`.
 See [Application Landing Zones](#application-landing-zones) below.
 
 > TODO: link to individual landing zone documentation deployed in your foundations from here.

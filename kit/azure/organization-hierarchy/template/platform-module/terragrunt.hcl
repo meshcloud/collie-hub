@@ -28,12 +28,10 @@ EOF
 inputs = {
   # todo: set input variables
   connectivity          = "lv-connectivity"
-  corp                  = "lv-corp"
   identity              = "lv-identity"
   landingzones          = "lv-landingzones"
   location              = "germanywestcentral"
   management            = "lv-management"
-  online                = "lv-online"
   parentManagementGroup = "lv-foundation"
   platform              = "lv-platform"
 

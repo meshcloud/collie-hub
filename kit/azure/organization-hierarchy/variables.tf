@@ -7,14 +7,6 @@ variable "landingzones" {
   default = "lv-landingzones"
 }
 
-variable "corp" {
-  default = "lv-corp"
-}
-
-variable "online" {
-  default = "lv-online"
-}
-
 variable "platform" {
   default = "lv-platform"
 }
