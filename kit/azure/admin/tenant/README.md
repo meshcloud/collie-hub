@@ -2,7 +2,7 @@
 name: Azure Tenant Configuration
 summary: |
   Applies AAD tenant-level configuration
-compliance:
+compliance: []
 ---
 
 # Azure Tenant Configuration
