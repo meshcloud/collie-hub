@@ -6,14 +6,6 @@ output "landingzones_id" {
   value = azurerm_management_group.landingzones.id
 }
 
-output "corp_id" {
-  value = azurerm_management_group.corp.id
-}
-
-output "online_id" {
-  value = azurerm_management_group.online.id
-}
-
 output "platform_id" {
   value = azurerm_management_group.platform.id
 }

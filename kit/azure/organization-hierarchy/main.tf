@@ -23,16 +23,6 @@ resource "azurerm_management_group" "landingzones" {
   parent_management_group_id = azurerm_management_group.parent.id
 }
 
-resource "azurerm_management_group" "corp" {
-  display_name               = var.corp
-  parent_management_group_id = azurerm_management_group.landingzones.id
-}
-
-resource "azurerm_management_group" "online" {
-  display_name               = var.online
-  parent_management_group_id = azurerm_management_group.landingzones.id
-}
-
 resource "azurerm_management_group" "platform" {
   display_name               = var.platform
   parent_management_group_id = azurerm_management_group.parent.id
