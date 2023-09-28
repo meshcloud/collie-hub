@@ -18,6 +18,7 @@ module "policy_corp" {
 
   template_file_variables = {
     default_location          = "${var.location}"
+    connectivity_location          = "${var.location}"
     current_scope_resource_id = azurerm_management_group.corp.id
     root_scope_resource_id    = azurerm_management_group.corp.id
   }
