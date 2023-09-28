@@ -8,7 +8,7 @@ summary: |
 
 # Azure Landing Zone "Serverless"
 
-This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
+This kit provides a Terraform configuration for setting up Azure Management Groups for dedicated Management Group and policy for Serverless Landingzones.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
