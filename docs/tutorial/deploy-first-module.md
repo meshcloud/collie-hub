@@ -192,7 +192,7 @@ This is great news, you now have deployed your first cloud resources with collie
 
 ### Perform the second bootstrap pass
 
-We are however not fully done bootstrapping yet. One key benefit of using terraform is that we can just re-execute the module to see if there is any configuration drift between the desired state specified in our collie repositiory and the actual state of resources deployed in the cloud.
+We are however not fully done bootstrapping yet. One key benefit of using terraform is that we can just re-execute the module to see if there is any configuration drift between the desired state specified in our collie repositiory and the actual state of resources deployed in the cloud. To migrate the status, it may be necessary to logout once from the Azure CLI `az logout` and then login again `az login` to obtain the newly created permissions for the storage container.
 
 Let's just run the previous command again and see what happens.
 

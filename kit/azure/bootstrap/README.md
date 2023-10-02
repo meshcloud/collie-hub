@@ -22,6 +22,7 @@ This module includes configuration to set up a state backend using Azure blob st
 You can activate this by configuring the `terraform_state_storage` variable.
 
 Like all bootstrap modules published on collie hub, you will need to deploy this module twice to complete the bootstrap process.
+To migrate the status, it may be necessary to logout once from the Azure CLI `az logout` and then login again `az login` to obtain the newly created permissions for the storage container.
 Please see the [bootstrap tutorial](https://collie.cloudfoundation.org/tutorial/deploy-first-module.html#bootstrap-a-cloud-platform) for more info.
 
 > If you're not using `terraform_state_storage`, please configure your own backend in `platform.hcl`
