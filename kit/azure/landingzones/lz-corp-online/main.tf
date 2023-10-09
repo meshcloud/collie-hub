@@ -21,6 +21,7 @@ module "policy_corp" {
     connectivity_location     = "${var.location}"
     current_scope_resource_id = azurerm_management_group.corp.id
     root_scope_resource_id    = azurerm_management_group.corp.id
+    private_dns_zone_prefix   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/${var.cloudfoundation}/dns/providers/Microsoft.Network/privateDnsZones/"
   }
 }
 

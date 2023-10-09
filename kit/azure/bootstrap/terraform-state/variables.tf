@@ -13,5 +13,5 @@ variable "terraform_state_config_file_path" {
 variable "cloudfoundation" {
   type        = string
   nullable    = false
-  description = "tfstate resource group for the statefiles"
+  description = "the name of your cloudfoundation"
 }

@@ -40,6 +40,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | the name of your cloudfoundation | `string` | n/a | yes |
 | <a name="input_corp"></a> [corp](#input\_corp) | n/a | `string` | `"corp"` | no |
 | <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"lv-landingzones"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
