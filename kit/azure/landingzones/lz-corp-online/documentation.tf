@@ -18,6 +18,7 @@ Landing zones for application teams are placed under either
 |Policy|Effect|Description|Rationale|
 |-|-|-|-|
 |[${module.policy_corp.policy_assignments["Audit-PeDnsZones"].display_name}](https://cloudfoundation.org/maturity-model/security-and-compliance/centralized-audit-logs.html#proven-patterns-when-implementing-centralized-audit-logs)|Audit|
+|[${module.policy_corp.policy_assignments["Deploy-Private-DNS-Zones"].display_name}](https://https://cloudfoundation.org/maturity-model/security-and-compliance/service-and-location-restrictions.html#proven-patterns-for-implementing-cloud-resource-policies)|Deploy|
 |[${module.policy_corp.policy_assignments["Deny-HybridNetworking"].display_name}](https://https://cloudfoundation.org/maturity-model/security-and-compliance/service-and-location-restrictions.html#proven-patterns-for-implementing-cloud-resource-policies)|Deny|
 |[${module.policy_corp.policy_assignments["Deny-Public-Endpoints"].display_name}](https://https://cloudfoundation.org/maturity-model/security-and-compliance/service-and-location-restrictions.html#proven-patterns-for-implementing-cloud-resource-policies)|Deny|
 |[${module.policy_corp.policy_assignments["Deny-Public-IP-On-NIC"].display_name}](https://https://cloudfoundation.org/maturity-model/security-and-compliance/service-and-location-restrictions.html#proven-patterns-for-implementing-cloud-resource-policies)|Deny|
