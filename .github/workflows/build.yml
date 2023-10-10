@@ -20,10 +20,10 @@ jobs:
       - uses: rrbutani/use-nix-shell-action@v1
         with:
           file: default.nix
-        # regarding to the terraform lic change to bsl    
-        env: 
-          NIXPKGS_ALLOW_UNFREE: 1    
-            
+        # regarding to the terraform lic change to bsl
+        env:
+          NIXPKGS_ALLOW_UNFREE: 1
+
       - name: ensure all pre-commit hooks pass
         run: pre-commit run --all-files --show-diff-on-failure
       - name: compile kit
