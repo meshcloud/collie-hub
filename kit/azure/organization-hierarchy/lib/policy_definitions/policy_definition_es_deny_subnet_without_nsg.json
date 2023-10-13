@@ -1,5 +1,5 @@
 {
-  "name": "Deny-Subnet-Without-Nsg",
+  "name": "Audit-Subnet-Without-Nsg",
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
   "scope": null,
@@ -26,7 +26,7 @@
           "Deny",
           "Disabled"
         ],
-        "defaultValue": "Deny",
+        "defaultValue": "Audit",
         "metadata": {
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
