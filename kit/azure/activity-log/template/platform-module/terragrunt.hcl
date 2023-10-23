@@ -23,10 +23,12 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
-  subscription_id = "the-id-of-your-logging-subscription"
   client_id       = "${dependency.bootstrap.outputs.client_id}"
   client_secret   = "${dependency.bootstrap.outputs.client_secret}"
-  }
+
+  # recommended: use a separate subscription to archive logs
+  subscription_id = "the-id-of-your-logging-subscription"
+}
 EOF
 }
 

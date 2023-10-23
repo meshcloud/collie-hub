@@ -28,7 +28,8 @@ resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
       # Permissions for log workspace solution
       "Microsoft.OperationsManagement/solutions/*",
       # Permissions for automation accounts
-    "Microsoft.Automation/automationAccounts/*"]
+      "Microsoft.Automation/automationAccounts/*"
+    ]
   }
 }
 
