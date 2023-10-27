@@ -104,6 +104,12 @@ resource "azuread_app_role_assignment" "cloudfoundation_deploy-directory" {
   resource_object_id  = data.azuread_service_principal.msgraph.object_id
 }
 
+resource "azuread_app_role_assignment" "cloudfoundation_deploy-group" {
+  app_role_id         = data.azuread_service_principal.msgraph.app_role_ids["Group.ReadWrite.All"]
+  principal_object_id = azuread_service_principal.cloudfoundation_deploy.object_id
+  resource_object_id  = data.azuread_service_principal.msgraph.object_id
+}
+
 resource "azuread_app_role_assignment" "cloudfoundation_deploy-approle" {
   app_role_id         = data.azuread_service_principal.msgraph.app_role_ids["AppRoleAssignment.ReadWrite.All"]
   principal_object_id = azuread_service_principal.cloudfoundation_deploy.object_id
