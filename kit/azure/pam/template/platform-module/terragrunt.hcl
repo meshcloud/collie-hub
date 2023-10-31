@@ -7,6 +7,10 @@ dependency "bootstrap" {
   config_path = "${path_relative_from_include()}/bootstrap"
 }
 
+dependency "activity-log" {
+  config_path = "${path_relative_from_include()}/activity-log"
+}
+
 terraform {
   source = "${get_repo_root()}//kit/azure/pam"
 }
@@ -39,6 +43,7 @@ inputs = {
       upn   = "financemeshi@meshithesheep.onmicrosoft.com"
     }
   ]
+  security_auditor_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
   security_auditor_members = [
     {
       email = "securitymeshi@meshithesheep.io" #TODO change, enter Security AUDITOR MAIL here
