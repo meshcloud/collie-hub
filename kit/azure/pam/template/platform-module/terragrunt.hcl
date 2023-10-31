@@ -31,12 +31,14 @@ EOF
 }
 
 inputs = {
+  billing_admin_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
   billing_admin_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING ADMIN MAIL here
       upn   = "financemeshi@meshithesheep.onmicrosoft.com"
     }
   ]
+  billing_reader_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
   billing_reader_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING READER MAIL here
