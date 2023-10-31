@@ -2,7 +2,14 @@
 name: Privileged Access Management
 summary: |
   Privileged Access Management (PAM) refers to the implementation of security measures and best practices to control and monitor access to critical resources within cloud platforms. For cloud foundation teams, it is about safeguarding administrative roles that enable access to core infrastructure, ensuring the security, compliance, and visibility needed to oversee application teams' cloud usage.
-# optional: add additional metadata about implemented security controls
+compliance:
+  - control: cfmm/iam/privileged-access-management
+    statement: |
+      In an enterprise environment, “privileged access” is a term used to designate special access or abilities above and beyond that of a standard user. A typical cloud foundation will have various roles, each with its set of responsibilities. These roles typically include:
+      - **Security Auditors:** Responsible for ensuring compliance and security across cloud resources.
+      - **Billing Admins:** Manage financial aspects of cloud usage and allocate costs to various teams or projects.
+      - **Network Admins:** Oversee networking configurations, ensuring connectivity and security.
+      - **Platform Engineers:** Responsible for deploying Landing zones, performing or automating
 ---
 
 # Privileged Access Management
