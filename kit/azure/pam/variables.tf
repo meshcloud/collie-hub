@@ -4,7 +4,7 @@ variable "billing_admin_group" {
 }
 
 variable "billing_admin_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Set up a group of billing readers. This group will receive admin access to Cost Management"
   type = list(object({
     email = string,
     upn   = string,
@@ -17,7 +17,7 @@ variable "billing_reader_group" {
 }
 
 variable "billing_reader_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Set up a group of billing readers. This group will receive access to Cost Management"
   type = list(object({
     email = string,
     upn   = string,
@@ -30,7 +30,7 @@ variable "security_auditor_group" {
 }
 
 variable "security_auditor_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Set up a group of Security Auditors. This group will receive access to the Log Analytics Workspace (law)"
   type = list(object({
     email = string,
     upn   = string,
