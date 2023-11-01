@@ -31,14 +31,15 @@ EOF
 }
 
 inputs = {
-  billing_admin_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
+  # the groups were created in the respective kits (logging, network, billing etc.)
+  billing_admin_group = "${dependency.activity-log.outputs.billing_admin_azuread_group_id}"
   billing_admin_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING ADMIN MAIL here
       upn   = "financemeshi@meshithesheep.onmicrosoft.com"
     }
   ]
-  billing_reader_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
+  billing_reader_group = "${dependency.activity-log.outputs.billing_reader_azuread_group_id}"
   billing_reader_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING READER MAIL here
@@ -52,4 +53,12 @@ inputs = {
       upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
     }
   ]
+  #TODO network admin will be used for the hub kit 
+  #network_admin_group = "${dependency.activity-log.outputs.network_admin_azuread_group_id}"
+  #network_admin_members = [
+  #{
+  #  email = "networkmeshi@meshithesheep.io" #TODO change, enter Security AUDITOR MAIL here
+  #  upn   = "networkmeshi@meshithesheep.onmicrosoft.com"
+  #}
+  #]
 }
