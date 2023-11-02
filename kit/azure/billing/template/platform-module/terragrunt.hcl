@@ -3,14 +3,6 @@ include "platform" {
   expose = true
 }
 
-dependency "bootstrap" {
-  config_path = "../bootstrap"
-}
-include "platform" {
-  path   = find_in_parent_folders("platform.hcl")
-  expose = true
-}
-
 terraform {
   source = "${get_repo_root()}//kit/azure/billing"
 }
@@ -38,6 +30,8 @@ provider "azurerm" {
 EOF
 }
 
+
 inputs = {
+  # todo: set input variables
   scope = "${dependency.organization-hierarchy.outputs.parent_id}"
 }

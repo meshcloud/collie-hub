@@ -7,8 +7,12 @@ dependency "bootstrap" {
   config_path = "${path_relative_from_include()}/bootstrap"
 }
 
-dependency "activity-log" {
-  config_path = "${path_relative_from_include()}/activity-log"
+dependency "logging" {
+  config_path = "${path_relative_from_include()}/logging"
+}
+
+dependency "billing" {
+  config_path = "${path_relative_from_include()}/billing"
 }
 
 terraform {
@@ -31,15 +35,34 @@ EOF
 }
 
 inputs = {
-  # the groups were created in the respective kits (logging, network, billing etc.)
-  billing_admin_group = "${dependency.activity-log.outputs.billing_admin_azuread_group_id}"
+
+  billing_admin = {
+    group = {
+      object_id    = "${dependency.billing.outputs.billing_admins_azuread_group_id}",
+      display_name = "${dependency.billing.outputs.billing_admins_azuread_group_displayname}"
+    }
+  }
+
+  billing_reader = {
+    group = {
+      object_id    = "${dependency.billing.outputs.billing_readers_azuread_group_id}",
+      display_name = "${dependency.billing.outputs.billing_readers_azuread_group_displayname}"
+    }
+  }
+
+  security_auditor = {
+    group = {
+      object_id    = "${dependency.logging.outputs.security_auditors_azuread_group_id}",
+      display_name = "${dependency.logging.outputs.security_auditors_azuread_group_displayname}"
+    }
+  }
+
   billing_admin_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING ADMIN MAIL here
       upn   = "financemeshi@meshithesheep.onmicrosoft.com"
     }
   ]
-  billing_reader_group = "${dependency.activity-log.outputs.billing_reader_azuread_group_id}"
   billing_reader_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING READER MAIL here
@@ -53,12 +76,4 @@ inputs = {
       upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
     }
   ]
-  #TODO network admin will be used for the hub kit 
-  #network_admin_group = "${dependency.activity-log.outputs.network_admin_azuread_group_id}"
-  #network_admin_members = [
-  #{
-  #  email = "networkmeshi@meshithesheep.io" #TODO change, enter Security AUDITOR MAIL here
-  #  upn   = "networkmeshi@meshithesheep.onmicrosoft.com"
-  #}
-  #]
 }

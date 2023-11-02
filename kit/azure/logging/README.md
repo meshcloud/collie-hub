@@ -78,5 +78,6 @@ AzureActivity
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_security_auditors_azuread_group_displayname"></a> [security\_auditors\_azuread\_group\_displayname](#output\_security\_auditors\_azuread\_group\_displayname) | n/a |
 | <a name="output_security_auditors_azuread_group_id"></a> [security\_auditors\_azuread\_group\_id](#output\_security\_auditors\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->
