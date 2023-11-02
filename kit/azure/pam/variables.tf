@@ -1,11 +1,12 @@
-
 variable "billing_admin" {
+  description = "this variable fetchs the output values of the billing kit"
   type = object({
     group = object({ object_id = string, display_name = string })
   })
 }
+
 variable "billing_admin_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Admins for Cost Management"
   type = list(object({
     email = string,
     upn   = string,
@@ -13,13 +14,14 @@ variable "billing_admin_members" {
 }
 
 variable "billing_reader" {
+  description = "this variable fetchs the output values of the billing kit"
   type = object({
     group = object({ object_id = string, display_name = string })
   })
 }
 
 variable "billing_reader_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Auditors for Cost Management"
   type = list(object({
     email = string,
     upn   = string,
@@ -27,13 +29,14 @@ variable "billing_reader_members" {
 }
 
 variable "security_auditor" {
+  description = "this variable fetchs the output values of the logging kit"
   type = object({
     group = object({ object_id = string, display_name = string })
   })
 }
 
 variable "security_auditor_members" {
-  description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
+  description = "Security Auditors for the Log Analytics Workspace"
   type = list(object({
     email = string,
     upn   = string,
