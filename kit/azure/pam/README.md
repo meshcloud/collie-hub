@@ -40,6 +40,8 @@ No modules.
 | <a name="input_billing_admin_members"></a> [billing\_admin\_members](#input\_billing\_admin\_members) | Admins for Cost Management | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 | <a name="input_billing_reader"></a> [billing\_reader](#input\_billing\_reader) | this variable fetchs the output values of the billing kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
 | <a name="input_billing_reader_members"></a> [billing\_reader\_members](#input\_billing\_reader\_members) | Auditors for Cost Management | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
+| <a name="input_security_admin"></a> [security\_admin](#input\_security\_admin) | this variable fetchs the output values of the logging kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
+| <a name="input_security_admin_members"></a> [security\_admin\_members](#input\_security\_admin\_members) | Security Admins for the Log Analytics Workspace | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 | <a name="input_security_auditor"></a> [security\_auditor](#input\_security\_auditor) | this variable fetchs the output values of the logging kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
 | <a name="input_security_auditor_members"></a> [security\_auditor\_members](#input\_security\_auditor\_members) | Security Auditors for the Log Analytics Workspace | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 

@@ -72,15 +72,26 @@ resource "azurerm_role_assignment" "logging" {
   scope                = var.scope
 }
 
-resource "azuread_group" "security_auditors" {
-  display_name = "cloudfoundation-security-auditors"
-  #owners           = [data.azuread_client_config.current.object_id]
+# creates group and permissions for security admins
+resource "azuread_group" "security_admins" {
+  display_name     = "cloudfoundation-security-admins"
   security_enabled = true
 }
 
-# Set permissions for security auditors
-resource "azurerm_role_assignment" "security_auditors" {
+resource "azurerm_role_assignment" "security_admins" {
   role_definition_name = "Log Analytics Contributor"
+  principal_id         = azuread_group.security_admins.object_id
+  scope                = var.scope
+}
+
+# creates group and permissions for security auditors
+resource "azuread_group" "security_auditors" {
+  display_name     = "cloudfoundation-security-auditors"
+  security_enabled = true
+}
+
+resource "azurerm_role_assignment" "security_auditors" {
+  role_definition_name = "Log Analytics Reader"
   principal_id         = azuread_group.security_auditors.object_id
   scope                = var.scope
 }
