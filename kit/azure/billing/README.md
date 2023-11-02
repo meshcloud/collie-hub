@@ -41,7 +41,9 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_billing_admin_azuread_group_id"></a> [billing\_admin\_azuread\_group\_id](#output\_billing\_admin\_azuread\_group\_id) | n/a |
-| <a name="output_billing_reader_azuread_group_id"></a> [billing\_reader\_azuread\_group\_id](#output\_billing\_reader\_azuread\_group\_id) | n/a |
+| <a name="output_billing_admins_azuread_group_displayname"></a> [billing\_admins\_azuread\_group\_displayname](#output\_billing\_admins\_azuread\_group\_displayname) | n/a |
+| <a name="output_billing_admins_azuread_group_id"></a> [billing\_admins\_azuread\_group\_id](#output\_billing\_admins\_azuread\_group\_id) | n/a |
+| <a name="output_billing_readers_azuread_group_displayname"></a> [billing\_readers\_azuread\_group\_displayname](#output\_billing\_readers\_azuread\_group\_displayname) | n/a |
+| <a name="output_billing_readers_azuread_group_id"></a> [billing\_readers\_azuread\_group\_id](#output\_billing\_readers\_azuread\_group\_id) | n/a |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->

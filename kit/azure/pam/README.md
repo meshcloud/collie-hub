@@ -2,14 +2,7 @@
 name: Privileged Access Management
 summary: |
   Privileged Access Management (PAM) refers to the implementation of security measures and best practices to control and monitor access to critical resources within cloud platforms. For cloud foundation teams, it is about safeguarding administrative roles that enable access to core infrastructure, ensuring the security, compliance, and visibility needed to oversee application teams' cloud usage.
-compliance:
-  - control: cfmm/iam/privileged-access-management
-    statement: |
-      In an enterprise environment, “privileged access” is a term used to designate special access or abilities above and beyond that of a standard user. A typical cloud foundation will have various roles, each with its set of responsibilities. These roles typically include:
-      - **Security Auditors:** Responsible for ensuring compliance and security across cloud resources.
-      - **Billing Admins:** Manage financial aspects of cloud usage and allocate costs to various teams or projects.
-      - **Network Admins:** Oversee networking configurations, ensuring connectivity and security.
-      - **Platform Engineers:** Responsible for deploying Landing zones, performing or automating
+# optional: add additional metadata about implemented security controls
 ---
 
 # Privileged Access Management
@@ -43,14 +36,16 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_admin_group"></a> [billing\_admin\_group](#input\_billing\_admin\_group) | object\_id of the billing admin group | `string` | n/a | yes |
+| <a name="input_billing_admin"></a> [billing\_admin](#input\_billing\_admin) | n/a | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
 | <a name="input_billing_admin_members"></a> [billing\_admin\_members](#input\_billing\_admin\_members) | Set up a group of platform engineers. If enabled, this group will receive access to terraform\_state\_storage | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
-| <a name="input_billing_reader_group"></a> [billing\_reader\_group](#input\_billing\_reader\_group) | object\_id of the billing reader group | `string` | n/a | yes |
+| <a name="input_billing_reader"></a> [billing\_reader](#input\_billing\_reader) | n/a | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
 | <a name="input_billing_reader_members"></a> [billing\_reader\_members](#input\_billing\_reader\_members) | Set up a group of platform engineers. If enabled, this group will receive access to terraform\_state\_storage | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
-| <a name="input_security_auditor_group"></a> [security\_auditor\_group](#input\_security\_auditor\_group) | object\_id of the security auditor group | `string` | n/a | yes |
+| <a name="input_security_auditor"></a> [security\_auditor](#input\_security\_auditor) | n/a | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
 | <a name="input_security_auditor_members"></a> [security\_auditor\_members](#input\_security\_auditor\_members) | Set up a group of platform engineers. If enabled, this group will receive access to terraform\_state\_storage | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->

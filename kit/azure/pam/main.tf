@@ -20,19 +20,19 @@ data "azuread_users" "security_auditors" {
 
 resource "azuread_group_member" "billing_admins" {
   for_each         = toset(data.azuread_users.billing_admins.object_ids)
-  group_object_id  = var.billing_admin_group
+  group_object_id  = var.billing_admin.group.object_id
   member_object_id = each.value
 }
 
 resource "azuread_group_member" "billing_readers" {
   for_each         = toset(data.azuread_users.billing_readers.object_ids)
-  group_object_id  = var.billing_reader_group
+  group_object_id  = var.billing_reader.group.object_id
   member_object_id = each.value
 }
 
 resource "azuread_group_member" "security_auditors" {
   for_each         = toset(data.azuread_users.security_auditors.object_ids)
-  group_object_id  = var.security_auditor_group
+  group_object_id  = var.security_auditor.group.object_id
   member_object_id = each.value
 }
 
