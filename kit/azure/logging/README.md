@@ -54,11 +54,13 @@ AzureActivity
 
 | Name | Type |
 |------|------|
+| [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_resource_group.law_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.security_admins](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_auditors](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_definition.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
@@ -78,6 +80,8 @@ AzureActivity
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_security_admins_azuread_group_displayname"></a> [security\_admins\_azuread\_group\_displayname](#output\_security\_admins\_azuread\_group\_displayname) | n/a |
+| <a name="output_security_admins_azuread_group_id"></a> [security\_admins\_azuread\_group\_id](#output\_security\_admins\_azuread\_group\_id) | n/a |
 | <a name="output_security_auditors_azuread_group_displayname"></a> [security\_auditors\_azuread\_group\_displayname](#output\_security\_auditors\_azuread\_group\_displayname) | n/a |
 | <a name="output_security_auditors_azuread_group_id"></a> [security\_auditors\_azuread\_group\_id](#output\_security\_auditors\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->

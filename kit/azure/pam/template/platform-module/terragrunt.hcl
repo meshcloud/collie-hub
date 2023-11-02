@@ -50,13 +50,18 @@ inputs = {
     }
   }
 
+  security_admin = {
+    group = {
+      object_id    = "${dependency.logging.outputs.security_admins_azuread_group_id}",
+      display_name = "${dependency.logging.outputs.security_admins_azuread_group_displayname}"
+    }
+  }
   security_auditor = {
     group = {
       object_id    = "${dependency.logging.outputs.security_auditors_azuread_group_id}",
       display_name = "${dependency.logging.outputs.security_auditors_azuread_group_displayname}"
     }
   }
-
   billing_admin_members = [
     {
       email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING ADMIN MAIL here
@@ -69,10 +74,17 @@ inputs = {
       upn   = "financemeshi@meshithesheep.onmicrosoft.com"
     }
   ]
+  security_admin_group = "${dependency.activity-log.outputs.security_admins_azuread_group_id}"
+  security_admin_members = [
+    {
+      email = "securitymeshi@meshithesheep.io" #TODO change, enter SECURITY ADMINS MAIL here
+      upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
+    }
+  ]
   security_auditor_group = "${dependency.activity-log.outputs.security_auditors_azuread_group_id}"
   security_auditor_members = [
     {
-      email = "securitymeshi@meshithesheep.io" #TODO change, enter Security AUDITOR MAIL here
+      email = "securitymeshi@meshithesheep.io" #TODO change, enter SECURITY AUDITOR MAIL here
       upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
     }
   ]

@@ -28,6 +28,21 @@ variable "billing_reader_members" {
   }))
 }
 
+variable "security_admin" {
+  description = "this variable fetchs the output values of the logging kit"
+  type = object({
+    group = object({ object_id = string, display_name = string })
+  })
+}
+
+variable "security_admin_members" {
+  description = "Security Admins for the Log Analytics Workspace"
+  type = list(object({
+    email = string,
+    upn   = string,
+  }))
+}
+
 variable "security_auditor" {
   description = "this variable fetchs the output values of the logging kit"
   type = object({
