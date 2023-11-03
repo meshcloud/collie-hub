@@ -36,6 +36,14 @@ EOF
 
 inputs = {
 
+  platform_engineer = {
+    group = {
+      object_id    = "${dependency.bootstrap.outputs.platform_engineers_azuread_group_id}",
+      display_name = "${dependency.bootstrap.outputs.platform_engineers_azuread_group_displayname}"
+      member       = "${dependency.bootstrap.outputs.platform_engineers_members}"
+    }
+  }
+
   billing_admin = {
     group = {
       object_id    = "${dependency.billing.outputs.billing_admins_azuread_group_id}",
