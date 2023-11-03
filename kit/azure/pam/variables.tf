@@ -1,3 +1,10 @@
+variable "platform_engineer" {
+  description = "this variable fetchs the output values of the billing kit"
+  type = object({
+    group = object({ object_id = string, display_name = string, member = list(string) })
+  })
+}
+
 variable "billing_admin" {
   description = "this variable fetchs the output values of the billing kit"
   type = object({
