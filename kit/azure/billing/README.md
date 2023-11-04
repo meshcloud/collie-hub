@@ -1,14 +1,16 @@
 ---
-name: azure/billing
+name: Azure billing
 summary: |
-  deploys new cloud foundation infrastructure.
-  Add a concise description of the module's purpose here.
-# optional: add additional metadata about implemented security controls
+  This kit is designed to help organizations monitor, allocate, and optimize the cost of their Microsoft cloud workloads.
+compliance:
+  - control: cfmm/cost-management
+   
 ---
 
-# azure/billing
+# Azure Billing
 
-This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
+Microsoft Cost Management is a suite of tools that help organizations monitor, allocate, and optimize the cost of their Microsoft Cloud workloads. Cost Management is available to anyone with access to a billing or resource management scope. The availability includes anyone from the cloud finance team with access to the billing account. And, to DevOps teams managing resources in subscriptions and resource groups. Together, Cost Management and Billing are your gateway to the Microsoft Commerce system that’s available to everyone throughout the journey.
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

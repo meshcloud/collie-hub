@@ -10,6 +10,15 @@ This is enforced via an Azure Policy called `${module.policy_law.policy_assignme
 
 The log analytics workspace collects Activity Logs, which are [platform logs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview).
 
+The kit creates two Groups as preparation for the Privileged Access Mananganmet.
+
+| group                           | role                      |
+---------------------------------------------------------------
+| cloudfoundation-security-admins | Log Analytics Contributor |
+| cloudfoundation-secuirty-readers | Log Analytics Reader |
+
+[Privileged Access Mananganmet](https://cloudfoundation.org/maturity-model/iam/privileged-access-management.html#what-is-privileged-access-management-pam)
+
 According to [Azure docs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview#types-of-platform-logs):
 > Activity logs provide an insight into the operations performed on each Azure resource in the subscription from the outside, known as the management plane. in addition to updates on Service Health events. Use the Activity log to determine what, who, and when for any write operation (PUT, POST, DELETE) executed on the resources in your subscription. There's a single activity log for each Azure subscription.
 

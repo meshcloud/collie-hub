@@ -13,7 +13,7 @@ compliance:
 # Logging
 
 
-## Getting started with log analytics workspace
+## Getting started with loglog analytics workspace
 
 If you have not done so already, move an existing subscription into the management group hierarchy and check the policy assignment status in Azure Portal.
 We expect to see that the scope is compliant with the policy.
