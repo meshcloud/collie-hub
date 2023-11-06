@@ -2,14 +2,6 @@ data "azuread_client_config" "current" {}
 
 data "azurerm_subscription" "current" {}
 
-data "azurerm_management_group" "root" {
-  name = data.azurerm_subscription.current.tenant_id
-}
-
-locals {
-  role_definition_name = "Cost Management Contributor"
-}
-
 resource "azuread_group" "billing_admins" {
   display_name     = "cloudfoundation-billing-admins"
   owners           = [data.azuread_client_config.current.object_id]

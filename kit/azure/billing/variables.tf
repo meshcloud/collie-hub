@@ -5,8 +5,9 @@ variable "scope" {
 }
 
 variable "budget_name" {
-  type    = string
-  default = "cloudfoundation_budget"
+  type        = string
+  default     = "cloudfoundation_budget"
+  description = "the name of the budget alert"
 }
 
 variable "contact_mails" {
@@ -25,8 +26,8 @@ variable "budget_time_period" {
     start = "2022-06-01T00:00:00Z",
     end   = "2022-07-01T00:00:00Z"
   }]
+  description = "the time period of the budget alert"
 }
-
 
 variable "budget_amount" {
   type        = number
