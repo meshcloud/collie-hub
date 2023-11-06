@@ -27,6 +27,7 @@ No modules.
 |------|------|
 | [azuread_group.billing_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.billing_readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
+| [azurerm_consumption_budget_management_group.tenant_root_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/consumption_budget_management_group) | resource |
 | [azurerm_role_assignment.cost_management_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.management_group_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
@@ -37,7 +38,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_budget_amount"></a> [budget\_amount](#input\_budget\_amount) | amount of the budget | `number` | `100` | no |
+| <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | n/a | `string` | `"cloudfoundation_budget"` | no |
+| <a name="input_contact_mails"></a> [contact\_mails](#input\_contact\_mails) | The email address of the contact person for the cost alert | `list(string)` | n/a | yes |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the tenant management group | `string` | n/a | yes |
+| <a name="input_time_period"></a> [time\_period](#input\_time\_period) | n/a | <pre>list(object({<br>    start = string,<br>    end   = string,<br>  default = {<br>    start = "2022-06-01T00:00:00Z"<br>    end = "2022-07-01T00:00:00Z"<br>    }  <br>  }))</pre> | n/a | yes |
 
 ## Outputs
 
