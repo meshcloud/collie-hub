@@ -19,13 +19,13 @@ variable "budget_time_period" {
   type = list(object({
     start = string,
     end   = string
-   }))
+  }))
 
   default = [{
     start = "2022-06-01T00:00:00Z",
     end   = "2022-07-01T00:00:00Z"
   }]
-  }
+}
 
 
 variable "budget_amount" {
