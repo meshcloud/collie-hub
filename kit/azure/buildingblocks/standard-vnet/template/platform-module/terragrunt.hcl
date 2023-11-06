@@ -27,7 +27,7 @@ EOF
 
 inputs = {
   # todo: set input variables
-existing_storage_account_id = null
-new_resource_group_name = null
-existing_application_id = dependency.bootstrap.outputs.client_id
+  existing_storage_account_id = null
+  new_resource_group_name     = null
+  existing_application_id     = dependency.bootstrap.outputs.client_id
 }
