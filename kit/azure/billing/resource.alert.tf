@@ -6,8 +6,8 @@ resource "azurerm_consumption_budget_management_group" "tenant_root_group" {
   time_grain = "Monthly"
 
   time_period {
-    start_date = var.time_period.start
-    end_date   = var.time_period.end
+    start_date = var.budget_time_period[0].start
+    end_date   = var.budget_time_period[0].end
   }
 
   notification {
@@ -15,9 +15,7 @@ resource "azurerm_consumption_budget_management_group" "tenant_root_group" {
     threshold = 90.0
     operator  = "EqualTo"
 
-    contact_emails = [
-      var.contact_emails
-    ]
+    contact_emails = var.contact_mails
 
   }
 
@@ -27,8 +25,6 @@ resource "azurerm_consumption_budget_management_group" "tenant_root_group" {
     operator       = "GreaterThan"
     threshold_type = "Forecasted"
 
-    contact_emails = [
-      var.contact_emails
-    ]
+    contact_emails = var.contact_mails
   }
 }

@@ -29,19 +29,19 @@ resource "azurerm_role_assignment" "cost_management_contributor" {
 }
 
 # we also assign this permission since its required to read management groups and view the organization hierarchy
-resource "azurerm_role_assignment" "management_group_reader" {
+resource "azurerm_role_assignment" "management_group_biling_admin" {
   role_definition_name = "Management Group Reader"
   principal_id         = azuread_group.billing_admins.object_id
   scope                = var.scope
 }
 
-resource "azurerm_role_assignment" "cost_management_contributor" {
+resource "azurerm_role_assignment" "cost_management_reader" {
   role_definition_name = "Cost Management Reader"
   principal_id         = azuread_group.billing_admins.object_id
   scope                = var.scope
 }
 
-resource "azurerm_role_assignment" "management_group_reader" {
+resource "azurerm_role_assignment" "management_group_billing_reader" {
   role_definition_name = "Management Group Reader"
   principal_id         = azuread_group.billing_readers.object_id
   scope                = var.scope

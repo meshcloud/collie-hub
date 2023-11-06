@@ -10,24 +10,26 @@ variable "budget_name" {
 }
 
 variable "contact_mails" {
-  description = "The email address of the contact person for the cost alert"
+  default     = ["billingmeshi@meshithesheep.io"]
   type        = list(string)
+  description = "The email address of the contact person for the cost alert"
 }
 
-variable "time_period" {
+variable "budget_time_period" {
   type = list(object({
     start = string,
-    end   = string,
-    default = {
-      start = "2022-06-01T00:00:00Z"
-      end   = "2022-07-01T00:00:00Z"
-    }
-  }))
-}
+    end   = string
+   }))
+
+  default = [{
+    start = "2022-06-01T00:00:00Z",
+    end   = "2022-07-01T00:00:00Z"
+  }]
+  }
+
 
 variable "budget_amount" {
   type        = number
   default     = 100
   description = "amount of the budget"
 }
-
