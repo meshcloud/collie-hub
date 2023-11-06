@@ -1,7 +1,7 @@
 output "documentation_md" {
   value = <<EOF
 
-It is recommended to use payment methods such as credit cards and invoices to ensure that you can access your Azure resources at any time. 
+It is recommended to use payment methods such as credit cards and invoices to ensure that you can access your Azure resources at any time.
 The kit provides a first-of-its-kind cost alert for the entire Cloud Foundation.
 
 The kit creates two Groups as preparation for the Privileged Access Mananganmet.
