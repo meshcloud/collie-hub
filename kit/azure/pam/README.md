@@ -5,8 +5,7 @@ summary: |
 compliance:
   - control: cfmm/iam/privileged-access-management
     statement: |
-      Activates Privileged Roles for Security, Network, Costs and Platform.
-
+       Implements PAM for security auditors, billing readers, network admins.
 ---
 
 # Privileged Access Management

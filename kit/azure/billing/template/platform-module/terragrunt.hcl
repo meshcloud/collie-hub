@@ -38,5 +38,5 @@ inputs = {
     start = "2022-06-01T00:00:00Z",
     end   = "2022-07-01T00:00:00Z"
   }]
-  contact_mails = ["meshi@meshithesheep.io"]
+  contact_mails = ["billingmeshi@meshithesheep.io"]
 }

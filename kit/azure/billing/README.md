@@ -34,7 +34,6 @@ No modules.
 | [azurerm_role_assignment.management_group_biling_admin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.management_group_billing_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
-| [azurerm_management_group.root](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
@@ -42,8 +41,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_budget_amount"></a> [budget\_amount](#input\_budget\_amount) | amount of the budget | `number` | `100` | no |
-| <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | n/a | `string` | `"cloudfoundation_budget"` | no |
-| <a name="input_budget_time_period"></a> [budget\_time\_period](#input\_budget\_time\_period) | n/a | <pre>list(object({<br>    start = string,<br>    end   = string<br>  }))</pre> | <pre>[<br>  {<br>    "end": "2022-07-01T00:00:00Z",<br>    "start": "2022-06-01T00:00:00Z"<br>  }<br>]</pre> | no |
+| <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | the name of the budget alert | `string` | `"cloudfoundation_budget"` | no |
+| <a name="input_budget_time_period"></a> [budget\_time\_period](#input\_budget\_time\_period) | the time period of the budget alert | <pre>list(object({<br>    start = string,<br>    end   = string<br>  }))</pre> | <pre>[<br>  {<br>    "end": "2022-07-01T00:00:00Z",<br>    "start": "2022-06-01T00:00:00Z"<br>  }<br>]</pre> | no |
 | <a name="input_contact_mails"></a> [contact\_mails](#input\_contact\_mails) | The email address of the contact person for the cost alert | `list(string)` | <pre>[<br>  "billingmeshi@meshithesheep.io"<br>]</pre> | no |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the tenant management group | `string` | n/a | yes |
 
