@@ -40,7 +40,7 @@ No resources.
 | <a name="input_create_new_storageaccount"></a> [create\_new\_storageaccount](#input\_create\_new\_storageaccount) | If you already have an Storage Account to keep your terraform state file in you environment insert '1', otherwise insert '0' so a new one will be created | `number` | n/a | yes |
 | <a name="input_existing_storage_account_id"></a> [existing\_storage\_account\_id](#input\_existing\_storage\_account\_id) | 'Only required if you want to re-use an existing storage account. This is the resourceId of an existing storage account. You can retrieve this value from panel. | `string` | `null` | no |
 | <a name="input_new_resource_group_name"></a> [new\_resource\_group\_name](#input\_new\_resource\_group\_name) | Name of the resource group to create a new storage account inside this RG | `string` | `null` | no |
-| <a name="input_spn_suffix"></a> [spn\_suffix](#input\_spn\_suffix) | suffix for the SPN's name. The format is 'building\_blocks.<SUFFIX>' | `string` | `null` | no |
+| <a name="input_spn_suffix"></a> [spn\_suffix](#input\_spn\_suffix) | suffix for the SPN's name. The format is 'building\_blocks.SUFFIX' | `string` | `null` | no |
 
 ## Outputs
 
