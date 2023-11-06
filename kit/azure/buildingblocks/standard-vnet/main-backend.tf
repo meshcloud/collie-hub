@@ -8,15 +8,15 @@ variable "create_new_storageaccount" {
 }
 
 variable "existing_storage_account_id" {
-  type = string
+  type        = string
   description = "'Only required if you want to re-use an existing storage account. This is the resourceId of an existing storage account. You can retrieve this value from panel."
-  default = null
+  default     = null
 }
 
 variable "new_resource_group_name" {
-  type = string
+  type        = string
   description = "Name of the resource group to create a new storage account inside this RG"
-  default = null
+  default     = null
 }
 
 module "existing_sta" {
@@ -39,6 +39,6 @@ output "existing_sta_backend" {
 }
 
 output "new_sta_backend" {
-  value = module.new_sta
+  value     = module.new_sta
   sensitive = true
 }

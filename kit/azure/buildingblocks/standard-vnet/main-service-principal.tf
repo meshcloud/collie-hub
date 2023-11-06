@@ -12,26 +12,26 @@ variable "spn_suffix" {
   default     = null
 }
 module "new_spn" {
-  count  = var.create_new_spn == 0 ? 1 : 0
-  source = "./module-new-service-principal"
-  spn_suffix = "module-new-spn"
+  count            = var.create_new_spn == 0 ? 1 : 0
+  source           = "./module-new-service-principal"
+  spn_suffix       = "module-new-spn"
   deployment_scope = "/providers/Microsoft.Management/managementGroups/likvid"
 }
 
 module "existing_spn" {
-  count  = var.create_new_spn == 1 ? 1 : 0
-  source = "./module-exisiting-service-principal"
+  count                   = var.create_new_spn == 1 ? 1 : 0
+  source                  = "./module-exisiting-service-principal"
   existing_application_id = "be398b24-374f-415c-905f-b49814435dd1"
 }
 
 output "provider_existing_spn" {
   description = "Please run 'terraform output provider_existing_spn' to export the provider configuration using the existing service principal"
-  value = module.existing_spn
-  sensitive = true
+  value       = module.existing_spn
+  sensitive   = true
 }
 
 output "provider_new_spn" {
   description = "Please run 'terraform output provider_new_spn' to export the provider configuration using this new service principal"
-  value = module.new_spn
-  sensitive = true
+  value       = module.new_spn
+  sensitive   = true
 }
