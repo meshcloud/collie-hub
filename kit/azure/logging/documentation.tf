@@ -1,5 +1,6 @@
 output "documentation_md" {
   value = <<EOF
+
 # Logging
 
 All actions performed on Azure resources in any subscription are logged in a central [log analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview).
@@ -10,10 +11,12 @@ This is enforced via an Azure Policy called `${module.policy_law.policy_assignme
 
 The log analytics workspace collects Activity Logs, which are [platform logs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview).
 
+## How can I get access?
+
 The kit creates two Groups as preparation for the Privileged Access Mananganmet.
 
-| group                           | role                      |
----------------------------------------------------------------
+|group|role|
+|-|-|
 | cloudfoundation-security-admins | Log Analytics Contributor |
 | cloudfoundation-secuirty-readers | Log Analytics Reader |
 
