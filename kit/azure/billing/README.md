@@ -4,7 +4,8 @@ summary: |
   This kit is designed to help organizations monitor, allocate, and optimize the cost of their Microsoft cloud workloads.
 compliance:
   - control: cfmm/cost-management
-
+    statement: |
+      placeholder
 ---
 
 # Azure Billing
