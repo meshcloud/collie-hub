@@ -8,7 +8,7 @@ variable "create_new_spn" {
 }
 variable "spn_suffix" {
   type        = string
-  description = "suffix for the SPN's name. The format is 'building_blocks.<SUFFIX>'"
+  description = "suffix for the SPN's name. The format is 'building_blocks.SUFFIX'"
   default     = null
 }
 module "new_spn" {
