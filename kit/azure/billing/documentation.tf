@@ -4,6 +4,9 @@ output "documentation_md" {
 It is recommended to use payment methods such as credit cards and invoices to ensure that you can access your Azure resources at any time.
 The kit provides a first-of-its-kind cost alert for the entire Cloud Foundation.
 
+The following people will be notified when the established cost limit is exceeded:
+ ${join("\n", formatlist("- %s", var.contact_mails))}
+
 The kit creates two Groups as preparation for the Privileged Access Mananganmet.
 
 | group                           | role                      |
