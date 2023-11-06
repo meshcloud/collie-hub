@@ -3,7 +3,7 @@ variable "create_new_storageaccount" {
   description = "If you already have an Storage Account to keep your terraform state file in you environment insert '1', otherwise insert '0' so a new one will be created"
   validation {
     condition     = var.create_new_storageaccount == 1 || var.create_new_storageaccount == 0
-    error_message = "create_new_spn variable must be either 0 or 1."
+    error_message = "create_new_storageaccount variable must be either 0 or 1."
   }
 }
 
