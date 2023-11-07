@@ -4,7 +4,7 @@ include "platform" {
 }
 
 terraform {
-  source = "${get_repo_root()}//kit/azure/activity-log"
+  source = "${get_repo_root()}//kit/azure/logging"
 }
 
 dependency "bootstrap" {
