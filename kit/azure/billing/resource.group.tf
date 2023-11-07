@@ -3,13 +3,13 @@ data "azuread_client_config" "current" {}
 data "azurerm_subscription" "current" {}
 
 resource "azuread_group" "billing_admins" {
-  display_name     = "cloudfoundation-billing-admins"
+  display_name     = var.billing_admin_group
   owners           = [data.azuread_client_config.current.object_id]
   security_enabled = true
 }
 
 resource "azuread_group" "billing_readers" {
-  display_name     = "cloudfoundation-billing-readers"
+  display_name     = var.billing_reader_group
   owners           = [data.azuread_client_config.current.object_id]
   security_enabled = true
 }

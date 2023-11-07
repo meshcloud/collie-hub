@@ -34,3 +34,15 @@ variable "budget_amount" {
   default     = 100
   description = "amount of the budget"
 }
+
+variable "billing_admin_group" {
+  type        = string
+  default     = "cloudfoundation-billing-admins"
+  description = "the name of the cloud foundation billing admin group"
+}
+
+variable "billing_reader_group" {
+  type        = string
+  default     = "cloudfoundation-billing-readers"
+  description = "the name of the cloud foundation billing reader group"
+}
