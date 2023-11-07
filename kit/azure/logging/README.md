@@ -74,6 +74,8 @@ AzureActivity
 | <a name="input_location"></a> [location](#input\_location) | location of the resources | `string` | n/a | yes |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | amount of time of log retention | `number` | `30` | no |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the management group that you want to log | `string` | n/a | yes |
+| <a name="input_security_admin_group"></a> [security\_admin\_group](#input\_security\_admin\_group) | the name of the cloud foundation security admin group | `string` | `"cloudfoundation-security-admins"` | no |
+| <a name="input_security_auditor_group"></a> [security\_auditor\_group](#input\_security\_auditor\_group) | the name of the cloud foundation security auditor group | `string` | `"cloudfoundation-security-auditors"` | no |
 
 ## Outputs
 

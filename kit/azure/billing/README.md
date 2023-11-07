@@ -40,6 +40,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_billing_admin_group"></a> [billing\_admin\_group](#input\_billing\_admin\_group) | the name of the cloud foundation billing admin group | `string` | `"cloudfoundation-billing-admins"` | no |
+| <a name="input_billing_reader_group"></a> [billing\_reader\_group](#input\_billing\_reader\_group) | the name of the cloud foundation billing reader group | `string` | `"cloudfoundation-billing-readers"` | no |
 | <a name="input_budget_amount"></a> [budget\_amount](#input\_budget\_amount) | amount of the budget | `number` | `100` | no |
 | <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | the name of the budget alert | `string` | `"cloudfoundation_budget"` | no |
 | <a name="input_budget_time_period"></a> [budget\_time\_period](#input\_budget\_time\_period) | the time period of the budget alert | <pre>list(object({<br>    start = string,<br>    end   = string<br>  }))</pre> | <pre>[<br>  {<br>    "end": "2022-07-01T00:00:00Z",<br>    "start": "2022-06-01T00:00:00Z"<br>  }<br>]</pre> | no |

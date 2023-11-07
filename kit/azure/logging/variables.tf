@@ -27,3 +27,14 @@ variable "location" {
   nullable    = false
   description = "location of the resources"
 }
+variable "security_admin_group" {
+  type        = string
+  default     = "cloudfoundation-security-admins"
+  description = "the name of the cloud foundation security admin group"
+}
+
+variable "security_auditor_group" {
+  type        = string
+  default     = "cloudfoundation-security-auditors"
+  description = "the name of the cloud foundation security auditor group"
+}

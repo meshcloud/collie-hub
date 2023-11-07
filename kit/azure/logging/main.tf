@@ -74,7 +74,7 @@ resource "azurerm_role_assignment" "logging" {
 
 # creates group and permissions for security admins
 resource "azuread_group" "security_admins" {
-  display_name     = "cloudfoundation-security-admins"
+  display_name     = var.security_admin_group
   security_enabled = true
 }
 
@@ -86,7 +86,7 @@ resource "azurerm_role_assignment" "security_admins" {
 
 # creates group and permissions for security auditors
 resource "azuread_group" "security_auditors" {
-  display_name     = "cloudfoundation-security-auditors"
+  display_name     = var.security_auditor_group
   security_enabled = true
 }
 
