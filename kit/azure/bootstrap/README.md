@@ -96,6 +96,7 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aad_tenant_id"></a> [aad\_tenant\_id](#input\_aad\_tenant\_id) | Id of the AAD Tenant. This is also the simultaneously the id of the root management group. | `string` | n/a | yes |
+| <a name="input_platform_engineers_group"></a> [platform\_engineers\_group](#input\_platform\_engineers\_group) | the name of the cloud foundation platform engineers group | `string` | `"cloudfoundation-platform-engineers"` | no |
 | <a name="input_platform_engineers_members"></a> [platform\_engineers\_members](#input\_platform\_engineers\_members) | Set up a group of platform engineers. If enabled, this group will receive access to terraform\_state\_storage | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 | <a name="input_service_principal_name"></a> [service\_principal\_name](#input\_service\_principal\_name) | name of the Service Principal used to perform all deployments in this platform | `string` | `"cloudfoundation_tf_deploy_user"` | no |
 | <a name="input_terraform_state_storage"></a> [terraform\_state\_storage](#input\_terraform\_state\_storage) | Configure this object to enable setting up a terraform state store in Azure Storage. | <pre>object({<br>    location         = string,<br>    name             = string,<br>    config_file_path = string<br>  })</pre> | `null` | no |
