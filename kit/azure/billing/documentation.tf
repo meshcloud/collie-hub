@@ -13,14 +13,14 @@ The following people will be notified when the established cost limit is exceede
 
 ## How I can get access?
 
-The kit creates two Groups as preparation for the Privileged Access Mananganmet.
+The kit creates two Groups as preparation for the `Privileged Access Management`.
 
 |group|role|
 |-|-|
 | cloudfoundation-billing-admins | Cost Management Contributor, Management Group Reader |
 | cloudfoundation-billing-readers | Cost Management Reader, Management Group Reader |
 
-[Privileged Access Mananganmet](https://cloudfoundation.org/maturity-model/iam/privileged-access-management.html#what-is-privileged-access-management-pam)
+[Privileged Access Management](https://cloudfoundation.org/maturity-model/iam/privileged-access-management.html#what-is-privileged-access-management-pam)
 
 EOF
 }
