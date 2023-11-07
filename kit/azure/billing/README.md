@@ -5,7 +5,7 @@ summary: |
 compliance:
   - control: cfmm/cost-management
     statement: |
-      placeholder
+      The kit creates groupus to manage the cost management and view the expenses through the cloud foundation.
 ---
 
 # Azure Billing

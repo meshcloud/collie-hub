@@ -108,5 +108,7 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 | <a name="output_client_principal_id"></a> [client\_principal\_id](#output\_client\_principal\_id) | n/a |
 | <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | n/a |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_platform_engineers_azuread_group_displayname"></a> [platform\_engineers\_azuread\_group\_displayname](#output\_platform\_engineers\_azuread\_group\_displayname) | n/a |
 | <a name="output_platform_engineers_azuread_group_id"></a> [platform\_engineers\_azuread\_group\_id](#output\_platform\_engineers\_azuread\_group\_id) | n/a |
+| <a name="output_platform_engineers_members"></a> [platform\_engineers\_members](#output\_platform\_engineers\_members) | n/a |
 <!-- END_TF_DOCS -->
