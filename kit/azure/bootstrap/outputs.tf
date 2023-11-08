@@ -14,3 +14,7 @@ output "client_principal_id" {
 output "platform_engineers_azuread_group_id" {
   value = azuread_group.platform_engineers.id
 }
+
+output "module_storage_account_resource_id" {
+  value = module.terraform_state[0].storage_account_resource_id
+}

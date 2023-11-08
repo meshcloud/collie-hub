@@ -11,6 +11,10 @@ output "storage_account_name" {
   value = azurerm_storage_account.tfstates.name
 }
 
+output "storage_account_resource_id" {
+  value = azurerm_storage_account.tfstates.id
+}
+
 output "container_name" {
   value = azurerm_storage_container.tfstates.name
 }
