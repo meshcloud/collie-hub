@@ -7,6 +7,10 @@ output "resource_group_name" {
   value = azurerm_resource_group.tfstates.name
 }
 
+output "storage_account_resource_id" {
+  value = azurerm_storage_account.tfstates.id
+}
+
 output "storage_account_name" {
   value = azurerm_storage_account.tfstates.name
 }
