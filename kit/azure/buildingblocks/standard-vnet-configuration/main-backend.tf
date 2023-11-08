@@ -18,12 +18,33 @@ data "azurerm_subscription" "sta_subscription" {
   subscription_id = local.sta_subscription_id
 }
 
-resource "azurerm_storage_container" "tfstates" {
-  name = "tfstates-standard-vnet"
-  storage_account_name = local.sta_name
-  container_access_type = "blob"
+data "azurerm_storage_account" "tfstates" {
+  name                = local.sta_name
+  resource_group_name = local.sta_rg_name
 }
 
+# resource "azurerm_storage_container" "tfstates" {
+#   name = "tfstates-standard-vnet"
+#   storage_account_name = data.azurerm_storage_account.tfstates.name
+#   container_access_type = "blob"
+# }
+
+resource "azapi_resource" "container" {
+  type      = "Microsoft.Storage/storageAccounts/blobServices/containers@2022-09-01"
+  name      = "tfstates-standard-vnet"
+  parent_id = "${data.azurerm_storage_account.tfstates.id}/blobServices/default"
+  body = jsonencode({
+    properties = {
+      defaultEncryptionScope      = "$account-encryption-key"
+      denyEncryptionScopeOverride = true
+      immutableStorageWithVersioning = {
+        enabled = false
+      }
+      metadata     = {}
+      publicAccess = "Blob"
+    }
+  })
+}
 output "backend_tf" {
   sensitive   = true
   description = "Generates a config.tf that can be dropped into meshStack's BuildingBlock Definition as an encrypted file input to configure this building block."
@@ -34,7 +55,7 @@ terraform {
     subscription_id      = "${local.sta_subscription_id}"
     resource_group_name  = "${local.sta_rg_name}"
     storage_account_name = "${local.sta_name}"
-    container_name       = "${azurerm_storage_container.tfstates.name}
+    container_name       = "${azapi_resource.container.name}"
     key                  = "building-block-standard-vnet"
   }
 }
@@ -50,7 +71,7 @@ terraform {
     subscription_id      = "${local.sta_subscription_id}"
     resource_group_name  = "${local.sta_rg_name}"
     storage_account_name = "${local.sta_name}"
-    container_name       = "tfstates"
+    container_name       = "${azapi_resource.container.name}"
     key                  = "building-block-standard-vnet"
   }
 }

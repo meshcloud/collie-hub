@@ -1,19 +1,42 @@
 resource "azurerm_role_definition" "cloudfoundation_deploy" {
   name        = var.service_principal_name
   scope       = data.azurerm_management_group.root.id
-  description = "Permissions required to deploy the cloudfoundation (not operate it)"
+  description = "Permissions required to deploy the cloudfoundation"
 
   permissions {
-    actions = ["*"]
-    not_actions = [
-      "Microsoft.Authorization/elevateAccess/Action",
-      "Microsoft.Blueprint/blueprintAssignments/write",
-      "Microsoft.Blueprint/blueprintAssignments/delete",
-      "Microsoft.Compute/galleries/share/action",
-      "Microsoft.Purview/consents/write",
-      "Microsoft.Purview/consents/delete"
+    actions = [
+      # Assigning Users
+      "Microsoft.Authorization/permissions/read",
+      "Microsoft.Authorization/roleAssignments/*",
+      "Microsoft.Authorization/roleDefinitions/*",
+
+      # Creating and assigning policies
+      "Microsoft.Authorization/policyDefinitions/*",
+      "Microsoft.Authorization/policyAssignments/*",
+
+      # Assigning Blueprints
+      "Microsoft.Resources/subscriptions/resourceGroups/read",
+
+      # Creating management groups
+      "Microsoft.Management/managementGroups/read",
+      "Microsoft.Management/managementGroups/write",
+      "Microsoft.Management/managementGroups/descendants/read",
+
+      # Permissions to move subscriptions between management groups
+      "Microsoft.Management/managementgroups/subscriptions/delete",
+      "Microsoft.Management/managementgroups/subscriptions/write",
+
+      # Permissions for reading and writing tags
+      "Microsoft.Resources/tags/*",
+
+      # Permission we need to activate/register required Resource Providers
+      "*/register/action",
+
+      # Deployment Permissions
+      # Permissions to create storage account and containers
+      "Microsoft.Storage/storageAccounts/*",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/*"
     ]
-    data_actions = []
   }
 
   assignable_scopes = [

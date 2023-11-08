@@ -41,8 +41,8 @@ resource "time_rotating" "building_blocks_secret_rotation" {
   rotation_days = 365
 }
 resource "azuread_application_password" "building_blocks_application_pw" {
-  #application_id = azuread_application.building_blocks.id
-  application_object_id = azuread_application.building_blocks.object_id
+  application_id = azuread_application.building_blocks.id
+  #application_object_id = azuread_application.building_blocks.object_id
   rotate_when_changed = {
     rotation = time_rotating.building_blocks_secret_rotation.id
   }
@@ -52,8 +52,8 @@ resource "azuread_application_password" "building_blocks_application_pw" {
 // Create new Enterprise Application and associate it with building_blocks_application application
 //---------------------------------------------------------------------------
 resource "azuread_service_principal" "building_blocks_spn" {
-  #client_id = azuread_application.building_blocks.client_id
-  application_id = azuread_application.building_blocks.application_id
+  client_id = azuread_application.building_blocks.client_id
+  #application_id = azuread_application.building_blocks.application_id
 
   feature_tags {
     enterprise            = true
@@ -79,7 +79,7 @@ resource "azurerm_role_assignment" "building_blocks" {
 output "provider_tf" {
 
   description = "Generates a config.tf that can be dropped into meshStack's BuildingBlockDefinition as an encrypted file input to configure this building block."
-  sensitive = true
+  sensitive   = true
   value       = <<EOF
     provider "azurerm" {
      features {}

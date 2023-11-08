@@ -17,3 +17,6 @@ kit/foundation/docs/template/docs/.vuepress/.temp
 # collie files
 .collie
 foundations/
+
+# Buildingblock configuration outputs
+generated-provider.tf

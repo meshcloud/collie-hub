@@ -22,7 +22,7 @@ resource "azurerm_storage_account" "tfstates" {
   location                  = azurerm_resource_group.tfstates.location
   account_tier              = "Standard"
   account_replication_type  = "GRS"
-  shared_access_key_enabled = true
+  shared_access_key_enabled = false
 }
 
 resource "azurerm_storage_container" "tfstates" {
