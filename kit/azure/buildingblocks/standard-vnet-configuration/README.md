@@ -6,10 +6,10 @@ summary: |
 
 # Buildingblocks azure virtual network configuration
 
-Using this module, you can either create a new or use an existing **Service Principal** and **Storage Account** for creating a buildingblock definition inside the meshStack.
+This module, will creates a new  **Service Principal** and a **Storage Account's Container** which then will be leveraged for generating Terraform's Backend and Provider values.
 
 ## How to use
-- a "backend.tf" and a "provider.tf" will be generated as an output of this module which then you can drop them as an encrypted input inside your buildingblock definition.
+- Take the "generated-backend.tf" and "generated-provider.tf" inside of "outputs" folder and drop them as encrypted inputs in your buildingblock definition.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
