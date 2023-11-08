@@ -30,7 +30,12 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       "Microsoft.Resources/tags/*",
 
       # Permission we need to activate/register required Resource Providers
-      "*/register/action"
+      "*/register/action",
+
+      # Deployment Permissions
+      # Permissions to create storage account and containers
+      "Microsoft.Storage/storageAccounts/*",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/*"
     ]
   }
 

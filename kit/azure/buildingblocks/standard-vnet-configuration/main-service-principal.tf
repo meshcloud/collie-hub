@@ -1,39 +1,19 @@
-locals {
-  scope                         = var.deployment_scope
-  service_principal_name_suffix = var.spn_suffix
-  deployment_scope              = var.deployment_scope
+variable "provider_tf_config_path" {
+  type = string
 }
-
 variable "deployment_scope" {
   type        = string
   description = "The scope where this service principal have access on. Usually in the format of '/providers/Microsoft.Management/managementGroups/0000-0000-0000'"
 }
 
-variable "spn_suffix" {
-  type        = string
-  description = "suffix for the SPN's name. The format is 'building_blocks.<SUFFIX>'"
-}
-
-
 data "azurerm_subscription" "current" {
-
-}
-//---------------------------------------------------------------------------
-// Queries Entra ID for information about well-known application IDs.
-// Retrieve details about the service principal
-//---------------------------------------------------------------------------
-
-data "azuread_application_published_app_ids" "well_known" {}
-
-data "azuread_service_principal" "msgraph" {
-  client_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 }
 
 //---------------------------------------------------------------------------
 // Create New application in Microsoft Entra ID
 //---------------------------------------------------------------------------
 resource "azuread_application" "building_blocks" {
-  display_name = "building_blocks.${local.service_principal_name_suffix}"
+  display_name = "building_blocks.standard-vnet"
 
   feature_tags {
     enterprise = true
@@ -62,6 +42,7 @@ resource "time_rotating" "building_blocks_secret_rotation" {
 }
 resource "azuread_application_password" "building_blocks_application_pw" {
   application_id = azuread_application.building_blocks.id
+  #application_object_id = azuread_application.building_blocks.object_id
   rotate_when_changed = {
     rotation = time_rotating.building_blocks_secret_rotation.id
   }
@@ -72,6 +53,7 @@ resource "azuread_application_password" "building_blocks_application_pw" {
 //---------------------------------------------------------------------------
 resource "azuread_service_principal" "building_blocks_spn" {
   client_id = azuread_application.building_blocks.client_id
+  #application_id = azuread_application.building_blocks.application_id
 
   feature_tags {
     enterprise            = true
@@ -88,33 +70,35 @@ data "azurerm_role_definition" "builtin" {
 }
 
 resource "azurerm_role_assignment" "building_blocks" {
-  scope              = local.scope
+  scope              = var.deployment_scope
   role_definition_id = data.azurerm_role_definition.builtin.id
   principal_id       = azuread_service_principal.building_blocks_spn.id
 }
 
-output "provider_block" {
-  description = "Generates a config.tf that can be dropped into meshStack's BuildingBlock Definition as an encrypted file input to configure this building block."
+
+output "provider_tf" {
+
+  description = "Generates a config.tf that can be dropped into meshStack's BuildingBlockDefinition as an encrypted file input to configure this building block."
+  sensitive   = true
   value       = <<EOF
     provider "azurerm" {
      features {}
-    client_id       = "${azuread_service_principal.building_blocks_spn.client_id}"
+    client_id       = "${azuread_application.building_blocks.client_id}"
     client_secret   = "${azuread_application_password.building_blocks_application_pw.value}"
     tenant_id       = "${data.azurerm_subscription.current.tenant_id}"
-    subscription_id = "${data.azurerm_subscription.current.subscription_id}"
     }
 EOF
 }
 
 resource "local_file" "provider" {
-  filename = "./outputs/generated-provider.tf"
+  filename = var.provider_tf_config_path
   content  = <<-EOT
     provider "azurerm" {
      features {}
-    client_id       = "${azuread_service_principal.building_blocks_spn.client_id}"
+    client_id       = "${azuread_application.building_blocks.client_id}"
     client_secret   = "${azuread_application_password.building_blocks_application_pw.value}"
     tenant_id       = "${data.azurerm_subscription.current.tenant_id}"
-    subscription_id = "${data.azurerm_subscription.current.subscription_id}"
     }
 EOT
 }
+
