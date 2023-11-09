@@ -4,13 +4,11 @@ data "azurerm_subscription" "current" {}
 
 resource "azuread_group" "billing_admins" {
   display_name     = var.billing_admin_group
-  owners           = [data.azuread_client_config.current.object_id]
   security_enabled = true
 }
 
 resource "azuread_group" "billing_readers" {
   display_name     = var.billing_reader_group
-  owners           = [data.azuread_client_config.current.object_id]
   security_enabled = true
 }
 
