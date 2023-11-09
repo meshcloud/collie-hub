@@ -1,7 +1,7 @@
 resource "azurerm_role_definition" "cloudfoundation_deploy" {
   name        = var.service_principal_name
   scope       = data.azurerm_management_group.root.id
-  description = "Permissions required to deploy the cloudfoundation (not operate it)"
+  description = "Permissions required to deploy the cloudfoundation"
 
   permissions {
     actions = [

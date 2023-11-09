@@ -23,6 +23,8 @@ data "azurerm_storage_account" "tfstates" {
   resource_group_name = local.sta_rg_name
 }
 
+// There is still an issue when creating a container in a storage account with disabled 'Access Key' in azurerm provider (v3.77).
+// We will use 'azapi' instead, until it get fixed in the newer version of Azurerm.
 # resource "azurerm_storage_container" "tfstates" {
 #   name = "tfstates-standard-vnet"
 #   storage_account_name = data.azurerm_storage_account.tfstates.name
@@ -41,7 +43,7 @@ resource "azapi_resource" "container" {
         enabled = false
       }
       metadata     = {}
-      publicAccess = "Blob"
+      publicAccess = "None"
     }
   })
 }

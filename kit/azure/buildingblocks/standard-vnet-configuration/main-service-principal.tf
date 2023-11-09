@@ -42,7 +42,7 @@ resource "time_rotating" "building_blocks_secret_rotation" {
 }
 resource "azuread_application_password" "building_blocks_application_pw" {
   application_id = azuread_application.building_blocks.id
-  #application_object_id = azuread_application.building_blocks.object_id
+
   rotate_when_changed = {
     rotation = time_rotating.building_blocks_secret_rotation.id
   }
@@ -53,7 +53,7 @@ resource "azuread_application_password" "building_blocks_application_pw" {
 //---------------------------------------------------------------------------
 resource "azuread_service_principal" "building_blocks_spn" {
   client_id = azuread_application.building_blocks.client_id
-  #application_id = azuread_application.building_blocks.application_id
+
 
   feature_tags {
     enterprise            = true
