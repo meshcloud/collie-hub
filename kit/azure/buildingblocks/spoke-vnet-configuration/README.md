@@ -1,5 +1,5 @@
 ---
-name: Buildingblocks-azure-standard-vnet-config
+name: Buildingblocks-azure-spoke-vnet-config
 summary: |
   Prepares the infrastructure to create a new building block definition for "Azure Virtual Network".
 ---
@@ -9,6 +9,11 @@ summary: |
 This module, will creates a new  **Service Principal** and a **Storage Account's Container** which then will be leveraged for generating Terraform's Backend and Provider values.
 
 ## How to use
+- You need to provide the following inputs for the variables:
+  - hub virtual network name
+  - hub resource group name
+  - hub route table name
+  Please provide the correct values inside the "terragrunt.hcl" file related to this module
 - Take the "generated-backend.tf" and "generated-provider.tf" inside of "outputs" folder and drop them as encrypted inputs in your buildingblock definition.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -32,7 +37,10 @@ No modules.
 | [azuread_application.building_blocks](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/application) | resource |
 | [azuread_application_password.building_blocks_application_pw](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/application_password) | resource |
 | [azuread_service_principal.building_blocks_spn](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
-| [azurerm_role_assignment.building_blocks](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.building_blocks_backend](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.networking_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.resource_group_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_definition.resource_group_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
 | [local_file.backend](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_file.provider](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [time_rotating.building_blocks_secret_rotation](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/rotating) | resource |
@@ -46,7 +54,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_backend_tf_config_path"></a> [backend\_tf\_config\_path](#input\_backend\_tf\_config\_path) | n/a | `string` | n/a | yes |
-| <a name="input_deployment_scope"></a> [deployment\_scope](#input\_deployment\_scope) | The scope where this service principal have access on. It is recommended to use the meshStack management group, so the module can be re-used within any projects | `string` | n/a | yes |
+| <a name="input_deployment_scope"></a> [deployment\_scope](#input\_deployment\_scope) | The scope where this service principal have access on. It is recommended to use the meshcloud's management group, so the buildingblock can be re-used within any projects | `string` | n/a | yes |
 | <a name="input_provider_tf_config_path"></a> [provider\_tf\_config\_path](#input\_provider\_tf\_config\_path) | n/a | `string` | n/a | yes |
 | <a name="input_storage_account_resource_id"></a> [storage\_account\_resource\_id](#input\_storage\_account\_resource\_id) | This is the ID of the storage account resource and it retrievable via panel. It is in the format of '/subscription/<sub\_id>/resourcegroups/<rg\_name>/... | `string` | n/a | yes |
 
