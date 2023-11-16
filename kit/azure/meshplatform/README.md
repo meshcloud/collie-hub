@@ -2,9 +2,9 @@
 name: Azure meshPlatform
 summary: |
   integrates this platform with meshStack as a meshPlatform to enable self-service for our engineering teams.
-cfmm:
-  - block tenant-management/multi-cloud-tenant-database-integrated-with-lifecycle-management
-    description: |
+compliance:
+  - control: cfmm/tenant-management/multi-cloud-tenant-database-integrated-with-lifecycle-management
+    statement: |
       A central database of all multi-cloud tenants initiates tenant provisioning and deprovisioning processes. The database acts as an authoritative source of tenants and ensures tenant metadata is always up to date.
 ---
 
