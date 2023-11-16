@@ -10,7 +10,7 @@ cfmm:
 
 # Azure meshPlatform
 
-This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
+This kit to integrate Azure as a meshPlatform into meshStack instance. With this module, service principals used by meshStack are created with the required permissions. The output of this module is a set of credentials that need to be configured in meshStack as described in [meshcloud public docs](https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform.html).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
