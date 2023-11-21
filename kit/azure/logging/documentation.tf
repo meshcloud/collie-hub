@@ -17,8 +17,8 @@ The kit creates two Groups as preparation for the `Privileged Access Management`
 
 |group|role|
 |-|-|
-| cloudfoundation-security-admins | Log Analytics Contributor |
-| cloudfoundation-secuirty-readers | Log Analytics Reader |
+| cloudfoundation-security-admins | Log Analytics Contributor, Security Admins |
+| cloudfoundation-secuirty-readers | Log Analytics Reader, Security Reader |
 
 [Privileged Access Management](https://cloudfoundation.org/maturity-model/iam/privileged-access-management.html#what-is-privileged-access-management-pam)
 

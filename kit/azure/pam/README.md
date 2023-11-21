@@ -31,10 +31,12 @@ No modules.
 |------|------|
 | [azuread_group_member.billing_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
 | [azuread_group_member.billing_readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
+| [azuread_group_member.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
 | [azuread_group_member.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 | [azuread_users.billing_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
 | [azuread_users.billing_readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
+| [azuread_users.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
 | [azuread_users.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
 | [azurerm_management_group.root](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
