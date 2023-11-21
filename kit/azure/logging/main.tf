@@ -78,8 +78,14 @@ resource "azuread_group" "security_admins" {
   security_enabled = true
 }
 
-resource "azurerm_role_assignment" "security_admins" {
+resource "azurerm_role_assignment" "security_admins_law" {
   role_definition_name = "Log Analytics Contributor"
+  principal_id         = azuread_group.security_admins.object_id
+  scope                = var.scope
+}
+
+resource "azurerm_role_assignment" "security_admins" {
+  role_definition_name = "Security Admin"
   principal_id         = azuread_group.security_admins.object_id
   scope                = var.scope
 }
@@ -90,8 +96,14 @@ resource "azuread_group" "security_auditors" {
   security_enabled = true
 }
 
-resource "azurerm_role_assignment" "security_auditors" {
+resource "azurerm_role_assignment" "security_auditors_law" {
   role_definition_name = "Log Analytics Reader"
+  principal_id         = azuread_group.security_auditors.object_id
+  scope                = var.scope
+}
+
+resource "azurerm_role_assignment" "security_auditors" {
+  role_definition_name = "Security Reader"
   principal_id         = azuread_group.security_auditors.object_id
   scope                = var.scope
 }
