@@ -24,7 +24,7 @@ variable "management" {
 }
 
 variable "location" {
-  type        = string
+  type        = list(string)
   description = "The Azure location where this policy assignment should exist, required when an Identity is assigned."
-  default     = "germanywestcentral"
+  default     = ["germanywestcentral"]
 }
