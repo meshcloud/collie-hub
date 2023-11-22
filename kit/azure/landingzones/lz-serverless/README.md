@@ -3,7 +3,10 @@ name: Azure Landing Zone "Serverless"
 summary: |
   deploys new cloud foundation infrastructure.
   Add a concise description of the module's purpose here.
-# optional: add additional metadata about implemented security controls
+compliance:
+- control: cfmm/security-and-compliance/service-and-location-restrictions
+  statement: |
+    Restricts the list of permitted Azure services in relation to Serverless.
 ---
 
 # Azure Landing Zone "Serverless"
