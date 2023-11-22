@@ -9,7 +9,7 @@
     "parameters": {
       "listOfAllowedLocations": {
         "value": [
-          "${default_location}"
+          "${allowed_locations}"
         ]
       }
     },
