@@ -5,10 +5,14 @@ summary: |
 compliance:
   - control: cfmm/tenant-management/cloud-tenant-database
     statement: |
+      A cloud tenant database provides clear responsibilities and accountability. Both are crucial to empowering engineering teams with freedom on the cloud.
   - control: cfmm/tenant-management/tenant-provisioning
     statement: |
+      Tenant provisioning for the cloud involves the automated allocation and configuration of resources, such as virtual machines and storage, to accommodate specific
+      user requirements within a multi-tenant environment.
   - control: cfmm/tenant-management/tenant-deprovisioning-decommisioning
     statement: |
+      Establish a process for safely decommissioning and deprovisioning cloud tenants that are no longer needed by application teams.
   - control: cfmm/tenant-management/multi-cloud-tenant-database-integrated-with-lifecycle-management
     statement: |
       A central database of all multi-cloud tenants initiates tenant provisioning and deprovisioning processes. The database acts as an authoritative source of tenants and ensures tenant metadata is always up to date.
