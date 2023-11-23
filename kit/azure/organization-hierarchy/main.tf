@@ -1,6 +1,6 @@
 locals {
-  default_location  = var.location[0]
-  allowed_locations = join(",", var.location)
+  # we use the first value of var.locations as the primary location where the policy lives.
+  default_location = var.locations[0]
 }
 
 # location restriction
@@ -17,7 +17,7 @@ module "policy_root" {
   location            = local.default_location
 
   template_file_variables = {
-    allowed_locations         = local.allowed_locations
+    allowed_locations_json    = jsonencode(var.locations)
     default_location          = local.default_location
     current_scope_resource_id = azurerm_management_group.parent.id
     root_scope_resource_id    = azurerm_management_group.parent.id
@@ -27,14 +27,6 @@ module "policy_root" {
 resource "azurerm_management_group" "landingzones" {
   display_name               = var.landingzones
   parent_management_group_id = azurerm_management_group.parent.id
-}
-
-resource "azurerm_management_group" "stage_dev" {
-  display_name               = var.stage_dev
-  parent_management_group_id = azurerm_management_group.landingzones.id
-  depends_on = [
-    azurerm_management_group.landingzones
-  ]
 }
 
 resource "azurerm_management_group" "platform" {

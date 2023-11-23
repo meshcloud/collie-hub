@@ -76,7 +76,6 @@ After deploying this module, you should probably deploy the following kit module
 | [azurerm_management_group.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.stage_dev](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 
 ## Inputs
 
@@ -85,7 +84,7 @@ After deploying this module, you should probably deploy the following kit module
 | <a name="input_connectivity"></a> [connectivity](#input\_connectivity) | n/a | `string` | `"lv-connectivity"` | no |
 | <a name="input_identity"></a> [identity](#input\_identity) | n/a | `string` | `"lv-identity"` | no |
 | <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | n/a | `string` | `"lv-landingzones"` | no |
-| <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `list(string)` | <pre>[<br>  "germanywestcentral"<br>]</pre> | no |
+| <a name="input_locations"></a> [locations](#input\_locations) | This is for the Azure Allowed locations. Additionally, we use the first added locations where this policy assignment should exist, which is required when an identity is assigned. | `list(string)` | <pre>[<br>  "germanywestcentral"<br>]</pre> | no |
 | <a name="input_management"></a> [management](#input\_management) | n/a | `string` | `"lv-management"` | no |
 | <a name="input_parentManagementGroup"></a> [parentManagementGroup](#input\_parentManagementGroup) | n/a | `string` | `"lv-foundation"` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | n/a | `string` | `"lv-platform"` | no |
