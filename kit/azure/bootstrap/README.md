@@ -54,6 +54,23 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 }
 ```
 
+## Remove Bootstrap (Unbootstraping)
+
+The following sequence must be followed in order to remove the boostrap
+
+>Delete the tfstates-config file. The platform.hcl is using the local backend
+```bash
+rm foundations/<foundationname>/platforms/<platformname>/tfstates-config.yml
+```
+>Migrate the state from the Storage account back to your local machine
+```bash
+collie foundation deploy --bootstrap -- init -migrate-state
+```
+>Destroy the bootsrap
+```bash
+collie foundation deploy --bootstrap -- destroy
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
