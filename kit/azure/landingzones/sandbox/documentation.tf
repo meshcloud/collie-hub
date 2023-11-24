@@ -4,7 +4,7 @@ output "documentation_md" {
 
 A sandbox landing zone is a pre-configured environment that is specifically designed for deploying sandbox resources.
 
-- **${resource.azurerm_management_group.sandbox.display_name}** - this is the severless management group
+- **${resource.azurerm_management_group.sandbox.display_name}** - this is the sansbox management group
 
 ### Active Policies
 
