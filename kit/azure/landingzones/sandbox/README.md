@@ -1,5 +1,5 @@
 ---
-name: Azure Landing Zone "sandbox"
+name: Azure Landing Zone "Sandbox"
 summary: |
   A sandbox landing zone in Azure is essentially a controlled and isolated space where users can deploy and test
   various resources, applications, and configurations without affecting the production environment.
