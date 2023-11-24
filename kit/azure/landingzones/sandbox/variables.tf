@@ -8,8 +8,8 @@ variable "landingzones" {
   default     = "lv-landingzones"
 }
 
-variable "serverless" {
-  default = "serverless"
+variable "sandbox" {
+  default = "sandbox"
 }
 
 variable "location" {
