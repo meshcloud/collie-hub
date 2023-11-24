@@ -1,12 +1,12 @@
 ---
 name: Azure Landing Zone "sandbox"
 summary: |
-  A sandbox landing zone in Azure is essentially a controlled and isolated space where users can deploy and test 
+  A sandbox landing zone in Azure is essentially a controlled and isolated space where users can deploy and test
   various resources, applications, and configurations without affecting the production environment.
 compliance:
 - control: cfmm/tenant-management/playground-sandbox-environments
   statement: |
-    It's a best practice for development, testing, and learning purposes, providing a safe and secure area to explore Azure services 
+    It's a best practice for development, testing, and learning purposes, providing a safe and secure area to explore Azure services
     and features. This allows users to gain hands-on experience without the risk of impacting critical systems.
 ---
 
@@ -37,7 +37,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"lv-landingzones"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
-| <a name="input_sandbox"></a> [sandbox](#input\_sandbox) | n/a | `string` | `"sandbox"` | no |
+| <a name="input_lz-serverless"></a> [lz-serverless](#input\_lz-serverless) | n/a | `string` | `"serverless"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"lv-foundation"` | no |
 
 ## Outputs
