@@ -8,7 +8,7 @@ variable "landingzones" {
   default     = "lv-landingzones"
 }
 
-variable "lz-serverless" {
+variable "serverless" {
   default = "serverless"
 }
 
