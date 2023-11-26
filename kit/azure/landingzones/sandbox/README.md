@@ -8,11 +8,14 @@ compliance:
   statement: |
     It's a best practice for development, testing, and learning purposes, providing a safe and secure area to explore Azure services
     and features. This allows users to gain hands-on experience without the risk of impacting critical systems.
+- control: cfmm/security-and-compliance/service-and-location-restrictions
+  statement: |
+    Forbids use of certain Azure Services that are unsuitable for experimentation environments because they incur high cost and/or allow establishing non-zero-trust connectivity via VNet peering to other services.
 ---
 
 # Azure Landing Zone "sandbox"
 
-This kit provides a Terraform configuration for setting up Azure Management Groups for dedicated Management Group and policy for sandbox Landingzones.
+This kit provides a Terraform configuration for setting a sandbox landing zone management group and suitable default policies.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -35,10 +38,9 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"lv-landingzones"` | no |
-| <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
-| <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"lv-foundation"` | no |
-| <a name="input_sandbox"></a> [sandbox](#input\_sandbox) | n/a | `string` | `"sandbox"` | no |
+| <a name="input_location"></a> [location](#input\_location) | The Azure location used for creating policy assignments establishing this landing zone's guardrails. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | name of the landing zone's management group | `string` | `"sandbox"` | no |
+| <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | id of the parent management group for the landing zone's management group | `any` | n/a | yes |
 
 ## Outputs
 
