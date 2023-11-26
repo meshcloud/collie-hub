@@ -1,19 +1,14 @@
 variable "parent_management_group_id" {
-  description = "The tenant management group of your cloud foundation"
-  default     = "lv-foundation"
+  description = "id of the parent management group for the landing zone's management group"
 }
 
-variable "landingzones" {
-  description = "The parent_management_group where your landingzones are"
-  default     = "lv-landingzones"
-}
-
-variable "sandbox" {
+variable "name" {
+  description = "name of the landing zone's management group"
   default = "sandbox"
 }
 
+
 variable "location" {
   type        = string
-  description = "The Azure location where this policy assignment should exist, required when an Identity is assigned."
-  default     = "germanywestcentral"
+  description = "The Azure location used for creating policy assignments establishing this landing zone's guardrails."
 }
