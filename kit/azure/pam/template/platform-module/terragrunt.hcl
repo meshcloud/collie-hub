@@ -53,7 +53,7 @@ inputs = {
   # optional, manage members direcly via terraform
   pam_group_members = [
     {
-      #BILLING 
+      #BILLING
       group_object_id = dependency.billing.outputs.billing_admins_azuread_group_id,
       members_by_mail = ["billingmeshi@meshithesheep.io"]
     },
@@ -61,14 +61,14 @@ inputs = {
       group_object_id = dependency.billing.outputs.billing_readers_azuread_group_id,
       members_by_mail = ["billingreadermeshi@meshithesheep.io"]
     },
-    { 
+    {
       #SECURITY
       group_object_id = dependency.logging.outputs.security_admins_azuread_group_id,
       members_by_mail = ["securitymeshiv@meshithesheep.io"]
     },
     {
       group_object_id = dependency.logging.outputs.security_auditors_azuread_group_id,
-      members_by_mail =  ["securityauditormeshi@meshithesheep.io"]
+      members_by_mail = ["securityauditormeshi@meshithesheep.io"]
     }
     # note: platform_engineers members are managed via bootstrap module right now
   ]
