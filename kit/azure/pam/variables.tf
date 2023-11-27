@@ -1,66 +1,14 @@
-variable "platform_engineer" {
-  description = "this variable fetchs the output values of the billing kit"
-  type = object({
-    group = object({ object_id = string, display_name = string, member = list(string) })
-  })
+variable "pam_group_object_ids" {
+  description = "the object_ids of PAM groups used by the cloud foundation"
+  type = list(string)
 }
 
-variable "billing_admin" {
-  description = "this variable fetchs the output values of the billing kit"
-  type = object({
-    group = object({ object_id = string, display_name = string })
-  })
-}
-
-variable "billing_admin_members" {
-  description = "Admins for Cost Management"
+variable "pam_group_members" {
+  description = "Optional: manage members for cloud foundation PAM groups via terraform"
   type = list(object({
-    email = string,
-    upn   = string,
-  }))
-}
-
-variable "billing_reader" {
-  description = "this variable fetchs the output values of the billing kit"
-  type = object({
-    group = object({ object_id = string, display_name = string })
-  })
-}
-
-variable "billing_reader_members" {
-  description = "Auditors for Cost Management"
-  type = list(object({
-    email = string,
-    upn   = string,
-  }))
-}
-
-variable "security_admin" {
-  description = "this variable fetchs the output values of the logging kit"
-  type = object({
-    group = object({ object_id = string, display_name = string })
-  })
-}
-
-variable "security_admin_members" {
-  description = "Security Admins for the Log Analytics Workspace"
-  type = list(object({
-    email = string,
-    upn   = string,
-  }))
-}
-
-variable "security_auditor" {
-  description = "this variable fetchs the output values of the logging kit"
-  type = object({
-    group = object({ object_id = string, display_name = string })
-  })
-}
-
-variable "security_auditor_members" {
-  description = "Security Auditors for the Log Analytics Workspace"
-  type = list(object({
-    email = string,
-    upn   = string,
+    group_object_id = string
+    
+    # other attributes would be possible (e.g. UPN or mail_nickname) with small changes to the terraform module
+    members_by_mail = list(string)
   }))
 }

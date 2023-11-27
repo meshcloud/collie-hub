@@ -10,7 +10,18 @@ compliance:
 
 # Privileged Access Management
 
-This kit provides a Terraform configuration for setting up PAM in Azure.
+This kit provides a basic terraform-based approach for managing privileged roles used to administrate your landing zones.
+
+This is a good solution for cloud foundation teams that start in greenfield Azure environments and without a strong 
+backing of established enterprise IAM integration into Entra ID (Azure AD). 
+
+> For production use, cloud foundation teams should strongly consider implementing group membership management using
+> existing Enterprise IAM processes as well as leveraging Entra ID PIM and Conditional Access features to increase
+> security.
+
+This module is meant to be used with modules like `azure/billing` or `azure/logging` that implement important
+administrative capabilities and also introduce relevant security groups for manging these capabilities.
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

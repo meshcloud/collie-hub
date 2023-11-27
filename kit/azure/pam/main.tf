@@ -1,47 +1,31 @@
 data "azuread_client_config" "current" {}
 
 data "azurerm_subscription" "current" {}
+ 
+# We have to do some pre-processing here in order to produce nice documentation.
 
-data "azurerm_management_group" "root" {
-  name = data.azurerm_subscription.current.tenant_id
+# fetch data about all actual PAM groups
+data "azuread_group" "pam_groups" {
+  for_each = toset(var.pam_group_object_ids)
+
+  object_id = each.key
+  security_enabled = true
 }
 
-data "azuread_users" "billing_admins" {
-  user_principal_names = var.billing_admin_members[*].upn
+# fetch the actual members of those groups
+data "azuread_user" "pam_users" {
+  for_each = toset(flatten([ for g in data.azuread_group.pam_groups : g.members ]))
+  
+  object_id = each.key
 }
 
-data "azuread_users" "billing_readers" {
-  user_principal_names = var.billing_reader_members[*].upn
-}
-
-data "azuread_users" "security_auditors" {
-  user_principal_names = var.security_auditor_members[*].upn
-}
-
-data "azuread_users" "security_admins" {
-  user_principal_names = var.security_admin_members[*].upn
-}
-
-resource "azuread_group_member" "billing_admins" {
-  for_each         = toset(data.azuread_users.billing_admins.object_ids)
-  group_object_id  = var.billing_admin.group.object_id
-  member_object_id = each.value
-}
-
-resource "azuread_group_member" "billing_readers" {
-  for_each         = toset(data.azuread_users.billing_readers.object_ids)
-  group_object_id  = var.billing_reader.group.object_id
-  member_object_id = each.value
-}
-
-resource "azuread_group_member" "security_auditors" {
-  for_each         = toset(data.azuread_users.security_auditors.object_ids)
-  group_object_id  = var.security_auditor.group.object_id
-  member_object_id = each.value
-}
-
-resource "azuread_group_member" "security_admins" {
-  for_each         = toset(data.azuread_users.security_admins.object_ids)
-  group_object_id  = var.security_admin.group.object_id
-  member_object_id = each.value
+locals {
+  #  build map of of member object_ids to a "readable" format, e.g. using the mail attribute
+  groups = [
+    for g in data.azuread_group.pam_groups : {
+      display_name = g.display_name
+      description = g.description
+      members = [for m in g.members: data.azuread_user.pam_users[m].mail]
+    }
+  ]
 }
