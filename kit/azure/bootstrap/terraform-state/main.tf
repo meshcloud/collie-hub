@@ -5,7 +5,7 @@ resource "random_string" "resource_code" {
 }
 
 resource "azurerm_resource_group" "tfstates" {
-  name     = "cloudfoundation-tfstates"
+  name     = "cf-${var.cloudfoundation}-tfstates"
   location = var.location
 }
 
