@@ -19,7 +19,7 @@ variable "contact_mails" {
 variable "budget_time_period" {
   type = list(object({
     start = string,
-    end   = optional(string), 
+    end   = optional(string),
   }))
 
   default = [{

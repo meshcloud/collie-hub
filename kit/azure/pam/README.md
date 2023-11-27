@@ -12,8 +12,8 @@ compliance:
 
 This kit provides a basic terraform-based approach for managing privileged roles used to administrate your landing zones.
 
-This is a good solution for cloud foundation teams that start in greenfield Azure environments and without a strong 
-backing of established enterprise IAM integration into Entra ID (Azure AD). 
+This is a good solution for cloud foundation teams that start in greenfield Azure environments and without a strong
+backing of established enterprise IAM integration into Entra ID (Azure AD).
 
 > For production use, cloud foundation teams should strongly consider implementing group membership management using
 > existing Enterprise IAM processes as well as leveraging Entra ID PIM and Conditional Access features to increase
@@ -40,31 +40,20 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azuread_group_member.billing_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
-| [azuread_group_member.billing_readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
-| [azuread_group_member.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
-| [azuread_group_member.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
+| [azuread_group_member.pam_desired_memberships](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
-| [azuread_users.billing_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
-| [azuread_users.billing_readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
-| [azuread_users.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
-| [azuread_users.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
-| [azurerm_management_group.root](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
+| [azuread_group.pam_desired_groups](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+| [azuread_group.pam_groups](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+| [azuread_user.pam_desired_users](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
+| [azuread_user.pam_users](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_admin"></a> [billing\_admin](#input\_billing\_admin) | this variable fetchs the output values of the billing kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
-| <a name="input_billing_admin_members"></a> [billing\_admin\_members](#input\_billing\_admin\_members) | Admins for Cost Management | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
-| <a name="input_billing_reader"></a> [billing\_reader](#input\_billing\_reader) | this variable fetchs the output values of the billing kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
-| <a name="input_billing_reader_members"></a> [billing\_reader\_members](#input\_billing\_reader\_members) | Auditors for Cost Management | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
-| <a name="input_platform_engineer"></a> [platform\_engineer](#input\_platform\_engineer) | this variable fetchs the output values of the billing kit | <pre>object({<br>    group = object({ object_id = string, display_name = string, member = list(string) })<br>  })</pre> | n/a | yes |
-| <a name="input_security_admin"></a> [security\_admin](#input\_security\_admin) | this variable fetchs the output values of the logging kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
-| <a name="input_security_admin_members"></a> [security\_admin\_members](#input\_security\_admin\_members) | Security Admins for the Log Analytics Workspace | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
-| <a name="input_security_auditor"></a> [security\_auditor](#input\_security\_auditor) | this variable fetchs the output values of the logging kit | <pre>object({<br>    group = object({ object_id = string, display_name = string })<br>  })</pre> | n/a | yes |
-| <a name="input_security_auditor_members"></a> [security\_auditor\_members](#input\_security\_auditor\_members) | Security Auditors for the Log Analytics Workspace | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
+| <a name="input_pam_group_members"></a> [pam\_group\_members](#input\_pam\_group\_members) | Optional: manage members for cloud foundation PAM groups via terraform | <pre>list(object({<br>    group_object_id = string<br>    <br>    # other attributes would be possible (e.g. UPN or mail_nickname) with small changes to the terraform module<br>    members_by_mail = list(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_pam_group_object_ids"></a> [pam\_group\_object\_ids](#input\_pam\_group\_object\_ids) | the object\_ids of PAM groups used by the cloud foundation | `list(string)` | n/a | yes |
 
 ## Outputs
 

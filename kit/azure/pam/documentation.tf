@@ -9,6 +9,6 @@ everyone involved with the cloud foundation operation.
 
 |Group|Members|Function|
 |-|-|-|
-${join("\n", [for g in local.groups: "| **${g.display_name}** | ${join("<br>", g.members)} | ${g.description} |"])}
+${join("\n", [for g in local.groups : "| **${g.display_name}** | ${join("<br>", g.members)} | ${g.description} |"])}
 EOF
 }
