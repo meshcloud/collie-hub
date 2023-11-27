@@ -80,9 +80,12 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 | [azuread_group.platform_engineers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_service_principal.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
 | [azuread_service_principal_password.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal_password) | resource |
+| [azurerm_federated_identity_credential.docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential) | resource |
 | [azurerm_role_assignment.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.docs_tfstate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.tfstates_engineers](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_definition.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azurerm_user_assigned_identity.docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity) | resource |
 | [time_rotating.key_rotation](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/rotating) | resource |
 | [azuread_application_published_app_ids.well_known](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application_published_app_ids) | data source |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
@@ -96,6 +99,7 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aad_tenant_id"></a> [aad\_tenant\_id](#input\_aad\_tenant\_id) | Id of the AAD Tenant. This is also the simultaneously the id of the root management group. | `string` | n/a | yes |
+| <a name="input_documentation_uami_name"></a> [documentation\_uami\_name](#input\_documentation\_uami\_name) | name of the Service Principal used to perform documentation and validation tasks | `string` | `"cloudfoundation_tf_docs_user"` | no |
 | <a name="input_platform_engineers_group"></a> [platform\_engineers\_group](#input\_platform\_engineers\_group) | the name of the cloud foundation platform engineers group | `string` | `"cloudfoundation-platform-engineers"` | no |
 | <a name="input_platform_engineers_members"></a> [platform\_engineers\_members](#input\_platform\_engineers\_members) | Set up a group of platform engineers. If enabled, this group will receive access to terraform\_state\_storage | <pre>list(object({<br>    email = string,<br>    upn   = string,<br>  }))</pre> | n/a | yes |
 | <a name="input_service_principal_name"></a> [service\_principal\_name](#input\_service\_principal\_name) | name of the Service Principal used to perform all deployments in this platform | `string` | `"cloudfoundation_tf_deploy_user"` | no |
@@ -109,6 +113,7 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 | <a name="output_client_principal_id"></a> [client\_principal\_id](#output\_client\_principal\_id) | n/a |
 | <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | n/a |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_documentation_uami_client_id"></a> [documentation\_uami\_client\_id](#output\_documentation\_uami\_client\_id) | n/a |
 | <a name="output_module_storage_account_resource_id"></a> [module\_storage\_account\_resource\_id](#output\_module\_storage\_account\_resource\_id) | n/a |
 | <a name="output_platform_engineers_azuread_group_displayname"></a> [platform\_engineers\_azuread\_group\_displayname](#output\_platform\_engineers\_azuread\_group\_displayname) | n/a |
 | <a name="output_platform_engineers_azuread_group_id"></a> [platform\_engineers\_azuread\_group\_id](#output\_platform\_engineers\_azuread\_group\_id) | n/a |

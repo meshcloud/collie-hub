@@ -1,23 +1,16 @@
-resource "azurecaf_name" "cafrandom_rg" {
-  name          = var.cloudfoundation
-  resource_type = "azurerm_resource_group"
-  prefixes      = ["tfstate"]
-  random_length = 3
-}
-resource "azurecaf_name" "cafrandom_st" {
-  name          = var.cloudfoundation
-  resource_type = "azurerm_storage_account"
-  prefixes      = ["tfstate"]
-  random_length = 3
+resource "random_string" "resource_code" {
+  length  = 5
+  special = false
+  upper   = false
 }
 
 resource "azurerm_resource_group" "tfstates" {
-  name     = azurecaf_name.cafrandom_rg.result
+  name     = "cloudfoundation-tfstates"
   location = var.location
 }
 
 resource "azurerm_storage_account" "tfstates" {
-  name                      = azurecaf_name.cafrandom_st.result
+  name                      = "tfstates${random_string.resource_code.result}"
   resource_group_name       = azurerm_resource_group.tfstates.name
   location                  = azurerm_resource_group.tfstates.location
   account_tier              = "Standard"
@@ -34,9 +27,9 @@ resource "azurerm_storage_container" "tfstates" {
 resource "local_file" "tfstates_yaml" {
   filename = var.terraform_state_config_file_path
   content  = <<-EOT
-    storage_account_name: ${azurecaf_name.cafrandom_st.result}
+    storage_account_name: ${azurerm_storage_account.tfstates.name}
     container_name: ${azurerm_storage_container.tfstates.name}
     location: ${azurerm_storage_account.tfstates.location}
-    resource_group_name: ${azurecaf_name.cafrandom_rg.result}
+    resource_group_name: ${azurerm_resource_group.tfstates.name}
 EOT
 }
