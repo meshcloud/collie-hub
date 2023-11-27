@@ -1,5 +1,5 @@
 output "documentation_md" {
-  value  = <<EOF
+  value = <<EOF
 # Cloud-Native Landing Zone
 
 This landing zone is intended for cloud-native workloads. Application teams using this landing zones are responsible
@@ -12,7 +12,7 @@ apart from those that already apply at the [organization level](../azure-organiz
 
 ### Dev and Prod Stage Separation
 
-We separate development and productive workloads in the cloud-native Landing Zone via two management groups. 
+We separate development and productive workloads in the cloud-native Landing Zone via two management groups.
 
 > Currently the same policies apply to development and productive workloads. However, the cloud foundation team may decide
 > to introduce more differences in the future.
