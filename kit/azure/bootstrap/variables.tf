@@ -4,6 +4,12 @@ variable "service_principal_name" {
   default     = "cloudfoundation_tf_deploy_user"
 }
 
+variable "documentation_uami_name" {
+  type        = string
+  description = "name of the Service Principal used to perform documentation and validation tasks"
+  default     = "cloudfoundation_tf_docs_user"
+}
+
 variable "aad_tenant_id" {
   type        = string
   description = "Id of the AAD Tenant. This is also the simultaneously the id of the root management group."
