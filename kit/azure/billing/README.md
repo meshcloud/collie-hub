@@ -51,7 +51,7 @@ No modules.
 | <a name="input_billing_reader_group"></a> [billing\_reader\_group](#input\_billing\_reader\_group) | the name of the cloud foundation billing reader group | `string` | `"cloudfoundation-billing-readers"` | no |
 | <a name="input_budget_amount"></a> [budget\_amount](#input\_budget\_amount) | amount of the budget | `number` | `100` | no |
 | <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | the name of the budget alert | `string` | `"cloudfoundation_budget"` | no |
-| <a name="input_budget_time_period"></a> [budget\_time\_period](#input\_budget\_time\_period) | the time period of the budget alert | <pre>list(object({<br>    start = string,<br>    end   = string<br>  }))</pre> | <pre>[<br>  {<br>    "end": "2022-07-01T00:00:00Z",<br>    "start": "2022-06-01T00:00:00Z"<br>  }<br>]</pre> | no |
+| <a name="input_budget_time_period"></a> [budget\_time\_period](#input\_budget\_time\_period) | the time period of the budget alert | <pre>list(object({<br>    start = string,<br>    end   = optional(string), <br>  }))</pre> | <pre>[<br>  {<br>    "end": "2022-07-01T00:00:00Z",<br>    "start": "2022-06-01T00:00:00Z"<br>  }<br>]</pre> | no |
 | <a name="input_contact_mails"></a> [contact\_mails](#input\_contact\_mails) | The email address of the contact person for the cost alert | `list(string)` | <pre>[<br>  "billingmeshi@meshithesheep.io"<br>]</pre> | no |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the tenant management group | `string` | n/a | yes |
 
@@ -59,9 +59,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_billing_admins_azuread_group_displayname"></a> [billing\_admins\_azuread\_group\_displayname](#output\_billing\_admins\_azuread\_group\_displayname) | n/a |
 | <a name="output_billing_admins_azuread_group_id"></a> [billing\_admins\_azuread\_group\_id](#output\_billing\_admins\_azuread\_group\_id) | n/a |
-| <a name="output_billing_readers_azuread_group_displayname"></a> [billing\_readers\_azuread\_group\_displayname](#output\_billing\_readers\_azuread\_group\_displayname) | n/a |
 | <a name="output_billing_readers_azuread_group_id"></a> [billing\_readers\_azuread\_group\_id](#output\_billing\_readers\_azuread\_group\_id) | n/a |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 <!-- END_TF_DOCS -->
