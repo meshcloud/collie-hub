@@ -1,11 +1,14 @@
 ---
 name: Azure billing
 summary: |
-  This kit is designed to help organizations monitor, allocate, and optimize the cost of their Microsoft cloud workloads.
+  Set up Azure Cost Management to monitor, allocate, and optimize cost across the entire organization.
 compliance:
-  - control: cfmm/cost-management
+  - control: cfmm/cost-management/monthly-cloud-tenant-billing-report
     statement: |
-      The kit creates groupus to manage the cost management and view the expenses through the cloud foundation.
+      Enables application teams as well as controlling team members to review costs for each subscription.
+  - control: cfmm/cost-management/billing-alerts
+    statement: |
+      Sets up centralized budget alerts monitoring total cloud spend.
 ---
 
 # Azure Billing
