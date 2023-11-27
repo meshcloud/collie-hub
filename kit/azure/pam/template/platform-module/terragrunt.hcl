@@ -40,66 +40,28 @@ provider "azuread" {
 EOF
 }
 
+
 inputs = {
-
-  platform_engineer = {
-    group = {
-      object_id    = "${dependency.bootstrap.outputs.platform_engineers_azuread_group_id}",
-      display_name = "${dependency.bootstrap.outputs.platform_engineers_azuread_group_displayname}"
-      member       = "${dependency.bootstrap.outputs.platform_engineers_members}"
-    }
-  }
-
-  billing_admin = {
-    group = {
-      object_id    = "${dependency.billing.outputs.billing_admins_azuread_group_id}",
-      display_name = "${dependency.billing.outputs.billing_admins_azuread_group_displayname}"
-    }
-  }
-
-  billing_reader = {
-    group = {
-      object_id    = "${dependency.billing.outputs.billing_readers_azuread_group_id}",
-      display_name = "${dependency.billing.outputs.billing_readers_azuread_group_displayname}"
-    }
-  }
-
-  security_admin = {
-    group = {
-      object_id    = "${dependency.logging.outputs.security_admins_azuread_group_id}",
-      display_name = "${dependency.logging.outputs.security_admins_azuread_group_displayname}"
-    }
-  }
-  security_auditor = {
-    group = {
-      object_id    = "${dependency.logging.outputs.security_auditors_azuread_group_id}",
-      display_name = "${dependency.logging.outputs.security_auditors_azuread_group_displayname}"
-    }
-  }
-  billing_admin_members = [
-    {
-      email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING ADMIN MAIL here
-      upn   = "financemeshi@meshithesheep.onmicrosoft.com"
-    }
+  pam_group_object_ids = [
+    dependency.bootstrap.outputs.platform_engineers_azuread_group_id,
+    dependency.billing.outputs.billing_admins_azuread_group_id,
+    dependency.billing.outputs.billing_readers_azuread_group_id,
+    dependency.logging.outputs.security_admins_azuread_group_id,
+    dependency.logging.outputs.security_auditors_azuread_group_id,
   ]
-  billing_reader_members = [
+
+  # optional, manage members direcly via terraform
+  pam_group_members = [
     {
-      email = "financemeshi@meshithesheep.io" #TODO change, enter BILLING READER MAIL here
-      upn   = "financemeshi@meshithesheep.onmicrosoft.com"
-    }
-  ]
-  security_admin_group = "${dependency.logging.outputs.security_admins_azuread_group_id}"
-  security_admin_members = [
+      group_object_id = dependency.billing.outputs.billing_admins_azuread_group_id,
+      members_by_mail = ["billingmeshi@meshithesheep.io"]
+    },
     {
-      email = "securitymeshi@meshithesheep.io" #TODO change, enter SECURITY ADMINS MAIL here
-      upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
+      group_object_id = dependency.logging.outputs.security_admins_azuread_group_id,
+      members_by_mail = ["securitymeshi@meshithesheep.io"]
     }
-  ]
-  security_auditor_group = "${dependency.logging.outputs.security_auditors_azuread_group_id}"
-  security_auditor_members = [
-    {
-      email = "securitymeshi@meshithesheep.io" #TODO change, enter SECURITY AUDITOR MAIL here
-      upn   = "securitymeshi@meshithesheep.onmicrosoft.com"
-    }
+
+    # note: platform_engineers members are managed via bootstrap module right now
   ]
 }
+
