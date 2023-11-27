@@ -4,11 +4,13 @@ data "azurerm_subscription" "current" {}
 
 resource "azuread_group" "billing_admins" {
   display_name     = var.billing_admin_group
+  description = "Privileged Cloud Foundation group. Members can manage billing profiles, reserved instances and have full access to all Azure Cost Management data."
   security_enabled = true
 }
 
 resource "azuread_group" "billing_readers" {
   display_name     = var.billing_reader_group
+  description = "Privileged Cloud Foundation group. Members can read all Azure Cost Management data."
   security_enabled = true
 }
 

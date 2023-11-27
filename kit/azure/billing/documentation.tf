@@ -1,26 +1,31 @@
 output "documentation_md" {
   value = <<EOF
-
 # Billing
 
-It is recommended to use payment methods such as credit cards and invoices to ensure that you can access your Azure resources at any time.
-The kit provides a first-of-its-kind cost alert for the entire Cloud Foundation.
+We use [Azure Cost Management](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management)
+to monitor our total cloud spend and manage the billing and invoicing process with Microsoft.
 
-## Who is informed about costs?
+## Spend Monitoring
+
+We perform global spend monitoring for our entire Azure cloud spend.
 
 The following people will be notified when the established cost limit is exceeded:
  ${join("\n", formatlist("- %s", var.contact_mails))}
 
 ## How I can get access?
 
-The kit creates two Groups as preparation for the `Privileged Access Management`.
+Access to cost management data is granted on need-to-know basis to Auditors, members of Controlling and Cloud Foundation Team members.
 
-|group|role|
+The following AAD groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
+
+|group|description|
 |-|-|
-| cloudfoundation-billing-admins | Cost Management Contributor, Management Group Reader |
-| cloudfoundation-billing-readers | Cost Management Reader, Management Group Reader |
+| ${azuread_group.billing_admins.display_name} | ${azuread_group.billing_admins.description} |
+| ${azuread_group.billing_readers.display_name} | ${azuread_group.billing_readers.description} |
 
-[Privileged Access Management](https://cloudfoundation.org/maturity-model/iam/privileged-access-management.html#what-is-privileged-access-management-pam)
+## How can I review Cost Management data for my subscription
+
+Application teams can view Cost Management data for their own subscription in Azure portal under Subscription -> Cost Management.
 
 EOF
 }
