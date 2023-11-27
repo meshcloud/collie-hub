@@ -58,6 +58,7 @@ AzureActivity
 | [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_management_group_subscription_association.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
 | [azurerm_resource_group.law_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
@@ -66,17 +67,19 @@ AzureActivity
 | [azurerm_role_assignment.security_auditors](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_auditors_law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_definition.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azurerm_subscription.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) | resource |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | this is the name of your cloud-foundation | `string` | n/a | yes |
+| <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | this is the name of your cloud foundation | `string` | n/a | yes |
 | <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | service principal id | `string` | n/a | yes |
-| <a name="input_location"></a> [location](#input\_location) | location of the resources | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | location of the resources created for logging | `string` | n/a | yes |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | amount of time of log retention | `number` | `30` | no |
-| <a name="input_scope"></a> [scope](#input\_scope) | id of the management group that you want to log | `string` | n/a | yes |
+| <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | id of the parent management group that the logging subscription will be placed under | `string` | n/a | yes |
+| <a name="input_scope"></a> [scope](#input\_scope) | id of the management group that you want to collect activity logs from | `string` | n/a | yes |
 | <a name="input_security_admin_group"></a> [security\_admin\_group](#input\_security\_admin\_group) | the name of the cloud foundation security admin group | `string` | `"cloudfoundation-security-admins"` | no |
 | <a name="input_security_auditor_group"></a> [security\_auditor\_group](#input\_security\_auditor\_group) | the name of the cloud foundation security auditor group | `string` | `"cloudfoundation-security-auditors"` | no |
 
@@ -85,8 +88,6 @@ AzureActivity
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
-| <a name="output_security_admins_azuread_group_displayname"></a> [security\_admins\_azuread\_group\_displayname](#output\_security\_admins\_azuread\_group\_displayname) | n/a |
 | <a name="output_security_admins_azuread_group_id"></a> [security\_admins\_azuread\_group\_id](#output\_security\_admins\_azuread\_group\_id) | n/a |
-| <a name="output_security_auditors_azuread_group_displayname"></a> [security\_auditors\_azuread\_group\_displayname](#output\_security\_auditors\_azuread\_group\_displayname) | n/a |
 | <a name="output_security_auditors_azuread_group_id"></a> [security\_auditors\_azuread\_group\_id](#output\_security\_auditors\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->

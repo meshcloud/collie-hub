@@ -52,7 +52,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_pam_group_members"></a> [pam\_group\_members](#input\_pam\_group\_members) | Optional: manage members for cloud foundation PAM groups via terraform | <pre>list(object({<br>    group_object_id = string<br>    <br>    # other attributes would be possible (e.g. UPN or mail_nickname) with small changes to the terraform module<br>    members_by_mail = list(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_pam_group_members"></a> [pam\_group\_members](#input\_pam\_group\_members) | Optional: manage members for cloud foundation PAM groups via terraform | <pre>list(object({<br>    group_object_id = string<br><br>    # other attributes would be possible (e.g. UPN or mail_nickname) with small changes to the terraform module<br>    members_by_mail = list(string)<br>  }))</pre> | n/a | yes |
 | <a name="input_pam_group_object_ids"></a> [pam\_group\_object\_ids](#input\_pam\_group\_object\_ids) | the object\_ids of PAM groups used by the cloud foundation | `list(string)` | n/a | yes |
 
 ## Outputs

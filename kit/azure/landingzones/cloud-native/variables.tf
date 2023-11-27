@@ -4,5 +4,5 @@ variable "parent_management_group_id" {
 
 variable "name" {
   description = "name of the landing zone's management group"
-  default = "cloudnative"
+  default     = "cloudnative"
 }

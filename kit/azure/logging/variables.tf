@@ -1,7 +1,7 @@
 variable "scope" {
   type        = string
   nullable    = false
-  description = "id of the management group that you want to log"
+  description = "id of the management group that you want to collect activity logs from"
 }
 
 variable "cloudfoundation_deploy_principal_id" {
@@ -9,6 +9,7 @@ variable "cloudfoundation_deploy_principal_id" {
   nullable    = false
   description = "service principal id"
 }
+
 variable "log_retention_in_days" {
   type        = number
   nullable    = false
@@ -19,14 +20,21 @@ variable "log_retention_in_days" {
 variable "cloudfoundation" {
   type        = string
   nullable    = false
-  description = "this is the name of your cloud-foundation"
+  description = "this is the name of your cloud foundation"
+}
+
+variable "parent_management_group_id" {
+  type        = string
+  nullable    = false
+  description = "id of the parent management group that the logging subscription will be placed under"
 }
 
 variable "location" {
   type        = string
   nullable    = false
-  description = "location of the resources"
+  description = "location of the resources created for logging"
 }
+
 variable "security_admin_group" {
   type        = string
   default     = "cloudfoundation-security-admins"
