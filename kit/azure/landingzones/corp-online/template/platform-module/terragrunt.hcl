@@ -3,18 +3,17 @@ include "platform" {
   expose = true
 }
 
+terraform {
+  source = "${get_repo_root()}//kit/azure/landingzones/corp-online"
+}
+
 dependency "bootstrap" {
-  config_path = "${path_relative_from_include()}/bootstrap"
+  config_path = "../../bootstrap"
 }
 
 dependency "organization-hierarchy" {
-  config_path = "${path_relative_from_include()}/organization-hierarchy"
+  config_path = "../../organization-hierarchy"
 }
-
-terraform {
-  source = "${get_repo_root()}//kit/azure/landingzones/lz-serverless"
-}
-
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite"
@@ -32,6 +31,7 @@ EOF
 
 inputs = {
   # todo: set input variables
+  cloudfoundation            = "${include.platform.locals.cloudfoundation.name}"
   parent_management_group_id = "${dependency.organization-hierarchy.outputs.landingzones_id}"
   location                   = "${try(include.platform.locals.tfstateconfig.location, "could not read location from stateconfig. configure it explicitly")}"
 }
