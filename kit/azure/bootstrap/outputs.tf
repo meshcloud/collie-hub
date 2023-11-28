@@ -1,5 +1,5 @@
 output "client_id" {
-  value = azuread_service_principal.cloudfoundation_deploy.application_id
+  value = azuread_service_principal.cloudfoundation_deploy.client_id
 }
 
 output "client_secret" {

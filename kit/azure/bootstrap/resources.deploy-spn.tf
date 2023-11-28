@@ -47,7 +47,7 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
 data "azuread_application_published_app_ids" "well_known" {}
 
 data "azuread_service_principal" "msgraph" {
-  application_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
+  client_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 }
 
 resource "azuread_application" "cloudfoundation_deploy" {
@@ -92,7 +92,7 @@ resource "azuread_application" "cloudfoundation_deploy" {
 }
 
 resource "azuread_service_principal" "cloudfoundation_deploy" {
-  application_id = azuread_application.cloudfoundation_deploy.application_id
+  client_id = azuread_application.cloudfoundation_deploy.client_id
   # The following tags are needed to create an Enterprise Application
   # See https://github.com/hashicorp/terraform-provider-azuread/issues/7#issuecomment-529597534
   tags = [
