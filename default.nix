@@ -9,7 +9,7 @@ pkgs.mkShell {
     pkgs.pre-commit
 
     # terraform and friends
-    pkgs.terraform
+    pkgs.opentofu
     pkgs.terragrunt
     pkgs.tflint
     pkgs.terraform-docs
