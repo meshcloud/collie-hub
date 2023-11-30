@@ -21,7 +21,7 @@ resource "azurerm_storage_account" "tfstates" {
 resource "azurerm_storage_container" "tfstates" {
   name                  = "tfstates"
   storage_account_name  = azurerm_storage_account.tfstates.name
-  container_access_type = "blob"
+  container_access_type = "private"
 }
 
 resource "local_file" "tfstates_yaml" {
