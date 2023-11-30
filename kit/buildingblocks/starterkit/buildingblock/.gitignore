@@ -1,0 +1,8 @@
+# ignore local files that allow connecting the local terraform environment to this building block's backend and providers
+config.tf
+likvid-bank-devops-toolchain-team.private-key.pem
+terraform.tfvars
+
+# todo: ideally this ought to be comitted & locked to the runners OS (linux) but we curently don't have the process in place
+# to ensure this when running from a different development environment (e.g. macOS), so we leave it out for now
+.terraform.lock.hcl
