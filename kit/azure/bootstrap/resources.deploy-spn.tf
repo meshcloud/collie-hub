@@ -131,8 +131,8 @@ resource "time_rotating" "key_rotation" {
   rotation_days = 365
 }
 
-resource "azuread_service_principal_password" "cloudfoundation_deploy" {
-  service_principal_id = azuread_service_principal.cloudfoundation_deploy.id
+resource "azuread_application_password" "cloudfoundation_deploy" {
+  application_id = azuread_application.cloudfoundation_deploy.id
   rotate_when_changed = {
     rotation = time_rotating.key_rotation.id
   }
