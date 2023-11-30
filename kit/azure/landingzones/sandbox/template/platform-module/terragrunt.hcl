@@ -26,7 +26,7 @@ provider "azurerm" {
   subscription_id = "${include.platform.locals.platform.azure.subscriptionId}"
   client_id       = "${dependency.bootstrap.outputs.client_id}"
   client_secret   = "${dependency.bootstrap.outputs.client_secret}"
-  }
+}
 EOF
 }
 
