@@ -39,6 +39,7 @@ EOF
 inputs = {
   # todo: set input variables
   scope = "${dependency.organization-hierarchy.outputs.parent_id}"
+  # todo: azure will throw an error if date is in a past month
   budget_time_period = [{
     start = "2023-11-01T00:00:00Z"
   }]
