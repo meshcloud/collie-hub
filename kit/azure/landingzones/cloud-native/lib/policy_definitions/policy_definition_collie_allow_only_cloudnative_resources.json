@@ -1,0 +1,100 @@
+
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "apiVersion": "2022-06-01",
+  "name": "Allow-OnlyCloudNativeResources",
+  "properties": {
+    "displayName": "Allow Cloud Native Resources Only",
+    "description": "This policy allows only cloud-native resources to be deployed.",
+    "mode": "All",
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "not": {
+          "anyOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Web/sites"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.Logic/workflows"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.Web/serverFarms"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.Web/functions"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ContainerRegistry/registries"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ContainerService/managedClusters"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.EventGrid/topics"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.EventHub/namespaces"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ServiceBus/namespaces"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ApiManagement/service"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ContainerInstance/containerGroups"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.DocumentDB/databaseAccounts"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.EventGrid/domains"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ServiceFabric/clusters"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.ApiManagement/service"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.StreamAnalytics/streamingJobs"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.DataFactory/factories"
+            },
+            {
+              "field": "type",
+              "equals": "Microsoft.EventHubs/namespaces"
+            }
+          ]
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+
