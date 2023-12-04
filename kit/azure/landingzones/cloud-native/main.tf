@@ -20,3 +20,17 @@ resource "azurerm_management_group" "prod" {
     ignore_changes = [subscription_ids]
   }
 }
+
+module "policy_cloudnative" {
+  source = "github.com/meshcloud/collie-hub//kit/azure/util/azure-policies?ref=ef06c8d"
+
+  policy_path         = "${path.module}/lib"
+  management_group_id = azurerm_management_group.cloudnative.id
+  location            = var.location
+
+  template_file_variables = {
+     default_location          = "${var.location}"
+     current_scope_resource_id = azurerm_management_group.cloudnative.id
+     root_scope_resource_id    = azurerm_management_group.cloudnative.id
+  }
+}

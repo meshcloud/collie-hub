@@ -1,0 +1,41 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "name": "Deny-K8S-Sec-Restricted",
+  "dependsOn": [],
+  "properties": {
+    "description": "This policy enforces Kubernetes cluster pod security restricted standards for Linux-based workloads.",
+    "displayName": "Deny Kubernetes Pod Security Restricted for Linux-based workloads",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42b8ef37-b724-4e24-bbc8-7a7708edfe00",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "The Kubernetes cluster does not meet the pod security restricted standards for Linux-based workloads."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "notScopes": [],
+    "parameters": {
+      "effect": {
+        "value": "deny"
+      },
+      "excludedNamespaces": {
+        "value": ["kube-system", "gatekeeper-system", "azure-arc", "azure-extensions-usage-system"]
+      },
+      "namespaces": {
+        "value": []
+      },
+      "allowedCapabilities": {
+        "value": ["CHOWN", "DAC_OVERRIDE", "FSETID", "FOWNER", "MKNOD", "NET_RAW", "SETGID", "SETUID", "SETFCAP", "SETPCAP", "NET_BIND_SERVICE", "SYS_CHROOT", "KILL", "AUDIT_WRITE"]
+      },
+      "requiredDropCapabilities": {
+        "value": []
+      }
+    }
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}
+

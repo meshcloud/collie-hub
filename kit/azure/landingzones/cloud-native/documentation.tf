@@ -31,7 +31,7 @@ The resource hierarchy of this landing zone looks like this:
 
 |Policy|Effect|Description|Rationale|
 |-|-|-|-|
-|[${module.policy_cloudnative.policy_assignments["Allow-Cloudnative-Only"].display_name}](https://cloudfoundation.org/maturity-model/tenant-management/cloud-native-landing-zone.html#best-practices-for-designing-and-building-a-cloud-native-landing-zone)|Deny|${module.policy_cloudnative.policy_assignments["Allow-Serverless-Only"].description}|This policy allows only Cloud-Native resources to be deployed.|
+|[${module.policy_cloudnative.policy_assignments["Allow-Cloudnative-Only"].display_name}](https://cloudfoundation.org/maturity-model/tenant-management/cloud-native-landing-zone.html#best-practices-for-designing-and-building-a-cloud-native-landing-zone)|Deny|${module.policy_cloudnative.policy_assignments["Allow-Cloudnative-Only"].description}|This policy allows only Cloud-Native resources to be deployed.|
 
 EOF
 }

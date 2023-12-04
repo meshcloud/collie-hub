@@ -1,0 +1,39 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "name": "Deny-K8-Sec-Baseline",
+  "dependsOn": [],
+  "properties": {
+    "description": "This policy enforces Kubernetes cluster pod security baseline standards for Linux-based workloads.",
+    "displayName": "Deny Kubernetes Pod Security Baseline for Linux-based workloads",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/a8640138-9b0a-4a28-b8cb-1666c838647d",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "The Kubernetes cluster does not meet the pod security baseline standards for Linux-based workloads."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "notScopes": [],
+    "parameters": {
+      "effect": {
+        "value": "deny"
+      },
+      "excludedNamespaces": {
+        "value": ["kube-system", "gatekeeper-system", "azure-arc", "azure-extensions-usage-system"]
+      },
+      "namespaces": {
+        "value": []
+      },
+      "allowedHostPaths": {
+        "value": {
+          "paths": []
+        }
+      }
+    }
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}
