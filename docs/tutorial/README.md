@@ -35,7 +35,7 @@ npm 9.5.1
 Depending on the cloud platforms you plan on working with, you may not need all of `aws`, `az` and `gcloud` installed.
 :::
 
-The other tools are however required to use all of collie's capabilities. If one of the tools lists as *not installed* or *unsupported version*, please review the [installation instructions]((https://github.com/meshcloud/collie-cli#-installation)) to fix this.
+The other tools are however required to use all of collie's capabilities. If one of the tools lists as *not installed* or *unsupported version*, please review the [installation instructions](https://github.com/meshcloud/collie-cli#-installation) to fix this.
 
 When all tools are correctly installed and detected by collie, we can continue with the next step.
 
