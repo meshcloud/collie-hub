@@ -37,7 +37,7 @@ EOF
 
 inputs = {
   # todo: set input variables
-  parent_management_group_id          = "${dependency.organization-hierarchy.outputs.management_id}"
-  scope                               = "${dependency.organization-hierarchy.outputs.parent_id}"
-  location                            = "germanywestcentral"
+  parent_management_group_id = "${dependency.organization-hierarchy.outputs.management_id}"
+  scope                      = "${dependency.organization-hierarchy.outputs.parent_id}"
+  location                   = "germanywestcentral"
 }
