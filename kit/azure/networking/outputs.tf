@@ -17,3 +17,4 @@ output "hub_vnet" {
   value       = azurerm_virtual_network.hub_network.name
   description = "Name of hub vnet"
 }
+

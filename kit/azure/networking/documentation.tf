@@ -1,23 +1,40 @@
+
 output "documentation_md" {
-  value = <<EOF
+  value = <<-EOF
 # Networking
 
-Connection to the hub is the pre-requisite for getting access to th on-prem network.
+Connection to the hub is the pre-requisite for getting access to the on-prem network.
 
 The hub itself has the following address space `${var.address_space}`.
 
 Upon request, we will peer a VNet in your subscription with the hub.
 
-We currently have assigned
+## Subnets
+| name | prefixes | description |
+|-|-|-|
+${var.deploy_firewall ?
+  "|${azurerm_subnet.firewall[0].name} | ${join(", ", azurerm_subnet.firewall[0].address_prefixes)}|" : ""}
+|${azurerm_subnet.mgmt.name} | ${join(", ", azurerm_subnet.mgmt.address_prefixes)}|
+|${azurerm_subnet.gateway.name} | ${join(", ", azurerm_subnet.gateway.address_prefixes)}|
 
-| Application | Range |
-|-|-|
-| Glaskugel | 10.1.0.0/24 |
+${var.deploy_firewall ? "## Azure Firewall sku: ${var.firewall_sku_tier}" : "## Firewall deployment is not enabled."}
 
-Next free entry: 10.1.0.1/24
+## Network Security Group ${azurerm_subnet.mgmt.name}
+| Name | Direction | Access | Protocol | Source Port Range | Destination Port Range | Source Address Prefix | Destination Address Prefix |
+|-|-|-|-|-|-|-|-|
+${join("\n", [for rule in var.management_nsg_rules : "| ${rule.name} | ${rule.direction} | ${rule.access} | ${rule.protocol} | ${rule.source_port_range} | ${rule.destination_port_range} | ${rule.source_address_prefix} | ${rule.destination_address_prefix} |"])}
+${var.deploy_firewall ? "## Azure Firewall sku: ${var.firewall_sku_tier}" : "## Firewall deployment is not enabled."}
 
+${var.firewall_sku_tier == "Basic" && var.deploy_firewall ?
+  "## Azure Firewall mgmt IP and AzureFirewallManagementSubnet and Management IP only exist in the Basic SKU" : ""}
 
-Access to central Network Hub is granted on need-to-know basis to Auditors and Cloud Foundation Team members.
+${var.deploy_firewall ?
+  "## Application Rules for ${azurerm_firewall.fw[0].name}\n| Name | Action | Source Addresses | Target FQDNs | Protocol |\n|-|-|-|-|-|\n${join("\\n", [for rule in var.firewall_application_rules : "| ${rule.name} | ${rule.action} | ${join(", ", rule.source_addresses)} | ${join(", ", rule.target_fqdns)} | ${rule.protocol.type} (${rule.protocol.port}) |"])}\n" : ""}
+
+${var.deploy_firewall ?
+"## Network Rules for ${azurerm_firewall.fw[0].name}\n| Name | Action | Source Addresses | Destination Ports | Destination Addresses | Protocols |\n|-|-|-|-|-|-|\n${join("\\n", [for rule in var.firewall_network_rules : "| ${rule.name} | ${rule.action} | ${join(", ", rule.source_addresses)} | ${join(", ", rule.destination_ports)} | ${join(", ", rule.destination_addresses)} | ${join(", ", rule.protocols)} |"])}\n" : ""}
+
+Access to the central Network Hub is granted on a need-to-know basis to Auditors and Cloud Foundation Team members.
 The following AAD groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
 
 |group|description|
@@ -26,3 +43,4 @@ The following AAD groups control access and are used to implement [Privileged Ac
 
 EOF
 }
+
