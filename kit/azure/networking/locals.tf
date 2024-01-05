@@ -55,7 +55,27 @@ locals {
   ])
 
   public_ip_map = { for pip in var.public_ip_names : pip => true }
-  mgmt_ip_map   = { for pip in var.mgmt_ip_names : pip => true }
+  mgmt_ip_name  = "fw-mgmt"
+
+
+  application_rules = {
+    for idx, rule in var.firewall_application_rules : rule.name => {
+      idx : idx,
+      rule : rule,
+    }
+  }
+
+  network_rules = {
+    for idx, rule in var.firewall_network_rules : rule.name => {
+      idx : idx,
+      rule : rule,
+    }
+  }
+
+  nat_rules = {
+    for idx, rule in var.firewall_nat_rules : rule.name => {
+      idx : idx,
+      rule : rule,
+    }
+  }
 }
-
-

@@ -167,40 +167,16 @@ resource "azurerm_monitor_diagnostic_setting" "vnet" {
     for_each = data.azurerm_monitor_diagnostic_categories.hub.log_category_types
     content {
       category = enabled_log.value
-      #enabled  = contains(local.parsed_diag.log, "all") || contains(local.parsed_diag.log, log.value)
-
-      #deprecated retention_policy` has been deprecated in favor of `azurerm_storage_management_policy`
-      # retention_policy {
-      #   days    = 0
-      #   enabled = false
-      # }
     }
   }
 
-  # For each available metric category, check if it should be enabled and set enabled = true if it should.
-  # All other categories are created with enabled = false to prevent TF from showing changes happening with each plan/apply.
-  # Ref: https://github.com/terraform-providers/terraform-provider-azurerm/issues/7235
   dynamic "metric" {
     for_each = data.azurerm_monitor_diagnostic_categories.hub.metrics
     content {
       category = metric.value
       enabled  = contains(local.parsed_diag.metric, "all") || contains(local.parsed_diag.metric, metric.value)
-
-      #deprecated retention_policy` has been deprecated in favor of `azurerm_storage_management_policy`
-      # retention_policy {
-      #   days    = 0
-      #   enabled = false
-      # }
     }
   }
-}
-
-resource "azurerm_subnet" "firewall" {
-  name                 = "AzureFirewallSubnet"
-  resource_group_name  = azurerm_resource_group.hub_resource_group.name
-  virtual_network_name = azurerm_virtual_network.hub_network.name
-  address_prefixes     = [cidrsubnet(var.address_space, 2, 0)]
-  service_endpoints    = var.service_endpoints
 }
 
 resource "azurerm_subnet" "gateway" {
@@ -212,15 +188,6 @@ resource "azurerm_subnet" "gateway" {
   service_endpoints = [
     "Microsoft.Storage",
   ]
-}
-
-resource "azurerm_subnet" "firewallmgmt" {
-  count                = var.firewall_bool && var.firewall_sku_tier == "Basic" ? 1 : 0
-  name                 = "AzureFirewallManagementSubnet"
-  resource_group_name  = azurerm_resource_group.hub_resource_group.name
-  virtual_network_name = azurerm_virtual_network.hub_network.name
-  address_prefixes     = [cidrsubnet(var.address_space, 2, 2)]
-  service_endpoints    = var.service_endpoints
 }
 
 resource "azurerm_subnet" "mgmt" {
@@ -331,15 +298,6 @@ resource "azurerm_route_table" "out" {
   location            = azurerm_resource_group.hub_resource_group.location
   resource_group_name = azurerm_resource_group.hub_resource_group.name
 }
-
-# resource "azurerm_route" "fw" {
-#   name                   = "firewall"
-#   resource_group_name    = azurerm_resource_group.hub_resource_group.name
-#   route_table_name       = azurerm_route_table.out.name
-#   address_prefix         = "0.0.0.0/0"
-#   next_hop_type          = "VirtualAppliance"
-#   next_hop_in_ip_address = azurerm_firewall.fw.ip_configuration.0.private_ip_address
-# }
 
 resource "azurerm_subnet_route_table_association" "mgmt" {
   subnet_id      = azurerm_subnet.mgmt.id
