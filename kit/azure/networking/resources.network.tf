@@ -154,15 +154,10 @@ data "azurerm_monitor_diagnostic_categories" "hub" {
 resource "azurerm_monitor_diagnostic_setting" "vnet" {
   count = var.diagnostics != null ? 1 : 0
 
-  name               = "vnet-diag"
-  target_resource_id = azurerm_virtual_network.hub_network.id
-  #log_analytics_workspace_id     = var.netwatcher.log_analytics_workspace_id
+  name                       = "vnet-diag"
+  target_resource_id         = azurerm_virtual_network.hub_network.id
   log_analytics_workspace_id = local.parsed_diag.log_analytics_id
-  #storage_account_id             = local.parsed_diag.storage_account_id
-  #eventhub_authorization_rule_id = local.parsed_diag.event_hub_auth_id
-  # For each available log category, check if it should be enabled and set enabled = true if it should.
-  # All other categories are created with enabled = false to prevent TF from showing changes happening with each plan/apply.
-  # Ref: https://github.com/terraform-providers/terraform-provider-azurerm/issues/7235
+  storage_account_id         = local.parsed_diag.storage_account_id
   dynamic "enabled_log" {
     for_each = data.azurerm_monitor_diagnostic_categories.hub.log_category_types
     content {
@@ -247,23 +242,12 @@ resource "azurerm_monitor_diagnostic_setting" "mgmt" {
   target_resource_id             = azurerm_network_security_group.mgmt.id
   log_analytics_workspace_id     = local.parsed_diag.log_analytics_id
   eventhub_authorization_rule_id = local.parsed_diag.event_hub_auth_id
-  #eventhub_name                  = local.parsed_diag.event_hub_auth_id != null ? var.diagnostics.eventhub_name : null
   storage_account_id = local.parsed_diag.storage_account_id
 
-  # For each available metric category, check if it should be enabled and set enabled = true if it should.
-  # All other categories are created with enabled = false to prevent TF from showing changes happening with each plan/apply.
-  # Ref: https://github.com/terraform-providers/terraform-provider-azurerm/issues/7235
   dynamic "enabled_log" {
     for_each = data.azurerm_monitor_diagnostic_categories.mgmt.log_category_types
     content {
       category = enabled_log.value
-      #enabled  = contains(local.parsed_diag.log, "all") || contains(local.parsed_diag.log, log.value)
-
-      #deprecated retention_policy` has been deprecated in favor of `azurerm_storage_management_policy`
-      # retention_policy {
-      #   days    = 0
-      #   enabled = false
-      # }
     }
   }
 }
@@ -291,8 +275,6 @@ resource "azurerm_network_security_rule" "mgmt" {
   destination_application_security_group_ids = local.merged_mgmt_nsg_rules[count.index].destination_application_security_group_ids
 }
 
-
-### routes
 resource "azurerm_route_table" "out" {
   name                = "${var.cloudfoundation}-outbound-rt"
   location            = azurerm_resource_group.hub_resource_group.location
