@@ -242,7 +242,7 @@ resource "azurerm_monitor_diagnostic_setting" "mgmt" {
   target_resource_id             = azurerm_network_security_group.mgmt.id
   log_analytics_workspace_id     = local.parsed_diag.log_analytics_id
   eventhub_authorization_rule_id = local.parsed_diag.event_hub_auth_id
-  storage_account_id = local.parsed_diag.storage_account_id
+  storage_account_id             = local.parsed_diag.storage_account_id
 
   dynamic "enabled_log" {
     for_each = data.azurerm_monitor_diagnostic_categories.mgmt.log_category_types
