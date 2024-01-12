@@ -1,19 +1,19 @@
 ---
-name: Azure network
+name: Azure Network
 summary: |
   compliance:
-  - control: cfmm/cost-management/monthly-cloud-tenant-billing-report
-    statement: |
-      Enables application teams as well as controlling team members to review costs for each subscription.
-  - control: cfmm/cost-management/billing-alerts
-    statement: |
-      Sets up centralized budget alerts monitoring total cloud spend.
+  - control: cfmm/service-ecosystem/virtual-network-service
+  statement: |
+    A virtual network allows resources to communicate with other resources. The other resources may be within the same virtual network,
+    but could also be on-premise or on the internet.
+
 ---
 
-# Azure network
+# Azure Network
 
-Microsoft Cost Management is a suite of tools that help organizations monitor, allocate, and optimize the cost of their Microsoft Cloud workloads. Cost Management is available to anyone with access to a billing or resource management scope. The availability includes anyone from the cloud finance team with access to the billing account. And, to DevOps teams managing resources in subscriptions and resource groups. Together, Cost Management and Billing are your gateway to the Microsoft Commerce system that’s available to everyone throughout the journey.
-
+The Azure Network Kit defines the networking components within the Azure cloud environment. This infrastructure is
+designed to facilitate communication between various resources, whether they are within the same virtual network, on-premise, or
+on the internet.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -37,6 +37,7 @@ No modules.
 | [azurerm_firewall_application_rule_collection.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_application_rule_collection) | resource |
 | [azurerm_firewall_nat_rule_collection.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_nat_rule_collection) | resource |
 | [azurerm_firewall_network_rule_collection.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_network_rule_collection) | resource |
+| [azurerm_management_group_subscription_association.vnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
 | [azurerm_monitor_diagnostic_setting.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_monitor_diagnostic_setting.fw_pip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_monitor_diagnostic_setting.mgmt](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
@@ -115,6 +116,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_firewall_name"></a> [firewall\_name](#output\_firewall\_name) | Name of hub vnet |
 | <a name="output_hub_location"></a> [hub\_location](#output\_hub\_location) | Location of hub vnet |
 | <a name="output_hub_rg"></a> [hub\_rg](#output\_hub\_rg) | Resource Group of hub vnet |
 | <a name="output_hub_subscription"></a> [hub\_subscription](#output\_hub\_subscription) | Subscription of hub vnet |

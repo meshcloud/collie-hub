@@ -6,13 +6,20 @@ include "platform" {
 // this is not a standard platform module that uses a kit module, instead we call this a "tenant module"
 // that contains its own terraform code and just pulls in plain terraform modules (building blocks) for reusable modules
 #terraform {
+#  source = "${get_repo_root()}//kit/azure/tenants/tenant-example"
 
 terraform {
   source = "./"
+  #  source = "${get_repo_root()}//kit/azure/tenants/tenant-example"
+
 }
 
 dependency "bootstrap" {
   config_path = "../../bootstrap"
+}
+
+dependency "networking" {
+  config_path = "../../networking"
 }
 
 generate "provider" {
@@ -23,7 +30,16 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
-  subscription_id = "the-id-of-your-subscription"
+  subscription_id = "the-id-of-your-logging-subscription"
+  client_id       = "${dependency.bootstrap.outputs.client_id}"
+  client_secret   = "${dependency.bootstrap.outputs.client_secret}"
+}
+
+provider "azurerm" {
+  features {}
+  alias           = "hub"
+  tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
+  subscription_id = "${dependency.networking.outputs.hub_subscription}"
   client_id       = "${dependency.bootstrap.outputs.client_id}"
   client_secret   = "${dependency.bootstrap.outputs.client_secret}"
 }
