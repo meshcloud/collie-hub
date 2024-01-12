@@ -1,7 +1,7 @@
 ---
 name: Azure Tenant Example
 summary: |
-  Example Tenant 
+  Example Tenant
 compliance:
 - control: cfmm/cloud-native-landing-zone
   statement: |
@@ -11,4 +11,4 @@ compliance:
 
 # Azure Tenant Example
 
- 
+

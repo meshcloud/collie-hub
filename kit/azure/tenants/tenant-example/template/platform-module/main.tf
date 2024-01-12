@@ -8,7 +8,7 @@ module "subscription" {
 }
 
 module "connectivity" {
-  source   = "github.com/meshcloud/collie-hub/kit/azure/buildingblocks/connectivity"
+  source = "github.com/meshcloud/collie-hub/kit/azure/buildingblocks/connectivity"
   # Use local sources for testing
   #source   = "../../../../../../../../../kit/azure/buildingblocks/connectivity"
 
@@ -17,15 +17,15 @@ module "connectivity" {
     azurerm.hub   = azurerm.hub
   }
 
-  location = "germanywestcentral"
-  connectivity_rg  = "tenant-example"
-  hub_rg = "hub-vnet-rg"
-  hub_vnet = "hub-vnet"
-  tenant_name = "tenant-example"
-  address_space = ["10.1.0.0/24"]
-  
-  #azurerm_firewall = "likvid-fw" 
-  
+  location        = "germanywestcentral"
+  connectivity_rg = "tenant-example"
+  hub_rg          = "hub-vnet-rg"
+  hub_vnet        = "hub-vnet"
+  tenant_name     = "tenant-example"
+  address_space   = ["10.1.0.0/24"]
+
+  #azurerm_firewall = "likvid-fw"
+
   # firewall_network_rules = [
   #  {
   #    name                  = "ntp"
