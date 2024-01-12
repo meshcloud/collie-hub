@@ -24,7 +24,9 @@ module "connectivity" {
   tenant_name     = "tenant-example"
   address_space   = ["10.1.0.0/24"]
 
-  #azurerm_firewall = "likvid-fw"
+  azurerm_firewall = "likvid-fw"
+
+  # these are example firewall rules for your tenant
 
   # firewall_network_rules = [
   #  {
@@ -35,5 +37,29 @@ module "connectivity" {
   #    destination_addresses = ["*"]
   #    protocols             = ["UDP"]
   #  }
+  # ]
+  # firewall_application_rules = [
+  #   {
+  #     name             = "microsoft"
+  #     action           = "Allow"
+  #     source_addresses = ["10.1.0.0/24"]
+  #     target_fqdns     = ["*.microsoft.com"]
+  #     protocol = {
+  #       type = "Http"
+  #       port = "80"
+  #     }
+  #   }
+  # ]
+  # firewall_nat_rules = [
+  #   {
+  #     name                  = "natrule"
+  #     action                = "Dnat"
+  #     source_addresses      = ["192.168.1.0/24"]
+  #     destination_ports     = ["80"]
+  #     destination_addresses = ["public_ip"]
+  #     protocols             = ["TCP"]
+  #     translated_address    = "10.1.0.1"
+  #     translated_port       = "8080"
+  #   }
   # ]
 }
