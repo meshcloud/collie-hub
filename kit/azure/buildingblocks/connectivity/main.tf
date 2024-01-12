@@ -77,7 +77,7 @@ resource "azurerm_virtual_network_peering" "hub_spoke_peer" {
 
 resource "azurerm_firewall_network_rule_collection" "fw" {
   provider            = azurerm.hub
-  for_each = var.azurerm_firewall != null ? local.network_rules : {}
+  for_each            = var.azurerm_firewall != null ? local.network_rules : {}
   name                = "${var.tenant_name}_${each.key}"
   azure_firewall_name = data.azurerm_firewall.fw[0].name
   resource_group_name = data.azurerm_resource_group.hub_rg.name
@@ -95,7 +95,7 @@ resource "azurerm_firewall_network_rule_collection" "fw" {
 
 resource "azurerm_firewall_application_rule_collection" "fw" {
   provider            = azurerm.hub
-  for_each = var.azurerm_firewall != null ? local.application_rules : {}
+  for_each            = var.azurerm_firewall != null ? local.application_rules : {}
   name                = "${var.tenant_name}_${each.key}"
   azure_firewall_name = data.azurerm_firewall.fw[0].name
   resource_group_name = data.azurerm_resource_group.hub_rg.name
@@ -116,7 +116,7 @@ resource "azurerm_firewall_application_rule_collection" "fw" {
 
 resource "azurerm_firewall_nat_rule_collection" "fw" {
   provider            = azurerm.hub
-  for_each = var.azurerm_firewall != null ? local.nat_rules : {}
+  for_each            = var.azurerm_firewall != null ? local.nat_rules : {}
   name                = "${var.tenant_name}_${each.key}"
   azure_firewall_name = data.azurerm_firewall.fw[0].name
   resource_group_name = data.azurerm_resource_group.hub_rg.name

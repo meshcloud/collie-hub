@@ -19,7 +19,7 @@ output "hub_virtual_network_id" {
 }
 
 output "firewall_name" {
-  value       = join("", data.azurerm_firewall.fw.*.name)
+  value = join("", data.azurerm_firewall.fw.*.name)
 
   description = "The name of the firewall in the spoke network"
 }
