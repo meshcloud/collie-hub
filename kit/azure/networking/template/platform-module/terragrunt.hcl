@@ -73,27 +73,41 @@ inputs = {
   deploy_firewall   = true
   firewall_sku_tier = "Basic"
 
-  firewall_application_rules = [
-    {
-      name             = "microsoft"
-      action           = "Allow"
-      source_addresses = ["10.0.0.0/8"]
-      target_fqdns     = ["*.microsoft.com"]
-      protocol = {
-        type = "Http"
-        port = "80"
-      }
-    },
-  ]
-
-  firewall_network_rules = [
-    {
-      name                  = "ntp"
-      action                = "Allow"
-      source_addresses      = ["10.0.0.0/8"]
-      destination_ports     = ["123"]
-      destination_addresses = ["*"]
-      protocols             = ["UDP"]
-    },
-  ]
+  # these are example firewall rules for your tenant
+  # firewall_application_rules = [
+  #   {
+  #     name             = "microsoft"
+  #     action           = "Allow"
+  #     source_addresses = ["10.0.0.0/8"]
+  #     target_fqdns     = ["*.microsoft.com"]
+  #     protocol = {
+  #       type = "Http"
+  #       port = "80"
+  #     }
+  #   },
+  # ]
+  #
+  # firewall_network_rules = [
+  #   {
+  #     name                  = "ntp"
+  #     action                = "Allow"
+  #     source_addresses      = ["10.0.0.0/8"]
+  #     destination_ports     = ["123"]
+  #     destination_addresses = ["*"]
+  #     protocols             = ["UDP"]
+  #   },
+  # ]
+  #
+  # firewall_nat_rules = [
+  #   {
+  #     name                  = "natrule"
+  #     action                = "Dnat"
+  #     source_addresses      = ["192.168.1.0/24"]
+  #     destination_ports     = ["80"]
+  #     destination_addresses = ["public_ip"]
+  #     protocols             = ["TCP"]
+  #     translated_address    = "10.1.0.1"
+  #     translated_port       = "8080"
+  #   }
+  # ]
 }
