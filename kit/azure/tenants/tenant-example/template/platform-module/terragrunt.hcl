@@ -6,12 +6,9 @@ include "platform" {
 // this is not a standard platform module that uses a kit module, instead we call this a "tenant module"
 // that contains its own terraform code and just pulls in plain terraform modules (building blocks) for reusable modules
 #terraform {
-#  source = "${get_repo_root()}//kit/azure/tenants/tenant-example"
 
 terraform {
   source = "./"
-  #  source = "${get_repo_root()}//kit/azure/tenants/tenant-example"
-
 }
 
 dependency "bootstrap" {
