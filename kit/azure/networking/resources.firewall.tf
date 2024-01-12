@@ -1,7 +1,6 @@
-
-# There are three theoretical conditions that must be met to deploy the firewall. There is a "deploy_firewall"
-# function, and a function called "firewall_sku_tier" to specify which sku_tier (standard, basic, premium) is
-# created. If the Basic version is selected, an additional Azure Firewall subnet and management IP must be created.
+# There are two conditions that must be set to deploy the firewall. There is a "deploy_firewall"
+# trigger, and one called "firewall_sku_tier" to specify which sku_tier (standard, basic, premium) will be
+# created. If the Basic version is selected, an additional Azure Firewall subnet and management IP will be created.
 # This enables internal updating/upgrading of the firewall from Azure's side without restricting the bandwidth to
 # the limited 250 Mbps. More information is available.
 #
@@ -116,7 +115,6 @@ resource "azurerm_firewall" "fw" {
 
   dynamic "management_ip_configuration" {
     for_each = var.firewall_sku_tier == "Basic" ? { basic = 1 } : {}
-    #iterator = ip
     content {
       name                 = local.mgmt_ip_name
       subnet_id            = azurerm_subnet.firewallmgmt[0].id
@@ -205,7 +203,7 @@ resource "azurerm_firewall_network_rule_collection" "fw" {
     name                  = each.key
     source_addresses      = each.value.rule.source_addresses
     destination_ports     = each.value.rule.destination_ports
-    destination_addresses = [for dest in each.value.rule.destination_addresses : contains(var.public_ip_names, dest) ? azurerm_public_ip.fw[dest].ip_address : dest]
+    destination_addresses = [for dest in each.value.rule.destination_addresses : dest]
     protocols             = each.value.rule.protocols
   }
 }
@@ -222,7 +220,7 @@ resource "azurerm_firewall_nat_rule_collection" "fw" {
     name                  = each.key
     source_addresses      = each.value.rule.source_addresses
     destination_ports     = each.value.rule.destination_ports
-    destination_addresses = [for dest in each.value.rule.destination_addresses : contains(var.public_ip_names, dest) ? azurerm_public_ip.fw[dest].ip_address : dest]
+    destination_addresses = [for dest in each.value.rule.destination_addresses : dest]
     protocols             = each.value.rule.protocols
     translated_address    = each.value.rule.translated_address
     translated_port       = each.value.rule.translated_port

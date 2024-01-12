@@ -8,10 +8,10 @@ resource "azurerm_subscription" "networking" {
   subscription_name = "${var.cloudfoundation}-hub"
 }
 
-# resource "azurerm_management_group_subscription_association" "vnet" {
-#   subscription_id     = data.azurerm_subscription.current.id
-#   management_group_id = var.parent_management_group_id
-# }
+resource "azurerm_management_group_subscription_association" "vnet" {
+  subscription_id     = data.azurerm_subscription.current.id
+  management_group_id = var.parent_management_group_id
+}
 
 # Permissions for deploy user on hub subscription
 resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
@@ -81,7 +81,6 @@ resource "azurerm_role_assignment" "network_admins" {
   scope                = var.scope_network_admin
 }
 
-# Resources
 resource "azurerm_resource_group" "hub_resource_group" {
   name     = var.hub_resource_group
   location = var.location
@@ -154,10 +153,9 @@ data "azurerm_monitor_diagnostic_categories" "hub" {
 resource "azurerm_monitor_diagnostic_setting" "vnet" {
   count = var.diagnostics != null ? 1 : 0
 
-  name                       = "vnet-diag"
-  target_resource_id         = azurerm_virtual_network.hub_network.id
+  name               = "vnet-diag"
+  target_resource_id = azurerm_virtual_network.hub_network.id
   log_analytics_workspace_id = local.parsed_diag.log_analytics_id
-  storage_account_id         = local.parsed_diag.storage_account_id
   dynamic "enabled_log" {
     for_each = data.azurerm_monitor_diagnostic_categories.hub.log_category_types
     content {
@@ -242,8 +240,7 @@ resource "azurerm_monitor_diagnostic_setting" "mgmt" {
   target_resource_id             = azurerm_network_security_group.mgmt.id
   log_analytics_workspace_id     = local.parsed_diag.log_analytics_id
   eventhub_authorization_rule_id = local.parsed_diag.event_hub_auth_id
-  storage_account_id             = local.parsed_diag.storage_account_id
-
+  storage_account_id = local.parsed_diag.storage_account_id
   dynamic "enabled_log" {
     for_each = data.azurerm_monitor_diagnostic_categories.mgmt.log_category_types
     content {
