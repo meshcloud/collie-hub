@@ -31,3 +31,24 @@ If you find any technical issues please raise them on GitHub for [Collie CLI](ht
 
 Not necessarily - `collie` cli transparently invokes other tools like `terragrunt` for you. You can see every command that collie invokes using the `--verbose` flag.
 However, collie offers a comfortable developer workflow and many useful utilities to help you inspect your cloud foundation.
+
+
+### I have to use a proxy, how to I configure collie and its tools to use it?
+
+It could be that your company only communicates with the Internet via a proxy and therefore the required packages cannot be downloaded.
+If you are using Microsoft Windows, you can set the proxy with the following commands in a Powershell running as administrator.
+To find the proxy address, consult the person responsible for the network.
+
+```Powershell
+# npm proxy setup packages for collie dependencies
+npm config set proxy http://proxy.company.com:8080
+npm config set https-proxy http://proxy.company.com:8080
+
+# if you use a developer platform like github you have to set a proxy here as well`
+git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+
+# Terraform uses the proxy via Windows environment variables
+$proxy='http://192.168.1.100:8080'
+$ENV:HTTP_PROXY=$proxy
+$ENV:HTTPS_PROXY=$proxy
+```
