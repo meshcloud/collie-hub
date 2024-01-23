@@ -18,10 +18,10 @@ Access to cost management data is granted on need-to-know basis to Auditors, mem
 
 The following AAD groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
 
-|group|description|
-|-|-|
-| ${azuread_group.billing_admins.display_name} | ${azuread_group.billing_admins.description} |
-| ${azuread_group.billing_readers.display_name} | ${azuread_group.billing_readers.description} |
+|group|description|object_id|
+|-|-|-|
+| ${azuread_group.billing_admins.display_name} | ${azuread_group.billing_admins.description} | ${azuread_group.billing_admins.id} |
+| ${azuread_group.billing_readers.display_name} | ${azuread_group.billing_readers.description} | ${azuread_group.billing_readers.id} |
 
 ## How can I review Cost Management data for my subscription
 
