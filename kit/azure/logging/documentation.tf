@@ -17,10 +17,10 @@ The log analytics workspace collects [Activity Logs](https://learn.microsoft.com
 Access to central audit logs is granted on need-to-know basis to Auditors and Cloud Foundation Team members.
 The following AAD groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
 
-|group|description|
-|-|-|
-| ${azuread_group.security_admins.display_name} | ${azuread_group.security_admins.description} |
-| ${azuread_group.security_auditors.display_name} | ${azuread_group.security_auditors.description} |
+|group|description|object_id|
+|-|-|-|
+| ${azuread_group.security_admins.display_name} | ${azuread_group.security_admins.description} | ${azuread_group.security_admins.id} |
+| ${azuread_group.security_auditors.display_name} | ${azuread_group.security_auditors.description} | ${azuread_group.security_auditors.description} |
 
 ## How can I access Activity Logs for my subscription?
 
