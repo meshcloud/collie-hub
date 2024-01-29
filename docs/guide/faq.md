@@ -53,7 +53,7 @@ $ENV:HTTP_PROXY=$proxy
 $ENV:HTTPS_PROXY=$proxy
 ```
 
-### terragrunt does not work due to the limited length of file paths under windows. 
+### terragrunt does not work due to the limited length of file paths under windows.
 
 It could be that the file length in your Windwos operating system is limited to 260 characters. You can find more information here.
 [Maximum Path Length Limitation](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry)
