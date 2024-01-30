@@ -1,8 +1,6 @@
 data "azurerm_subscription" "current" {
 }
 
-#TODO setting the name doesn't work. Azure says alias is already in use. Importing fails because I can't figure out which alias to use for that.
-#TODO: I cant reproduce an error. But the name does not changed from the the old value
 resource "azurerm_subscription" "networking" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
   subscription_name = "${var.cloudfoundation}-hub"
