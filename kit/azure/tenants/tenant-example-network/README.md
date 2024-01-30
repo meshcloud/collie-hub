@@ -1,5 +1,5 @@
 ---
-name: Azure Tenant Example
+name: Azure Tenant Example with Network
 summary: |
   Example Tenant
 compliance:
