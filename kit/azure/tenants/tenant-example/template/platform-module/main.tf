@@ -1,8 +1,6 @@
 module "subscription" {
-  source = "../../subscription"
-  # Use local sources for testing
-  #source = "../../../../../../../../../kit/azure/buildingblocks/subscription"
+  source = "../../../../../../../../../kit/azure/tenants/subscription"
 
-  subscription_name       = "tenant-example"
-  parent_management_group = "cloudnative"
+  subscription_name       = "NAME-YOUR-SUBSCRIPTION"
+  parent_management_group = "NAME-OF-THE-LANDINGZONE"
 }
