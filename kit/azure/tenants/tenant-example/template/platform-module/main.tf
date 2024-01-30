@@ -1,5 +1,5 @@
 module "subscription" {
-  source = "github.com/meshcloud/collie-hub/kit/azure/buildingblocks/subscription"
+  source = "../../subscription"
   # Use local sources for testing
   #source = "../../../../../../../../../kit/azure/buildingblocks/subscription"
 
