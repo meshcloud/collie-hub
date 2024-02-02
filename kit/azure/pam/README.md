@@ -20,7 +20,10 @@ backing of established enterprise IAM integration into Entra ID (Azure AD).
 > security.
 
 This module is meant to be used with modules like `azure/billing` or `azure/logging` that implement important
-administrative capabilities and also introduce relevant security groups for manging these capabilities.
+administrative capabilities and also introduce relevant security groups and security roles for managing these capabilities.
+
+Thee purpose of this kit module is then to collect the various PAM groups and permissions together and provide a central
+and cohesive overview.
 
 
 <!-- BEGIN_TF_DOCS -->
