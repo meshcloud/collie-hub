@@ -8,7 +8,7 @@ The top-level of this hierarchy contains these folders:
 
 - `foundations/` stores [foundations](#foundations) defining a set of cloud [platforms](#platforms) and their configuration
 - `kit/` stores [kit modules](#kit-modules) to assemble landing zones on your foundations' cloud platforms
-- `compliance/` stores [compliance controls](compliance.md) that your kit modules implement
+- `compliance/` stores [compliance controls](#compliance-controls) that your kit modules implement
 
 ## Configuration Objects
 
@@ -167,8 +167,8 @@ of platforms that apply this module.
 
 #### Compliance Statements
 
-Kit modules can also have **optional** additional `compliance` statements. Compliance statements document how a module
-implence controls imposed by the foundation's compliance frameworks. See [compliance](/compliance) for more details.
+Kit modules can also have **optional** additional [compliance statements](../concept/compliance.md#compliance-statements). Compliance statements document how a module
+implements controls imposed by a [compliance framework](../concept/compliance.md#compliance-frameworks).
 
 A compliance statement must have these properties
 
@@ -221,3 +221,43 @@ To create a platform module, use the `collie kit apply` command.
 
 As an exception to other collie repository configuration objects, platform modules do not need a `README.md` with custom
 to be recognized by collie.
+
+## Compliance Controls
+
+[Compliance controls](../concept/compliance.md#controls) are stored in the `compliance/` directory of your collie repository as individual markdown files.
+
+Collie expects that your controls are grouped into a `framework` folder, e.g. `iso27001`.
+
+A framework should have a  top-level `README.md` and can have an arbitrary number of `.md` files, each describing one control.
+ You can optionally further structure your controls using directories beneath the `framework` level.
+
+```shellsession
+$ tree compliance
+compliance
+├── README.md
+└── iso27001
+    ├── README.md
+    ├── a9.1
+    │   ├── a9.1.1-access-control-policy.md
+...
+```
+
+
+### Compliance Control Metadata
+
+Compliance controls must have a `name` and `summary` property and can optionally contain a `link` for linking to an extended description of the control. The rest of the markdown file can contain additional text, which will be included in documentation generated from `collie foundation docs`. Here's an example:
+
+```md
+---
+name: A.9.1.1 Access Control Policy
+summary: >-
+  An access control policy must be established, documented and reviewed regularly taking into account the requirements of the business
+for the assets in scope.
+---
+
+# A.9.1.1 Access Control Policy
+
+The access control policy defines who has permission to use various data with those allowed to access information still limited to how much they can obtain depending on their user profile with only specific roles having exposure to confidential files.
+
+...
+```
