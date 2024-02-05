@@ -212,19 +212,21 @@ Next let's look at how to create a new kit module from scratch. Of course collie
 you with that and will prompt you for all necessary inputs
 
 ```shellsession
-$ collie kit new "gcp/organization-hierarchy"
- ? Choose a human-friendly name for this module (gcp/organization-hierarchy) › GCP Organization Setup
+$ collie kit new "azure/nameyourkit"
+ ? Choose a human-friendly name for this module (azure/managementgroup) › Azure Management Group
 
-generated new kit module at kit/gcp/gcp/organization-hierarchy/README.md
-Tip: add terraform code to your kit module at kit/gcp/organization-hierarchy/main.tf
+generated new kit module at kit/azure/managementgroup/README.md
+Tip: add terraform code to your kit module at kit/azure/managementgroup/main.tf
 
-$ tree kit/gcp/organization-hierarchy/
-kit/gcp/organization-hierarchy/
+$ tree kit/azure/managementgroup
+kit/azure/nameyourkit
 ├── README.md
 ├── documentation.tf
 ├── main.tf
 ├── outputs.tf
 └── variables.tf
+
+1 directory, 5 files
 ```
 
 You might now wonder where collie stores that display name it asked you for. Collie stores all metadata
