@@ -39,7 +39,7 @@ ${var.deploy_firewall ?
 "## Nat Rules for ${azurerm_firewall.fw[0].name}\n| Name  | Action | Source Addresses | Destination Ports | Destination Addresses | Protocols | Translated Address | Translated Port |\n|-|-|-|-|-|-|-|-|\n${join("\n", [for rule in var.firewall_nat_rules : "| ${rule.name} | ${rule.action} | ${join(", ", rule.source_addresses)} | ${join(", ", rule.destination_ports)} | ${join(", ", rule.destination_addresses)} | ${join(", ", rule.protocols)} | ${rule.translated_address} | ${rule.translated_port} |"])}\n" : ""}
 
 Access to the central Network Hub is granted on a need-to-know basis to Auditors and Cloud Foundation Team members.
-The following AAD groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
+The following Entra ID groups control access and are used to implement [Privileged Access Management](./azure-pam.md).
 
 |group|description|
 |-|-|
