@@ -90,6 +90,7 @@ export const sidebar: SidebarConfig = {
         '/concept/goals.md',
         '/concept/bootstrapping.md',
         '/concept/modular-landing-zones.md',
+        '/concept/compliance.md',
       ]
     },
   ],

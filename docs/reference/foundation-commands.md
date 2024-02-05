@@ -4,7 +4,7 @@
 
 ## foundation docs
 
-`collie foundation docs <foundation>`will prepare markdown documentation for your foundation from your collie repository.
+`collie foundation docs <foundation>` will prepare markdown documentation for your foundation from your collie repository.
 
 This command first collects documentation files from the following locations
 

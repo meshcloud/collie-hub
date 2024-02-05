@@ -3,10 +3,10 @@
 Compliance controls refer to the policies, procedures, and technical measures put in place to ensure that an organization adheres to relevant laws, regulations, and industry standards. Compliance controls encountered by cloud foundation teams
 aim to manage risks, maintain security, and ensure the integrity of systems and data.
 
-## Controls 
+## Controls
 
 For the purpose of building landing zones, we can think of compliance controls as a set of requirements
-to be implemented in our landing zones. Depending on their implementation, controls can be categorized as technical 
+to be implemented in our landing zones. Depending on their implementation, controls can be categorized as technical
 or administrative controls:
 
 1. **Technical Controls:** These are implemented through technology, such as firewalls, encryption, access controls, and monitoring systems. For instance, a technical control might involve setting up firewalls to restrict unauthorized access to sensitive data.
@@ -19,7 +19,7 @@ Here's an example of such a control from the ISO 27001 framework.
 ```md
 ## A.9.1.1 Access Control Policy
 
-An access control policy must be established, documented and reviewed regularly taking into account the requirements of the business 
+An access control policy must be established, documented and reviewed regularly taking into account the requirements of the business
 for the assets in scope.
 ...
 ```
