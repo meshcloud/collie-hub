@@ -9,7 +9,7 @@ The hub itself has the following address space `${var.address_space}`.
 
 Upon request, we will peer a VNet in your subscription with the hub.
 
-All Firewall related can be found in the Log Anlytics Workspace
+All Firewall related logs are in the Log Anlytics Workspace
   - `${local.parsed_diag.log_analytics_id}`
 
 ## Subnets
