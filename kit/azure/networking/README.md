@@ -74,6 +74,7 @@ No modules.
 | [azurerm_virtual_network.hub_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
 | [random_string.dns](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [random_string.resource_code](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 | [azurerm_monitor_diagnostic_categories.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | data source |
 | [azurerm_monitor_diagnostic_categories.fw_pip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | data source |
 | [azurerm_monitor_diagnostic_categories.hub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | data source |
@@ -121,5 +122,6 @@ No modules.
 | <a name="output_hub_rg"></a> [hub\_rg](#output\_hub\_rg) | Resource Group of hub vnet |
 | <a name="output_hub_subscription"></a> [hub\_subscription](#output\_hub\_subscription) | Subscription of hub vnet |
 | <a name="output_hub_vnet"></a> [hub\_vnet](#output\_hub\_vnet) | Name of hub vnet |
+| <a name="output_network_admins_azuread_group_id"></a> [network\_admins\_azuread\_group\_id](#output\_network\_admins\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->
 

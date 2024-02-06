@@ -59,26 +59,6 @@ resource "azurerm_role_assignment" "network_contributor_lz" {
   role_definition_name = "Network Contributor"
 }
 
-# creates group and permissions for network admins
-resource "azuread_group" "network_admins" {
-  display_name     = var.network_admin_group
-  description      = "Privileged Cloud Foundation group. Members have access to Azure network resources Logs."
-  security_enabled = true
-
-}
-
-resource "azurerm_role_assignment" "network_admins_dns" {
-  role_definition_name = "DNS Zone Contributor"
-  principal_id         = azuread_group.network_admins.object_id
-  scope                = var.scope_network_admin
-}
-
-resource "azurerm_role_assignment" "network_admins" {
-  role_definition_name = "Network Contributor"
-  principal_id         = azuread_group.network_admins.object_id
-  scope                = var.scope_network_admin
-}
-
 resource "azurerm_resource_group" "hub_resource_group" {
   name     = var.hub_resource_group
   location = var.location
@@ -170,7 +150,7 @@ resource "azurerm_monitor_diagnostic_setting" "vnet" {
   }
 }
 
-# before you create a VPN gateway, you must create a gateway subnet. 
+# before you create a VPN gateway, you must create a gateway subnet.
 # more infos about GatewaySubnets you can find here:
 # https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub
 
@@ -185,8 +165,8 @@ resource "azurerm_subnet" "gateway" {
   ]
 }
 
-# this is an example of an mgmt subnet for bastion hosts 
-# more infos about bastion u can find here 
+# this is an example of an mgmt subnet for bastion hosts
+# more infos about bastion u can find here
 # https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
 
 resource "azurerm_subnet" "mgmt" {

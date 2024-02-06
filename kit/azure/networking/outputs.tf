@@ -23,3 +23,6 @@ output "firewall_name" {
   description = "Name of hub vnet"
 }
 
+output "network_admins_azuread_group_id" {
+  value = azuread_group.network_admins.id
+}
