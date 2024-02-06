@@ -15,6 +15,11 @@ dependency "organization-hierarchy" {
   config_path = "../organization-hierarchy"
 }
 
+dependency "logging" {
+  config_path = "../logging"
+}
+
+
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite"
@@ -25,6 +30,8 @@ provider "azurerm" {
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
   client_id       = "${dependency.bootstrap.outputs.client_id}"
   client_secret   = "${dependency.bootstrap.outputs.client_secret}"
+  storage_use_azuread        = true
+
 
   # recommended: use a separate subscription for networking
   subscription_id = "the-id-of-your-networking-subscription"
@@ -47,6 +54,7 @@ inputs = {
   parent_management_group_id          = "${dependency.organization-hierarchy.outputs.connectivity_id}"
   address_space                       = "10.0.0.0/16"
   location                            = "germanywestcentral"
+  hub_resource_group                  = "hub-vnet-rg3"
   diagnostics = {
     destination = "${dependency.logging.outputs.law_workspace_id}"
     logs        = ["all"]
@@ -58,56 +66,89 @@ inputs = {
     log_analytics_workspace_id_short = "${dependency.logging.outputs.law_workspace_id_short}"
     log_analytics_resource_id        = "${dependency.logging.outputs.law_workspace_resource_id}"
   }
+
+  # In this section, we will address the creation of rules for Network Security Groups (NSGs)
+  # using the example of Bastion Hosts. Each created rule is assigned a priority, with the
+  # rules processed in a top-down order.
+
   management_nsg_rules = [
     {
       name                       = "allow-ssh"
       direction                  = "Inbound"
       access                     = "Allow"
       protocol                   = "Tcp"
+      description                = null
       source_port_range          = "*"
       destination_port_range     = "22"
       source_address_prefix      = "VirtualNetwork"
       destination_address_prefix = "VirtualNetwork"
     },
+    {
+      name                       = "allow-rdp"
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      description                = null
+      source_port_range          = "*"
+      destination_port_range     = "3389"
+      source_address_prefix      = "VirtualNetwork"
+      destination_address_prefix = "VirtualNetwork"
+    }
   ]
   deploy_firewall   = true
   firewall_sku_tier = "Basic"
 
-  # these are example firewall rules for your tenant
-  # firewall_application_rules = [
-  #   {
-  #     name             = "microsoft"
-  #     action           = "Allow"
-  #     source_addresses = ["10.0.0.0/8"]
-  #     target_fqdns     = ["*.microsoft.com"]
-  #     protocol = {
-  #       type = "Http"
-  #       port = "80"
-  #     }
-  #   },
-  # ]
+  # Application Rules:
+  # Permit access to specific applications or services based on application protocols.
+  # They allow traffic between specific source addresses and target FQDNs using defined protocols and ports.
+
+  #  firewall_application_rules = [
+  #    {
+  #      name             = "microsoft"
+  #      action           = "Allow"
+  #      source_addresses = ["10.0.0.0/8"]
+  #      target_fqdns     = ["*.microsoft.com"]
+  #      protocol = {
+  #        type = "Http"
+  #        port = "80"
+  #      }
+  #    },
+  #  ]
+
+  # Network Rules:
+  # Enable traffic between source and destination addresses over specific ports and protocols.
+  # Typically operate at the network level, allowing access to specific services like NTP (Network Time Protocol)
+  # over UDP port 123, for example.
+
+  #  firewall_network_rules = [
+  #    {
+  #      name                  = "ntp"
+  #      action                = "Allow"
+  #      source_addresses      = ["10.0.0.0/8"]
+  #      destination_ports     = ["123"]
+  #      destination_addresses = ["*"]
+  #      protocols             = ["UDP"]
+  #    },
+  #  ]
+
+  # NAT Rules (Network Address Translation):
+  # Control the translation of IP addresses and ports in network traffic.
+  # These rules facilitate the redirection of inbound or outbound traffic by modifying source or destination
+  # addresses and/or ports.
+  # In the given example, traffic from source address 192.168.1.0/24 reaching TCP port 80 is redirected
+  # to the destination address public_ip with port 8080.
+
+  #  firewall_nat_rules = [
+  #    {
+  #      name                  = "nat-rule-1"
+  #      action                = "Dnat"  # Could be "DNAT" or "SNAT" based on your requirement
+  #      source_addresses      = ["192.168.1.0/24"]
+  #      destination_ports     = ["80"]
+  #      destination_addresses = ["public_ip"]
+  #      protocols             = ["TCP"]
+  #      translated_address    = "10.0.0.1"
+  #      translated_port       = "8080"
   #
-  # firewall_network_rules = [
-  #   {
-  #     name                  = "ntp"
-  #     action                = "Allow"
-  #     source_addresses      = ["10.0.0.0/8"]
-  #     destination_ports     = ["123"]
-  #     destination_addresses = ["*"]
-  #     protocols             = ["UDP"]
-  #   },
-  # ]
-  #
-  # firewall_nat_rules = [
-  #   {
-  #     name                  = "natrule"
-  #     action                = "Dnat"
-  #     source_addresses      = ["192.168.1.0/24"]
-  #     destination_ports     = ["80"]
-  #     destination_addresses = ["public_ip"]
-  #     protocols             = ["TCP"]
-  #     translated_address    = "10.1.0.1"
-  #     translated_port       = "8080"
-  #   }
-  # ]
+  #    }
+  #  ]
 }

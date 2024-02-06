@@ -170,6 +170,10 @@ resource "azurerm_monitor_diagnostic_setting" "vnet" {
   }
 }
 
+# before you create a VPN gateway, you must create a gateway subnet.
+# more infos about GatewaySubnets you can find here:
+# https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub
+
 resource "azurerm_subnet" "gateway" {
   name                 = "GatewaySubnet"
   resource_group_name  = azurerm_resource_group.hub_resource_group.name
@@ -181,6 +185,10 @@ resource "azurerm_subnet" "gateway" {
   ]
 }
 
+# this is an example of an mgmt subnet for bastion hosts
+# more infos about bastion u can find here
+# https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+
 resource "azurerm_subnet" "mgmt" {
   name                 = "Management"
   resource_group_name  = azurerm_resource_group.hub_resource_group.name
@@ -191,7 +199,6 @@ resource "azurerm_subnet" "mgmt" {
     "Microsoft.Storage",
   ]
 }
-
 resource "azurerm_network_security_group" "mgmt" {
   name                = "subnet-mgmt-nsg"
   location            = azurerm_resource_group.hub_resource_group.location
