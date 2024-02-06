@@ -1,4 +1,4 @@
-# There are two variables that determine if a firewall will be deployed and if so, which firewall sku tier is used. 
+# There are two variables that determine if a firewall will be deployed and if so, which firewall sku tier is used.
 # There is a "deploy_firewall" variable, and one called "firewall_sku_tier" to specify which sku_tier (standard, basic, premium) will be
 # created. If the Basic version is selected, an additional Azure Firewall subnet and management IP will be created.
 # This enables internal updating/upgrading of the firewall from Azure's side without restricting the bandwidth to
