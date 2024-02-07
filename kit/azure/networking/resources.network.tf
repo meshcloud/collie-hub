@@ -11,54 +11,6 @@ resource "azurerm_management_group_subscription_association" "vnet" {
   management_group_id = var.parent_management_group_id
 }
 
-# Permissions for deploy user on hub subscription
-resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
-  name  = var.hub_networking_deploy #TODO definition names are unique per tenant. make it configurable
-  scope = data.azurerm_subscription.current.id
-  permissions {
-    actions = [
-      "Microsoft.Resources/subscriptions/resourceGroups/write",
-      "Microsoft.Resources/subscriptions/resourceGroups/delete",
-    ]
-  }
-}
-
-resource "azurerm_role_assignment" "cloudfoundation_tfdeploy" {
-  principal_id       = var.cloudfoundation_deploy_principal_id
-  scope              = data.azurerm_subscription.current.id
-  role_definition_id = azurerm_role_definition.cloudfoundation_tfdeploy.role_definition_resource_id
-}
-
-resource "azurerm_role_assignment" "network_contributor" {
-  principal_id         = var.cloudfoundation_deploy_principal_id
-  scope                = data.azurerm_subscription.current.id
-  role_definition_name = "Network Contributor"
-}
-
-# Permissions for deploy user on subscription in landing zones management groups
-resource "azurerm_role_definition" "cloudfoundation_tfdeploy_lz" {
-  name  = var.lz_networking_deploy
-  scope = var.scope
-  permissions {
-    actions = [
-      "Microsoft.Resources/subscriptions/resourceGroups/write",
-      "Microsoft.Resources/subscriptions/resourceGroups/delete",
-    ]
-  }
-}
-
-resource "azurerm_role_assignment" "cloudfoundation_tfdeploy_lz" {
-  principal_id       = var.cloudfoundation_deploy_principal_id
-  scope              = var.scope
-  role_definition_id = azurerm_role_definition.cloudfoundation_tfdeploy_lz.role_definition_resource_id
-}
-
-resource "azurerm_role_assignment" "network_contributor_lz" {
-  principal_id         = var.cloudfoundation_deploy_principal_id
-  scope                = var.scope
-  role_definition_name = "Network Contributor"
-}
-
 resource "azurerm_resource_group" "hub_resource_group" {
   name     = var.hub_resource_group
   location = var.location
