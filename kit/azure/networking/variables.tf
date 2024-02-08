@@ -1,11 +1,12 @@
-variable "scope" {
+
+variable "connectivity_scope" {
   type        = string
-  description = "Identifier for the management group you intend to oversee spokes within"
+  description = "Identifier for the management group connectivity"
 }
 
-variable "scope_network_admin" {
+variable "landingzone_scope" {
   type        = string
-  description = "Identifier for the management group you wish to administer spokes in"
+  description = "Identifier for the management group landinzone"
 }
 
 variable "cloudfoundation" {
@@ -17,11 +18,6 @@ variable "cloudfoundation" {
 variable "cloudfoundation_deploy_principal_id" {
   type        = string
   description = "Principal ID authorized for deploying Cloud Foundation resources"
-}
-
-variable "parent_management_group_id" {
-  type        = string
-  description = "Identifier of the parent management group"
 }
 
 variable "location" {

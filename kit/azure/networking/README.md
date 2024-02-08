@@ -87,6 +87,7 @@ No modules.
 | <a name="input_address_space"></a> [address\_space](#input\_address\_space) | List of address spaces for virtual networks | `string` | n/a | yes |
 | <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | Name of your cloud foundation | `string` | n/a | yes |
 | <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | Principal ID authorized for deploying Cloud Foundation resources | `string` | n/a | yes |
+| <a name="input_connectivity_scope"></a> [connectivity\_scope](#input\_connectivity\_scope) | Identifier for the management group connectivity | `string` | n/a | yes |
 | <a name="input_create_ddos_plan"></a> [create\_ddos\_plan](#input\_create\_ddos\_plan) | Create a DDos protection plan and attach it to the virtual network. | `bool` | `false` | no |
 | <a name="input_deploy_firewall"></a> [deploy\_firewall](#input\_deploy\_firewall) | Toggle to deploy or bypass the firewall. | `bool` | `false` | no |
 | <a name="input_diagnostics"></a> [diagnostics](#input\_diagnostics) | Diagnostic settings for supporting resources. Refer to README.md for configuration details. | <pre>object({<br>    destination = string<br>    logs        = list(string)<br>    metrics     = list(string)<br>  })</pre> | `null` | no |
@@ -98,16 +99,14 @@ No modules.
 | <a name="input_hub_networking_deploy"></a> [hub\_networking\_deploy](#input\_hub\_networking\_deploy) | Service Principal responsible for deploying the central hub networking | `string` | `"cloudfoundation_hub_network_deploy_user"` | no |
 | <a name="input_hub_resource_group"></a> [hub\_resource\_group](#input\_hub\_resource\_group) | Name of the central hub resource group | `string` | `"hub-vnet-rg"` | no |
 | <a name="input_hub_vnet_name"></a> [hub\_vnet\_name](#input\_hub\_vnet\_name) | Name of the central virtual network | `string` | `"hub-vnet"` | no |
+| <a name="input_landingzone_scope"></a> [landingzone\_scope](#input\_landingzone\_scope) | Identifier for the management group landinzone | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Region for resource deployment | `string` | n/a | yes |
 | <a name="input_lz_networking_deploy"></a> [lz\_networking\_deploy](#input\_lz\_networking\_deploy) | Service Principal responsible for deploying the landing zone networking | `string` | `"cloudfoundation_lz_network_deploy_user"` | no |
 | <a name="input_management_nsg_rules"></a> [management\_nsg\_rules](#input\_management\_nsg\_rules) | Network security rules to add to the management subnet. Refer to README for setup details. | `list(any)` | `[]` | no |
 | <a name="input_netwatcher"></a> [netwatcher](#input\_netwatcher) | Properties for creating network watcher. If set, it creates a Network Watcher resource using standard naming conventions. | <pre>object({<br>    log_analytics_workspace_id       = string<br>    log_analytics_workspace_id_short = string<br>    log_analytics_resource_id        = string<br>  })</pre> | `null` | no |
 | <a name="input_network_admin_group"></a> [network\_admin\_group](#input\_network\_admin\_group) | Name of the Cloud Foundation network administration group | `string` | `"cloudfoundation-network-admins"` | no |
-| <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | Identifier of the parent management group | `string` | n/a | yes |
 | <a name="input_public_ip_names"></a> [public\_ip\_names](#input\_public\_ip\_names) | List of public IP names connected to the firewall. At least one is required. | `list(string)` | <pre>[<br>  "fw-public"<br>]</pre> | no |
 | <a name="input_public_ip_prefix_length"></a> [public\_ip\_prefix\_length](#input\_public\_ip\_prefix\_length) | Specifies the number of bits in the prefix. Value can be set between 24 (256 addresses) and 31 (2 addresses). | `number` | `30` | no |
-| <a name="input_scope"></a> [scope](#input\_scope) | Identifier for the management group you intend to oversee spokes within | `string` | n/a | yes |
-| <a name="input_scope_network_admin"></a> [scope\_network\_admin](#input\_scope\_network\_admin) | Identifier for the management group you wish to administer spokes in | `string` | n/a | yes |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints to add to the firewall subnet. | `list(string)` | <pre>[<br>  "Microsoft.AzureActiveDirectory",<br>  "Microsoft.AzureCosmosDB",<br>  "Microsoft.EventHub",<br>  "Microsoft.KeyVault",<br>  "Microsoft.ServiceBus",<br>  "Microsoft.Sql",<br>  "Microsoft.Storage"<br>]</pre> | no |
 | <a name="input_threat_intel_mode"></a> [threat\_intel\_mode](#input\_threat\_intel\_mode) | Operation mode for threat intelligence-based filtering. Possible values: Off, Alert, Deny, and "" (empty string). | `string` | `"Off"` | no |
 
