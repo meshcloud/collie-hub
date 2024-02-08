@@ -15,9 +15,10 @@ dependency "billing" {
   config_path = "${path_relative_from_include()}/billing"
 }
 
-dependency "networking" {
-  config_path = "${path_relative_from_include()}/networking"
-}
+# if you using PAM for the collie hub azure networking kit
+#dependency "networking" {
+#  config_path = "${path_relative_from_include()}/networking"
+#}
 
 terraform {
   source = "${get_repo_root()}//kit/azure/pam"
@@ -51,7 +52,8 @@ inputs = {
     dependency.billing.outputs.billing_readers_azuread_group_id,
     dependency.logging.outputs.security_admins_azuread_group_id,
     dependency.logging.outputs.security_auditors_azuread_group_id,
-    # if you using the collie kit for azure networking you could enable this section
+
+    # if you using PAM for the collie hub azure networking kit
     #dependency.networking.outputs.network_admins_azuread_group_id,
   ]
 
@@ -75,7 +77,8 @@ inputs = {
       group_object_id = dependency.logging.outputs.security_auditors_azuread_group_id,
       members_by_mail = ["securityauditormeshi@meshithesheep.io"]
     }
-    # if you using the collie kit for azure networking you could enable this section
+
+    # if you using PAM for the collie hub azure networking kit
     #{
     #NETWORKING
     #group_object_id = dependency.networking.outputs.network_admins_azuread_group_id,

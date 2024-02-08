@@ -1,5 +1,5 @@
 ---
-name: Azure Tenant Example simple
+name: Azure Tenant Example
 summary: |
   Example Tenant
 compliance:
