@@ -52,7 +52,7 @@ inputs = {
     dependency.logging.outputs.security_admins_azuread_group_id,
     dependency.logging.outputs.security_auditors_azuread_group_id,
     # if you using the collie kit for azure networking you could enable this section
-    #dependency.networking.outputs.networking_admins_azuread_group_id,
+    #dependency.networking.outputs.network_admins_azuread_group_id,
   ]
 
   # optional, manage members direcly via terraform
@@ -78,7 +78,7 @@ inputs = {
     # if you using the collie kit for azure networking you could enable this section
     #{
     #NETWORKING
-    #group_object_id = dependency.networing.outputs.network_admins_azuread_group_id,
+    #group_object_id = dependency.networking.outputs.network_admins_azuread_group_id,
     #members_by_mail = ["networkmeshi@meshithesheep.io"]
     #}
     # note: platform_engineers members are managed via bootstrap module right now
