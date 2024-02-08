@@ -16,7 +16,7 @@ module "connectivity" {
   }
 
   location        = "germanywestcentral"
-  connectivity_rg = "tenant-example"
+  connectivity_rg = "tenant-example-network"
   hub_rg          = "hub-vnet-rg"
   hub_vnet        = "hub-vnet"
   tenant_name     = "tenant-example"

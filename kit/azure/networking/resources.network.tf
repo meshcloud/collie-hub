@@ -8,7 +8,7 @@ resource "azurerm_subscription" "networking" {
 
 resource "azurerm_management_group_subscription_association" "vnet" {
   subscription_id     = data.azurerm_subscription.current.id
-  management_group_id = var.parent_management_group_id
+  management_group_id = var.connectivity_scope
 }
 
 resource "azurerm_resource_group" "hub_resource_group" {
