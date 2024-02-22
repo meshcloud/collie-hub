@@ -1,11 +1,9 @@
 import * as fs from "fs";
 import * as path from "path";
-import {
-  DefaultThemeOptions,
-  defineUserConfig,
-  ViteBundlerOptions,
-} from "vuepress-vite";
+import { defineUserConfig } from "vuepress";
 import type { SidebarConfig, NavbarConfig } from "@vuepress/theme-default";
+import { viteBundler } from '@vuepress/bundler-vite';
+import { defaultTheme } from "@vuepress/theme-default";
 
 const navbar: NavbarConfig = [
   { text: "Foundation", link: "/" },
@@ -80,8 +78,9 @@ export const sidebar: SidebarConfig = {
   ],
 };
 
-export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+export default defineUserConfig({
   // site-level locales config
+  bundler: viteBundler(),
   locales: {
     "/": {
       lang: "en-US",
@@ -90,22 +89,11 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     },
   },
 
-  themeConfig: {
-    locales: {
-      "/": {
-        navbar: navbar,
-        sidebar: sidebar,
-      },
+  theme: defaultTheme({
+    navbar: navbar,
+    sidebar: sidebar,
+    themePlugins: {
+      git: true,
     },
-  },
-  plugins: [
-    [
-      "@vuepress/plugin-git",
-      {
-        createdTime: false,
-        updateTime: true,
-        contributors: false,
-      },
-    ],
-  ],
+  }),
 });
