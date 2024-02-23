@@ -1,3 +1,8 @@
+variable "cloudfoundation" {
+  type        = string
+  nullable    = false
+  description = "Name of your cloud foundation"
+}
 
 variable "parentManagementGroup" {
   default = "lv-foundation"

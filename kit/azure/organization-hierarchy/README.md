@@ -76,11 +76,15 @@ After deploying this module, you should probably deploy the following kit module
 | [azurerm_management_group.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group_subscription_association.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
+| [azurerm_subscription.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) | resource |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | Name of your cloud foundation | `string` | n/a | yes |
 | <a name="input_connectivity"></a> [connectivity](#input\_connectivity) | n/a | `string` | `"lv-connectivity"` | no |
 | <a name="input_identity"></a> [identity](#input\_identity) | n/a | `string` | `"lv-identity"` | no |
 | <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | n/a | `string` | `"lv-landingzones"` | no |
