@@ -51,10 +51,16 @@ resource "azurerm_management_group" "management" {
 
 # Move management subscription into the new organization hierarchy
 # add this if moving the management group under the created hierardhy is desired
-# data "azurerm_subscription" "current" {
-# }
+data "azurerm_subscription" "current" {
+}
 
-# resource "azurerm_management_group_subscription_association" "management" {
-#   management_group_id = azurerm_management_group.management.id
-#   subscription_id     = data.azurerm_subscription.current.id
-# }
+#  add a name to the existing subscription
+resource "azurerm_subscription" "management" {
+  subscription_id   = data.azurerm_subscription.current.subscription_id
+  subscription_name = "${var.cloudfoundation}-management"
+}
+
+resource "azurerm_management_group_subscription_association" "management" {
+  management_group_id = azurerm_management_group.management.id
+  subscription_id     = data.azurerm_subscription.current.id
+}
