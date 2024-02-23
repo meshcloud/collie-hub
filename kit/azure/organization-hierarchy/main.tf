@@ -55,7 +55,7 @@ data "azurerm_subscription" "current" {
 
 resource "azurerm_subscription" "management" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = "${var.cloudfoundation}-management"
+  subscription_name = var.management_subscription_name
 }
 
 resource "azurerm_management_group_subscription_association" "management" {

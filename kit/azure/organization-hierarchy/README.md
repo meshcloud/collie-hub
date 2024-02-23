@@ -84,12 +84,12 @@ After deploying this module, you should probably deploy the following kit module
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | Name of your cloud foundation | `string` | n/a | yes |
 | <a name="input_connectivity"></a> [connectivity](#input\_connectivity) | n/a | `string` | `"lv-connectivity"` | no |
 | <a name="input_identity"></a> [identity](#input\_identity) | n/a | `string` | `"lv-identity"` | no |
 | <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | n/a | `string` | `"lv-landingzones"` | no |
 | <a name="input_locations"></a> [locations](#input\_locations) | This is for the Azure Allowed locations. Additionally, we use the first added locations where this policy assignment should exist, which is required when an identity is assigned. | `list(string)` | <pre>[<br>  "germanywestcentral"<br>]</pre> | no |
 | <a name="input_management"></a> [management](#input\_management) | n/a | `string` | `"lv-management"` | no |
+| <a name="input_management_subscription_name"></a> [management\_subscription\_name](#input\_management\_subscription\_name) | Name of your management subscription | `string` | `"management"` | no |
 | <a name="input_parentManagementGroup"></a> [parentManagementGroup](#input\_parentManagementGroup) | n/a | `string` | `"lv-foundation"` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | n/a | `string` | `"lv-platform"` | no |
 
