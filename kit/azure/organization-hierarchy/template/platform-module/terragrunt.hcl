@@ -32,7 +32,6 @@ locals {
 
 inputs = {
   # todo: set input variables
-  cloudfoundation       = "${local.management_group_prefix}"
   connectivity          = "${local.management_group_prefix}-connectivity"
   identity              = "${local.management_group_prefix}-identity"
   landingzones          = "${local.management_group_prefix}-landingzones"

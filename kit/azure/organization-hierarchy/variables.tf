@@ -1,7 +1,7 @@
-variable "cloudfoundation" {
+variable "management_subscription_name" {
   type        = string
-  nullable    = false
-  description = "Name of your cloud foundation"
+  default     = "management"
+  description = "Name of your management subscription"
 }
 
 variable "parentManagementGroup" {
