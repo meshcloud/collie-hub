@@ -25,14 +25,19 @@ provider "azurerm" {
 EOF
 }
 
+locals {
+  # the prefix used the name of your cloudfoundation
+  management_group_prefix = "${include.platform.locals.cloudfoundation.name}"
+}
+
 inputs = {
   # todo: set input variables
-  connectivity          = "lv-connectivity"
-  identity              = "lv-identity"
-  landingzones          = "lv-landingzones"
+  cloudfoundation       = "${local.management_group_prefix}"
+  connectivity          = "${local.management_group_prefix}-connectivity"
+  identity              = "${local.management_group_prefix}-identity"
+  landingzones          = "${local.management_group_prefix}-landingzones"
   locations             = ["germanywestcentral"]
-  management            = "lv-management"
-  parentManagementGroup = "lv-foundation"
-  platform              = "lv-platform"
-
+  management            = "${local.management_group_prefix}-management"
+  parentManagementGroup = "${local.management_group_prefix}-foundation"
+  platform              = "${local.management_group_prefix}-platform"
 }
