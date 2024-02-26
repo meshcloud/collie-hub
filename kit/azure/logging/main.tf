@@ -5,7 +5,7 @@ data "azurerm_subscription" "current" {
 #  add a name to the existing subscription
 resource "azurerm_subscription" "logging" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = "${var.cloudfoundation}-logging"
+  subscription_name = "logging"
 }
 
 resource "azurerm_management_group_subscription_association" "logging" {
