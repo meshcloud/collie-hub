@@ -5,7 +5,7 @@ data "azurerm_subscription" "current" {
 #  add a name to the existing subscription
 resource "azurerm_subscription" "logging" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = "logging"
+  subscription_name = var.logging_subscription_name 
 }
 
 resource "azurerm_management_group_subscription_association" "logging" {
