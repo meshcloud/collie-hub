@@ -4,6 +4,12 @@ variable "scope" {
   description = "id of the management group that you want to collect activity logs from"
 }
 
+variable "logging_subscription_name" {
+  type        = string
+  default     = "logging"
+  description = "Name of your logging subscription"
+}
+
 variable "cloudfoundation_deploy_principal_id" {
   type        = string
   nullable    = false
