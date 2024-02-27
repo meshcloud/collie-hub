@@ -42,6 +42,7 @@ AzureActivity
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 1.12.1 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.41.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.71.0 |
 
@@ -55,7 +56,7 @@ AzureActivity
 
 | Name | Type |
 |------|------|
-| [azapi_resource.diag-setting-management-group](https://registry.terraform.io/providers/hashicorp/azapi/latest/docs/resources/resource) | resource |
+| [azapi_resource.diag-setting-management-group](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | resource |
 | [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
