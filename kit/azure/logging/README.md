@@ -88,6 +88,10 @@ AzureActivity
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
+| <a name="output_law_workspace_id"></a> [law\_workspace\_id](#output\_law\_workspace\_id) | n/a |
+| <a name="output_law_workspace_id_short"></a> [law\_workspace\_id\_short](#output\_law\_workspace\_id\_short) | n/a |
+| <a name="output_law_workspace_resource_id"></a> [law\_workspace\_resource\_id](#output\_law\_workspace\_resource\_id) | n/a |
+| <a name="output_logging_subscription"></a> [logging\_subscription](#output\_logging\_subscription) | n/a |
 | <a name="output_security_admins_azuread_group_id"></a> [security\_admins\_azuread\_group\_id](#output\_security\_admins\_azuread\_group\_id) | n/a |
 | <a name="output_security_auditors_azuread_group_id"></a> [security\_auditors\_azuread\_group\_id](#output\_security\_auditors\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->
