@@ -5,7 +5,7 @@ data "azurerm_subscription" "current" {
 #  add a name to the existing subscription
 resource "azurerm_subscription" "logging" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = var.logging_subscription_name 
+  subscription_name = "${var.cloudfoundation}-logging"
 }
 
 resource "azurerm_management_group_subscription_association" "logging" {
@@ -83,6 +83,39 @@ resource "azurerm_role_assignment" "logging" {
   principal_id         = module.policy_law.policy_assignments["Deploy-AzActivity-Log"].identity[0].principal_id
   scope                = var.scope
 }
+
+# enables logging on management_group level
+# https://github.com/torivara/public/blob/master/terraform/eventhub_diagsettings/main.tf
+resource "azapi_resource" "diag-setting-management-group" {
+  type                    = "Microsoft.Insights/diagnosticSettings@2021-05-01-preview"
+  name                    = "toLogAnalyticsWorkspace"
+  parent_id               = var.scope
+  ignore_missing_property = true
+  body = jsonencode({
+    properties = {
+      workspaceId = azurerm_log_analytics_workspace.law.id
+      logs = [
+        {
+          category = "Administrative"
+          enabled  = true
+          retentionPolicy = {
+            days    = 0
+            enabled = false
+          }
+        },
+        {
+          category = "Policy"
+          enabled  = false
+          retentionPolicy = {
+            days    = 0
+            enabled = false
+          }
+        }
+      ]
+    }
+  })
+}
+
 
 # creates group and permissions for security admins
 resource "azuread_group" "security_admins" {
