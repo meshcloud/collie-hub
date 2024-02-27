@@ -55,6 +55,7 @@ AzureActivity
 
 | Name | Type |
 |------|------|
+| [azapi_resource.diag-setting-management-group](https://registry.terraform.io/providers/hashicorp/azapi/latest/docs/resources/resource) | resource |
 | [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
@@ -78,6 +79,7 @@ AzureActivity
 | <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | service principal id | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | location of the resources created for logging | `string` | n/a | yes |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | amount of time of log retention | `number` | `30` | no |
+| <a name="input_logging_subscription_name"></a> [logging\_subscription\_name](#input\_logging\_subscription\_name) | Name of your logging subscription | `string` | `"logging"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | id of the parent management group that the logging subscription will be placed under | `string` | n/a | yes |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the management group that you want to collect activity logs from | `string` | n/a | yes |
 | <a name="input_security_admin_group"></a> [security\_admin\_group](#input\_security\_admin\_group) | the name of the cloud foundation security admin group | `string` | `"cloudfoundation-security-admins"` | no |
