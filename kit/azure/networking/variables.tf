@@ -9,6 +9,12 @@ variable "landingzone_scope" {
   description = "Identifier for the management group landinzone"
 }
 
+variable "hub_subscription_name" {
+  type        = string
+  default     = "hub"
+  description = "Name of your hub subscription"
+}
+
 variable "cloudfoundation" {
   type        = string
   nullable    = false

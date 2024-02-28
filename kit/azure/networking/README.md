@@ -98,6 +98,7 @@ No modules.
 | <a name="input_firewall_zones"></a> [firewall\_zones](#input\_firewall\_zones) | Collection of availability zones to distribute the Firewall across. | `list(string)` | `null` | no |
 | <a name="input_hub_networking_deploy"></a> [hub\_networking\_deploy](#input\_hub\_networking\_deploy) | Service Principal responsible for deploying the central hub networking | `string` | `"cloudfoundation_hub_network_deploy_user"` | no |
 | <a name="input_hub_resource_group"></a> [hub\_resource\_group](#input\_hub\_resource\_group) | Name of the central hub resource group | `string` | `"hub-vnet-rg"` | no |
+| <a name="input_hub_subscription_name"></a> [hub\_subscription\_name](#input\_hub\_subscription\_name) | Name of your hub subscription | `string` | `"hub"` | no |
 | <a name="input_hub_vnet_name"></a> [hub\_vnet\_name](#input\_hub\_vnet\_name) | Name of the central virtual network | `string` | `"hub-vnet"` | no |
 | <a name="input_landingzone_scope"></a> [landingzone\_scope](#input\_landingzone\_scope) | Identifier for the management group landinzone | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Region for resource deployment | `string` | n/a | yes |
