@@ -28,8 +28,6 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
-  client_id       = "${dependency.bootstrap.outputs.client_id}"
-  client_secret   = "${dependency.bootstrap.outputs.client_secret}"
   storage_use_azuread        = true
 
 
@@ -39,8 +37,6 @@ provider "azurerm" {
 
 provider "azuread" {
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
-  client_id       = "${dependency.bootstrap.outputs.client_id}"
-  client_secret   = "${dependency.bootstrap.outputs.client_secret}"
 }
 EOF
 }
