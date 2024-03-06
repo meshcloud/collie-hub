@@ -43,14 +43,13 @@ EOF
 
 inputs = {
   # todo: set input variables
-  scope                               = "${dependency.organization-hierarchy.outputs.landingzones_id}"
-  scope_network_admin                 = "${dependency.organization-hierarchy.outputs.parent_id}"
-  cloudfoundation                     = "${include.platform.locals.cloudfoundation.name}"
-  cloudfoundation_deploy_principal_id = "${dependency.bootstrap.outputs.client_principal_id}"
-  parent_management_group_id          = "${dependency.organization-hierarchy.outputs.connectivity_id}"
-  address_space                       = "10.0.0.0/16"
-  location                            = "germanywestcentral"
-  hub_resource_group                  = "hub-vnet-rg"
+  scope                      = "${dependency.organization-hierarchy.outputs.landingzones_id}"
+  scope_network_admin        = "${dependency.organization-hierarchy.outputs.parent_id}"
+  cloudfoundation            = "${include.platform.locals.cloudfoundation.name}"
+  parent_management_group_id = "${dependency.organization-hierarchy.outputs.connectivity_id}"
+  address_space              = "10.0.0.0/16"
+  location                   = "germanywestcentral"
+  hub_resource_group         = "hub-vnet-rg"
   diagnostics = {
     destination = "${dependency.logging.outputs.law_workspace_id}"
     logs        = ["all"]

@@ -1,4 +1,3 @@
-
 variable "connectivity_scope" {
   type        = string
   description = "Identifier for the management group connectivity"
@@ -13,11 +12,6 @@ variable "cloudfoundation" {
   type        = string
   nullable    = false
   description = "Name of your cloud foundation"
-}
-
-variable "cloudfoundation_deploy_principal_id" {
-  type        = string
-  description = "Principal ID authorized for deploying Cloud Foundation resources"
 }
 
 variable "location" {

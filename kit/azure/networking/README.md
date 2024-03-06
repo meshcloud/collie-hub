@@ -52,14 +52,8 @@ No modules.
 | [azurerm_public_ip_prefix.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix) | resource |
 | [azurerm_resource_group.hub_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_resource_group.netwatcher](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.cloudfoundation_tfdeploy_lz](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.network_admins](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.network_admins_dns](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.network_contributor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.network_contributor_lz](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_definition.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
-| [azurerm_role_definition.cloudfoundation_tfdeploy_lz](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
 | [azurerm_route.fw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route) | resource |
 | [azurerm_route_table.out](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table) | resource |
 | [azurerm_storage_account.flowlogs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
@@ -86,7 +80,6 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_address_space"></a> [address\_space](#input\_address\_space) | List of address spaces for virtual networks | `string` | n/a | yes |
 | <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | Name of your cloud foundation | `string` | n/a | yes |
-| <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | Principal ID authorized for deploying Cloud Foundation resources | `string` | n/a | yes |
 | <a name="input_connectivity_scope"></a> [connectivity\_scope](#input\_connectivity\_scope) | Identifier for the management group connectivity | `string` | n/a | yes |
 | <a name="input_create_ddos_plan"></a> [create\_ddos\_plan](#input\_create\_ddos\_plan) | Create a DDos protection plan and attach it to the virtual network. | `bool` | `false` | no |
 | <a name="input_deploy_firewall"></a> [deploy\_firewall](#input\_deploy\_firewall) | Toggle to deploy or bypass the firewall. | `bool` | `false` | no |
@@ -96,12 +89,10 @@ No modules.
 | <a name="input_firewall_network_rules"></a> [firewall\_network\_rules](#input\_firewall\_network\_rules) | List of network rules to apply to the firewall. | <pre>list(object({<br>    name                  = string<br>    action                = string<br>    source_addresses      = list(string)<br>    destination_ports     = list(string)<br>    destination_addresses = list(string)<br>    protocols             = list(string)<br>  }))</pre> | `[]` | no |
 | <a name="input_firewall_sku_tier"></a> [firewall\_sku\_tier](#input\_firewall\_sku\_tier) | Specify the tier for the firewall, choosing from options like Basic or Standard, Premium. | `string` | `"Basic"` | no |
 | <a name="input_firewall_zones"></a> [firewall\_zones](#input\_firewall\_zones) | Collection of availability zones to distribute the Firewall across. | `list(string)` | `null` | no |
-| <a name="input_hub_networking_deploy"></a> [hub\_networking\_deploy](#input\_hub\_networking\_deploy) | Service Principal responsible for deploying the central hub networking | `string` | `"cloudfoundation_hub_network_deploy_user"` | no |
 | <a name="input_hub_resource_group"></a> [hub\_resource\_group](#input\_hub\_resource\_group) | Name of the central hub resource group | `string` | `"hub-vnet-rg"` | no |
 | <a name="input_hub_vnet_name"></a> [hub\_vnet\_name](#input\_hub\_vnet\_name) | Name of the central virtual network | `string` | `"hub-vnet"` | no |
 | <a name="input_landingzone_scope"></a> [landingzone\_scope](#input\_landingzone\_scope) | Identifier for the management group landinzone | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Region for resource deployment | `string` | n/a | yes |
-| <a name="input_lz_networking_deploy"></a> [lz\_networking\_deploy](#input\_lz\_networking\_deploy) | Service Principal responsible for deploying the landing zone networking | `string` | `"cloudfoundation_lz_network_deploy_user"` | no |
 | <a name="input_management_nsg_rules"></a> [management\_nsg\_rules](#input\_management\_nsg\_rules) | Network security rules to add to the management subnet. Refer to README for setup details. | `list(any)` | `[]` | no |
 | <a name="input_netwatcher"></a> [netwatcher](#input\_netwatcher) | Properties for creating network watcher. If set, it creates a Network Watcher resource using standard naming conventions. | <pre>object({<br>    log_analytics_workspace_id       = string<br>    log_analytics_workspace_id_short = string<br>    log_analytics_resource_id        = string<br>  })</pre> | `null` | no |
 | <a name="input_network_admin_group"></a> [network\_admin\_group](#input\_network\_admin\_group) | Name of the Cloud Foundation network administration group | `string` | `"cloudfoundation-network-admins"` | no |
