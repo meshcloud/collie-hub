@@ -3,7 +3,7 @@ data "azurerm_subscription" "current" {
 
 resource "azurerm_subscription" "networking" {
   subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = "${var.cloudfoundation}-hub"
+  subscription_name = var.hub_subscription_name
 }
 
 resource "azurerm_management_group_subscription_association" "vnet" {
