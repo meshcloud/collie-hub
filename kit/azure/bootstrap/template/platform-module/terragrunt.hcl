@@ -37,8 +37,7 @@ EOF
 }
 
 inputs = {
-  aad_tenant_id          = include.platform.locals.platform.azure.aadTenantId
-  service_principal_name = "cloudfoundation_tf_deploy" #TODO change, name your spn
+  aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
 
   terraform_state_storage = {
     name             = "${include.platform.locals.cloudfoundation.name}"

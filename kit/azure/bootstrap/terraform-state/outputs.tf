@@ -22,3 +22,11 @@ output "container_name" {
 output "location" {
   value = azurerm_resource_group.tfstates.location
 }
+
+output "documentation_uami_client_id" {
+  value = length(azurerm_user_assigned_identity.docs) > 0 ? azurerm_user_assigned_identity.docs[0].client_id : null
+}
+
+output "uami_documentation_name" {
+  value = length(azurerm_federated_identity_credential.docs) > 0 ? azurerm_federated_identity_credential.docs[0].name : null
+}

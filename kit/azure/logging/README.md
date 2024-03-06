@@ -42,6 +42,7 @@ AzureActivity
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 1.12.1 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.41.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.71.0 |
 
@@ -55,6 +56,7 @@ AzureActivity
 
 | Name | Type |
 |------|------|
+| [azapi_resource.diag-setting-management-group](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | resource |
 | [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
@@ -78,6 +80,7 @@ AzureActivity
 | <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | service principal id | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | location of the resources created for logging | `string` | n/a | yes |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | amount of time of log retention | `number` | `30` | no |
+| <a name="input_logging_subscription_name"></a> [logging\_subscription\_name](#input\_logging\_subscription\_name) | Name of your logging subscription | `string` | `"logging"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | id of the parent management group that the logging subscription will be placed under | `string` | n/a | yes |
 | <a name="input_scope"></a> [scope](#input\_scope) | id of the management group that you want to collect activity logs from | `string` | n/a | yes |
 | <a name="input_security_admin_group"></a> [security\_admin\_group](#input\_security\_admin\_group) | the name of the cloud foundation security admin group | `string` | `"cloudfoundation-security-admins"` | no |
@@ -88,10 +91,6 @@ AzureActivity
 | Name | Description |
 |------|-------------|
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
-| <a name="output_law_workspace_id"></a> [law\_workspace\_id](#output\_law\_workspace\_id) | n/a |
-| <a name="output_law_workspace_id_short"></a> [law\_workspace\_id\_short](#output\_law\_workspace\_id\_short) | n/a |
-| <a name="output_law_workspace_resource_id"></a> [law\_workspace\_resource\_id](#output\_law\_workspace\_resource\_id) | n/a |
-| <a name="output_logging_subscription"></a> [logging\_subscription](#output\_logging\_subscription) | n/a |
 | <a name="output_security_admins_azuread_group_id"></a> [security\_admins\_azuread\_group\_id](#output\_security\_admins\_azuread\_group\_id) | n/a |
 | <a name="output_security_auditors_azuread_group_id"></a> [security\_auditors\_azuread\_group\_id](#output\_security\_auditors\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->
