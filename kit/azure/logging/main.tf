@@ -61,11 +61,11 @@ resource "azurerm_role_assignment" "logging" {
 resource "azapi_resource" "diag-setting-management-group" {
   type                    = "Microsoft.Insights/diagnosticSettings@2021-05-01-preview"
   name                    = "toLogAnalyticsWorkspace"
-  parent_id               = var.scope  
+  parent_id               = var.scope
   ignore_missing_property = true
   body = jsonencode({
     properties = {
-      workspaceId                 = azurerm_log_analytics_workspace.law.id
+      workspaceId = azurerm_log_analytics_workspace.law.id
       logs = [
         {
           category = "Administrative"
