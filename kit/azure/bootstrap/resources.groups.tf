@@ -21,6 +21,7 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       # Creating and assigning policies
       "Microsoft.Authorization/policyDefinitions/*",
       "Microsoft.Authorization/policyAssignments/*",
+      "Microsoft.Authorization/policySetDefinitions/*",
 
       # Read Resources in subscriptions
       "Microsoft.Resources/subscriptions/resourceGroups/read",
