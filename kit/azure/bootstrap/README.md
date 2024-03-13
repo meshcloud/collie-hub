@@ -54,6 +54,31 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 }
 ```
 
+## Documentation on Github-Pages
+
+We offer the option of fully automated creation of a cloud infrastructure and generation of the corresponding documentation.
+An example of this is integration with Github Pages [likvid-foundation Documentation](https://likvid-bank.github.io/likvid-cloudfoundation/).
+To automatically generate the documentation via a pipeline, we use a `Service Principal` with `Federated Identity Credentials` that have read access
+to the storage container where the states of the individual kits are stored. This read access allows for the automated rollout of a page when
+there are changes to the infrastructure, using a [Github Actions Workflow](https://github.com/likvid-bank/likvid-cloudfoundation/blob/main/.github/workflows/docs.yml).
+
+for enabling the read only servcice principal add following values to your terragrunt.hcl:
+
+```hcl
+# Example with likvid Bank
+inputs = {
+  ...
+  uami_documentation_spn     = true
+  uami_documentation_subject = "repo:likvid/likvid-foundation:environment:github-pages"
+  uami_documentation_name    = "likvid-foundation_tf_docs_user"
+  ...
+}
+```
+
+:::tip
+You don't know how to integrate the documentation into collie? Take a look at our [Tutorial](https://collie.cloudfoundation.org/tutorial/#generate-documentation)!
+:::
+
 ## Remove Bootstrap (Unbootstraping)
 
 The following sequence must be followed in order to remove the boostrap

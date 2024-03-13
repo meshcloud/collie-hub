@@ -12,26 +12,6 @@ compliance:
 
 # Foundation Docs Template
 
-This documentation is intended as a reference documentation for cloud foundation or platform engineers using this module.
-
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
-<!-- END_TF_DOCS -->
+This kit serves as a reference guide for cloud foundation or platform engineers. It provides a structured framework for managing fundamental
+components of your Cloud Foundation. It encompasses architectural decisions, design patterns, standards, and best practices crucial for upholding
+consistency and coherence across the platform.
