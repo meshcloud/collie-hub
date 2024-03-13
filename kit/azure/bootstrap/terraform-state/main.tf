@@ -16,6 +16,17 @@ resource "azurerm_storage_account" "tfstates" {
   account_tier              = "Standard"
   account_replication_type  = "GRS"
   shared_access_key_enabled = false
+  blob_properties {
+    versioning_enabled = true
+    delete_retention_policy {
+      days = 30
+    }
+    container_delete_retention_policy {
+      days = 30
+    }
+  }
+
+  lifecycle { ignore_changes = [tags] }
 }
 
 resource "azurerm_storage_container" "tfstates" {
