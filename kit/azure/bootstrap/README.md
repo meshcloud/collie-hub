@@ -56,7 +56,7 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 
 ## Documentation on Github-Pages
 
-We offer the option of fully automated creation of a cloud infrastructure and generation of the corresponding documentation.
+We offer the option of automated creation of a cloud foundation and generation of the corresponding documentation.
 An example of this is integration with Github Pages [likvid-foundation Documentation](https://likvid-bank.github.io/likvid-cloudfoundation/).
 To automatically generate the documentation via a pipeline, we use a `Service Principal` with `Federated Identity Credentials` that have read access
 to the storage container where the states of the individual kits are stored. This read access allows for the automated rollout of a page when
