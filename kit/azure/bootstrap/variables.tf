@@ -49,4 +49,5 @@ variable "uami_documentation_issuer" {
 variable "uami_documentation_subject" {
   type        = string
   description = "Specifies the subject for this Federated Identity Credential, for example a github action pipeline"
+  default     = null
 }
