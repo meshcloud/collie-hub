@@ -54,6 +54,32 @@ upn_domain = "#EXT#@devmeshithesheep.onmicrosoft.com"
 }
 ```
 
+## Documentation on Github-Pages
+
+We offer the option of fully automated creation of a cloud infrastructure and generation of the corresponding documentation.
+An example of this is integration with Github Pages [likvid-foundation Documentation](https://likvid-bank.github.io/likvid-cloudfoundation/).
+To automatically generate the documentation via a pipeline, we use a `Service Principal` with `Federated Identity Credentials` that have read access
+to the storage container where the states of the individual kits are stored. This read access allows for the automated rollout of a page when
+there are changes to the infrastructure, using a Github Actions Workflow [github actions workflow](https://github.com/likvid-bank/likvid-cloudfoundation/blob/main/.github/workflows/docs.yml).
+
+for enabling the read only servcice principal add following values to your terragrunt.hcl:
+
+```hcl
+# Example with likvid Bank
+inputs = {
+  ...
+  uami_documentation_spn     = true
+  uami_documentation_subject = "repo:likvid/likvid-foundation:environment:github-pages"
+  uami_documentation_name    = "likvid-foundation_tf_docs_user"
+  ...
+}
+```
+
+:::tip
+You don't know how to integrate the documentation into collie? Take a look at our tutorial!
+[Generate Documentation](https://collie.cloudfoundation.org/tutorial/#generate-documentation)
+:::
+
 ## Remove Bootstrap (Unbootstraping)
 
 The following sequence must be followed in order to remove the boostrap
@@ -111,7 +137,7 @@ collie foundation deploy --bootstrap -- destroy
 | <a name="input_uami_documentation_issuer"></a> [uami\_documentation\_issuer](#input\_uami\_documentation\_issuer) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | `"https://token.actions.githubusercontent.com"` | no |
 | <a name="input_uami_documentation_name"></a> [uami\_documentation\_name](#input\_uami\_documentation\_name) | name of the Service Principal used to perform documentation and validation tasks | `string` | `"cloudfoundation_tf_docs_user"` | no |
 | <a name="input_uami_documentation_spn"></a> [uami\_documentation\_spn](#input\_uami\_documentation\_spn) | read-only user for the states to host the documentation or activate a drift detection pipeline | `bool` | `false` | no |
-| <a name="input_uami_documentation_subject"></a> [uami\_documentation\_subject](#input\_uami\_documentation\_subject) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | n/a | yes |
+| <a name="input_uami_documentation_subject"></a> [uami\_documentation\_subject](#input\_uami\_documentation\_subject) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | `null` | no |
 
 ## Outputs
 
