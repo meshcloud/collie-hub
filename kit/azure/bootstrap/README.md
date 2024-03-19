@@ -137,7 +137,7 @@ collie foundation deploy --bootstrap -- destroy
 | <a name="input_uami_documentation_issuer"></a> [uami\_documentation\_issuer](#input\_uami\_documentation\_issuer) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | `"https://token.actions.githubusercontent.com"` | no |
 | <a name="input_uami_documentation_name"></a> [uami\_documentation\_name](#input\_uami\_documentation\_name) | name of the Service Principal used to perform documentation and validation tasks | `string` | `"cloudfoundation_tf_docs_user"` | no |
 | <a name="input_uami_documentation_spn"></a> [uami\_documentation\_spn](#input\_uami\_documentation\_spn) | read-only user for the states to host the documentation or activate a drift detection pipeline | `bool` | `false` | no |
-| <a name="input_uami_documentation_subject"></a> [uami\_documentation\_subject](#input\_uami\_documentation\_subject) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | n/a | yes |
+| <a name="input_uami_documentation_subject"></a> [uami\_documentation\_subject](#input\_uami\_documentation\_subject) | Specifies the subject for this Federated Identity Credential, for example a github action pipeline | `string` | `null` | no |
 
 ## Outputs
 
