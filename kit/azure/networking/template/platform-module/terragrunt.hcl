@@ -43,22 +43,24 @@ EOF
 
 inputs = {
   # todo: set input variables
-  landingzone_scope  = "${dependency.organization-hierarchy.outputs.landingzones_id}"
-  connectivity_scope = "${dependency.organization-hierarchy.outputs.connectivity_id}"
-  cloudfoundation    = "${include.platform.locals.cloudfoundation.name}"
-  address_space      = "10.0.0.0/16"
-  location           = "germanywestcentral"
-  hub_resource_group = "hub-vnet-rg"
+  scope                               = dependency.organization-hierarchy.outputs.landingzones_id
+  scope_network_admin                 = dependency.organization-hierarchy.outputs.parent_id
+  cloudfoundation                     = include.platform.locals.cloudfoundation.name
+  cloudfoundation_deploy_principal_id = dependency.bootstrap.outputs.platform_engineers_azuread_group_id
+  parent_management_group_id          = dependency.organization-hierarchy.outputs.connectivity_id
+  address_space                       = "10.0.0.0/16"
+  location                            = "germanywestcentral"
+  hub_resource_group                  = "hub-vnet-rg"
   diagnostics = {
-    destination = "${dependency.logging.outputs.law_workspace_id}"
+    destination = dependency.logging.outputs.law_workspace_id
     logs        = ["all"]
     metrics     = ["all"]
   }
   netwatcher = {
     resource_group_location          = "germanywestcentral"
-    log_analytics_workspace_id       = "${dependency.logging.outputs.law_workspace_id}"
-    log_analytics_workspace_id_short = "${dependency.logging.outputs.law_workspace_id_short}"
-    log_analytics_resource_id        = "${dependency.logging.outputs.law_workspace_resource_id}"
+    log_analytics_workspace_id       = dependency.logging.outputs.law_workspace_id
+    log_analytics_workspace_id_short = dependency.logging.outputs.law_workspace_id_short
+    log_analytics_resource_id        = dependency.logging.outputs.law_workspace_resource_id
   }
 
   # In this section, we will address the creation of rules for Network Security Groups (NSGs)

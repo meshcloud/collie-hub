@@ -1,6 +1,7 @@
 variable "name" {
   type        = string
   nullable    = false
+  default     = "budget-alert"
   description = "name of the building block, used for naming resources"
   validation {
     condition     = can(regex("^[-a-z0-9]+$", var.name))

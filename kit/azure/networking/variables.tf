@@ -1,3 +1,4 @@
+
 variable "connectivity_scope" {
   type        = string
   description = "Identifier for the management group connectivity"
@@ -18,6 +19,11 @@ variable "cloudfoundation" {
   type        = string
   nullable    = false
   description = "Name of your cloud foundation"
+}
+
+variable "cloudfoundation_deploy_principal_id" {
+  type        = string
+  description = "Principal ID authorized for deploying Cloud Foundation resources"
 }
 
 variable "location" {
@@ -50,6 +56,18 @@ variable "management_nsg_rules" {
   description = "Network security rules to add to the management subnet. Refer to README for setup details."
   type        = list(any)
   default     = []
+}
+
+variable "lz_networking_deploy" {
+  type        = string
+  default     = "cloudfoundation_lz_network_deploy_user"
+  description = "Service Principal responsible for deploying the landing zone networking"
+}
+
+variable "hub_networking_deploy" {
+  type        = string
+  default     = "cloudfoundation_hub_network_deploy_user"
+  description = "Service Principal responsible for deploying the central hub networking"
 }
 
 variable "network_admin_group" {
