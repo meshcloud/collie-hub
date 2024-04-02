@@ -7,7 +7,7 @@ output "security_auditors_azuread_group_id" {
 }
 
 output "logging_subscription" {
-  value = azurerm_subscription.logging.id
+  value = data.azurerm_subscription.current.id
 }
 
 output "law_workspace_id" {

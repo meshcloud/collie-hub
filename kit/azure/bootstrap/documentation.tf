@@ -12,15 +12,18 @@ This container is located in the subscription `${data.azurerm_subscription.curre
 Access to terraform state is restricted to members of the `${azuread_group.platform_engineers.display_name}` group.
 %{endif}
 
+%{if var.documentation_uami != null || var.validation_uami != null}
+## Automation
 
-%{if var.uami_documentation_spn == true}
-## Collie Docs with user-assigned managed identities
+%{if var.documentation_uami != null}
+The UAMI `${azurerm_user_assigned_identity.docs[0].name}` has been set up for the automated creation of
+landing zone documentation via a GitHub actions pipeline. This UAMI has read-only access to terraform state.
+%{endif}
 
-the following UAMI `${module.terraform_state[0].uami_documentation_name}` has been set up for the automated creation of
-collie docs via a pipeline that has access to the following resource
-
-- `${module.terraform_state[0].container_id}`
-
+%{if var.validation_uami != null}
+The UAMI `${azurerm_user_assigned_identity.validation[0].name}` has been set up for the automated validation a GitHub actions pipeline.
+This UAMI has read-only access to terraform state and read only access to the entire landing zone architecture.
+%{endif}
 %{endif}
 
 ## Platform Engineer Access Management

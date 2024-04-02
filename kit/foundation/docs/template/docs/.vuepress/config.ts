@@ -29,7 +29,8 @@ function getMarkdownFiles(dir: string) {
       (x) => x.isFile() && !x.name.startsWith(".") && x.name.endsWith(".md")
     )
     .map((x) => "/" + path.relative("docs/", path.join(dir, x.name)))
-    .map((x) => x.replaceAll(path.sep, "/")); //on windows, this needs to be done to cleanly define URL paths
+    .map((x) => x.replaceAll(path.sep, "/")) //on windows, this needs to be done to cleanly define URL paths
+    .sort();
 
   return mdFiles;
 }
@@ -42,10 +43,11 @@ function getTree(dir: string) {
       const child = path.join(dir, x.name);
       return {
         text: x.name,
-        collapsible: true,
+        collapsible: false,
         children: [...getMarkdownFiles(child), ...getTree(child)],
       };
-    });
+    })
+    .sort(x => x.text);
 }
 
 export const sidebar: SidebarConfig = {

@@ -2,10 +2,12 @@
 data "azurerm_subscription" "current" {
 }
 
-#  add a name to the existing subscription
-resource "azurerm_subscription" "logging" {
-  subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = var.logging_subscription_name
+# workaround for https://github.com/hashicorp/terraform-provider-azurerm/issues/23014
+resource "terraform_data" "subscription_name" {
+  provisioner "local-exec" {
+    when    = create
+    command = "az account subscription rename --id ${data.azurerm_subscription.current.subscription_id} --name ${var.logging_subscription_name}"
+  }
 }
 
 resource "azurerm_management_group_subscription_association" "logging" {
@@ -26,8 +28,35 @@ module "policy_law" {
   }
 }
 
+# Set up permissions for deploy user
+resource "azurerm_role_definition" "cloudfoundation_tfdeploy" {
+  name  = "${var.cloudfoundation}_log_workspace"
+  scope = data.azurerm_subscription.current.id
+  permissions {
+    actions = [
+      "Microsoft.Resources/subscriptions/resourceGroups/write",
+      "Microsoft.Resources/subscriptions/resourceGroups/delete",
+      # Permissions for log workspaces
+      "Microsoft.OperationalInsights/workspaces/*",
+      "Microsoft.OperationalInsights/workspaces/linkedServices/*",
+      # Permissions for log workspace solution
+      "Microsoft.OperationsManagement/solutions/*",
+      # Permissions for automation accounts
+      "Microsoft.Automation/automationAccounts/*"
+    ]
+  }
+}
+
+resource "azurerm_role_assignment" "cloudfoundation_tfdeploy" {
+  principal_id       = var.cloudfoundation_deploy_principal_id
+  scope              = data.azurerm_subscription.current.id
+  role_definition_id = azurerm_role_definition.cloudfoundation_tfdeploy.role_definition_resource_id
+}
+
 ## Creates a RG for LAW
 resource "azurerm_resource_group" "law_rg" {
+  depends_on = [azurerm_role_assignment.cloudfoundation_tfdeploy]
+
   name     = "law-rg-${var.cloudfoundation}"
   location = var.location
 }
@@ -58,7 +87,7 @@ resource "azurerm_role_assignment" "logging" {
 
 
 # enables logging on management_group level
-resource "azapi_resource" "diag-setting-management-group" {
+resource "azapi_resource" "diag_setting_management_group" {
   type                    = "Microsoft.Insights/diagnosticSettings@2021-05-01-preview"
   name                    = "toLogAnalyticsWorkspace"
   parent_id               = var.scope

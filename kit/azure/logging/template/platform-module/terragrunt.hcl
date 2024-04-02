@@ -31,15 +31,20 @@ provider "azurerm" {
 provider "azuread" {
   tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
 }
+
+provider "azapi" {
+  tenant_id       = "${include.platform.locals.platform.azure.aadTenantId}"
+  subscription_id = "the-id-of-your-logging-subscription"
+}
 EOF
 }
 
 inputs = {
   # todo: set input variables
   parent_management_group_id          = "${dependency.organization-hierarchy.outputs.management_id}"
+  cloudfoundation_deploy_principal_id = dependency.bootstrap.outputs.platform_engineers_azuread_group_id
   scope                               = "${dependency.organization-hierarchy.outputs.parent_id}"
-  cloudfoundation_deploy_principal_id = "${dependency.bootstrap.outputs.client_principal_id}"
   cloudfoundation                     = "${include.platform.locals.cloudfoundation.name}"
   location                            = "germanywestcentral"
-  log_retention_in_days               = 30
+  log_retention_in_days               = 90
 }
