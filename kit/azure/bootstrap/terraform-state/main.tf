@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "tfstates" {
   blob_properties {
     versioning_enabled = true
     # we simply enable versioning to keep _every_ version without any expiration, you should reconsider this at scale
-     delete_retention_policy {
+    delete_retention_policy {
       days = 30
     }
     container_delete_retention_policy {
