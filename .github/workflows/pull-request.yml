@@ -16,6 +16,7 @@ jobs:
           committer: GitHub Actions <github-actions@meshcloud.io>
           signoff: false
           branch: feature/auto-backporting
+          base: main
           delete-branch: true
           title: "[latest likvid kits] update latest kits from likvid-cloudfoundation"
           body: |
