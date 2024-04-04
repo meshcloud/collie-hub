@@ -3,20 +3,17 @@ on:
   push:
     branches: [ "feature/auto-backporting" ]
 
-
 jobs:
   pull_request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Create Pull Request in collie-hub repo
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "feature: update azure kits from latest prod build"
           committer: GitHub Actions <github-actions@meshcloud.io>
           signoff: false
-            #branch: feature/auto-backporting
           base: main
           delete-branch: true
           title: "[latest likvid kits] update latest kits from likvid-cloudfoundation"
