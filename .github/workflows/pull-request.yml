@@ -12,6 +12,8 @@ jobs:
 
       - name: Create Pull Request in collie-hub repo
         run: gh pr create --base main --head feature/auto-backporting --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" --body " The latest kits from likvid-cloudfoundation builds on the prod branch."
+        env:
+          GH_TOKEN: ${{ github.token }}
         # uses: peter-evans/create-pull-request@v6
         # with:
         #   commit-message: "feature: update azure kits from latest prod build"
