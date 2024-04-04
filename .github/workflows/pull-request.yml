@@ -15,7 +15,6 @@ jobs:
           commit-message: "feature: update azure kits from latest prod build"
           committer: GitHub Actions <github-actions@meshcloud.io>
           signoff: false
-          base: main
           branch: feature/auto-backporting
           delete-branch: true
           title: "[latest likvid kits] update latest kits from likvid-cloudfoundation"
