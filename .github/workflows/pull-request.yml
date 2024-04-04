@@ -14,11 +14,11 @@ jobs:
           commit-message: "feature: update azure kits from latest prod build"
           committer: GitHub Actions <github-actions@meshcloud.io>
           signoff: false
-          branch: main
-          base: feature/auto-backporting
+          base: main
+          brunch: feature/auto-backporting
           delete-branch: true
           title: "[latest likvid kits] update latest kits from likvid-cloudfoundation"
           body: |
             The latest kits from likvid-cloudfoundation builds on the prod branch.
             - This PR is updated automatically with changes, until merged
-          draft: true
+          draft: false
