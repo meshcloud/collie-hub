@@ -11,13 +11,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create Pull Request in collie-hub repo
-        run: | 
+        run: |
           if git show-ref --verify --quiet "refs/heads/feature/auto-backporting"; then \
-              echo "Branch till exist. 
+              echo "Branch till exist.
           else
-              gh pr create --base main --head $branch  
+              gh pr create --base main --head $branch
                 --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
                 --body "The latest kits from likvid-cloudfoundation builds on the prod branch."
-          fi        
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
