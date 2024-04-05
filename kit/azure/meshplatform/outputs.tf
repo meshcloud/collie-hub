@@ -2,6 +2,7 @@ output "meshplatform" {
   value     = module.meshplatform
   sensitive = true
 }
+
 output "replicator_credentials" {
   description = "Replicator Service Principal."
   value       = module.meshplatform.replicator_service_principal
