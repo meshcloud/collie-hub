@@ -11,7 +11,7 @@ The management group hierarchy allows us to selectively apply policies.
 The main hierarchy looks like this
 
 ```md
-`${resource.azurerm_management_group.parent.display_name}` this is the root of the hierarchy
+`${data.azurerm_management_group.parent.display_name}` this is the root of the hierarchy
 ├──  `${resource.azurerm_management_group.landingzones.display_name}` landing zones for application teams
 └── `${resource.azurerm_management_group.platform.display_name}` landing zones for platform-level workloads, restriced access only for cloud foundation team
 ```
@@ -24,7 +24,7 @@ See [Application Landing Zones](#application-landing-zones) below.
 
 This table describes global policies consistently enforced for all workloads running on Azure.
 
-These policies are assigned to the `${resource.azurerm_management_group.parent.display_name}` management group.
+These policies are assigned to the `${data.azurerm_management_group.parent.display_name}` management group.
 
 ### Activity Logs
 
@@ -83,7 +83,7 @@ The platform-level management group is further subdivided into the following man
 This subdivision does currently not affect any policies and is merely used for access control inside the cloud foundation team.
 
 ```md
-`${resource.azurerm_management_group.parent.display_name}` this is the root of the hierarchy
+`${data.azurerm_management_group.parent.display_name}` this is the root of the hierarchy
 └── `${resource.azurerm_management_group.platform.display_name}` platform-level workloads, restriced access only for cloud foundation team
    ├── `${resource.azurerm_management_group.connectivity.display_name}` connectivity solutions like on-prem connection network hub
    ├── `${resource.azurerm_management_group.identity.display_name}` identity management solutions

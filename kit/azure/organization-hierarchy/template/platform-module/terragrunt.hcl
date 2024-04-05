@@ -29,12 +29,13 @@ locals {
 }
 
 inputs = {
+  # todo: set input variables
   parent_management_group_name = "${local.management_group_prefix}-foundation"
+  locations                    = ["germanywestcentral"]
 
+  management   = "${local.management_group_prefix}-management"
   connectivity = "${local.management_group_prefix}-connectivity"
   identity     = "${local.management_group_prefix}-identity"
   landingzones = "${local.management_group_prefix}-landingzones"
-  locations    = ["germanywestcentral"]
-  management   = "${local.management_group_prefix}-management"
   platform     = "${local.management_group_prefix}-platform"
 }

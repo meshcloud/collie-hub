@@ -3,9 +3,8 @@ locals {
   default_location = var.locations[0]
 }
 
-# location restriction
 data "azurerm_management_group" "parent" {
-  display_name = var.parentManagementGroup
+  name = var.parent_management_group_name
 }
 
 module "policy_root" {
@@ -52,10 +51,13 @@ resource "azurerm_management_group" "management" {
 data "azurerm_subscription" "current" {
 }
 
-resource "azurerm_subscription" "management" {
-  # note: by specifying a subscription_id the terraform provider will "adopt" the existing subscription
-  subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = var.management_subscription_name
+# workaround for https://github.com/hashicorp/terraform-provider-azurerm/issues/23014
+resource "terraform_data" "management_subscription_name" {
+  # note: we assume we are running azure CLI with CLI authentication, which should hopefully also work in CI
+  provisioner "local-exec" {
+    when    = create
+    command = "az account subscription rename --id ${data.azurerm_subscription.current.subscription_id} --name ${var.management_subscription_name}"
+  }
 }
 
 resource "azurerm_management_group_subscription_association" "management" {

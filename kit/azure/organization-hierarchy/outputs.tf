@@ -1,5 +1,5 @@
 output "parent_id" {
-  value = azurerm_management_group.parent.id
+  value = data.azurerm_management_group.parent.id
 }
 
 output "landingzones_id" {
