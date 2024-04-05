@@ -15,7 +15,7 @@ jobs:
           if git show-ref --verify --quiet "refs/heads/feature/auto-backporting"; then \
               echo "Branch still exists."; \
           else \
-              gh pr create --base main --head feature/auto-backporting \
+              gh pr create --base main --head feature/auto-backporting --draft \
                 --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
                 --body "The latest kits from likvid-cloudfoundation builds on the prod branch."; \
           fi
