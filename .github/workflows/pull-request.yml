@@ -11,18 +11,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create Pull Request in collie-hub repo
-        run: gh pr create --base main --head feature/auto-backporting --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" --body " The latest kits from likvid-cloudfoundation builds on the prod branch."
+        run: | 
+          if git show-ref --verify --quiet "refs/heads/feature/auto-backporting"; then \
+              echo "Branch till exist. \
+          else
+              gh pr create --base main --head $branch \ 
+                --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
+                --body "The latest kits from likvid-cloudfoundation builds on the prod branch."
+          fi        
         env:
           GH_TOKEN: ${{ github.token }}
-        # uses: peter-evans/create-pull-request@v6
-        # with:
-        #   commit-message: "feature: update azure kits from latest prod build"
-        #   committer: GitHub Actions <github-actions@meshcloud.io>
-        #   signoff: false
-        #   base: main
-        #   delete-branch: true
-        #   title: "[latest likvid kits] update latest kits from likvid-cloudfoundation"
-        #   body: |
-        #     The latest kits from likvid-cloudfoundation builds on the prod branch.
-        #     - This PR is updated automatically with changes, until merged
-        #   draft: false
