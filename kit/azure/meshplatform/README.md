@@ -1,28 +1,15 @@
 ---
 name: Azure meshPlatform
 summary: |
-  integrates this platform with meshStack as a meshPlatform to enable self-service for our engineering teams.
-compliance:
-  - control: cfmm/tenant-management/cloud-tenant-database
-    statement: |
-      A cloud tenant database provides clear responsibilities and accountability. Both are crucial to empowering engineering teams with freedom on the cloud.
-  - control: cfmm/tenant-management/tenant-provisioning
-    statement: |
-      Tenant provisioning for the cloud involves the automated allocation and configuration of resources, such as virtual machines and storage, to accommodate specific
-      user requirements within a multi-tenant environment.
-  - control: cfmm/tenant-management/tenant-deprovisioning-decommisioning
-    statement: |
-      Establish a process for safely decommissioning and deprovisioning cloud tenants that are no longer needed by application teams.
-  - control: cfmm/tenant-management/multi-cloud-tenant-database-integrated-with-lifecycle-management
-    statement: |
-      A central database of all multi-cloud tenants initiates tenant provisioning and deprovisioning processes. The database acts as an authoritative source of tenants and ensures tenant metadata is always up to date.
+  deploys new cloud foundation infrastructure.
+  Add a concise description of the module's purpose here.
+# optional: add additional metadata about implemented security controls
 ---
 
 # Azure meshPlatform
 
 This kit module integrates Azure into meshStack as a platform using the official terraform-azure-meshplatform module. This module sets up service principals and permissions required for meshStack.
 The output of this module is a set of credentials that need to be configured in meshStack as described in [meshcloud public docs](https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform.html).
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
