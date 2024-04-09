@@ -31,7 +31,6 @@ This kit module forms the core of your [Azure Landing Zone architecture](https:/
 modules, see [related kit modules](#related-kit-modules) below.
 
 ## Overview
-
 The Terraform configuration in this repository establishes a hierarchical structure of management groups to organize and govern Azure resources effectively.
 
 This kit module provides a good starting point with many commonly deployed policies.
@@ -58,7 +57,7 @@ After deploying this module, you should probably deploy the following kit module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.71.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.97.0 |
 
 ## Modules
 
@@ -74,24 +73,24 @@ After deploying this module, you should probably deploy the following kit module
 | [azurerm_management_group.identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.landingzones](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group_subscription_association.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
-| [azurerm_subscription.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) | resource |
+| [terraform_data.management_subscription_name](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
+| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_connectivity"></a> [connectivity](#input\_connectivity) | n/a | `string` | `"lv-connectivity"` | no |
-| <a name="input_identity"></a> [identity](#input\_identity) | n/a | `string` | `"lv-identity"` | no |
-| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | n/a | `string` | `"lv-landingzones"` | no |
+| <a name="input_connectivity"></a> [connectivity](#input\_connectivity) | n/a | `string` | `"connectivity"` | no |
+| <a name="input_identity"></a> [identity](#input\_identity) | n/a | `string` | `"identity"` | no |
+| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | n/a | `string` | `"landingzones"` | no |
 | <a name="input_locations"></a> [locations](#input\_locations) | This is for the Azure Allowed locations. Additionally, we use the first added locations where this policy assignment should exist, which is required when an identity is assigned. | `list(string)` | <pre>[<br>  "germanywestcentral"<br>]</pre> | no |
-| <a name="input_management"></a> [management](#input\_management) | n/a | `string` | `"lv-management"` | no |
+| <a name="input_management"></a> [management](#input\_management) | n/a | `string` | `"management"` | no |
 | <a name="input_management_subscription_name"></a> [management\_subscription\_name](#input\_management\_subscription\_name) | Name of your management subscription | `string` | `"management"` | no |
-| <a name="input_parentManagementGroup"></a> [parentManagementGroup](#input\_parentManagementGroup) | n/a | `string` | `"lv-foundation"` | no |
-| <a name="input_platform"></a> [platform](#input\_platform) | n/a | `string` | `"lv-platform"` | no |
+| <a name="input_parent_management_group_name"></a> [parent\_management\_group\_name](#input\_parent\_management\_group\_name) | n/a | `string` | `"foundation"` | no |
+| <a name="input_platform"></a> [platform](#input\_platform) | n/a | `string` | `"platform"` | no |
 
 ## Outputs
 

@@ -10,17 +10,17 @@ output "hub_location" {
 
 output "hub_rg" {
   value       = azurerm_resource_group.hub_resource_group.name
-  description = "Resource Group of hub vnet"
+  description = "Hub Resource Group name"
 }
 
 output "hub_vnet" {
   value       = azurerm_virtual_network.hub_network.name
-  description = "Name of hub vnet"
+  description = "Hub VNet name"
 }
 
 output "firewall_name" {
   value       = join("", azurerm_firewall.fw.*.name)
-  description = "Name of hub vnet"
+  description = "Hub VNet firewall name"
 }
 
 output "network_admins_azuread_group_id" {

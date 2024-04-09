@@ -4,11 +4,6 @@ variable "replicator_service_principal_name" {
   description = "Service principal for managing subscriptions. Replicator is the name of the meshStack component. Name must be unique per Entra ID."
 }
 
-variable "replicator_assignment_scopes" {
-  type        = list(string)
-  description = "Names or UUIDs of the Management Groups which replicator should manage."
-}
-
 variable "metering_service_principal_name" {
   type        = string
   default     = "kraken"
@@ -18,6 +13,11 @@ variable "metering_service_principal_name" {
 variable "metering_assignment_scopes" {
   type        = list(string)
   description = "Names or UUIDs of the Management Groups that kraken should collect costs for."
+}
+
+variable "replicator_assignment_scopes" {
+  type        = list(string)
+  description = "Names or UUIDs of the Management Groups which replicator should manage."
 }
 
 variable "sso_enabled" {
@@ -82,4 +82,14 @@ variable "additional_permissions" {
   description = "Additional Subscription-Level Permissions the Service Principal needs."
 }
 
+variable "create_passwords" {
+  type        = bool
+  default     = true
+  description = "Create passwords for service principals."
+}
 
+variable "workload_identity_federation" {
+  default     = null
+  description = "Enable workload identity federation instead of using a password by providing these additional settings. Usually you should receive the required settings when attempting to configure a platform with workload identity federation in meshStack."
+  type        = object({ issuer = string, replicator_subject = string, kraken_subject = string })
+}

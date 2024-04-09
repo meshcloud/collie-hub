@@ -56,18 +56,20 @@ AzureActivity
 
 | Name | Type |
 |------|------|
-| [azapi_resource.diag-setting-management-group](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | resource |
+| [azapi_resource.diag_setting_management_group](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | resource |
 | [azuread_group.security_admins](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azuread_group.security_auditors](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
 | [azurerm_log_analytics_workspace.law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_management_group_subscription_association.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
 | [azurerm_resource_group.law_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_admins](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_admins_law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_auditors](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.security_auditors_law](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_subscription.logging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) | resource |
+| [azurerm_role_definition.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [terraform_data.subscription_name](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
@@ -75,6 +77,7 @@ AzureActivity
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | this is the name of your cloud foundation | `string` | n/a | yes |
+| <a name="input_cloudfoundation_deploy_principal_id"></a> [cloudfoundation\_deploy\_principal\_id](#input\_cloudfoundation\_deploy\_principal\_id) | Principal ID authorized for deploying Cloud Foundation resources | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | location of the resources created for logging | `string` | n/a | yes |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | amount of time of log retention | `number` | `30` | no |
 | <a name="input_logging_subscription_name"></a> [logging\_subscription\_name](#input\_logging\_subscription\_name) | Name of your logging subscription | `string` | `"logging"` | no |

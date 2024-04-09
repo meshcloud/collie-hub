@@ -16,7 +16,6 @@ resource "azurerm_consumption_budget_management_group" "tenant_root_group" {
     operator  = "EqualTo"
 
     contact_emails = var.contact_mails
-
   }
 
   notification {

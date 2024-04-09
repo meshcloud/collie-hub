@@ -29,6 +29,12 @@ variable "parent_management_group_id" {
   description = "id of the parent management group that the logging subscription will be placed under"
 }
 
+variable "cloudfoundation_deploy_principal_id" {
+  type        = string
+  nullable    = false
+  description = "Principal ID authorized for deploying Cloud Foundation resources"
+}
+
 variable "location" {
   type        = string
   nullable    = false

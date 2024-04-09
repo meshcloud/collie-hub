@@ -11,5 +11,17 @@ output "platform_engineers_members" {
 }
 
 output "module_storage_account_resource_id" {
-  value = module.terraform_state[0].storage_account_resource_id
+  value = module.terraform_state.storage_account_resource_id
+}
+
+output "parent_management_group" {
+  value = data.azurerm_management_group.parent.name
+}
+
+output "documentation_uami_client_id" {
+  value = length(azurerm_user_assigned_identity.docs) > 0 ? azurerm_user_assigned_identity.docs[0].client_id : null
+}
+
+output "validation_uami_client_id" {
+  value = length(azurerm_user_assigned_identity.validation) > 0 ? azurerm_user_assigned_identity.validation[0].client_id : null
 }

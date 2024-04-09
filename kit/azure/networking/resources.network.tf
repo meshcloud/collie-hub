@@ -1,9 +1,12 @@
 data "azurerm_subscription" "current" {
 }
 
-resource "azurerm_subscription" "networking" {
-  subscription_id   = data.azurerm_subscription.current.subscription_id
-  subscription_name = var.hub_subscription_name
+# workaround for https://github.com/hashicorp/terraform-provider-azurerm/issues/23014
+resource "terraform_data" "subscription_name" {
+  provisioner "local-exec" {
+    when    = create
+    command = "az account subscription rename --id ${data.azurerm_subscription.current.subscription_id} --name ${var.hub_subscription_name}"
+  }
 }
 
 resource "azurerm_management_group_subscription_association" "vnet" {
@@ -12,6 +15,8 @@ resource "azurerm_management_group_subscription_association" "vnet" {
 }
 
 resource "azurerm_resource_group" "hub_resource_group" {
+  depends_on = [azurerm_role_assignment.cloudfoundation_tfdeploy]
+
   name     = var.hub_resource_group
   location = var.location
 }
@@ -68,6 +73,7 @@ resource "azurerm_storage_account" "flowlogs" {
   account_tier              = "Standard"
   account_replication_type  = "GRS"
   shared_access_key_enabled = false
+  min_tls_version           = "TLS1_2"
 }
 
 resource "azurerm_storage_container" "flowlogs" {
