@@ -30,3 +30,4 @@ variable "azure_delay_seconds" {
   description = "Number of additional seconds to wait between Azure API operations to mitigate eventual consistency issues in order to increase automation reliabilty."
   default     = 30
 }
+
