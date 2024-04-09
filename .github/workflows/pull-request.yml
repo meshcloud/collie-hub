@@ -7,11 +7,12 @@ jobs:
   pull_request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Create Pull Request in collie-hub repo
 
+      - uses: actions/checkout@v4
+
+      - name: Create Pull Request in collie-hub repo
         run: |
-          gh pr create --base main --head feature/auto-backporting --draft \
+          gh pr create --base main --head feature/auto-backporting --draft --force \
             --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
             --body "The latest kits from likvid-cloudfoundation builds on the prod branch."; \
         env:
