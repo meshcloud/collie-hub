@@ -31,4 +31,3 @@ jobs:
             --body "The latest kits from likvid-cloudfoundation builds on the prod branch."
         env:
           GH_TOKEN: ${{ github.token }}
-
