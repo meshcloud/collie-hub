@@ -1,4 +1,5 @@
 name: auto pull request
+
 on:
   push:
     branches: [ "feature/auto-backporting" ]
@@ -10,10 +11,24 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: Create Pull Request in collie-hub repo
+      - name: Check if PR exists
+        id: check_pr
         run: |
-          gh pr create --base main --head feature/auto-backporting --draft --force \
+          existing_pr=$(gh pr list --state open --head feature/auto-backporting | wc -l)
+          if [ "$existing_pr" -gt 0 ]; then
+            echo "A pull request for the branch feature/auto-backporting already exists."
+            exit 0
+          else
+            echo "No existing pull request found."
+            exit 1
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_pr.outcome == 'failure'
+        run: |
+          gh pr create --base main --head feature/auto-backporting --draft \
             --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
-            --body "The latest kits from likvid-cloudfoundation builds on the prod branch."; \
+            --body "The latest kits from likvid-cloudfoundation builds on the prod branch."
         env:
           GH_TOKEN: ${{ github.token }}
+
