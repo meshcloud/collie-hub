@@ -17,17 +17,10 @@ jobs:
           existing_pr=$(gh pr list --state open --head feature/auto-backporting | wc -l)
           if [ "$existing_pr" -gt 0 ]; then
             echo "A pull request for the branch feature/auto-backporting already exists."
-            exit 0
           else
-            echo "No existing pull request found."
-            exit 1
-          fi
-
-      - name: Create Pull Request
-        if: steps.check_pr.outcome == 'failure'
-        run: |
-          gh pr create --base main --head feature/auto-backporting --draft \
+            gh pr create --base main --head feature/auto-backporting --draft \
             --title "[latest likvid kits] update latest kits from likvid-cloudfoundation" \
             --body "The latest kits from likvid-cloudfoundation builds on the prod branch."
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
