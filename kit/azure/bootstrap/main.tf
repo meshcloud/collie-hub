@@ -59,6 +59,11 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
       "Microsoft.Subscription/aliases/write",
       "Microsoft.Subscription/aliases/delete",
 
+      # read write delete budget alerts
+      "Microsoft.Consumption/budgets/read",
+      "Microsoft.Consumption/budgets/write",
+      "Microsoft.Consumption/budgets/delete",
+
       # Permission we need to activate/register required Resource Providers
       "*/register/action"
     ]
