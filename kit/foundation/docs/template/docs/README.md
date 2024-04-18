@@ -106,7 +106,6 @@ Because this landing zone does not connect to on-prem, this landing zone is a po
 | **Securing all endpoints of your application**      | X                    |                      |                    |
 | **Operating system**                                | X                    |                      |                    |
 | **Network controls**                                |                      | X                    |                    |
-| **Connectivity towards on-prem**                    |                      | X                    |                    |
 
 ### Cloud Native Landing Zone Serverless
 
