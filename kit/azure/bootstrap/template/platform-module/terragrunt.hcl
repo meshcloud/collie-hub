@@ -37,8 +37,8 @@ EOF
 }
 
 inputs = {
-  aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
-
+  aad_tenant_id                = include.platform.locals.platform.azure.aadTenantId
+  parent_management_group_name = "cloudfoundation-management-group" #TODO the cloudfoundation is created in a separate management group so as not to jeopardize the existing infrastructure
   terraform_state_storage = {
     name             = "${include.platform.locals.cloudfoundation.name}"
     location         = "germanywestcentral"                                     #TODO change, the azure location of the resource group and storage account
