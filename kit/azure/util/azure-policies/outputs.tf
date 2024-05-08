@@ -32,6 +32,7 @@ output "policy_sets" {
 output "policy_assignments" {
   value = { for k, v in azurerm_management_group_policy_assignment.enterprise_scale :
     v.name => {
+      id           = v.id,
       name         = v.name,
       display_name = v.display_name,
       description  = v.description,
