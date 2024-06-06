@@ -53,8 +53,8 @@ inputs = {
     }
   ]
   key_vault = {
-    name                = "likvid-cloudfoundation-kv"
-    resource_group_name = "likvid-cloudfoundation-keyvault"
+    name                = "cloudfoundation-kv"
+    resource_group_name = "cloudfoundation-keyvault"
   }
 
 
