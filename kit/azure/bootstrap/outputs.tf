@@ -25,3 +25,11 @@ output "documentation_uami_client_id" {
 output "validation_uami_client_id" {
   value = length(azurerm_user_assigned_identity.validation) > 0 ? azurerm_user_assigned_identity.validation[0].client_id : null
 }
+
+output "azurerm_key_vault" {
+  value = azurerm_key_vault.key_vault
+}
+
+output "azurerm_key_vault_rg_name" {
+  value = azurerm_resource_group.key_vault.name
+}

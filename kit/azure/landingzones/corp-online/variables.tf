@@ -27,3 +27,8 @@ variable "location" {
   description = "The Azure location where this policy assignment should exist, required when an Identity is assigned."
   default     = "germanywestcentral"
 }
+
+variable "vnet_address_space_id" {
+  type        = string
+  description = "The address space of the hub vnet for the policy assignment"
+}

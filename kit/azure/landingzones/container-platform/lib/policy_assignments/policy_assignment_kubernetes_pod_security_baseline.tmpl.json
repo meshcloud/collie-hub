@@ -1,0 +1,33 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "name": "K8S-Security-Baseline",
+  "dependsOn": [],
+  "properties": {
+    "description": "his initiative includes the policies for the Kubernetes cluster pod security baseline standards. This policy is generally available for Kubernetes Service (AKS), and preview for Azure Arc enabled Kubernetes. For instructions on using this policy",
+    "displayName": "Kubernetes cluster pod security baseline standards for Linux-based workloads",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/a8640138-9b0a-4a28-b8cb-1666c838647d",
+    "parameters": {
+      "effect": {
+        "value": "Audit"
+      },
+      "excludedNamespaces": {
+        "value": ["kube-system", "gatekeeper-system", "azure-arc", "azure-extensions-usage-system"]
+      },
+      "namespaces": {
+        "value": []
+      },
+      "allowedHostPaths": {
+        "value": {
+          "paths": []
+        }
+      }
+    },
+    "scope": "${current_scope_resource_id}"
+  },
+  "enforcementMode": "Default",
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}

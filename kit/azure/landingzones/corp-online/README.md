@@ -46,6 +46,7 @@ No requirements.
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
 | <a name="input_online"></a> [online](#input\_online) | n/a | `string` | `"online"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"lv-foundation"` | no |
+| <a name="input_vnet_address_space_id"></a> [vnet\_address\_space\_id](#input\_vnet\_address\_space\_id) | The address space of the hub vnet for the policy assignment | `string` | n/a | yes |
 
 ## Outputs
 

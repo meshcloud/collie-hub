@@ -93,3 +93,9 @@ variable "workload_identity_federation" {
   description = "Enable workload identity federation instead of using a password by providing these additional settings. Usually you should receive the required settings when attempting to configure a platform with workload identity federation in meshStack."
   type        = object({ issuer = string, replicator_subject = string, kraken_subject = string })
 }
+
+variable "can_cancel_subscriptions_in_scopes" {
+  type        = list(string)
+  description = "The scopes to which Service Principal cancel subscription permission is assigned to. List of management group id of form `/providers/Microsoft.Management/managementGroups/<mgmtGroupId>/`."
+  default     = []
+}

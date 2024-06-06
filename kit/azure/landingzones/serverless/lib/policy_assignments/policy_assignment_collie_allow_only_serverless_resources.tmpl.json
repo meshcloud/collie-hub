@@ -6,7 +6,7 @@
   "properties": {
     "description": "This policy assignment allows only the deployment of serverless resources.",
     "displayName": "Allow Serverless Resources Only",
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Allow-OnlyServerlessResources",
+    "policyDefinitionId": "${current_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Allow-OnlyServerlessResources",
     "enforcementMode": "Default",
     "nonComplianceMessages": [
       {
