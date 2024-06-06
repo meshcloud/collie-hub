@@ -7,7 +7,6 @@ variable "name" {
   default     = "sandbox"
 }
 
-
 variable "location" {
   type        = string
   description = "The Azure location used for creating policy assignments establishing this landing zone's guardrails."

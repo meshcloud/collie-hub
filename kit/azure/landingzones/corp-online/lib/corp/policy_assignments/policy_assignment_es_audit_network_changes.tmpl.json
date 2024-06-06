@@ -1,0 +1,18 @@
+{
+  "name": "Audit-Network-Changes",
+  "type": "Microsoft.Authorization/policyAssignments",
+   "location": "${default_location}",
+  "apiVersion": "2021-06-01",
+    "identity": {
+    "type": "SystemAssigned"
+  },
+
+  "properties": {
+    "displayName": "Audit Network Changes Assignment",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Audit-Network-Changes",
+    "scope": "${current_scope_resource_id}",
+
+    "parameters": {}
+  }
+}
+

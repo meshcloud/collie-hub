@@ -30,7 +30,7 @@ locals {
 
 inputs = {
   # todo: set input variables
-  parent_management_group_name = dependency.bootstrap.outputs.parent_management_group
+  parent_management_group_name = "${local.management_group_prefix}-foundation"
   locations                    = ["germanywestcentral"]
 
   management   = "${local.management_group_prefix}-management"

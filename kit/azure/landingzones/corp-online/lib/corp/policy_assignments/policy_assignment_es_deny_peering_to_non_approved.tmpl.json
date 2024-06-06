@@ -1,0 +1,25 @@
+{
+  "name": "Deny-Peer-To-Non-A-VNET",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "apiVersion": "2021-06-01",
+  "properties": {
+    "displayName": "Deny VNET Peering To Non-Approved VNETs",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-VNET-Peering-To-Non-Approved-VNETs",
+    "scope": "${current_scope_resource_id}",
+    "notScopes": [],
+    "parameters": {
+      "effect": {
+        "value": "Deny"
+      },
+      "allowedVnets": {
+        "value": [
+          "${vnet_address_space_id}"
+        ]
+      }
+    }
+  }
+}

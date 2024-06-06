@@ -119,6 +119,7 @@ No modules.
 | <a name="output_hub_rg"></a> [hub\_rg](#output\_hub\_rg) | Hub Resource Group name |
 | <a name="output_hub_subscription"></a> [hub\_subscription](#output\_hub\_subscription) | Subscription of hub vnet |
 | <a name="output_hub_vnet"></a> [hub\_vnet](#output\_hub\_vnet) | Hub VNet name |
+| <a name="output_hub_vnet_id"></a> [hub\_vnet\_id](#output\_hub\_vnet\_id) | Hub VNet id |
 | <a name="output_network_admins_azuread_group_id"></a> [network\_admins\_azuread\_group\_id](#output\_network\_admins\_azuread\_group\_id) | n/a |
 <!-- END_TF_DOCS -->
 

@@ -4,7 +4,7 @@
 
 module "meshplatform" {
   source  = "registry.terraform.io/meshcloud/meshplatform/azure"
-  version = "0.5.0"
+  version = "0.6.0"
 
   metering_enabled                      = var.metering_enabled
   metering_service_principal_name       = var.metering_service_principal_name
@@ -19,4 +19,5 @@ module "meshplatform" {
   additional_required_resource_accesses = var.additional_required_resource_accesses
   create_passwords                      = var.create_passwords
   workload_identity_federation          = var.workload_identity_federation
+  can_cancel_subscriptions_in_scopes    = var.can_cancel_subscriptions_in_scopes
 }

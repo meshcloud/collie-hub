@@ -18,6 +18,11 @@ output "hub_vnet" {
   description = "Hub VNet name"
 }
 
+output "hub_vnet_id" {
+  value       = azurerm_virtual_network.hub_network.id
+  description = "Hub VNet id"
+}
+
 output "firewall_name" {
   value       = join("", azurerm_firewall.fw.*.name)
   description = "Hub VNet firewall name"
