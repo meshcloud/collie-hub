@@ -29,7 +29,7 @@ variable "key_vault" {
   description = "This object contains configuration details for setting up a key vault."
   default = {
     name                = "cloudfoundation-kv"
-    resource_group_name = "cloudfoundation-rg"
+    resource_group_name = "cloudfoundation-keyvault"
   }
 }
 
