@@ -29,5 +29,9 @@ terraform {
 inputs = {
   location               = "germanywestcentral"
   service_principal_name = "cloud_foundation_tf_buildingblock_user"
-  scope                  = dependency.organization-hierarchy.outputs.landingzones_id
+  key_vault = {
+    name                = dependency.bootstrap.outputs.azurerm_key_vault.name
+    resource_group_name = dependency.bootstrap.outputs.azurerm_key_vault_rg_name
+  }
+  scope = dependency.organization-hierarchy.outputs.landingzones_id
 }
