@@ -7,6 +7,10 @@ dependency "organization-hierarchy" {
   config_path = "../../organization-hierarchy"
 }
 
+dependency "bootstrap" {
+  config_path = "../../bootstrap"
+}
+
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite"
