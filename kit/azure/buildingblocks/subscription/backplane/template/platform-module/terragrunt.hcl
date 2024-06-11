@@ -4,11 +4,11 @@ include "platform" {
 }
 
 dependency "bootstrap" {
-  config_path = "../../bootstrap"
+  config_path = "../../../bootstrap"
 }
 
 dependency "organization-hierarchy" {
-  config_path = "../../organization-hierarchy"
+  config_path = "../../../organization-hierarchy"
 }
 
 # we deploy to the management subscription here, as the subscription building block is central to all LZs
@@ -28,7 +28,7 @@ EOF
 }
 
 terraform {
-  source = "${get_repo_root()}//kit/azure/buildingblocks/subscription"
+  source = "${get_repo_root()}//kit/azure/buildingblocks/subscription/backplane"
 }
 
 inputs = {
