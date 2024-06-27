@@ -19,3 +19,4 @@ This module automates the deployment of building blocks within Azure. It utilize
 
 EOF
 }
+

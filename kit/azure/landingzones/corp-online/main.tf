@@ -4,6 +4,16 @@ resource "azurerm_management_group" "corp" {
   parent_management_group_id = var.parent_management_group_id
 }
 
+resource "azurerm_management_group" "prod" {
+  display_name               = "${var.corp}-prod"
+  parent_management_group_id = azurerm_management_group.corp.id
+}
+
+resource "azurerm_management_group" "dev" {
+  display_name               = "${var.corp}-dev"
+  parent_management_group_id = azurerm_management_group.corp.id
+}
+
 resource "azurerm_management_group" "online" {
   display_name               = var.online
   parent_management_group_id = var.parent_management_group_id

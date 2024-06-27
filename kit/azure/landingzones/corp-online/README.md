@@ -34,7 +34,9 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_management_group.corp](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group.dev](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 | [azurerm_management_group.online](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group.prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
 
 ## Inputs
 
