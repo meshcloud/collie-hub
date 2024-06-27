@@ -37,8 +37,7 @@ EOF
 }
 
 inputs = {
-  aad_tenant_id                = include.platform.locals.platform.azure.aadTenantId
-  parent_management_group_name = "cloudfoundation-management-group" #TODO the cloudfoundation is created in a separate management group so as not to jeopardize the existing infrastructure
+  aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
 
   terraform_state_storage = {
     name             = "${include.platform.locals.cloudfoundation.name}"
@@ -53,8 +52,8 @@ inputs = {
     }
   ]
   key_vault = {
-    name                = "cloudfoundation-kv"
-    resource_group_name = "cloudfoundation-keyvault"
+    name                = "likvid-cloudfoundation-kv"
+    resource_group_name = "likvid-cloudfoundation-keyvault"
   }
 
 
