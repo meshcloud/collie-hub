@@ -19,7 +19,3 @@ This building block Creates a subaccount in SAP BTP.
     - Add rest of the variables in variables.tf as you desired
 8. On the next page, add the outputs from outputs.tf file and click on Create Building Block
 9. Now users can add this building block to their tenants
-
-## Backend configuration
-
-Here you can find an example of how to create a backend.tf file on this [Wiki Page](https://github.com/meshcloud/building-blocks/wiki/%5BUser-Guide%5D-Setting-up-the-Backend-for-terraform-state#how-to-configure-backendtf-file-for-these-providers)
