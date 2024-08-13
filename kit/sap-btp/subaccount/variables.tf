@@ -9,11 +9,11 @@ variable "region" {
 }
 
 variable "workspace" {
-  type = string
+  type        = string
   description = "The meshStack workspace identifier."
 }
 
 variable "project" {
-  type = string
+  type        = string
   description = "The meshStack project identifier."
 }
