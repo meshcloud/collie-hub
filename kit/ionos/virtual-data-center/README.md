@@ -54,3 +54,46 @@ You can use it as a self-built platform integration in meshStack.
 19. Click Save
 20. ✅ Your platform integration is successfully set up and workspaces can now freely book new tenants (Virtual Data Centers)
     for your platform.
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | = 6.4.10 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ionoscloud_datacenter.this](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/datacenter) | resource |
+| [ionoscloud_group.admin](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/group) | resource |
+| [ionoscloud_group.editor](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/group) | resource |
+| [ionoscloud_group.reader](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/group) | resource |
+| [ionoscloud_share.admin](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/share) | resource |
+| [ionoscloud_share.editor](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/share) | resource |
+| [ionoscloud_share.reader](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/resources/share) | resource |
+| [ionoscloud_user.admins](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/data-sources/user) | data source |
+| [ionoscloud_user.editors](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/data-sources/user) | data source |
+| [ionoscloud_user.readers](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.10/docs/data-sources/user) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_dc_description"></a> [dc\_description](#input\_dc\_description) | Virtual Data Center description | `string` | n/a | yes |
+| <a name="input_dc_location"></a> [dc\_location](#input\_dc\_location) | Virtual Data Center location, e.g. de/fra, de/txl, es/vit, fr/par, gb/lhr, us/ewr, us/las, us/mci | `string` | n/a | yes |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Virtual Data Center last block in name | `string` | n/a | yes |
+| <a name="input_users"></a> [users](#input\_users) | Users and their roles provided by meshStack (Note that users must exist in IONOS) | <pre>list(object(<br>    {<br>      meshIdentifier = string<br>      username       = string<br>      firstName      = string<br>      lastName       = string<br>      email          = string<br>      euid           = string<br>      roles          = list(string)<br>    }<br>  ))</pre> | n/a | yes |
+| <a name="input_workspace_id"></a> [workspace\_id](#input\_workspace\_id) | Virtual Data Center first block in name | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | n/a |
+<!-- END_TF_DOCS -->
