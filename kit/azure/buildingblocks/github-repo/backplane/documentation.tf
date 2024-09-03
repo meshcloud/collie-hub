@@ -1,6 +1,6 @@
 output "documentation_md" {
   value = <<EOF
-# Building Block - Github Repository
+# Github Repository
 
 The Github Repository building block deploys a Github repository for the application team to store their code.
 
