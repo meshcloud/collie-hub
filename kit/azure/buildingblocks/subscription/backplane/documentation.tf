@@ -1,6 +1,6 @@
 output "documentation_md" {
   value       = <<EOF
-# Building Block - Subscription
+# Subscription
 
 This building block deploys default configuration for a subscription.
 
