@@ -25,6 +25,8 @@
           terragrunt
           tflint
           terraform-docs
+
+          pre-commit
         ];
 
       defaultShellForSystem = system:
