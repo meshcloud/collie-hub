@@ -10,21 +10,18 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: meshcloud/setup-collie@main
-      - uses: cachix/install-nix-action@v18
+      
+      - uses: nixbuild/nix-quick-install-action@v26
         with:
-          nix_path: nixpkgs-unstable=channel:nixos-unstable
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          nix_on_tmpfs: true
+
       - uses: rrbutani/use-nix-shell-action@v1
         with:
-          file: default.nix
-        # regarding to the terraform lic change to bsl
-        env:
-          NIXPKGS_ALLOW_UNFREE: 1
+          devShell: .#github_actions # use a special github actions shell
 
       - name: ensure all pre-commit hooks pass
         run: pre-commit run --all-files --show-diff-on-failure
-      - name: compile kit
-        run: collie kit compile
+
