@@ -1,54 +1,38 @@
-# Welcome to Likvid Bank Cloud Foundation
+# Welcome to MyOrg Cloud Foundation
 
-Welcome to Likvid Bank Cloud Foundation. Our team's job is to help you get your applications to the cloud.
-This is our Team:
+> 🚧 Change MyOrg to your organization name.
+
+Welcome to MyOrg Cloud Foundation. Our team's job is to help you get your applications to the cloud.
+
+> 🚧 Introduce your team
 
 | Name       | Role                 |
 |------------|----------------------|
-| Anna Admin | Enterprise Architect |
-| Oliver Operator       | Platform Engineer    |
-
-> 💡 Likvid Bank is a demo organization of course and, unfortunately, Anna and Oliver don't really exist to help
-> out with running this cloud foundation. This is why you will see meshcloud employees listed referenced in some documents instead.
+| Eric Adams | Enterprise Architect |
+| Phil       | Platform Engineer    |
 
 ## Your way to the cloud
 
-The cloud is generally available to all applications that meet a minimum of regulatory compliance requirements.
-In order to support compliance while at the same time enabling fast iteration and development of new applications,
-the cloud onboarding process works as follow
+> 🚧 Describe how application teams in your organization can get to the cloud.
 
-::: tip
-New to the cloud? Check out our [🚀 Starter Kits](https://panel.demo.meshcloud.io/#/landing-page/marketplace/catalog?searchTerm=Starter&sort=name,asc).
-When ordering a starter kit, simply create a new Workspace and Project using the landing zone family `Sandbox` and select
-confidentiality `public`.
-:::
+Cloud adoption has two phases.
 
-1. Product owners onboard their application and team members by creating a **Workspace** in our self-service
-portal (meshStack).
-2. Product owners now have access to create **Projects** in self-service that have access to *development and sandbox landing zones*.
-3. Product owners complete the "Regulatory Onboarding - Cloud" process in the "Likvid Bank Compliance Tool". As part of this, you will receive a `RegulatoryOnboardingId` and can link your existing Workspace in our self-service Portal (meshStack).
-4. Depending on the compliance classification of your application, you will now have access to create projects using *production landing zones*.
-
+1. The planning phase often begins with our consulting hours: Here you can inform yourself and ask your questions. In this phase you will choose a cloud provider and landing zone. Please note that not every service is available from every provider and landing zone. We recommend to create a solution design at this stage. Our cloud solution architects will support you in this.
+2. The implementation phase begins when you have access to your cloud environment. Now it's time for the big move - migrate your application and if necessary your data!
 
 ## Cloud Providers
 
-Likvid Bank follows a "cloud smart" strategy. This means product owners are free to pick and combine the cloud services
-and providers that they need.
+> 🚧 If you have a company wide cloud strategy, here's a good place to link to it.
 
-We currently offer the following **public clouds**:
+> 🚧 Adapt the list of cloud providers you want to offer. If you plan on using different clouds for different kinds of use cases (e.g. "boutique cloud" approach) then describe who is a cloud partner for what.
 
-- AWS (preview)
-- GCP (GA)
-- Azure (GA)
-- IONOS (preview)
+Our strategic cloud partners are
 
-We also offer managed kubernetes platforms operated by the Container Platform Team.
+- AWS
+- Google
+- Microsoft
 
-- AKS (on Azure, Frankfurt)
-- OpenShift (on GCP, Frankfurt as well as On-Premises)
-
-We offer various [landing zones](./concepts.md#landing-zone) for each of those platforms. Please see our
-[platforms documentation](/platforms/) for more details.
+We offer [landing zones](./concepts.md#landing-zone) for each of those [platforms](/platforms/).
 
 ## Shared Responsibility Model
 
@@ -69,12 +53,16 @@ The responsibility documented in the below table holds for all our offerings.
 | **Permissions on the cloud platform**                | X                    |                      |                    |
 | **Costs**                                            | X                    |                      |                    |
 
-> 🌤️ As a ground rule we apply the following principle: **If you deploy it, you own it**. Any resources that application
+> As a ground rule we apply the following principle: **If you deploy it, you own it**. Any resources that application
 > teams deploy to Azure are owned and must be secured by this application team. Deviations from this model for resources
 > where a shared responsibility model applies are expressly documented for each landing zone and building block offered
 > by the cloud foundation team.
 
 ## Landing Zones and Responsibilities
+
+> 🚧 Adapt the list of landing zones you want to offer.
+
+> 🚧 The use landing zones in this template are split by connectivity and use-case model. For more information on modeling landing zones, see [the meshcloud ultimate landing zone guide](https://www.meshcloud.io/wp-content/uploads/The-Ultimate-Landing-Zone-Guide-EN.pdf).
 
 The Landing Zones we offer are divided by use cases and networking requirements.
 The different Landing Zones offer different trade-offs between freedom & responsibilities.
