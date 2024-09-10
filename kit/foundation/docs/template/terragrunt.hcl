@@ -5,7 +5,7 @@ terraform {
 # note: we don't track any state for this module itself
 
 locals {
-  foundation_path = "${get_repo_root()}/foundations/name-of-foundation"
+  foundation_path = "${get_repo_root()}/foundations/name-of-foundation" #TODO: replace with the name of the foundation
   azure_platform  = read_terragrunt_config("${local.foundation_path}/platforms/azure/platform.hcl")
 }
 
