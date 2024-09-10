@@ -46,16 +46,32 @@ export const sidebar: SidebarConfig = {
         {
           text: 'Landing Zones',
           children: [
+           // '/platforms/azure/landingzones/sandbox',
+           // '/platforms/azure/landingzones/cloud-native',
+           // '/platforms/azure/landingzones/corp-online',
+           '/platforms/azure/landingzones/container-platform',
           ]
         },
         {
           text: 'Building Blocks',
           children: [
+            // '/platforms/azure/buildingblocks/budget-alert/backplane',
+            // '/platforms/azure/buildingblocks/connectivity/backplane',
+            // '/platforms/azure/buildingblocks/github-repo/backplane',
+            // '/platforms/azure/buildingblocks/starterkit/backplane',
+            // the subscription building block is a technical proof of concpet for a pure terraform workflow without meshStack and thus not relevant to the public demo
+
           ]
         },
         {
           text: 'Platform Administration',
           children: [
+            '/platforms/azure/bootstrap',
+            // '/platforms/azure/logging',
+            // '/platforms/azure/networking',
+            // '/platforms/azure/pam',
+            // '/platforms/azure/meshplatform',
+            // '/platforms/azure/buildingblocks/automation',
           ]
         }
       ]
@@ -120,7 +136,7 @@ function getMarkdownFiles(dir: string): string[] {
 export default defineUserConfig({
   // site-level locales config
   bundler: viteBundler(),
-  base: "/",
+  base: "/", // on github-pages, this is our base url
   locales: {
     "/": {
       lang: "en-US",
