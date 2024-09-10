@@ -8,7 +8,7 @@ A Container Platform Landing Zone is a pre-configured infrastructure setup desig
 ## 📂 Management Group Structure
 
 ```md
-`${resource.azurerm_management_group.container_platform.display_name}` management group for cloud-native landing zone 🚢 
+`${resource.azurerm_management_group.container_platform.display_name}` management group for cloud-native landing zone 🚢
   ├── `${resource.azurerm_management_group.dev.display_name}` management group for development workloads 🛠️
   │  └── *application team subscriptions* 📚
   └── `${resource.azurerm_management_group.prod.display_name}` management group for production workloads 🏭
