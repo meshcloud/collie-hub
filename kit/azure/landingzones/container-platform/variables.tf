@@ -8,7 +8,7 @@ variable "landingzones" {
   default     = "landingzones"
 }
 
-variable "lz-container-platform" {
+variable "name" {
   default = "container-platform"
 }
 
