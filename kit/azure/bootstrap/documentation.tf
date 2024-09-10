@@ -8,7 +8,7 @@ output "documentation_md" {
 
 Terraform state for the cloud foundation repository is stored in an Azure Blob Storage Container. 🗄️
 This container is located in the subscription `${data.azurerm_subscription.current.display_name}`. 🎫
-Resource Group: `${module.terraform_state.resource_group_name }` 📁
+Resource Group: `${module.terraform_state.resource_group_name}` 📁
 
 Access to terraform state is restricted to members of the `${azuread_group.platform_engineers.display_name}` group. 👥
 
@@ -37,7 +37,7 @@ ${join("\n", formatlist("- %s", var.platform_engineers_members[*].email))}
 
 |permissions|
 |-|
-${join("\n", formatlist("| %s |", azurerm_role_definition.cloudfoundation_deploy.permissions[0].actions ))}
+${join("\n", formatlist("| %s |", azurerm_role_definition.cloudfoundation_deploy.permissions[0].actions))}
 
 EOF
 }

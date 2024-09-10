@@ -36,7 +36,7 @@ provider "azuread" {
 EOF
 }
 
-locals  {
+locals {
   location = "germanywestcentral" #TODO change, the azure location of the resource group and storage account
 }
 

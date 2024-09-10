@@ -15,7 +15,7 @@ const navbar: NavbarConfig = [
         text: "Azure",
         link: "/platforms/azure/"
       },
-      // TODO other platforms
+      // TODO AWS
     ],
   },
   {
@@ -46,10 +46,10 @@ export const sidebar: SidebarConfig = {
         {
           text: 'Landing Zones',
           children: [
-           // '/platforms/azure/landingzones/sandbox',
-           // '/platforms/azure/landingzones/cloud-native',
-           // '/platforms/azure/landingzones/corp-online',
-           '/platforms/azure/landingzones/container-platform',
+            // '/platforms/azure/landingzones/sandbox',
+            // '/platforms/azure/landingzones/cloud-native',
+            // '/platforms/azure/landingzones/corp-online',
+            '/platforms/azure/landingzones/container-platform',
           ]
         },
         {
@@ -136,7 +136,7 @@ function getMarkdownFiles(dir: string): string[] {
 export default defineUserConfig({
   // site-level locales config
   bundler: viteBundler(),
-  base: "/", // on github-pages, this is our base url
+  base: "/my-cloudfoundation/", // on github-pages, this is our base url
   locales: {
     "/": {
       lang: "en-US",
