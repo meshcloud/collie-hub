@@ -6,7 +6,7 @@ terraform {
 
 locals {
   #TODO: use the foundation name
-  foundation_path = "${get_repo_root()}/foundations/lz101"
+  foundation_path = "${get_repo_root()}/foundations/name--of-your-foundation" #TODO change, the path to the foundation
   azure_platform  = read_terragrunt_config("${local.foundation_path}/platforms/azure/platform.hcl")
 }
 
