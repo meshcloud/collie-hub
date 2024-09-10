@@ -77,8 +77,8 @@ collie foundation deploy --bootstrap -- destroy
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.46.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.81.0 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | 2.53.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -90,36 +90,35 @@ collie foundation deploy --bootstrap -- destroy
 
 | Name | Type |
 |------|------|
-| [azuread_directory_role.readers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/directory_role) | resource |
-| [azuread_directory_role_assignment.validation_reader](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/directory_role_assignment) | resource |
-| [azuread_group.platform_engineers](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) | resource |
-| [azurerm_federated_identity_credential.docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential) | resource |
-| [azurerm_federated_identity_credential.validation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential) | resource |
-| [azurerm_key_vault.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
-| [azurerm_resource_group.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.docs_tfstate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.tfstates_engineers](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.validation_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.validation_reader_keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.validation_tfstate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_definition.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
-| [azurerm_role_definition.validation_reader](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
-| [azurerm_user_assigned_identity.docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity) | resource |
-| [azurerm_user_assigned_identity.validation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity) | resource |
-| [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
-| [azuread_users.platform_engineers_members](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/users) | data source |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
-| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
-| [azurerm_role_definition.keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [azuread_directory_role.readers](https://registry.terraform.io/providers/hashicorp/azuread/2.53.1/docs/resources/directory_role) | resource |
+| [azuread_directory_role_assignment.validation_reader](https://registry.terraform.io/providers/hashicorp/azuread/2.53.1/docs/resources/directory_role_assignment) | resource |
+| [azuread_group.platform_engineers](https://registry.terraform.io/providers/hashicorp/azuread/2.53.1/docs/resources/group) | resource |
+| [azurerm_federated_identity_credential.docs](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/federated_identity_credential) | resource |
+| [azurerm_federated_identity_credential.validation](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/federated_identity_credential) | resource |
+| [azurerm_key_vault.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/key_vault) | resource |
+| [azurerm_resource_group.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.cloudfoundation_tfdeploy](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.docs_tfstate](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.tfstates_engineers](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.validation_reader](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.validation_reader_keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.validation_tfstate](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_definition.cloudfoundation_deploy](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_definition) | resource |
+| [azurerm_role_definition.validation_reader](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/role_definition) | resource |
+| [azurerm_user_assigned_identity.docs](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/user_assigned_identity) | resource |
+| [azurerm_user_assigned_identity.validation](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/user_assigned_identity) | resource |
+| [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/2.53.1/docs/data-sources/client_config) | data source |
+| [azuread_users.platform_engineers_members](https://registry.terraform.io/providers/hashicorp/azuread/2.53.1/docs/data-sources/users) | data source |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/client_config) | data source |
+| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/management_group) | data source |
+| [azurerm_role_definition.keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/role_definition) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aad_tenant_id"></a> [aad\_tenant\_id](#input\_aad\_tenant\_id) | Id of the AAD Tenant. This is also the simultaneously the id of the root management group. | `string` | n/a | yes |
 | <a name="input_documentation_uami"></a> [documentation\_uami](#input\_documentation\_uami) | read-only UAMI with access to terraform states to generate documentation in CI pipelines | <pre>object({<br>    name = string<br>    # note: it seems wildcards are not supported yet, see https://github.com/Azure/azure-workload-identity/issues/373<br>    oidc_subject = string<br>  })</pre> | `null` | no |
 | <a name="input_key_vault"></a> [key\_vault](#input\_key\_vault) | This object contains configuration details for setting up a key vault. | <pre>object({<br>    name                = string,<br>    resource_group_name = string<br>  })</pre> | <pre>{<br>  "name": "cloudfoundation-kv",<br>  "resource_group_name": "cloudfoundation-rg"<br>}</pre> | no |
 | <a name="input_parent_management_group_name"></a> [parent\_management\_group\_name](#input\_parent\_management\_group\_name) | Name of the management group you want to use as parent for your foundation. | `string` | n/a | yes |

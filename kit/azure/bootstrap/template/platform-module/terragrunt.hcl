@@ -36,15 +36,19 @@ provider "azuread" {
 EOF
 }
 
+locals  {
+  location = "germanywestcentral" #TODO change, the azure location of the resource group and storage account
+}
+
 inputs = {
-  aad_tenant_id = include.platform.locals.platform.azure.aadTenantId
+  parent_management_group_name = "cloudfoundation-management-group" #TODO the cloudfoundation is created in a separate management group so as not to jeopardize the existing infrastructure
 
   terraform_state_storage = {
     name             = "${include.platform.locals.cloudfoundation.name}"
-    location         = "germanywestcentral"                                     #TODO change, the azure location of the resource group and storage account
+    location         = local.location
     config_file_path = include.platform.locals.terraform_state_config_file_path # platform.hcl expects state configuration output in this location, do not change
   }
-
+  platform_engineers_group = "cloudfoundation-platform-engineers"
   platform_engineers_members = [
     {
       email = "meshi@meshithesheep.io"              #TODO change, enter PLATFORM ENGINEERS MAIL here
@@ -55,6 +59,4 @@ inputs = {
     name                = "likvid-cloudfoundation-kv"
     resource_group_name = "likvid-cloudfoundation-keyvault"
   }
-
-
 }
