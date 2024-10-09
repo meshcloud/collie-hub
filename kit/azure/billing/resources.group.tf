@@ -1,7 +1,3 @@
-data "azuread_client_config" "current" {}
-
-data "azurerm_subscription" "current" {}
-
 resource "azuread_group" "billing_admins" {
   display_name     = var.billing_admin_group
   description      = "Privileged Cloud Foundation group. Members can manage billing profiles, reserved instances and have full access to all Azure Cost Management data."

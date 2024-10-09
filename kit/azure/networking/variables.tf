@@ -58,18 +58,6 @@ variable "management_nsg_rules" {
   default     = []
 }
 
-variable "lz_networking_deploy" {
-  type        = string
-  default     = "cloudfoundation_lz_network_deploy_user"
-  description = "Service Principal responsible for deploying the landing zone networking"
-}
-
-variable "hub_networking_deploy" {
-  type        = string
-  default     = "cloudfoundation_hub_network_deploy_user"
-  description = "Service Principal responsible for deploying the central hub networking"
-}
-
 variable "network_admin_group" {
   type        = string
   default     = "cloudfoundation-network-admins"

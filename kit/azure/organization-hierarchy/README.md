@@ -57,7 +57,7 @@ After deploying this module, you should probably deploy the following kit module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.97.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -69,15 +69,15 @@ After deploying this module, you should probably deploy the following kit module
 
 | Name | Type |
 |------|------|
-| [azurerm_management_group.connectivity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.landingzones](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group_subscription_association.management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
+| [azurerm_management_group.connectivity](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.identity](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.landingzones](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.management](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.platform](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group_subscription_association.management](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group_subscription_association) | resource |
 | [terraform_data.management_subscription_name](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
-| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [azurerm_management_group.parent](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/management_group) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/subscription) | data source |
 
 ## Inputs
 

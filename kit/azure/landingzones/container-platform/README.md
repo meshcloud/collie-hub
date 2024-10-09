@@ -19,7 +19,7 @@ The Container Platform Landing Zone is a pre-configured environment designed to 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.102.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -31,17 +31,14 @@ The Container Platform Landing Zone is a pre-configured environment designed to 
 
 | Name | Type |
 |------|------|
-| [azurerm_management_group.container_platform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.dev](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group.container_platform](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"landingzones"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
-| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `"container-platform"` | no |
+| <a name="input_lz-container-platform"></a> [lz-container-platform](#input\_lz-container-platform) | n/a | `string` | `"container-platform"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"foundation"` | no |
 
 ## Outputs
