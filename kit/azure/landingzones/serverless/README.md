@@ -16,7 +16,10 @@ This kit provides a Terraform configuration for setting up Azure Management Grou
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -28,13 +31,12 @@ No requirements.
 
 | Name | Type |
 |------|------|
-| [azurerm_management_group.serverless](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group.serverless](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"lv-landingzones"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
 | <a name="input_lz-serverless"></a> [lz-serverless](#input\_lz-serverless) | n/a | `string` | `"serverless"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"lv-foundation"` | no |

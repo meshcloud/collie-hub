@@ -8,12 +8,6 @@ variable "name" {
   }
 }
 
-variable "scope" {
-  type        = string
-  nullable    = false
-  description = "Scope where the building block should be deployable, typically the parent of all Landing Zones."
-}
-
 variable "principal_ids" {
   type        = set(string)
   nullable    = false
