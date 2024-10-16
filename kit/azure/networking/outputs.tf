@@ -24,7 +24,7 @@ output "hub_vnet_id" {
 }
 
 output "firewall_name" {
-  value       = join("", azurerm_firewall.fw.*.name)
+  value       = join("", azurerm_firewall.fw[*].name)
   description = "Hub VNet firewall name"
 }
 

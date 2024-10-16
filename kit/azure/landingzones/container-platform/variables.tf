@@ -3,12 +3,7 @@ variable "parent_management_group_id" {
   default     = "foundation"
 }
 
-variable "landingzones" {
-  description = "The parent_management_group where your landingzones are"
-  default     = "landingzones"
-}
-
-variable "name" {
+variable "lz-container-platform" {
   default = "container-platform"
 }
 
