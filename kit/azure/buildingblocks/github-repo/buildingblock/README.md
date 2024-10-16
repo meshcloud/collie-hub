@@ -31,8 +31,8 @@ The building block outputs the name, description, and visibility of the created 
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.81.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | 5.34.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | 5.42.0 |
 
 ## Modules
 
@@ -42,9 +42,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_repository.repository](https://registry.terraform.io/providers/integrations/github/5.34.0/docs/resources/repository) | resource |
-| [azurerm_key_vault.cloudfoundation_keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault) | data source |
-| [azurerm_key_vault_secret.github_token](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault_secret) | data source |
+| [github_repository.repository](https://registry.terraform.io/providers/integrations/github/5.42.0/docs/resources/repository) | resource |
+| [azurerm_key_vault.cloudfoundation_keyvault](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/key_vault) | data source |
+| [azurerm_key_vault_secret.github_token](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/data-sources/key_vault_secret) | data source |
 
 ## Inputs
 

@@ -9,11 +9,6 @@ variable "cloudfoundation" {
   description = "the name of your cloudfoundation"
 }
 
-variable "landingzones" {
-  description = "The parent_management_group where your landingzones are"
-  default     = "lv-landingzones"
-}
-
 variable "corp" {
   default = "corp"
 }

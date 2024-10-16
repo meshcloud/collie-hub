@@ -31,7 +31,7 @@ resource "azurerm_route" "fw" {
   route_table_name       = azurerm_route_table.out.name
   address_prefix         = "0.0.0.0/0"
   next_hop_type          = "VirtualAppliance"
-  next_hop_in_ip_address = azurerm_firewall.fw[0].ip_configuration.0.private_ip_address
+  next_hop_in_ip_address = azurerm_firewall.fw[0].ip_configuration[0].private_ip_address
 }
 
 resource "azurerm_public_ip_prefix" "fw" {
