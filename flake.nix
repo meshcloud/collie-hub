@@ -8,30 +8,58 @@
 
   outputs = { self, nixpkgs }:
 
-    let
+  let
       # These tools are pre-installed in github actions, so we can save the time for installing them.
+      # This can save as much as 20s (with nix on tmpfs), trading some consistency for perf.
       github_actions_preinstalled = pkgs:
         with pkgs;
         [
+          awscli2
+          (azure-cli.withExtensions [ azure-cli.extensions.account ])
           nodejs
+
+          # note: google cloud sdk is not preinstalled in github actions
         ];
 
-      # core packasges required in CI and not preinstalled in github actions
+      # core packages required in CI and not preinstalled in github actions
       core_packages = pkgs:
+        let
+          # fake opentofu as terraform so that tools like terraform-docs pre-commit hook (which doesn't have tofu support)
+          # fall back to tofu
+          tofu_terraform =
+            pkgs.stdenv.mkDerivation {
+              name = "tofu-terraform";
+              phases = [ "installPhase" ];
+              installPhase = ''
+                mkdir -p $out/bin
+                echo '#!/usr/bin/env sh' > $out/bin/terraform
+                echo 'tofu $@' > $out/bin/terraform
+                chmod +x $out/bin/terraform
+              '';
+            };
+        in
         with pkgs;
         [
           # terraform tools
           opentofu
           terragrunt
           tflint
+          tfupdate
           terraform-docs
 
+          # fake tofu as terraform
+          tofu_terraform
+
+          # script dependencies
+          jq
           pre-commit
         ];
 
+      importNixpkgs = system: import nixpkgs { inherit system; };
+
       defaultShellForSystem = system:
         let
-          pkgs = import nixpkgs { inherit system; config = { }; };
+          pkgs = importNixpkgs system;
         in
         {
           default = pkgs.mkShell {
@@ -41,6 +69,7 @@
         };
 
     in
+
     {
       devShells = {
         aarch64-darwin = (defaultShellForSystem "aarch64-darwin");
@@ -49,10 +78,9 @@
           # use a smaller/faster shell on github actions
           github_actions =
             let
-              system = "x86_64-linux";
-              pkgs = import nixpkgs { inherit system; config = { }; };
+              pkgs = importNixpkgs "x86_64-linux";
             in
-            pkgs.mkShell {
+                        pkgs.mkShell {
               name = "collie-hub-ghactions";
               packages = (core_packages pkgs);
             };
