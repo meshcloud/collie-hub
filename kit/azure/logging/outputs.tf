@@ -1,9 +1,9 @@
 output "security_admins_azuread_group_id" {
-  value = azuread_group.security_admins.id
+  value = azuread_group.security_admins.object_id
 }
 
 output "security_auditors_azuread_group_id" {
-  value = azuread_group.security_auditors.id
+  value = azuread_group.security_auditors.object_id
 }
 
 output "logging_subscription" {

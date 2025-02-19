@@ -91,7 +91,7 @@ resource "azuread_service_principal" "aviatrix_deploy" {
 resource "azurerm_role_assignment" "aviatrix_deploy" {
   scope              = var.parent_management_group
   role_definition_id = azurerm_role_definition.aviatrix_deploy.role_definition_resource_id
-  principal_id       = azuread_service_principal.aviatrix_deploy.id
+  principal_id       = azuread_service_principal.aviatrix_deploy.object_id
 }
 
 resource "azuread_app_role_assignment" "aviatrix_deploy-directory" {

@@ -14,20 +14,6 @@ variable "terraform_state_storage" {
   description = "Configure this object to enable setting up a terraform state store in Azure Storage."
 }
 
-variable "key_vault" {
-  type = object({
-    name                = string,
-    resource_group_name = string
-  })
-  nullable = false
-
-  description = "This object contains configuration details for setting up a key vault."
-  default = {
-    name                = "cloudfoundation-kv"
-    resource_group_name = "cloudfoundation-rg"
-  }
-}
-
 variable "platform_engineers_members" {
   description = "Set up a group of platform engineers. If enabled, this group will receive access to terraform_state_storage"
   type = list(object({
@@ -38,6 +24,7 @@ variable "platform_engineers_members" {
 
 variable "platform_engineers_group" {
   type        = string
+  default     = "cloudfoundation-platform-engineers"
   description = "the name of the cloud foundation platform engineers group"
 }
 

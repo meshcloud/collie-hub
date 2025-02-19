@@ -8,7 +8,7 @@ output "client_secret" {
 }
 
 output "client_principal_id" {
-  value = azuread_service_principal.aviatrix_deploy.id
+  value = azuread_service_principal.aviatrix_deploy.object_id
 }
 
 output "aviatrix_service_principal" {

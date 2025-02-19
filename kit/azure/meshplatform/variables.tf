@@ -99,3 +99,9 @@ variable "can_cancel_subscriptions_in_scopes" {
   description = "The scopes to which Service Principal cancel subscription permission is assigned to. List of management group id of form `/providers/Microsoft.Management/managementGroups/<mgmtGroupId>/`."
   default     = []
 }
+
+variable "can_delete_rgs_in_scopes" {
+  type        = list(string)
+  description = "The scopes to which Service Principal delete resource group permission is assigned to. Only relevant when `replicator_rg_enabled`. List of subscription scopes of form `/subscriptions/<subscriptionId>`."
+  default     = []
+}

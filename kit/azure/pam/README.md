@@ -32,8 +32,8 @@ and cohesive overview.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.41.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.71.0 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | 3.0.2 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -43,13 +43,11 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azuread_group_member.pam_desired_memberships](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) | resource |
-| [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
-| [azuread_group.pam_desired_groups](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
-| [azuread_group.pam_groups](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
-| [azuread_user.pam_desired_users](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
-| [azuread_user.pam_users](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [azuread_group_member.pam_desired_memberships](https://registry.terraform.io/providers/hashicorp/azuread/3.0.2/docs/resources/group_member) | resource |
+| [azuread_group.pam_desired_groups](https://registry.terraform.io/providers/hashicorp/azuread/3.0.2/docs/data-sources/group) | data source |
+| [azuread_group.pam_groups](https://registry.terraform.io/providers/hashicorp/azuread/3.0.2/docs/data-sources/group) | data source |
+| [azuread_user.pam_desired_users](https://registry.terraform.io/providers/hashicorp/azuread/3.0.2/docs/data-sources/user) | data source |
+| [azuread_user.pam_users](https://registry.terraform.io/providers/hashicorp/azuread/3.0.2/docs/data-sources/user) | data source |
 
 ## Inputs
 

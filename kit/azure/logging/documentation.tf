@@ -19,8 +19,8 @@ The following AAD groups control access and are used to implement [Privileged Ac
 
 |group|description|object_id|
 |-|-|-|
-| ${azuread_group.security_admins.display_name} | ${azuread_group.security_admins.description} | ${azuread_group.security_admins.id} |
-| ${azuread_group.security_auditors.display_name} | ${azuread_group.security_auditors.description} | ${azuread_group.security_auditors.id} |
+| ${azuread_group.security_admins.display_name} | ${azuread_group.security_admins.description} | ${azuread_group.security_admins.object_id} |
+| ${azuread_group.security_auditors.display_name} | ${azuread_group.security_auditors.description} | ${azuread_group.security_auditors.object_id} |
 
 ## How can I access Activity Logs for my subscription?
 

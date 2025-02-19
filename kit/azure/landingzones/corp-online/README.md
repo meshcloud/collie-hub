@@ -20,7 +20,10 @@ This kit provides a Terraform configuration for setting up Azure Management Grou
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -33,10 +36,10 @@ No requirements.
 
 | Name | Type |
 |------|------|
-| [azurerm_management_group.corp](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.dev](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.online](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
-| [azurerm_management_group.prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group) | resource |
+| [azurerm_management_group.corp](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.dev](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.online](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
+| [azurerm_management_group.prod](https://registry.terraform.io/providers/hashicorp/azurerm/3.116.0/docs/resources/management_group) | resource |
 
 ## Inputs
 
@@ -44,7 +47,6 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_cloudfoundation"></a> [cloudfoundation](#input\_cloudfoundation) | the name of your cloudfoundation | `string` | n/a | yes |
 | <a name="input_corp"></a> [corp](#input\_corp) | n/a | `string` | `"corp"` | no |
-| <a name="input_landingzones"></a> [landingzones](#input\_landingzones) | The parent\_management\_group where your landingzones are | `string` | `"lv-landingzones"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure location where this policy assignment should exist, required when an Identity is assigned. | `string` | `"germanywestcentral"` | no |
 | <a name="input_online"></a> [online](#input\_online) | n/a | `string` | `"online"` | no |
 | <a name="input_parent_management_group_id"></a> [parent\_management\_group\_id](#input\_parent\_management\_group\_id) | The tenant management group of your cloud foundation | `string` | `"lv-foundation"` | no |
@@ -54,7 +56,9 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_corp_dev_id"></a> [corp\_dev\_id](#output\_corp\_dev\_id) | id of the corp dev management group |
 | <a name="output_corp_id"></a> [corp\_id](#output\_corp\_id) | id of the corp management group |
+| <a name="output_corp_prod_id"></a> [corp\_prod\_id](#output\_corp\_prod\_id) | id of the corp prod  management group |
 | <a name="output_documentation_md"></a> [documentation\_md](#output\_documentation\_md) | n/a |
 | <a name="output_online_id"></a> [online\_id](#output\_online\_id) | id of the online management group |
 <!-- END_TF_DOCS -->

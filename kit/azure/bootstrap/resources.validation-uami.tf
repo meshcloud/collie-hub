@@ -61,15 +61,6 @@ resource "azuread_directory_role" "readers" {
   display_name = "Directory Readers"
 }
 
-# allow the validation user to read the cloudfoundation key vault
-resource "azurerm_role_assignment" "validation_reader_keyvault" {
-  count = var.validation_uami != null ? 1 : 0
-
-  principal_id         = azurerm_user_assigned_identity.validation[0].principal_id
-  scope                = azurerm_key_vault.key_vault.id
-  role_definition_name = data.azurerm_role_definition.keyvault.name
-}
-
 resource "azuread_directory_role_assignment" "validation_reader" {
   count = var.validation_uami != null ? 1 : 0
 

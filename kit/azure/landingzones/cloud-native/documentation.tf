@@ -8,7 +8,7 @@ for all of their workloads following the "you build it, you run it" principle.
 ## Active Policies
 
 This landing zone does currently not impose any additional policies or restrictions on Subscriptions or Resources
-apart from those that already apply at the [organization level](../azure-organization-hierarchy.md).
+apart from those that already apply at the [organization level](../organization-hierarchy.md).
 
 ### Dev and Prod Stage Separation
 
@@ -17,7 +17,7 @@ We separate development and productive workloads in the cloud-native Landing Zon
 > Currently the same policies apply to development and productive workloads. However, the cloud foundation team may decide
 > to introduce more differences in the future.
 
-This landing zone intergrates below the `online` management group in the [organization hierarchy](../azure-organization-hierarchy.md).
+This landing zone intergrates below the `online` management group in the [organization hierarchy](../organization-hierarchy.md).
 
 The resource hierarchy of this landing zone looks like this:
 

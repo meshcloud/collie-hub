@@ -14,6 +14,8 @@ variable "address_space" {
   type = string
 }
 
+# this variable is supposed to be used by an injected config.tf file for configuring the azurerm provider
+# tflint-ignore: terraform_unused_declarations
 variable "subscription_id" {
   type        = string
   description = "The ID of the subscription that you want to deploy the spoke to"

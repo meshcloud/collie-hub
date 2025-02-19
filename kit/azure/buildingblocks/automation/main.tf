@@ -2,7 +2,7 @@ data "azurerm_subscription" "current" {}
 
 resource "azurerm_role_assignment" "tfstates_engineers" {
   role_definition_name = "Storage Blob Data Owner"
-  principal_id         = azuread_service_principal.buildingblock.id
+  principal_id         = azuread_service_principal.buildingblock.object_id
   scope                = azurerm_storage_container.tfstates.resource_manager_id
 }
 
@@ -25,7 +25,7 @@ data "azurerm_role_definition" "keyvault_administrator" {
 resource "azurerm_role_assignment" "keyvault_administrator" {
   scope                = data.azurerm_key_vault.cf_key_vault.id
   role_definition_name = data.azurerm_role_definition.keyvault_administrator.name
-  principal_id         = azuread_service_principal.buildingblock.id
+  principal_id         = azuread_service_principal.buildingblock.object_id
 }
 
 locals {
@@ -63,7 +63,7 @@ resource "azurerm_role_definition" "buildingblock_plan" {
 
 resource "azurerm_role_assignment" "buildingblock_deploy" {
   role_definition_id = azurerm_role_definition.buildingblock_plan.role_definition_resource_id
-  principal_id       = azuread_service_principal.buildingblock.id
+  principal_id       = azuread_service_principal.buildingblock.object_id
   scope              = var.scope
 
 }
@@ -131,7 +131,7 @@ resource "azurerm_management_group_policy_assignment" "buildingblock_access" {
   management_group_id  = var.scope
 
   parameters = jsonencode({
-    principalId           = { value = azuread_service_principal.buildingblock.id }
+    principalId           = { value = azuread_service_principal.buildingblock.object_id }
     managedResourceGroups = { value = local.managedResourceGroups }
   })
 }

@@ -20,8 +20,8 @@ The following AAD groups control access and are used to implement [Privileged Ac
 
 |group|description|object_id|
 |-|-|-|
-| ${azuread_group.billing_admins.display_name} | ${azuread_group.billing_admins.description} | ${azuread_group.billing_admins.id} |
-| ${azuread_group.billing_readers.display_name} | ${azuread_group.billing_readers.description} | ${azuread_group.billing_readers.id} |
+| ${azuread_group.billing_admins.display_name} | ${azuread_group.billing_admins.description} | ${azuread_group.billing_admins.object_id} |
+| ${azuread_group.billing_readers.display_name} | ${azuread_group.billing_readers.description} | ${azuread_group.billing_readers.object_id} |
 
 ## How can I review Cost Management data for my subscription
 

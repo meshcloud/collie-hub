@@ -1,7 +1,3 @@
-data "azuread_client_config" "current" {}
-
-data "azurerm_subscription" "current" {}
-
 # We have to do some pre-processing here in order to produce nice documentation.
 
 # fetch data about all actual PAM groups

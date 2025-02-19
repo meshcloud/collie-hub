@@ -1,6 +1,3 @@
-data "azurerm_subscription" "current" {
-}
-
 resource "azurerm_role_definition" "buildingblock_deploy" {
   name        = "${var.name}-deploy"
   description = "Enables deployment of the ${var.name} building block to subscriptions"

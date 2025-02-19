@@ -3,11 +3,6 @@ variable "parent_management_group_id" {
   default     = "lv-foundation"
 }
 
-variable "landingzones" {
-  description = "The parent_management_group where your landingzones are"
-  default     = "lv-landingzones"
-}
-
 variable "lz-serverless" {
   default = "serverless"
 }

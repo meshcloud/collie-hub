@@ -11,7 +11,7 @@ module "policy_sandbox" {
   location            = var.location
 
   template_file_variables = {
-    default_location          = "${var.location}"
+    default_location          = var.location
     current_scope_resource_id = azurerm_management_group.sandbox.id
     root_scope_resource_id    = azurerm_management_group.sandbox.id
   }

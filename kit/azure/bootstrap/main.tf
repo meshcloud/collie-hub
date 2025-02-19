@@ -77,5 +77,5 @@ resource "azurerm_role_definition" "cloudfoundation_deploy" {
 resource "azurerm_role_assignment" "cloudfoundation_deploy" {
   scope              = data.azurerm_management_group.parent.id
   role_definition_id = azurerm_role_definition.cloudfoundation_deploy.role_definition_resource_id
-  principal_id       = azuread_group.platform_engineers.id
+  principal_id       = azuread_group.platform_engineers.object_id
 }
