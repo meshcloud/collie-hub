@@ -1,0 +1,62 @@
+name: build and deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: $${{ secrets.aks_container_registry_host }}
+          username: $${{ secrets.aks_container_registry_username }}
+          password: $${{ secrets.aks_container_registry_password }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${registry}/${image_name}:$${{ github.sha }}
+
+      - name: Deploy to AKS
+        env:
+          KUBECONFIG_CONTENT: $${{ secrets.KUBECONFIG }}
+        run: |
+          echo "$KUBECONFIG_CONTENT" > kubeconfig
+          cat > deployment.yml <<EOF
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: ${image_name}
+            namespace: ${namespace}
+            labels:
+              app: ${image_name}
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: ${image_name}
+            template:
+              metadata:
+                labels:
+                  app: ${image_name}
+              spec:
+                containers:
+                  - name: ${image_name}
+                    image: ${registry}/${image_name}:$${{ github.sha }}
+                    resources:
+                      limits:
+                        memory: "64Mi"
+                        cpu: "100m"
+                imagePullSecrets:
+                  - name: ${image_pull_secret}
+          EOF
+
+          kubectl --kubeconfig ./kubeconfig apply -f deployment.yml
