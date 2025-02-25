@@ -6,6 +6,6 @@ run "verify" {
     key_vault_resource_group_name = "kv-rg"
     key_vault_name                = "kv-integrationtest"
     location                      = "westeurope"
-    users                         = ["likvid-anna@meshcloud.io"]
+    users                         = "likvid-anna@meshcloud.io"
   }
 }
