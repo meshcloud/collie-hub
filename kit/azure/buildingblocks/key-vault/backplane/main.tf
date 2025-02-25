@@ -6,6 +6,7 @@ resource "azurerm_role_definition" "buildingblock_deploy" {
     actions = [
       "Microsoft.KeyVault/vaults/write",
       "Microsoft.KeyVault/vaults/read",
+      "Microsoft.KeyVault/vaults/delete",
       "Microsoft.Authorization/roleAssignments/write",
       "Microsoft.Authorization/roleAssignments/delete",
       "Microsoft.Authorization/roleAssignments/read"
