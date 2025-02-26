@@ -1,15 +1,22 @@
 locals {
-  user_list = split(",", var.users)
+  admins  = { for user in var.users : user.username => user if contains(user["roles"], "admin") }
+  editors = { for user in var.users : user.username => user if contains(user["roles"], "user") }
+  readers = { for user in var.users : user.username => user if contains(user["roles"], "reader") }
 }
 
 data "azurerm_subscription" "current" {}
 
 data "azurerm_client_config" "current" {}
 
+resource "random_string" "resource_code" {
+  length  = 5
+  special = false
+  upper   = false
+}
 
 data "azuread_user" "users" {
-  for_each = toset(local.user_list)
-  mail     = trimspace(each.value)
+  for_each = merge(local.admins, local.readers)
+  mail     = each.value.username
 }
 
 resource "azurerm_resource_group" "key_vault" {
@@ -18,7 +25,7 @@ resource "azurerm_resource_group" "key_vault" {
 }
 
 resource "azurerm_key_vault" "key_vault" {
-  name                          = var.key_vault_name
+  name                          = "${var.key_vault_name}-${random_string.resource_code.result}"
   location                      = var.location
   resource_group_name           = azurerm_resource_group.key_vault.name
   tenant_id                     = data.azurerm_client_config.current.tenant_id

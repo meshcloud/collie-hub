@@ -20,8 +20,18 @@ variable "subscription_id" {
 }
 
 variable "users" {
-  type        = string
-  description = "Comma-separated list of user emails"
+  type = list(object(
+    {
+      meshIdentifier = string
+      username       = string
+      firstName      = string
+      lastName       = string
+      email          = string
+      euid           = string
+      roles          = list(string)
+    }
+  ))
+  description = "Users and their roles provided by meshStack (Note that users must exist in stackit)"
 }
 
 variable "public_network_access_enabled" {
