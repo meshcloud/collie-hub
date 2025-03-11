@@ -1,3 +1,8 @@
+variable "subscription_id" {
+  description = "the Azure subscription id"
+  type        = string
+}
+
 variable "resource_group_name" {
   description = "Name of the Azure resource group"
   type        = string
@@ -23,7 +28,7 @@ variable "administrator_login" {
 variable "sku_name" {
   description = "The SKU name for the PostgreSQL server"
   type        = string
-  default     = "B_Standard_B1ms"
+  default     = "B_Gen5_1"
 }
 
 variable "postgresql_version" {
