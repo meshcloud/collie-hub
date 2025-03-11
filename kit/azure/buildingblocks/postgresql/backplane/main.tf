@@ -6,7 +6,7 @@ resource "azurerm_role_definition" "buildingblock_deploy" {
     actions = [
       "Microsoft.DBforPostgreSQL/servers/write",
       "Microsoft.DBforPostgreSQL/servers/read",
-      //"Microsoft.DBforPostgreSQL/servers/backup/read",
+      "Microsoft.DBforPostgreSQL/servers/delete",
       "Microsoft.DBforPostgreSQL/servers/firewallRules/read",
       "Microsoft.DBforPostgreSQL/servers/firewallRules/write"
     ]
