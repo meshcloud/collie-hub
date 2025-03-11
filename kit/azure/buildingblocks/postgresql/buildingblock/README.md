@@ -96,4 +96,5 @@ No modules.
 | <a name="output_postgresql_server_name"></a> [postgresql\_server\_name](#output\_postgresql\_server\_name) | The name of the PostgreSQL server |
 | <a name="output_postgresql_version"></a> [postgresql\_version](#output\_postgresql\_version) | The PostgreSQL version |
 | <a name="output_psql_admin_password"></a> [psql\_admin\_password](#output\_psql\_admin\_password) | The administrator password for PostgreSQL |
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | The name of the resource group in which the PostgreSQL database is created |
 <!-- END_TF_DOCS -->
