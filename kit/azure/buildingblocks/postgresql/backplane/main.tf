@@ -8,7 +8,9 @@ resource "azurerm_role_definition" "buildingblock_deploy" {
       "Microsoft.DBforPostgreSQL/servers/read",
       "Microsoft.DBforPostgreSQL/servers/delete",
       "Microsoft.DBforPostgreSQL/servers/firewallRules/read",
-      "Microsoft.DBforPostgreSQL/servers/firewallRules/write"
+      "Microsoft.DBforPostgreSQL/servers/firewallRules/write",
+      "Microsoft.DBforPostgreSQL/servers/databases/read",
+      "Microsoft.DBforPostgreSQL/servers/databases/write"
     ]
   }
 }
