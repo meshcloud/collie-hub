@@ -13,12 +13,6 @@ output "postgresql_admin_username" {
   value       = azurerm_postgresql_server.example.administrator_login
 }
 
-output "postgresql_storage_mb" {
-  description = "The allocated storage in MB"
-  value       = azurerm_postgresql_server.example.storage_mb
-  type        = number
-}
-
 output "postgresql_version" {
   description = "The PostgreSQL version"
   value       = azurerm_postgresql_server.example.version

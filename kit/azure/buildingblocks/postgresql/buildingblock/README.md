@@ -94,7 +94,6 @@ No modules.
 | <a name="output_postgresql_admin_username"></a> [postgresql\_admin\_username](#output\_postgresql\_admin\_username) | The administrator username for PostgreSQL |
 | <a name="output_postgresql_fqdn"></a> [postgresql\_fqdn](#output\_postgresql\_fqdn) | The fully qualified domain name of the PostgreSQL server |
 | <a name="output_postgresql_server_name"></a> [postgresql\_server\_name](#output\_postgresql\_server\_name) | The name of the PostgreSQL server |
-| <a name="output_postgresql_storage_mb"></a> [postgresql\_storage\_mb](#output\_postgresql\_storage\_mb) | The allocated storage in MB |
 | <a name="output_postgresql_version"></a> [postgresql\_version](#output\_postgresql\_version) | The PostgreSQL version |
 | <a name="output_psql_admin_password"></a> [psql\_admin\_password](#output\_psql\_admin\_password) | The administrator password for PostgreSQL |
 <!-- END_TF_DOCS -->
