@@ -81,10 +81,11 @@ No modules.
 | <a name="input_postgresql_version"></a> [postgresql\_version](#input\_postgresql\_version) | PostgreSQL version | `string` | `"11"` | no |
 | <a name="input_public_network_access_enabled"></a> [public\_network\_access\_enabled](#input\_public\_network\_access\_enabled) | Enable public network access | `bool` | `false` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the Azure resource group | `string` | n/a | yes |
-| <a name="input_sku_name"></a> [sku\_name](#input\_sku\_name) | The SKU name for the PostgreSQL server | `string` | `"B_Standard_B1ms"` | no |
+| <a name="input_sku_name"></a> [sku\_name](#input\_sku\_name) | The SKU name for the PostgreSQL server | `string` | `"B_Gen5_1"` | no |
 | <a name="input_ssl_enforcement_enabled"></a> [ssl\_enforcement\_enabled](#input\_ssl\_enforcement\_enabled) | Enforce SSL connection | `bool` | `true` | no |
 | <a name="input_ssl_minimal_tls_version_enforced"></a> [ssl\_minimal\_tls\_version\_enforced](#input\_ssl\_minimal\_tls\_version\_enforced) | Minimum TLS version | `string` | `"TLS1_2"` | no |
 | <a name="input_storage_mb"></a> [storage\_mb](#input\_storage\_mb) | Storage size in MB | `number` | `5120` | no |
+| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | the Azure subscription id | `string` | n/a | yes |
 
 ## Outputs
 
