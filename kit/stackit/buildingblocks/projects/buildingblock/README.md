@@ -65,7 +65,6 @@ No modules.
 | <a name="input_parent_container_id"></a> [parent\_container\_id](#input\_parent\_container\_id) | The stackit Cloud parent container id for the project | `string` | n/a | yes |
 | <a name="input_prod_folder"></a> [prod\_folder](#input\_prod\_folder) | The ID of the folder for the production environment | `string` | `null` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Projects last block in name | `string` | n/a | yes |
-| <a name="input_stackit_network_id"></a> [stackit\_network\_id](#input\_stackit\_network\_id) | n/a | `string` | `null` | no |
 | <a name="input_token"></a> [token](#input\_token) | Bearer token for authentication | `string` | n/a | yes |
 | <a name="input_users"></a> [users](#input\_users) | Users and their roles provided by meshStack (Note that users must exist in stackit) | <pre>list(object(<br>    {<br>      meshIdentifier = string<br>      username       = string<br>      firstName      = string<br>      lastName       = string<br>      email          = string<br>      euid           = string<br>      roles          = list(string)<br>    }<br>  ))</pre> | n/a | yes |
 | <a name="input_workspace_id"></a> [workspace\_id](#input\_workspace\_id) | Projects first block in name | `string` | n/a | yes |
