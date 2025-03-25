@@ -48,7 +48,9 @@ No modules.
 | [null_resource.project_admin](https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource) | resource |
 | [null_resource.project_editor](https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource) | resource |
 | [null_resource.project_reader](https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource) | resource |
+| [random_integer.rnd](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer) | resource |
 | [stackit_resourcemanager_project.projects](https://registry.terraform.io/providers/stackitcloud/stackit/0.37.1/docs/resources/resourcemanager_project) | resource |
+| [http_http.meshproject_tags](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 ## Inputs
 
@@ -56,9 +58,14 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_url"></a> [api\_url](#input\_api\_url) | Base API URL | `string` | `"https://authorization.api.stackit.cloud"` | no |
 | <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | this is for the tfstates Backend. in our case AWS. | `string` | n/a | yes |
+| <a name="input_dev_folder"></a> [dev\_folder](#input\_dev\_folder) | The ID of the folder for the development environment | `string` | `null` | no |
+| <a name="input_mesh_api_url"></a> [mesh\_api\_url](#input\_mesh\_api\_url) | Base API URL | `string` | n/a | yes |
+| <a name="input_mesh_token"></a> [mesh\_token](#input\_mesh\_token) | Bearer token for authentication | `string` | n/a | yes |
 | <a name="input_organization_id"></a> [organization\_id](#input\_organization\_id) | id of the organization | `string` | n/a | yes |
 | <a name="input_parent_container_id"></a> [parent\_container\_id](#input\_parent\_container\_id) | The stackit Cloud parent container id for the project | `string` | n/a | yes |
+| <a name="input_prod_folder"></a> [prod\_folder](#input\_prod\_folder) | The ID of the folder for the production environment | `string` | `null` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Projects last block in name | `string` | n/a | yes |
+| <a name="input_stackit_network_id"></a> [stackit\_network\_id](#input\_stackit\_network\_id) | n/a | `string` | `null` | no |
 | <a name="input_token"></a> [token](#input\_token) | Bearer token for authentication | `string` | n/a | yes |
 | <a name="input_users"></a> [users](#input\_users) | Users and their roles provided by meshStack (Note that users must exist in stackit) | <pre>list(object(<br>    {<br>      meshIdentifier = string<br>      username       = string<br>      firstName      = string<br>      lastName       = string<br>      email          = string<br>      euid           = string<br>      roles          = list(string)<br>    }<br>  ))</pre> | n/a | yes |
 | <a name="input_workspace_id"></a> [workspace\_id](#input\_workspace\_id) | Projects first block in name | `string` | n/a | yes |

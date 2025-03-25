@@ -1,3 +1,15 @@
+# meshStack API variables
+variable "mesh_token" {
+  description = "Bearer token for authentication"
+  type        = string
+  sensitive   = true
+}
+
+variable "mesh_api_url" {
+  description = "Base API URL"
+  type        = string
+}
+
 variable "api_url" {
   description = "Base API URL"
   type        = string
@@ -28,6 +40,22 @@ variable "project_id" {
 variable "parent_container_id" {
   type        = string
   description = "The stackit Cloud parent container id for the project"
+}
+variable "prod_folder" {
+  description = "The ID of the folder for the production environment"
+  type        = string
+  default     = null
+}
+
+variable "dev_folder" {
+  description = "The ID of the folder for the development environment"
+  type        = string
+  default     = null
+}
+
+variable "stackit_network_id" {
+  type    = string
+  default = null
 }
 
 variable "aws_account_id" {

@@ -12,6 +12,26 @@ locals {
   reader_members = [for reader in values(local.readers) : { subject = reader["email"], role = "reader" }]
 }
 
+data "http" "meshproject_tags" {
+  url = "${var.mesh_api_url}/api/meshobjects/meshprojects/${var.workspace_id}.${var.project_id}"
+
+  request_headers = {
+    Authorization = "Bearer ${var.mesh_token}"
+    Accept        = "application/vnd.meshcloud.api.meshproject.v2.hal+json"
+    Content-Type  = "application/json"
+  }
+}
+
+locals {
+  environment = jsondecode(data.http.meshproject_tags.body).spec.tags["environment"][0]
+
+  folder_value = (
+    local.environment == "prod" ? coalesce(var.prod_folder, var.parent_container_id) :
+    local.environment == "dev" ? coalesce(var.dev_folder, var.parent_container_id) :
+    var.parent_container_id
+  )
+}
+
 resource "null_resource" "create_user" {
   # Trigger creation and destruction of resources based on the lifecycle
   triggers = {
@@ -59,14 +79,25 @@ EOT
   }
 }
 
+resource "random_integer" "rnd" {
+  min = 0
+  max = 999
+}
+locals {
+  # max length 40
+  stackit_project_name = "${substr(var.workspace_id, 0, 18)}-${substr(var.project_id, 0, 16)}-${random_integer.rnd.result}"
+}
+
 resource "stackit_resourcemanager_project" "projects" {
-  parent_container_id = var.parent_container_id
-  name                = "${var.workspace_id}-${var.project_id}"
-  # labels = {
-  #   "Label1" = "foo"
-  # }
-  owner_email = local.owner_email
-  depends_on  = [null_resource.create_user]
+  parent_container_id = local.folder_value
+  name                = local.stackit_project_name
+  owner_email         = local.owner_email
+  depends_on          = [null_resource.create_user]
+
+  labels = {
+    workspace = var.workspace_id
+    project   = var.project_id
+  }
 }
 
 resource "null_resource" "project_admin" {
