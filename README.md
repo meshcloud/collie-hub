@@ -1,4 +1,17 @@
-[![collie-hub build](https://github.com/meshcloud/collie-hub/actions/workflows/build.yml/badge.svg)](https://github.com/meshcloud/collie-hub/actions/workflows/build.yml)
+> ⚠️ **Deprecation Notice**
+>
+> This repository has been deprecated and is no longer actively maintained.
+>
+> Collie Hub previously provided a structured approach to defining and managing cloud foundations and landing zones as code, designed to work together with the Collie CLI.
+>
+> This functionality has since been consolidated and evolved into the **meshStack Hub**, a centralized platform for discovering and managing reusable building blocks within meshStack.
+>
+> 👉 Please use meshStack Hub going forward:
+> - Website: https://hub.meshcloud.io
+> - GitHub: https://github.com/meshcloud/meshstack-hub
+>
+> We recommend transitioning to meshStack Hub to benefit from ongoing development, improved usability, and full platform integration.
+
 # Collie Hub
 Collie Hub is the place to find ready-to-use kit modules that help you
 build cloud landing zones for your organization and accelerate your cloud journey with [Collie CLI](https://github.com/meshcloud/collie-cli).
